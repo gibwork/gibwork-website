@@ -1,0 +1,21 @@
+{
+  "name": "gibwork",
+  "short_name": "gibwork",
+  "description": "Join a community-driven platform for crypto bounties and paid Q&A. Discover talent, get answers, and drive your crypto initiatives forward.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#FFFFFF",
+  "theme_color": "#FFFFFF",
+  "icons": [
+    {
+      "src": "/android-chrome-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "/android-chrome-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}
