@@ -8,6 +8,21 @@ import { motion } from "framer-motion";
 import { FADE_UP_ANIMATION_VARIANTS } from "@/lib/framer-variants";
 
 export function Testimonial() {
+  const leftTweetIds = [
+    "1732524014407405834",
+    "1858982833131581468",
+    "1857194661867053478",
+    "1816482399238115673",
+    "1823431121906098583",
+  ];
+
+  const rightTweetIds = [
+    "1765227347400143288",
+    "1816549566055088458",
+    "1872424711185187214",
+    "1849158230645125562",
+    "1852087693804495003",
+  ];
 
   return (
     <section
@@ -41,41 +56,38 @@ export function Testimonial() {
           >
             Hear what our users have to say
           </motion.h2>
-          <motion.p variants={FADE_UP_ANIMATION_VARIANTS} className=" mt-4 text-muted-foreground">
-            From freelancers finding their next gig to companies discovering top talent.
+          <motion.p
+            variants={FADE_UP_ANIMATION_VARIANTS}
+            className=" mt-4 text-muted-foreground"
+          >
+            From freelancers finding their next gig to companies discovering top
+            talent.
           </motion.p>
         </motion.div>
 
         <div className="overflow-auto flex items-start gap-2 pb-4 sm:hidden">
-          <ClientTweetCard id="1857194661867053478" className="shrink-0 max-w-[calc(100vw-96px)]" />
-          <ClientTweetCard id="1732524014407405834" className="shrink-0 max-w-[calc(100vw-96px)]" />
-          <ClientTweetCard id="1765227347400143288" className="shrink-0 max-w-[calc(100vw-96px)]" />
-          <ClientTweetCard id="1816482399238115673" className="shrink-0 max-w-[calc(100vw-96px)]" />
-          <ClientTweetCard id="1823431121906098583" className="shrink-0 max-w-[calc(100vw-96px)]" />
-          <ClientTweetCard id="1768321007704522992" className="shrink-0 max-w-[calc(100vw-96px)]" />
-          <ClientTweetCard id="1823332680118751666" className="shrink-0 max-w-[calc(100vw-96px)]" />
-          <ClientTweetCard id="1819853440723374151" className="shrink-0 max-w-[calc(100vw-96px)]" />
-          <ClientTweetCard id="1849158230645125562" className="shrink-0 max-w-[calc(100vw-96px)]" />
-          <ClientTweetCard id="1852087693804495003" className="shrink-0 max-w-[calc(100vw-96px)]" />
+          {[...leftTweetIds, ...rightTweetIds].map((id) => {
+            return (
+              <ClientTweetCard
+                key={id}
+                id={id}
+                className="shrink-0 max-w-[calc(100vw-96px)]"
+              />
+            );
+          })}
         </div>
 
         <div className="grow hidden sm:grid sm:grid-cols-2 gap-6 w-full place-items-start">
-
           <div className="flex flex-col gap-6 w-full ">
-            <ClientTweetCard id="1732524014407405834" />
-            <ClientTweetCard id="1858982833131581468" />
-            <ClientTweetCard id="1857194661867053478" />
-            <ClientTweetCard id="1816482399238115673" />
-            {/* <ClientTweetCard id="1823431111650717787" /> */}
-            <ClientTweetCard id="1823431121906098583" />
+            {leftTweetIds.map((id) => (
+              <ClientTweetCard id={id} />
+            ))}
           </div>
 
-          <div className="flex flex-col gap-6 w-full mt-8">
-            <ClientTweetCard id="1765227347400143288" />
-            <ClientTweetCard id="1816549566055088458" />
-            <ClientTweetCard id="1768321007704522992" />
-            <ClientTweetCard id="1849158230645125562" />
-            <ClientTweetCard id="1852087693804495003" />
+          <div className="flex flex-col gap-6 w-full ">
+            {rightTweetIds.map((id) => (
+              <ClientTweetCard id={id} />
+            ))}
           </div>
         </div>
       </div>
