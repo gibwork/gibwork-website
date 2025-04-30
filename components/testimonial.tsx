@@ -80,13 +80,13 @@ export function Testimonial() {
         <div className="grow hidden sm:grid sm:grid-cols-2 gap-6 w-full place-items-start">
           <div className="flex flex-col gap-6 w-full ">
             {leftTweetIds.map((id) => (
-              <ClientTweetCard id={id} />
+              <ClientTweetCard key={id} id={id} />
             ))}
           </div>
 
           <div className="flex flex-col gap-6 w-full ">
             {rightTweetIds.map((id) => (
-              <ClientTweetCard id={id} />
+              <ClientTweetCard key={id} id={id} />
             ))}
           </div>
         </div>
