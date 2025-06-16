@@ -22,6 +22,7 @@
     "framer-motion": "^11.3.30",
     "lucide-react": "^0.435.0",
     "next": "14.2.6",
+    "posthog-js": "^1.253.2",
     "react": "^18",
     "react-dom": "^18",
     "react-tweet": "^3.2.1",
