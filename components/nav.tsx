@@ -49,6 +49,9 @@ export function Nav() {
               <Button asChild variant={"ghost"} className="text-muted-foreground text-xs">
                 <Link href={"https://docs.gib.work/"} target="_blank">DOCS</Link>
               </Button>
+              <Button asChild variant={"ghost"} className="text-muted-foreground text-xs">
+                <Link href={"/case-studies"}>Case Studies</Link>
+              </Button>
             </div>
           </div>
 
@@ -153,6 +156,14 @@ export function Nav() {
                   className="text-muted-foreground uppercase"
                 >
                   <Link href={"/#faq"}>FAQ</Link>
+                </Button>
+                <Button
+                  asChild
+                  variant={"ghost"}
+                  onClick={() => setIsOpen(false)}
+                  className="text-muted-foreground uppercase"
+                >
+                  <Link href={"/case-studies"}>Case Studies</Link>
                 </Button>
               </div>
 

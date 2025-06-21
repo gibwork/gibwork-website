@@ -1,4 +1,5 @@
 import type { Config } from "tailwindcss";
+import { fontFamily } from "tailwindcss/defaultTheme";
 
 const config = {
   darkMode: ["class"],
@@ -7,6 +8,8 @@ const config = {
     "./components/**/*.{ts,tsx}",
     "./app/**/*.{ts,tsx}",
     "./src/**/*.{ts,tsx}",
+    "./mdx-components.tsx",
+    "./content/**/*.mdx",
   ],
   prefix: "",
   theme: {
@@ -52,6 +55,25 @@ const config = {
           DEFAULT: "hsl(var(--card))",
           foreground: "hsl(var(--card-foreground))",
         },
+        // Custom colors for case studies
+        blue: {
+          50: "#f0f9ff",
+          100: "#e0f2fe",
+          600: "#2563eb",
+          700: "#1d4ed8",
+        },
+        gray: {
+          50: "#f9fafb",
+          100: "#f3f4f6",
+          200: "#e5e7eb",
+          300: "#d1d5db",
+          400: "#9ca3af",
+          500: "#6b7280",
+          600: "#4b5563",
+          700: "#374151",
+          800: "#1f2937",
+          900: "#111827",
+        },
       },
       borderRadius: {
         lg: "var(--radius)",
@@ -91,9 +113,47 @@ const config = {
         "marquee-vertical": "marquee-vertical var(--duration) linear infinite",
         ripple: "ripple var(--duration,2s) ease calc(var(--i, 0)*.2s) infinite",
       },
+      fontFamily: {
+        sans: ["var(--font-sans)", ...fontFamily.sans],
+      },
+      typography: ({ theme }: { theme: (key: string) => string }) => ({
+        DEFAULT: {
+          css: {
+            '--tw-prose-body': theme('colors.gray.700'),
+            '--tw-prose-headings': theme('colors.gray.900'),
+            '--tw-prose-links': theme('colors.blue.600'),
+            '--tw-prose-bold': theme('colors.gray.900'),
+            '--tw-prose-counters': theme('colors.gray.500'),
+            '--tw-prose-bullets': theme('colors.gray.500'),
+            '--tw-prose-quotes': theme('colors.gray.700'),
+            '--tw-prose-code': theme('colors.gray.900'),
+            '--tw-prose-hr': theme('colors.gray.200'),
+            '--tw-prose-th-borders': theme('colors.gray.200'),
+            '--tw-prose-td-borders': theme('colors.gray.200'),
+          },
+        },
+        dark: {
+          css: {
+            '--tw-prose-body': theme('colors.gray.300'),
+            '--tw-prose-headings': theme('colors.white'),
+            '--tw-prose-links': theme('colors.blue.500'),
+            '--tw-prose-bold': theme('colors.white'),
+            '--tw-prose-counters': theme('colors.gray.400'),
+            '--tw-prose-bullets': theme('colors.gray.400'),
+            '--tw-prose-quotes': theme('colors.gray.300'),
+            '--tw-prose-code': theme('colors.white'),
+            '--tw-prose-hr': theme('colors.gray.700'),
+            '--tw-prose-th-borders': theme('colors.gray.700'),
+            '--tw-prose-td-borders': theme('colors.gray.700'),
+          },
+        },
+      }),
     },
   },
-  plugins: [require("tailwindcss-animate")],
+  plugins: [
+    require("tailwindcss-animate"),
+    require('@tailwindcss/typography')
+  ],
 } satisfies Config;
 
 export default config;
