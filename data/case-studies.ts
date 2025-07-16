@@ -30,8 +30,8 @@ export const caseStudies: CaseStudy[] = [
     readTime: "5 min read",
   },
   {
-    slug: "oss-bounty",
-    title: "How Gibwork Helped Solana Foundation",
+    slug: "realms-alldomains",
+    title:"Gibwork X All Domains",
     description:
       "Transforming open-source contributions and developer engagement through decentralized bounty management",
     imageSrc: "https://cdn.gib.work/metadata/default.png",

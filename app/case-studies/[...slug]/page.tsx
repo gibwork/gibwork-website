@@ -25,6 +25,11 @@ const MDXComponents = {
       <div className="py-12 text-center">Loading case study...</div>
     ),
   }),
+  "realms-alldomains": dynamic(() => import("@/content/case-studies/realms-alldomains.mdx"), {
+    loading: () => (
+      <div className="py-12 text-center">Loading case study...</div>
+    ),
+  }),
 };
 
 export default function CaseStudyPage({
