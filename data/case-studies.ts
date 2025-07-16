@@ -33,7 +33,7 @@ export const caseStudies: CaseStudy[] = [
     slug: "realms-alldomains",
     title:"Gibwork X All Domains",
     description:
-      "Transforming open-source contributions and developer engagement through decentralized bounty management",
+      "How Gibwork managed bounties for All Domains integration and seamlessly made github bounty simple",
     imageSrc: "https://cdn.gib.work/metadata/default.png",
     category: ["OSS", "X"],
     date: "June 21, 2025",
