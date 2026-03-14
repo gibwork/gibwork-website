@@ -77,7 +77,7 @@ export function Hero() {
         </Link>
       </motion.div>
 
-      <motion.div
+      {/* <motion.div
         variants={FADE_UP_ANIMATION_VARIANTS}
         className="flex items-center gap-2 text-sm mt-4 p-1 font-light"
       >
@@ -101,7 +101,7 @@ export function Hero() {
               valueToCopy="F7Hwf8ib5DVCoiuyGr618Y3gon429Rnd1r5F9R5upump" />
           </div>
         </div>
-      </motion.div>
+      </motion.div> */}
 
       <motion.div variants={FADE_UP_ANIMATION_VARIANTS} className="mt-16 sm:mt-24 relative z-0">
         <div className="rounded-t-lg bg-foreground/5 h-3 mx-12" />

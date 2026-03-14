@@ -40,9 +40,9 @@ export function Nav() {
               <Button asChild variant={"ghost"} className="text-muted-foreground text-xs">
                 <Link href={"/#testimonial"}>Testimonial</Link>
               </Button>
-              <Button asChild variant={"ghost"} className="text-muted-foreground text-xs">
+              {/* <Button asChild variant={"ghost"} className="text-muted-foreground text-xs">
                 <Link href={"https://jup.ag/swap/SOL-F7Hwf8ib5DVCoiuyGr618Y3gon429Rnd1r5F9R5upump"} target="_blank">Token</Link>
-              </Button>
+              </Button> */}
               <Button asChild variant={"ghost"} className="text-muted-foreground text-xs">
                 <Link href={"/#faq"}>FAQ</Link>
               </Button>
