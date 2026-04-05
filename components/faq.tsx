@@ -58,26 +58,23 @@ export function Faq() {
           <AccordionItem value="item-2">
             <AccordionTrigger>How do I get paid for completed work?</AccordionTrigger>
             <AccordionContent>
-              Once your work is approved by the creator, the funds will be released. Ensure
-              your wallet is connected and has a minimum amount of SOL on Solana mainnet to claim your
-              rewards. Navigate to the Dashbaord, find your submission, click &quot;Claim Rewards,&quot; and the
-              amount will be transferred to your wallet shortly.
+              Once your work is approved by the creator, the funds will be released to your noncustodial wallet.
             </AccordionContent>
           </AccordionItem>
           <AccordionItem value="item-3">
             <AccordionTrigger>What payment methods does gibwork support?</AccordionTrigger>
             <AccordionContent>
               We only support wallet transactions, i.e., depositing the winning amount directly to
-              your wallet in the form of crypto or stable-coins.
+              your wallet in the form of crypto or stablecoins.
             </AccordionContent>
           </AccordionItem>
-          <AccordionItem value="item-4">
+          {/* <AccordionItem value="item-4">
             <AccordionTrigger>Are there any fees for using gibwork?</AccordionTrigger>
             <AccordionContent>
               Gibwork charges a 5% service fee on transactions, the lowest in the industry!
             </AccordionContent>
-          </AccordionItem>
-          <AccordionItem value="item-5">
+          </AccordionItem> */}
+          {/* <AccordionItem value="item-5">
             <AccordionTrigger>What is the purpose of the $WORK token?</AccordionTrigger>
             <AccordionContent>
               The $WORK Token provide access to a range of utilities within the platform, which could include community voting rights and participation in allocation of rewards funded by operational revenue.
@@ -88,7 +85,7 @@ export function Faq() {
             <AccordionContent>
               You can seamlessly swap any SPL token for $WORK by using the platform at <a className="text-violet-600" href="https://jup.ag/swap/SOL-WORK">https://jup.ag/swap/SOL-WORK</a>.
             </AccordionContent>
-          </AccordionItem>
+          </AccordionItem> */}
         </Accordion>
       </motion.div>
     </motion.section>
