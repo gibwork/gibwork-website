@@ -41,9 +41,8 @@ export function Faq() {
           <AccordionItem value="item-6">
             <AccordionTrigger>How do I create Work on Gibwork?</AccordionTrigger>
             <AccordionContent>
-              Under the earnings display on the apps home page, click the
-              &quot;Create&quot; buttons for creating Open Source Bounties and Task. These buttons guide you through the process of creating and posting jobs on the
-              platform.
+              Open the Gibwork app, choose the create flow, select a task or open-source bounty,
+              define the requirements, and fund the reward before publishing.
             </AccordionContent>
           </AccordionItem>
           <AccordionItem value="item-1">
@@ -51,21 +50,29 @@ export function Faq() {
               What&apos;s the difference between a bounty and a task?
             </AccordionTrigger>
             <AccordionContent>
-              A bounty is a Github issue with a monetary reward.  A task is a
-              specific, often smaller job that needs to be completed.
+              A bounty is tied to a GitHub issue or pull request workflow. A task is a flexible job
+              for links, files, screenshots, writing, research, design, or other deliverables.
+            </AccordionContent>
+          </AccordionItem>
+          <AccordionItem value="item-mobile">
+            <AccordionTrigger>Can I use Gibwork on mobile?</AccordionTrigger>
+            <AccordionContent>
+              Yes. Gibwork is designed for mobile participation, including browsing work, submitting
+              proof, checking review status, and following payout progress.
             </AccordionContent>
           </AccordionItem>
           <AccordionItem value="item-2">
             <AccordionTrigger>How do I get paid for completed work?</AccordionTrigger>
             <AccordionContent>
-              Once your work is approved by the creator, the funds will be released to your noncustodial wallet.
+              Once the creator approves your submission, escrowed funds are released to your
+              connected noncustodial wallet.
             </AccordionContent>
           </AccordionItem>
           <AccordionItem value="item-3">
             <AccordionTrigger>What payment methods does gibwork support?</AccordionTrigger>
             <AccordionContent>
-              We only support wallet transactions, i.e., depositing the winning amount directly to
-              your wallet in the form of crypto or stablecoins.
+              Gibwork focuses on wallet payouts, including stablecoin rewards such as USDC on
+              Solana.
             </AccordionContent>
           </AccordionItem>
           {/* <AccordionItem value="item-4">

@@ -6,6 +6,7 @@ import { CTA } from "@/components/cta";
 import { Footer } from "@/components/footer";
 import { Testimonial } from "@/components/testimonial";
 import { Faq } from "@/components/faq";
+import { Workflow } from "@/components/workflow";
 
 export default function Home() {
   return (
@@ -14,6 +15,7 @@ export default function Home() {
       <Hero />
       <LogoList />
       <LookingFor />
+      <Workflow />
       <Testimonial />
       <CTA />
       <Faq />
