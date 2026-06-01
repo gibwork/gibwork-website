@@ -64,8 +64,28 @@ export function Faq() {
           <AccordionItem value="item-3">
             <AccordionTrigger>What payment methods does gibwork support?</AccordionTrigger>
             <AccordionContent>
-              We only support wallet transactions, i.e., depositing the winning amount directly to
-              your wallet in the form of crypto or stablecoins.
+              Gibwork is fully onchain. Payouts are sent directly to your
+              noncustodial Solana wallet in USDC or any other Solana SPL token
+              the creator chose to fund the work with.
+            </AccordionContent>
+          </AccordionItem>
+          <AccordionItem value="item-mobile">
+            <AccordionTrigger>Is there a mobile app?</AccordionTrigger>
+            <AccordionContent>
+              Yes — the Gibwork Android app is available on Google Play. You can
+              browse bounties, submit work, track approvals, and manage payouts
+              from your phone. iOS is coming soon.
+            </AccordionContent>
+          </AccordionItem>
+          <AccordionItem value="item-escrow">
+            <AccordionTrigger>
+              How do I know a bounty will actually pay out?
+            </AccordionTrigger>
+            <AccordionContent>
+              Funds are escrowed onchain the moment a creator publishes work.
+              You can confirm the escrow on Solana before you start. Once your
+              submission is approved, the smart contract releases payment to
+              your wallet automatically.
             </AccordionContent>
           </AccordionItem>
           {/* <AccordionItem value="item-4">

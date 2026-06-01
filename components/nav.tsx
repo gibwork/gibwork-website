@@ -38,11 +38,11 @@ export function Nav() {
                 <Link href={"/#about"}>About</Link>
               </Button>
               <Button asChild variant={"ghost"} className="text-muted-foreground text-xs">
-                <Link href={"/#testimonial"}>Testimonial</Link>
+                <Link href={"/#how-it-works"}>How it works</Link>
               </Button>
-              {/* <Button asChild variant={"ghost"} className="text-muted-foreground text-xs">
-                <Link href={"https://jup.ag/swap/SOL-F7Hwf8ib5DVCoiuyGr618Y3gon429Rnd1r5F9R5upump"} target="_blank">Token</Link>
-              </Button> */}
+              <Button asChild variant={"ghost"} className="text-muted-foreground text-xs">
+                <Link href={"/#mobile-app"}>Mobile</Link>
+              </Button>
               <Button asChild variant={"ghost"} className="text-muted-foreground text-xs">
                 <Link href={"/#faq"}>FAQ</Link>
               </Button>
@@ -136,16 +136,16 @@ export function Nav() {
                   onClick={() => setIsOpen(false)}
                   className="text-muted-foreground uppercase"
                 >
-                  <Link href={"/#testimonial"}>Testimonial</Link>
+                  <Link href={"/#how-it-works"}>How it works</Link>
                 </Button>
-                {/* <Button
+                <Button
                   asChild
                   variant={"ghost"}
                   onClick={() => setIsOpen(false)}
                   className="text-muted-foreground uppercase"
                 >
-                  <Link href={"/#team"}>Team</Link>
-                </Button> */}
+                  <Link href={"/#mobile-app"}>Mobile</Link>
+                </Button>
                 <Button
                   asChild
                   variant={"ghost"}

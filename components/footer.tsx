@@ -25,7 +25,7 @@ export function Footer() {
             </p>
           </div>
 
-          <div className="grid grid-cols-2 gap-24">
+          <div className="grid grid-cols-2 md:grid-cols-3 gap-12 sm:gap-16">
             <div className="text-sm flex flex-col gap-2 items-start">
               <p className="font-semibold">Quick links</p>
               <Link
@@ -35,7 +35,13 @@ export function Footer() {
                 About
                 <ArrowRight className="inline-block size-4 group-hover:scale-100 scale-0 transition-all ml-1" />
               </Link>
-
+              <Link
+                href={"/#how-it-works"}
+                className="text-muted-foreground transition-all hover:text-foreground group"
+              >
+                How it works
+                <ArrowRight className="inline-block size-4 group-hover:scale-100 scale-0 transition-all ml-1" />
+              </Link>
               <Link
                 href={"/#testimonial"}
                 className="text-muted-foreground transition-all hover:text-foreground group"
@@ -43,13 +49,6 @@ export function Footer() {
                 Testimonial
                 <ArrowRight className="inline-block size-4 group-hover:scale-100 scale-0 transition-all ml-1" />
               </Link>
-              {/* <Link
-                href={"/#team"}
-                className="text-muted-foreground transition-all hover:text-foreground group"
-              >
-                Team
-                <ArrowRight className="inline-block size-4 group-hover:scale-100 scale-0 transition-all ml-1" />
-              </Link> */}
               <Link
                 href={"/#faq"}
                 className="text-muted-foreground transition-all hover:text-foreground group"
@@ -59,7 +58,7 @@ export function Footer() {
               </Link>
               <Link
                 href={"https://docs.gib.work/"}
-                 target="_blank"
+                target="_blank"
                 className="text-muted-foreground transition-all hover:text-foreground group"
               >
                 Docs
@@ -68,23 +67,39 @@ export function Footer() {
             </div>
 
             <div className="text-sm flex flex-col gap-2 items-start">
+              <p className="font-semibold">Get the app</p>
+              <Link
+                href={siteConfig.playStoreUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-muted-foreground transition-all hover:text-foreground group"
+              >
+                Google Play
+                <ExternalLink className="inline-block size-4 group-hover:scale-100 scale-0 transition-all ml-1" />
+              </Link>
+              <span className="text-muted-foreground/60">
+                App Store · coming soon
+              </span>
+              <Link
+                href={siteConfig.appUrl}
+                target="_blank"
+                className="text-muted-foreground transition-all hover:text-foreground group"
+              >
+                Web app
+                <ExternalLink className="inline-block size-4 group-hover:scale-100 scale-0 transition-all ml-1" />
+              </Link>
+            </div>
+
+            <div className="text-sm flex flex-col gap-2 items-start col-span-2 md:col-span-1">
               <p className="font-semibold">Resources</p>
               <Link
                 href={"https://legal.gib.work/privacy-policy.pdf"}
-                 target="_blank"
+                target="_blank"
                 className="text-muted-foreground transition-all hover:text-foreground group"
               >
                 Privacy Policy
                 <ExternalLink className="inline-block size-4 group-hover:scale-100 scale-0 transition-all ml-1" />
               </Link>
-
-              {/* <Link
-                href={"#"}
-                className="text-muted-foreground transition-all hover:text-foreground group"
-              >
-                Terms of Use
-                <ExternalLink className="inline-block size-4 group-hover:scale-100 scale-0 transition-all ml-1" />
-              </Link> */}
             </div>
           </div>
         </div>

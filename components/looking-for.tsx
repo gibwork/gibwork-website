@@ -52,10 +52,10 @@ export function LookingFor() {
         >
           <TabsList className="mx-auto rounded-full">
             <TabsTrigger className="rounded-full px-4" value="1">
-              Looking for Help
+              I need work done
             </TabsTrigger>
             <TabsTrigger className="rounded-full px-4" value="2">
-              Looking for Work
+              I want to earn
             </TabsTrigger>
           </TabsList>
         </motion.div>
@@ -78,15 +78,16 @@ export function LookingFor() {
               variants={FADE_UP_ANIMATION_VARIANTS}
               className="text-3xl sm:text-4xl text-center font-semibold"
             >
-              Get help from an expert
+              Three ways to get work done
             </motion.h2>
 
             <motion.p
               variants={FADE_UP_ANIMATION_VARIANTS}
-              className="text-center mt-2 text-muted-foreground"
+              className="text-center mt-2 text-muted-foreground max-w-2xl"
             >
-              Create work for others to complete and get the support you need to
-              achieve your goals.
+              Post a bounty, a task, or hire from a service marketplace. Funds
+              are escrowed in USDC the moment you publish, so contributors know
+              the payout is real.
             </motion.p>
 
             <motion.div
@@ -114,7 +115,8 @@ export function LookingFor() {
                 <CardHeader className="border-t">
                   <CardTitle className="text-lg">Open Source Bounty</CardTitle>
                   <CardDescription>
-                    Incentivize a pull request made from a Github issue.
+                    Attach a USDC reward to any GitHub issue. Pays out when the
+                    PR is merged.
                   </CardDescription>
                 </CardHeader>
               </Card>
@@ -122,7 +124,7 @@ export function LookingFor() {
               <Card className="overflow-hidden">
                 <Image
                   src="https://cdn.gib.work/misc/simple_task.png"
-                  alt="Open Source Bounty"
+                  alt="Simple Task"
                   className="h-40 w-full "
                   width={100}
                   height={100}
@@ -130,14 +132,15 @@ export function LookingFor() {
                 <CardHeader className="border-t">
                   <CardTitle className="text-lg">Simple Task</CardTitle>
                   <CardDescription>
-                    Small tasks achievable in a few hours.
+                    Short jobs done in hours — design, content, research, QA,
+                    growth.
                   </CardDescription>
                 </CardHeader>
               </Card>
               <Card className="overflow-hidden">
                 <Image
                   src="https://cdn.gib.work/misc/services.png"
-                  alt="Open Source Bounty"
+                  alt="Services"
                   className="h-40 w-full "
                   width={100}
                   height={100}
@@ -145,8 +148,8 @@ export function LookingFor() {
                 <CardHeader className="border-t">
                   <CardTitle className="text-lg">Services</CardTitle>
                   <CardDescription>
-                    Offer your skills and connect with users for custom
-                    services.
+                    Hire pros for standardized offerings with fixed pricing and
+                    deliverables.
                   </CardDescription>
                 </CardHeader>
               </Card>
@@ -172,14 +175,14 @@ export function LookingFor() {
               variants={FADE_UP_ANIMATION_VARIANTS}
               className="text-3xl sm:text-4xl text-center font-semibold"
             >
-              Get paid for your expertise
+              Get paid in USDC for what you ship
             </motion.h2>
             <motion.p
               variants={FADE_UP_ANIMATION_VARIANTS}
               className="text-center mt-2 text-muted-foreground"
             >
-              Discover work opportunities that you could do, complete the work,
-              and start earning.
+              Browse open bounties and tasks on the web or in the Android app —
+              submit, get approved, and the escrow releases to your wallet.
             </motion.p>
 
             <motion.div
