@@ -1,7 +1,7 @@
 "use client";
 
 import { Button } from "@/components/ui/button";
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, Github } from "lucide-react";
 import Ripple from "./ui/ripple";
 import { motion } from "framer-motion";
 import { FADE_UP_ANIMATION_VARIANTS } from "@/lib/framer-variants";
@@ -28,20 +28,31 @@ export function CTA() {
         variants={FADE_UP_ANIMATION_VARIANTS}
         className="font-semibold text-3xl sm:text-4xl text-center"
       >
-        Start exploring
+        Ready to work onchain?
       </motion.h2>
+
       <motion.p
         variants={FADE_UP_ANIMATION_VARIANTS}
-        className="text-center mt-2 text-muted-foreground"
+        className="text-center mt-3 text-muted-foreground max-w-md leading-relaxed"
       >
-        Check out gibwork and create or complete your very first work.
+        Join thousands of builders and contributors earning crypto for real work
+        — tasks, bounties, and GitHub contributions.
       </motion.p>
 
-      <motion.div variants={FADE_UP_ANIMATION_VARIANTS}>
-        <Button asChild className="mt-8 group">
+      <motion.div
+        variants={FADE_UP_ANIMATION_VARIANTS}
+        className="flex flex-col sm:flex-row items-center gap-3 mt-8"
+      >
+        <Button asChild className="group w-full sm:w-auto">
           <Link href={siteConfig.appUrl} target="_blank">
-            Get Started
+            Find work
             <ArrowRight className="size-0 group-hover:size-5 transition-all -ml-2 group-hover:ml-0" />
+          </Link>
+        </Button>
+        <Button asChild variant={"outline"} className="gap-2 w-full sm:w-auto">
+          <Link href={siteConfig.appUrl} target="_blank">
+            <Github className="size-4" />
+            Post a bounty
           </Link>
         </Button>
       </motion.div>
