@@ -21,7 +21,7 @@ export function Footer() {
             </div>
             <h2 className="font-semibold text-2xl sm:text-3xl mt-4">Join our community</h2>
             <p className="text-muted-foreground sm:text-base text-sm">
-              Meet like-minded people and find work opportunities easily.
+              Browse bounties, submit work, and get paid from web or mobile.
             </p>
           </div>
 
