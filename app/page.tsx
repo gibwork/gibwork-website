@@ -2,6 +2,7 @@ import { Nav } from "@/components/nav";
 import { LookingFor } from "@/components/looking-for";
 import { Hero } from "@/components/hero";
 import { LogoList } from "@/components/logo-list";
+import { MobileExperience } from "@/components/mobile-experience";
 import { CTA } from "@/components/cta";
 import { Footer } from "@/components/footer";
 import { Testimonial } from "@/components/testimonial";
@@ -14,6 +15,7 @@ export default function Home() {
       <Hero />
       <LogoList />
       <LookingFor />
+      <MobileExperience />
       <Testimonial />
       <CTA />
       <Faq />
