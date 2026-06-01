@@ -41,9 +41,15 @@ export function Faq() {
           <AccordionItem value="item-6">
             <AccordionTrigger>How do I create Work on Gibwork?</AccordionTrigger>
             <AccordionContent>
-              Under the earnings display on the apps home page, click the
-              &quot;Create&quot; buttons for creating Open Source Bounties and Task. These buttons guide you through the process of creating and posting jobs on the
-              platform.
+              Open the app and use the create flow to publish an Open Source Bounty or a Task.
+              The app guides you through the details, reward, requirements, and submission rules.
+            </AccordionContent>
+          </AccordionItem>
+          <AccordionItem value="item-7">
+            <AccordionTrigger>Can I use Gibwork from mobile?</AccordionTrigger>
+            <AccordionContent>
+              Yes. The Gibwork app is designed so contributors and creators can browse work,
+              review active tasks, and follow submission updates from mobile or desktop.
             </AccordionContent>
           </AccordionItem>
           <AccordionItem value="item-1">
@@ -58,7 +64,8 @@ export function Faq() {
           <AccordionItem value="item-2">
             <AccordionTrigger>How do I get paid for completed work?</AccordionTrigger>
             <AccordionContent>
-              Once your work is approved by the creator, the funds will be released to your noncustodial wallet.
+              Once your work is approved by the creator, the funds are released to your
+              noncustodial wallet.
             </AccordionContent>
           </AccordionItem>
           <AccordionItem value="item-3">
