@@ -45,15 +45,13 @@ export function LogoList() {
         className="flex lg:flex-row flex-col gap-x-16 mt-2 justify-between"
       >
         <p className="lg:w-96 text-3xl sm:text-4xl font-semibold shrink-0">
-          Partners we have collaborated with
+          Work trusted by Solana teams and builders
         </p>
 
         <p className="lg:max-w-3xl w-full text-muted-foreground lg:mt-0 mt-4">
-          Gibwork is powered by a dedicated team of innovators and professionals committed to
-          connecting talent with opportunities. Our team combines expertise in technology, design,
-          and user experience to build and manage the platform, ensuring it serves the needs of both
-          job seekers and employers. We strive to create a seamless experience that empowers users
-          to find work or the right talent efficiently.
+          Gibwork helps crypto-native teams turn backlogs, GitHub issues, content needs, design
+          requests, and research tasks into funded opportunities. Contributors get clear scopes and
+          transparent rewards, while teams get a faster path from posted work to approved results.
         </p>
       </motion.div>
 
