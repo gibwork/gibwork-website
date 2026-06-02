@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Testimonial Avatar 2 (JPEG Generator)</title>
+    <style>
+        body {
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background: #F7FAFC;
+            font-family: 'Inter', sans-serif;
+        }
+        #avatar-container {
+            text-align: center;
+        }
+        img {
+            border-radius: 50%;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            display: block;
+        }
+        p {
+            color: #1A202C;
+            margin-top: 1rem;
+            font-size: 0.875rem;
+            font-weight: 500;
+        }
+    </style>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div id="avatar-container">
+        <img id="testimonial-avatar" width="100" height="100" alt="Testimonial Avatar 2">
+        <p>Generated JPEG (100×100)</p>
+    </div>
+
+    <script>
+        (function() {
+            const canvas = document.createElement('canvas');
+            canvas.width = 100;
+            canvas.height = 100;
+            const ctx = canvas.getContext('2d');
+
+            // Draw background circle with primary gradient
+            const gradient = ctx.createLinearGradient(0, 0, 100, 100);
+            gradient.addColorStop(0, '#6B46C1');
+            gradient.addColorStop(1, '#8B5CF6');
+            ctx.fillStyle = gradient;
+            ctx.beginPath();
+            ctx.arc(50, 50, 50, 0, Math.PI * 2);
+            ctx.fill();
+
+            // Add subtle inner shadow (ring)
+            ctx.strokeStyle = 'rgba(255,255,255,0.15)';
+            ctx.lineWidth = 2;
+            ctx.beginPath();
+            ctx.arc(50, 50, 46, 0, Math.PI * 2);
+            ctx.stroke();
+
+            // Draw initials 'A2' in white
+            ctx.fillStyle = '#FFFFFF';
+            ctx.font = 'bold 36px Inter, sans-serif';
+            ctx.textAlign = 'center';
+            ctx.textBaseline = 'middle';
+            ctx.shadowColor = 'rgba(0,0,0,0.2)';
+            ctx.shadowBlur = 4;
+            ctx.fillText('A2', 50, 52);
+
+            // Remove shadow for subsequent drawings
+            ctx.shadowColor = 'transparent';
+
+            // Convert canvas to JPEG data URL (quality 0.92)
+            const jpegDataUrl = canvas.toDataURL('image/jpeg', 0.92);
+
+            // Set as img source
+            const img = document.getElementById('testimonial-avatar');
+            img.src = jpegDataUrl;
+
+            // Optional: trigger download
+            const link = document.createElement('a');
+            link.download = 'testimonial-avatar-2.jpg';
+            link.href = jpegDataUrl;
+            // Uncomment to auto-download
+            // link.click();
+        })();
+    </script>
+</body>
+</html>
