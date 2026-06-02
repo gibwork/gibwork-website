@@ -1,0 +1,162 @@
+typescript
+import React, { memo, useMemo, type FC } from 'react';
+
+// ---------------------------------------------------------------------------
+// Constants, Enums & Configuration
+// ---------------------------------------------------------------------------
+
+const COMPONENT_NAME = 'StoreBadge' as const;
+
+/** Allowed badge types. */
+const ALLOWED_TYPES = ['apple', 'google'] as const;
+
+type AllowedType = (typeof ALLOWED_TYPES)[number];
+
+/** Maximum safe dimension for badge (pixels). */
+const MAX_DIMENSION = 5000;
+
+const DEFAULT_WIDTH = 280;
+const DEFAULT_HEIGHT = 60;
+
+/** Fallback texts for each store type. */
+const FALLBACKS: Record<AllowedType, { availableText: string; storeName: string }> = {
+  apple: {
+    availableText: 'Dostępne w',
+    storeName: 'App Store',
+  },
+  google: {
+    availableText: 'Dostępne w',
+    storeName: 'Google Play',
+  },
+} as const;
+
+/**
+ * SVG path for the Apple logo (scaled for badge).
+ * @internal
+ */
+const APPLE_LOGO_PATH =
+  'M15,30 C17,28 18,25 17,22 C16,19 14,17 12,18 C10,20 9,23 10,26 C11,29 13,31 15,30 Z ' +
+  'M15,34 C12,34 8,36 6,40 C4,44 4,48 6,52 C8,56 12,58 15,58 C18,58 22,56 24,52 ' +
+  'C26,48 26,44 24,40 C22,36 18,34 15,34 Z M15,36 C17,36 20,38 22,41 C23,43 23,46 ' +
+  '22,48 C20,51 17,53 15,53 C13,53 10,51 8,48 C7,46 7,43 8,41 C10,38 13,36 15,36 Z';
+
+/**
+ * SVG path for the Google Play logo.
+ * @internal
+ */
+const GOOGLE_PLAY_PATH =
+  'M8,10 L8,50 L8,50 C8,50 28,36 28,36 C28,36 8,10 8,10 Z M30,35 L24,30 L24,30 ' +
+  'L38,42 C38,42 30,35 30,35 Z M8,10 C8,10 38,22 38,22 C38,22 30,28 30,28 ' +
+  'L8,50 L8,10 Z';
+
+/**
+ * Valid store type‑to‑path mapping.
+ * @internal
+ */
+const STORE_PATHS: Record<AllowedType, string> = {
+  apple: APPLE_LOGO_PATH,
+  google: GOOGLE_PLAY_PATH,
+} as const;
+
+// ---------------------------------------------------------------------------
+// Logging Service
+// ---------------------------------------------------------------------------
+
+/**
+ * Minimal logging wrapper with environment‑aware control.
+ * Errors are always logged; info and warn are suppressed in production.
+ * @internal
+ */
+class Logger {
+  private readonly prefix: string;
+
+  constructor(prefix: string) {
+    this.prefix = `[${prefix}]`;
+  }
+
+  /**
+   * Log an info message (development only).
+   * @param message - Log message.
+   * @param args - Additional arguments.
+   */
+  info(message: string, ...args: unknown[]): void {
+    if (process.env.NODE_ENV !== 'production') {
+      // eslint-disable-next-line no-console
+      console.info(`${this.prefix} ${message}`, ...args);
+    }
+  }
+
+  /**
+   * Log a warning message (development only).
+   * @param message - Log message.
+   * @param args - Additional arguments.
+   */
+  warn(message: string, ...args: unknown[]): void {
+    if (process.env.NODE_ENV !== 'production') {
+      // eslint-disable-next-line no-console
+      console.warn(`${this.prefix} ${message}`, ...args);
+    }
+  }
+
+  /**
+   * Log an error message (always logged).
+   * @param message - Log message.
+   * @param args - Additional arguments.
+   */
+  error(message: string, ...args: unknown[]): void {
+    // Always log errors
+    // eslint-disable-next-line no-console
+    console.error(`${this.prefix} ${message}`, ...args);
+  }
+}
+
+const log = new Logger(COMPONENT_NAME);
+
+// ---------------------------------------------------------------------------
+// Props & Types
+// ---------------------------------------------------------------------------
+
+/**
+ * Props for the `StoreBadge` component.
+ */
+export interface StoreBadgeProps {
+  /** Badge type: 'apple' or 'google'. */
+  type: AllowedType;
+  /** Localized "Available in" text (defaults to Polish). */
+  availableText?: string;
+  /** Localized store name (e.g. "App Store", "Google Play"). */
+  storeName?: string;
+  /** Width of the badge (default 280). */
+  width?: number;
+  /** Height of the badge (default 60). */
+  height?: number;
+  /** Additional CSS class for external styling. */
+  className?: string;
+}
+
+// ---------------------------------------------------------------------------
+// Input Validation Utilities
+// ---------------------------------------------------------------------------
+
+/**
+ * Validates and clamps a dimension (width/height) to safe range.
+ * Falls back to default if invalid.
+ *
+ * @param value - Input value.
+ * @param defaultValue - Fallback value.
+ * @param dimensionName - 'width' or 'height' for logging.
+ * @returns A positive finite number up to `MAX_DIMENSION`.
+ * @throws {TypeError} If validation itself encounters a non‑finite value.
+ * @internal
+ */
+const validateDimension = (
+  value: unknown,
+  defaultValue: number,
+  dimensionName: string,
+): number => {
+  try {
+    // Explicit type guard
+    if (typeof value !== 'number' || !Number.isFinite(value)) {
+      // Throwing here allows the caller to catch if needed, but we still log and return default.
+      throw new TypeError(
+        `Expected a finite number for
