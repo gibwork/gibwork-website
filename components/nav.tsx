@@ -11,7 +11,7 @@ import { YoutubeLogoMark } from "./logo/youtube";
 import { siteConfig } from "@/lib/site-config";
 import { useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
-import { FADE_IN, FADE_UP_ANIMATION_VARIANTS } from "@/lib/framer-variants";
+import { FADE_IN, SPRING_UP } from "@/lib/framer-variants";
 import { Separator } from "./ui/separator";
 
 export function Nav() {
@@ -21,7 +21,7 @@ export function Nav() {
     <>
       <nav className=" z-10 border-b bg-background/80 backdrop-blur-sm sticky top-0">
         <motion.div
-          variants={FADE_UP_ANIMATION_VARIANTS}
+          variants={SPRING_UP}
           initial="hidden"
           whileInView="show"
           viewport={{ once: true }}
@@ -72,12 +72,14 @@ export function Nav() {
               </Button>
             </div>
 
-            <Button asChild className="group">
-              <Link href={siteConfig.appUrl} target="_blank">
-                Open App
-                <ArrowRight className="size-0 group-hover:size-5 transition-all -ml-2 group-hover:ml-0" />
-              </Link>
-            </Button>
+            <motion.div whileHover={{ scale: 1.04 }} whileTap={{ scale: 0.96 }}>
+              <Button asChild className="group">
+                <Link href={siteConfig.appUrl} target="_blank">
+                  Open App
+                  <ArrowRight className="size-0 group-hover:size-5 transition-all -ml-2 group-hover:ml-0" />
+                </Link>
+              </Button>
+            </motion.div>
 
             <Button
               size={"icon"}
@@ -108,12 +110,14 @@ export function Nav() {
                 </Link>
 
                 <div className="flex items-center gap-2">
-                  <Button asChild className="group">
-                    <Link href={siteConfig.appUrl} target="_blank">
-                      Open App
-                      <ArrowRight className="size-0 group-hover:size-5 transition-all -ml-2 group-hover:ml-0" />
-                    </Link>
-                  </Button>
+                  <motion.div whileHover={{ scale: 1.04 }} whileTap={{ scale: 0.96 }}>
+                    <Button asChild className="group">
+                      <Link href={siteConfig.appUrl} target="_blank">
+                        Open App
+                        <ArrowRight className="size-0 group-hover:size-5 transition-all -ml-2 group-hover:ml-0" />
+                      </Link>
+                    </Button>
+                  </motion.div>
 
                   <Button size={"icon"} variant={"secondary"} onClick={() => setIsOpen(false)}>
                     <X className="size-5" />
