@@ -9,28 +9,30 @@ import Image from "next/image";
 import logo from "@/public/work-logo.png";
 import { YoutubeLogoMark } from "./logo/youtube";
 import { siteConfig } from "@/lib/site-config";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { FADE_IN, FADE_UP_ANIMATION_VARIANTS } from "@/lib/framer-variants";
 import { Separator } from "./ui/separator";
 
 export function Nav() {
   const [isOpen, setIsOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
+
+  useEffect(() => {
+    const handler = () => setScrolled(window.scrollY > 20);
+    window.addEventListener("scroll", handler);
+    return () => window.removeEventListener("scroll", handler);
+  }, []);
 
   return (
     <>
-      <nav className=" z-10 border-b bg-background/80 backdrop-blur-sm sticky top-0">
-        <motion.div
-          variants={FADE_UP_ANIMATION_VARIANTS}
-          initial="hidden"
-          whileInView="show"
-          viewport={{ once: true }}
-          className="mx-auto max-w-7xl px-4 sm:px-6 h-16 w-full flex justify-between items-center gap-2"
-        >
+      <nav className={`z-50 sticky top-0 transition-all duration-300 ${scrolled ? "border-b bg-background/80 backdrop-blur-md shadow-sm" : "bg-transparent border-transparent"
+        }`}>
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 h-16 w-full flex justify-between items-center gap-2">
           <div className="flex items-center gap-2">
             <Link href={"/"} className="flex items-center gap-2">
               <Image alt="" src={logo} className="size-10 rounded-md" />
-              <p className="font-bold text-3xl min-[420px]:block hidden">gibwork</p>
+              <p className="font-bold text-xl min-[420px]:block hidden">gibwork</p>
             </Link>
 
             <div className="lg:absolute lg:top-1/2 uppercase lg:left-1/2 lg:-translate-x-1/2 lg:-translate-y-1/2 md:flex hidden">
@@ -40,9 +42,6 @@ export function Nav() {
               <Button asChild variant={"ghost"} className="text-muted-foreground text-xs">
                 <Link href={"/#testimonial"}>Testimonial</Link>
               </Button>
-              {/* <Button asChild variant={"ghost"} className="text-muted-foreground text-xs">
-                <Link href={"https://jup.ag/swap/SOL-F7Hwf8ib5DVCoiuyGr618Y3gon429Rnd1r5F9R5upump"} target="_blank">Token</Link>
-              </Button> */}
               <Button asChild variant={"ghost"} className="text-muted-foreground text-xs">
                 <Link href={"/#faq"}>FAQ</Link>
               </Button>
@@ -64,7 +63,6 @@ export function Nav() {
                   <DiscordLogoMark className="size-5" />
                 </Link>
               </Button>
-
               <Button size={"icon"} variant={"ghost"} asChild>
                 <Link href={siteConfig.xUrl} target="_blank">
                   <TwitterLogoMark className="size-5" />
@@ -72,23 +70,18 @@ export function Nav() {
               </Button>
             </div>
 
-            <Button asChild className="group">
+            <Button asChild className="group bg-violet-600 hover:bg-violet-700 text-white">
               <Link href={siteConfig.appUrl} target="_blank">
                 Open App
                 <ArrowRight className="size-0 group-hover:size-5 transition-all -ml-2 group-hover:ml-0" />
               </Link>
             </Button>
 
-            <Button
-              size={"icon"}
-              variant={"secondary"}
-              className="md:hidden"
-              onClick={() => setIsOpen(true)}
-            >
+            <Button size={"icon"} variant={"secondary"} className="md:hidden" onClick={() => setIsOpen(true)}>
               <Menu className="size-5" />
             </Button>
           </div>
-        </motion.div>
+        </div>
       </nav>
 
       <AnimatePresence>
@@ -98,7 +91,7 @@ export function Nav() {
             initial="hidden"
             animate="show"
             exit="hidden"
-            className="fixed inset-0 bg-background z-10 overflow-auto"
+            className="fixed inset-0 bg-background z-50 overflow-auto"
           >
             <div className="flex flex-col">
               <div className="sm:px-6 px-4 h-16 flex justify-between items-center">
@@ -106,15 +99,13 @@ export function Nav() {
                   <Image alt="" src={logo} className="size-10 rounded-md" />
                   <p className="font-bold text-xl min-[420px]:block hidden">gibwork</p>
                 </Link>
-
                 <div className="flex items-center gap-2">
-                  <Button asChild className="group">
+                  <Button asChild className="group bg-violet-600 hover:bg-violet-700 text-white">
                     <Link href={siteConfig.appUrl} target="_blank">
                       Open App
                       <ArrowRight className="size-0 group-hover:size-5 transition-all -ml-2 group-hover:ml-0" />
                     </Link>
                   </Button>
-
                   <Button size={"icon"} variant={"secondary"} onClick={() => setIsOpen(false)}>
                     <X className="size-5" />
                   </Button>
@@ -122,36 +113,13 @@ export function Nav() {
               </div>
 
               <div className="flex items-end flex-col sm:p-6 p-4">
-                <Button
-                  asChild
-                  variant={"ghost"}
-                  onClick={() => setIsOpen(false)}
-                  className="text-muted-foreground uppercase"
-                >
+                <Button asChild variant={"ghost"} onClick={() => setIsOpen(false)} className="text-muted-foreground uppercase">
                   <Link href={"/#about"}>About</Link>
                 </Button>
-                <Button
-                  asChild
-                  variant={"ghost"}
-                  onClick={() => setIsOpen(false)}
-                  className="text-muted-foreground uppercase"
-                >
+                <Button asChild variant={"ghost"} onClick={() => setIsOpen(false)} className="text-muted-foreground uppercase">
                   <Link href={"/#testimonial"}>Testimonial</Link>
                 </Button>
-                {/* <Button
-                  asChild
-                  variant={"ghost"}
-                  onClick={() => setIsOpen(false)}
-                  className="text-muted-foreground uppercase"
-                >
-                  <Link href={"/#team"}>Team</Link>
-                </Button> */}
-                <Button
-                  asChild
-                  variant={"ghost"}
-                  onClick={() => setIsOpen(false)}
-                  className="text-muted-foreground uppercase"
-                >
+                <Button asChild variant={"ghost"} onClick={() => setIsOpen(false)} className="text-muted-foreground uppercase">
                   <Link href={"/#faq"}>FAQ</Link>
                 </Button>
               </div>
@@ -169,7 +137,6 @@ export function Nav() {
                     <DiscordLogoMark className="size-5" />
                   </Link>
                 </Button>
-
                 <Button size={"icon"} variant={"ghost"} asChild>
                   <Link href={siteConfig.xUrl} target="_blank">
                     <TwitterLogoMark className="size-5" />
