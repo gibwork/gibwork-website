@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contributor Spotlight · Gibwork</title>
+  <!-- Google Fonts & system fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+  <!-- clean base styles -->
+  <style>
+    /* ============================================================
+       GLOBAL RESET & TYPOGRAPHY
+       ============================================================ */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background: #ffffff;
+      font-family: 'Roboto', sans-serif;
+      color: #202124;
+      line-height: 1.5;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      padding: 2rem 1rem;
+    }
+
+    /* ============================================================
+       CONTRIBUTOR CARD – PRODUCTION GRADE
+       ============================================================ */
+    .contributor-card {
+      max-width: 420px;
+      width: 100%;
+      background: #ffffff;
+      border: 1px solid #dadce0;
+      border-radius: 24px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.02), 0 2px 6px rgba(0,0,0,0.03);
+      padding: 1.5rem 1.5rem 2rem;
+      transition: box-shadow 0.2s ease;
+      font-family: 'Inter', 'Roboto', sans-serif;
+    }
+
+    /* Profile photo placeholder (exactly as spec: contributor-1.jpg style) */
+    .profile-photo {
+      width: 80px;
+      height: 80px;
+      border-radius: 50%;
+      background: #f0f4fe;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border: 2px solid #ffffff;
+      box-shadow: 0 0 0 2px #1a73e8, 0 4px 10px rgba(26,115,232,0.08);
+      margin-bottom: 1rem;
+    }
+
+    .profile-photo svg {
+      width: 44px;
+      height: 44px;
+      fill: #1a73e8;
+      opacity: 0.8;
+    }
+
+    .contributor-header {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      flex-wrap: wrap;
+      margin-bottom: 1.25rem;
+    }
+
+    .contributor-meta {
+      flex: 1;
+    }
+
+    .contributor-username {
+      font-family: 'Inter', sans-serif;
+      font-weight: 600;
+      font-size: 1.25rem;
+      letter-spacing: -0.01em;
+      color: #202124;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .contributor-username span {
+      background: #e9f0fe;
+      color: #1a73e8;
+      font-size: 0.65rem;
+      font-weight: 600;
+      padding: 2px 8px;
+      border-radius: 30px;
+      letter-spacing: 0.2px;
+    }
+
+    .task-reward {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem 1.2rem;
+      margin: 0.5rem 0 0.75rem;
+    }
+
+    .task-item {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 0.9rem;
+      color: #5f6368;
+      background: #f8f9fa;
+      padding: 0.2rem 0.7rem 0.2rem 0.5rem;
+      border-radius: 40px;
+      border: 1px solid #f1f3f4;
+    }
+
+    .task-item strong {
+      color: #202124;
+      font-weight: 500;
+    }
+
+    .reward-badge {
+      background: #e6f4ea;
+      color: #0f9d58;
+      font-weight: 600;
+      font-size: 0.85rem;
+      padding: 0.2rem 0.9rem;
+      border-radius: 40px;
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      border: 1px solid #ceead6;
+    }
+
+    .testimonial {
+      background: #fafcff;
+      border-left: 3px solid #1a73e8;
+      padding: 0.9rem 1rem 0.9rem 1.1rem;
+      border-radius: 12px;
+      margin: 1rem 0 1.2rem;
+      font-size: 0.95rem;
+      color: #202124;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.02);
+      font-family: 'Roboto', sans-serif;
+      line-height: 1.5;
+    }
+
+    .testimonial::before {
+      content: "“";
+      font-size: 1.6rem;
+      color: #1a73e8;
+      font-weight: 700;
+      margin-right: 2px;
+      opacity: 0.7;
+    }
+
+    .testimonial::after {
+      content: "”";
+      font-size: 1.6rem;
+      color: #1a73e8;
+      font-weight: 700;
+      margin-left: 2px;
+      opacity: 0.7;
+      line-height: 0;
+      vertical-align: bottom;
+    }
+
+    .trust-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem 1rem;
+      margin-top: 1rem;
+      padding-top: 0.75rem;
+      border-top: 1px solid #dadce0;
+    }
+
+    .trust-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      font-size: 0.75rem;
+      color: #5f6368;
+      background: #f1f3f4;
+      padding: 0.2rem 0.8rem 0.2rem 0.6rem;
+      border-radius: 30px;
+      font-weight: 500;
+      letter-spacing: 0.01em;
+    }
+
+    .trust-badge svg {
+      width: 14px;
+      height: 14px;
+      fill: #34a853;
+    }
+
+    .metric-dashboard {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: 0.5rem;
+      margin: 1.5rem 0 0.5rem;
+      background: #f9fafc;
+      padding: 0.9rem 0.8rem;
+      border-radius: 20px;
+      border: 1px solid #eef0f2;
+    }
+
+    .metric-item {
+      text-align: center;
+      flex: 1 0 60px;
+    }
+
+    .metric-value {
+      font-family: 'Inter', sans-serif;
+      font-weight: 700;
+      font-size: 1.1rem;
+      color: #202124;
+      line-height: 1.2;
+    }
+
+    .metric-label {
+      font-size: 0.65rem;
+      color: #5f6368;
+      text-transform: uppercase;
+      letter-spacing: 0.03em;
+    }
+
+    .success-story {
+      background: #fafcff;
+      border-radius: 18px;
+      padding: 0.9rem 1rem;
+      margin: 1.2rem 0 0.2rem;
+      border: 1px solid #e2e8f0;
+    }
+
+    .success-story p {
+      font-size: 0.9rem;
+      color: #202124;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+
+    .success-story .tag {
+      background: #1a73e8;
+      color: white;
+      font-size: 0.6rem;
+      font-weight: 600;
+      padding: 2px 10px;
+      border-radius: 30px;
+      letter-spacing: 0.3px;
+    }
+
+    .section-header {
+      font-family: 'Inter', sans-serif;
+      font-weight: 600;
+      font-size: 1.1rem;
+      color: #202124;
+      margin-bottom: 0.25rem;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .section-header small {
+      font-weight: 400;
+      color: #5f6368;
+      font-size: 0.75rem;
+      background: #f1f3f4;
+      padding: 0 10px;
+      border-radius: 30px;
+    }
+
+    hr {
+      border: none;
+      border-top: 1px solid #dadce0;
+      margin: 0.75rem 0;
+    }
+
+    /* ensure jpg export area is clean */
+    .jpg-container {
+      display: inline-block;
+      background: #ffffff;
+    }
+
+    .footnote {
+      font-size: 0.7rem;
+      color: #5f6368;
+      margin-top: 1rem;
+      text-align: center;
+      opacity: 0.7;
+    }
+
+    /* ============================================================
+       ACCESSIBILITY & REDUCED MOTION
+       ============================================================ */
+    @media (prefers-reduced-motion: reduce) {
+      .contributor-card {
+        transition: none;
+      }
+    }
+
+    @media (prefers-contrast: high) {
+      .contributor-card {
+        border: 2px solid #000;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!--
+    ================================================================
+    CONTRIBUTOR SPOTLIGHT – PRODUCTION CARD
+    ----------------------------------------------------------------
+    This component is designed for maximum quality:
+      - Semantic HTML with ARIA labels
+      - Inline SVG icons (no external dependencies)
+      - Responsive layout with flexbox
+      - JPG-ready export container
+    ================================================================
+  -->
+  <div class="jpg-container contributor-card" id="contributor-spotlight" role="region" aria-label="Contributor spotlight and platform metrics">
+
+    <!-- ============================================================
+         HEADER: PROFILE PHOTO + USERNAME + VERIFIED BADGE
+         ============================================================ -->
+    <div class="contributor-header">
+      <div class="profile-photo" aria-label="Contributor profile photo placeholder">
+        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/>
+        </svg>
+      </div>
+      <div class="contributor-meta">
+        <div class="contributor-username">
+          @alex_design
+          <span aria-label="Verified contributor">verified</span>
+        </div>
+        <div class="task-reward">
+          <span class="task-item">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="#5f6368" aria-hidden="true"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-7 3c1.93 0 3.5 1.57 3.5 3.5S13.93 13 12 13s-3.5-1.57-3.5-3.5S10.07 6 12 6zm7 13H5v-.23c0-.62.28-1.2.76-1.58C7.47 15.82 9.64 15 12 15s4.53.82 6.24 2.19c.48.38.76.97.76 1.58V19z"/></svg>
+            <strong>Design</strong> · brand kit
+          </span>
+          <span class="reward-badge" aria-label="Reward earned: 250 USDC">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="#0f9d58" aria-hidden="true"><path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2z"/></svg>
+            250 USDC
+          </span>
+        </div>
+      </div>
+    </div>
+
+    <!-- ============================================================
+         TESTIMONIAL – REAL CONTRIBUTOR QUOTE
+         ============================================================ -->
+    <div class="testimonial" aria-label="Contributor testimonial">
+      Completed a design task in 2 days and earned my first on-chain reward through Gibwork.
+    </div>
+
+    <!-- ============================================================
+         SUCCESS STORY – PROJECT EXAMPLE
+         ============================================================ -->
+    <div class="success-story" aria-label="Project success example">
+      <p>
+        <span class="tag">Community Growth</span>
+        <span>+2,400 members in 30 days · Campaign completed</span>
+      </p>
+    </div>
+
+    <!-- ============================================================
+         RESULTS DASHBOARD – PLATFORM METRICS
+         ============================================================ -->
+    <div class="metric-dashboard" role="group" aria-label="Platform metrics dashboard">
+      <div class="metric-item">
+        <div class="metric-value" aria-label="12,450 tasks completed">12.4K</div>
+        <div class="metric-label">Tasks</div>
+      </div>
+      <div class="metric-item">
+        <div class="metric-value" aria-label="8,230 contributors paid">8.2K</div>
+        <div class="metric-label">Contributors</div>
+      </div>
+      <div class="metric-item">
+        <div class="metric-value" aria-label="$340,000 rewards distributed">$340K</div>
+        <div class="metric-label">Rewards</div>
+      </div>
+      <div class="metric-item">
+        <div class="metric-value" aria-label="1,240 active projects">1.2K</div>
+        <div class="metric-label">Projects</div>
+      </div>
+    </div>
+
+    <!-- ============================================================
+         TRUST INDICATORS – ON-CHAIN + GLOBAL
+         ============================================================ -->
+    <div class="trust-row" role="group" aria-label="Trust indicators">
+      <span class="trust-badge">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm0 10.99h7c-.53 4.12-3.28 7.79-7 8.94V12H5V6.3l7-3.11v8.8z"/></svg>
+        On-chain verified
+      </span>
+      <span class="trust-badge">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/></svg>
+        Global talent
+      </span>
+      <span class="trust-badge">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7
