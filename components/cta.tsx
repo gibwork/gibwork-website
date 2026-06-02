@@ -28,13 +28,13 @@ export function CTA() {
         variants={FADE_UP_ANIMATION_VARIANTS}
         className="font-semibold text-3xl sm:text-4xl text-center"
       >
-        Start exploring
+        Start earning onchain
       </motion.h2>
       <motion.p
         variants={FADE_UP_ANIMATION_VARIANTS}
         className="text-center mt-2 text-muted-foreground"
       >
-        Check out gibwork and create or complete your very first work.
+        Join thousands of workers completing bounties and getting paid in crypto. Download our mobile app or use the web platform.
       </motion.p>
 
       <motion.div variants={FADE_UP_ANIMATION_VARIANTS}>
