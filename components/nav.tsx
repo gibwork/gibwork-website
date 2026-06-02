@@ -174,6 +174,14 @@ export function Nav() {
                 >
                   <Link href={"/#faq"}>FAQ</Link>
                 </Button>
+                <Button
+                  asChild
+                  variant={"ghost"}
+                  onClick={() => setIsOpen(false)}
+                  className="text-muted-foreground uppercase"
+                >
+                  <Link href={"https://docs.gib.work/"} target="_blank">Docs</Link>
+                </Button>
               </div>
 
               <Separator />

@@ -88,6 +88,26 @@ export function Faq() {
               your wallet automatically.
             </AccordionContent>
           </AccordionItem>
+          <AccordionItem value="item-tips">
+            <AccordionTrigger>What are GitHub Tips?</AccordionTrigger>
+            <AccordionContent>
+              GitHub Tips let anyone tip a contributor directly when their pull
+              request gets merged. The tip is sent in USDC to the contributor's
+              Solana wallet. It's a lightweight way to reward open source work
+              without posting a full bounty.
+            </AccordionContent>
+          </AccordionItem>
+          <AccordionItem value="item-private">
+            <AccordionTrigger>
+              Can I post a private task only visible to specific people?
+            </AccordionTrigger>
+            <AccordionContent>
+              Yes. When creating a task you can set it to private, which
+              restricts visibility so only contributors you invite can view and
+              apply. Funds are still escrowed onchain the same way as public
+              tasks.
+            </AccordionContent>
+          </AccordionItem>
           {/* <AccordionItem value="item-4">
             <AccordionTrigger>Are there any fees for using gibwork?</AccordionTrigger>
             <AccordionContent>
