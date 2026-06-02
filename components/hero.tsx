@@ -41,7 +41,7 @@ export function Hero() {
       <motion.div variants={FADE_UP_ANIMATION_VARIANTS} className="relative z-0">
         <SparklesText
           text="Find bounties. Get paid."
-          className="font-semibold text-5xl sm:text-6xl mt-4"
+          className="mx-auto mt-4 max-w-[21rem] text-balance font-semibold text-4xl leading-tight sm:max-w-none sm:text-6xl"
         />
       </motion.div>
 
