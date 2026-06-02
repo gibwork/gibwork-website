@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contributor Spotlight · Gibwork</title>
+  <!-- Google Fonts & design system -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background: #ffffff;
+      font-family: 'Roboto', sans-serif;
+      color: #202124;
+      line-height: 1.5;
+      padding: 2rem 1.5rem;
+    }
+
+    .container {
+      max-width: 1280px;
+      margin: 0 auto;
+    }
+
+    /* ===== design tokens ===== */
+    :root {
+      --primary: #1a73e8;
+      --secondary: #34a853;
+      --accent: #fbbc04;
+      --bg: #ffffff;
+      --text: #202124;
+      --muted: #5f6368;
+      --success: #0f9d58;
+      --border: #dadce0;
+      --radius: 20px;
+      --shadow: 0 8px 20px rgba(0,0,0,0.04), 0 2px 6px rgba(0,0,0,0.02);
+    }
+
+    /* section header */
+    .section-header {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      margin-bottom: 32px;
+    }
+    .section-header h2 {
+      font-family: 'Inter', sans-serif;
+      font-size: 32px;
+      font-weight: 600;
+      letter-spacing: -0.02em;
+      color: var(--text);
+    }
+    .section-header .sub {
+      font-size: 16px;
+      color: var(--muted);
+      max-width: 640px;
+    }
+
+    /* spotlight grid */
+    .spotlight-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 24px;
+      margin-bottom: 48px;
+    }
+
+    /* spotlight card – contributor card */
+    .spotlight-card {
+      background: var(--bg);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 24px 20px 20px;
+      box-shadow: var(--shadow);
+      transition: all 0.2s ease;
+      display: flex;
+      flex-direction: column;
+    }
+    .spotlight-card:hover {
+      border-color: var(--primary);
+      box-shadow: 0 12px 24px rgba(26,115,232,0.08);
+    }
+
+    /* profile image placeholder (JPG simulation) */
+    .contributor-img {
+      width: 80px;
+      height: 80px;
+      border-radius: 50%;
+      object-fit: cover;
+      background: #f0f4fe;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 32px;
+      font-weight: 500;
+      color: #1a73e8;
+      border: 2px solid white;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.04);
+      margin-bottom: 16px;
+      background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="80" height="80" viewBox="0 0 80 80"><circle cx="40" cy="40" r="40" fill="%23e8f0fe"/><circle cx="40" cy="32" r="12" fill="%231a73e8" opacity="0.25"/><circle cx="40" cy="32" r="8" fill="%231a73e8" opacity="0.5"/><path d="M20 62c0-10 9-18 20-18s20 8 20 18" fill="%231a73e8" opacity="0.2"/><circle cx="40" cy="62" r="18" fill="%231a73e8" opacity="0.1"/></svg>');
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+    }
+    /* fallback: if external image is missing, show gradient initials */
+    .contributor-img {
+      background-blend-mode: overlay;
+    }
+
+    .contributor-name {
+      font-family: 'Inter', sans-serif;
+      font-size: 20px;
+      font-weight: 600;
+      color: var(--text);
+      letter-spacing: -0.01em;
+      margin-bottom: 4px;
+    }
+    .contributor-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px 16px;
+      font-size: 14px;
+      color: var(--muted);
+      margin: 8px 0 12px;
+    }
+    .contributor-meta span {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+    }
+    .contributor-meta .reward {
+      color: var(--success);
+      font-weight: 500;
+    }
+    .testimonial {
+      font-size: 15px;
+      line-height: 1.5;
+      color: #3c4043;
+      background: #f8f9fa;
+      padding: 12px 14px;
+      border-radius: 16px;
+      margin: 8px 0 4px;
+      border-left: 3px solid var(--primary);
+      font-style: italic;
+    }
+
+    /* success story cards */
+    .success-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 20px;
+      margin: 32px 0 48px;
+    }
+    .success-story-card {
+      background: var(--bg);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      padding: 20px 18px;
+      box-shadow: var(--shadow);
+      transition: 0.15s ease;
+    }
+    .success-story-card:hover {
+      border-color: var(--secondary);
+    }
+    .success-story-card h4 {
+      font-family: 'Inter', sans-serif;
+      font-size: 20px;
+      font-weight: 600;
+      margin-bottom: 6px;
+    }
+    .success-story-card .tag {
+      display: inline-block;
+      background: #e8f5e9;
+      color: #1e7e34;
+      font-size: 12px;
+      font-weight: 500;
+      padding: 2px 12px;
+      border-radius: 30px;
+      margin-bottom: 10px;
+    }
+    .success-story-card p {
+      font-size: 14px;
+      color: var(--muted);
+    }
+    .success-story-card .stat-line {
+      margin-top: 12px;
+      font-weight: 500;
+      color: var(--text);
+      border-top: 1px solid var(--border);
+      padding-top: 12px;
+      display: flex;
+      justify-content: space-between;
+    }
+
+    /* dashboard metrics */
+    .dashboard-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 16px 24px;
+      background: #fafbfc;
+      border-radius: 28px;
+      padding: 24px 28px;
+      border: 1px solid var(--border);
+      margin: 32px 0 40px;
+      justify-content: space-around;
+    }
+    .dashboard-metric {
+      text-align: center;
+      min-width: 120px;
+    }
+    .dashboard-metric .number {
+      font-family: 'Inter', sans-serif;
+      font-size: 32px;
+      font-weight: 700;
+      color: var(--primary);
+      letter-spacing: -0.02em;
+      line-height: 1.2;
+    }
+    .dashboard-metric .label {
+      font-size: 14px;
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: 0.02em;
+    }
+
+    /* trust badges */
+    .trust-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 24px 32px;
+      justify-content: center;
+      margin: 24px 0 16px;
+    }
+    .trust-badge {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      background: #ffffff;
+      border: 1px solid var(--border);
+      border-radius: 40px;
+      padding: 10px 20px 10px 16px;
+      font-size: 15px;
+      font-weight: 500;
+      color: var(--text);
+      box-shadow: 0 2px 6px rgba(0,0,0,0.02);
+    }
+    .trust-badge .icon {
+      width: 28px;
+      height: 28px;
+      background: #e8f0fe;
+      border-radius: 30px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--primary);
+      font-size: 18px;
+    }
+
+    hr {
+      border: none;
+      border-top: 1px solid var(--border);
+      margin: 32px 0 24px;
+    }
+
+    /* responsive */
+    @media (max-width: 640px) {
+      .section-header h2 { font-size: 28px; }
+      .dashboard-metric .number { font-size: 26px; }
+    }
+
+    /* image contributor-3.jpg simulation (third contributor) */
+    .img-placeholder-note {
+      font-size: 13px;
+      color: var(--muted);
+      background: #f1f3f4;
+      padding: 4px 14px;
+      border-radius: 30px;
+      display: inline-block;
+      margin-bottom: 8px;
+    }
+  </style>
+</head>
+<body>
+<div class="container">
+
+  <!-- SECTION HEADER -->
+  <div class="section-header">
+    <h2>👥 Contributor spotlight</h2>
+    <div class="sub">Real people, real earnings — see who’s already building and earning on Gibwork.</div>
+  </div>
+
+  <!-- SPOTLIGHT GRID (3 contributors) -->
+  <div class="spotlight-grid">
+    <!-- contributor 1 -->
+    <div class="spotlight-card">
+      <div class="contributor-img" style="background-image: url('data:image/svg+xml;utf8,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%2280%22 height=%2280%22 viewBox=%220 0 80 80%22><circle cx=%2240%22 cy=%2240%22 r=%2240%22 fill=%22%23e8f0fe%22/><circle cx=%2240%22 cy=%2230%22 r=%2212%22 fill=%22%231a73e8%22 opacity=%220.3%22/><circle cx=%2240%22 cy=%2230%22 r=%228%22 fill=%22%231a73e8%22 opacity=%220.6%22/><path d=%22M20 62c0-10 9-18 20-18s20 8 20 18%22 fill=%22%231a73e8%22 opacity=%220.25%22/></svg>');"></div>
+      <div class="contributor-name">alex_design</div>
+      <div class="contributor-meta">
+        <span>✅ Brand identity</span>
+        <span class="reward">⚡ 1.2 ETH</span>
+      </div>
+      <div class="testimonial">“Completed a design task in 2 days and earned my first on-chain reward through Gibwork.”</div>
+    </div>
+
+    <!-- contributor 2 -->
+    <div class="spotlight-card">
+      <div class="contributor-img" style="background-image: url('data:image/svg+xml;utf8,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%2280%22 height=%2280%22 viewBox=%220 0 80 80%22><circle cx=%2240%22 cy=%2240%22 r=%2240%22 fill=%22%23fce8e6%22/><circle cx=%2240%22 cy=%2230%22 r=%2212%22 fill=%22%23d93025%22 opacity=%220.2%22/><circle cx=%2240%22 cy=%2230%22 r=%228%22 fill=%22%23d93025%22 opacity=%220.5%22/><path d=%22M20 62c0-10 9-18 20-18s20 8 20 18%22 fill=%22%23d93025%22 opacity=%220.15%22/></svg>');"></div>
+      <div class="contributor-name">maya_dev</div>
+      <div class="contributor-meta">
+        <span>🛠️ Smart contract audit</span>
+        <span class="reward">⚡ 2.4 ETH</span>
+      </div>
+      <div class="testimonial">“I fixed critical bugs for a DeFi project and got paid in 48 hours. Trustless and smooth.”</div>
+    </div>
+
+    <!-- contributor 3 – this is the main "contributor-3.jpg" placeholder -->
+    <div class="spotlight-card">
+      <!-- the image below simulates contributor-3.jpg profile photo -->
+      <div class="contributor-img" style="background-image: url('data:image/svg+xml;utf8,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%2280%22 height=%2280%22 viewBox=%220 0 80 80%22><circle cx=%2240%22 cy=%2240%22 r=%2240%22 fill=%22%23f1f8e9%22/><circle cx=%2240%22 cy=%2230%22 r=%2212%22 fill=%22%2334a853%22 opacity=%220.3%22/><circle cx=%2240%22 cy=%2230%22 r=%228%22 fill=%22%2334a853%22 opacity=%220.6%22/><path d=%22M20 62c0-10 9-18 20-18s20 8 20 18%22 fill=%22%2334a853%22 opacity=%220.2%22/></svg>'); background-color: #f1f8e9;"></div>
+      <div class="img-placeholder-note">📸 contributor-3.jpg</div>
+      <div class="contributor-name">jordan.crypto</div>
+      <div class="contributor-meta">
+        <span>📝 content writing + web3</span>
+        <span class="reward">⚡ 0.9 ETH</span>
+      </div>
+      <div class="testimonial">“Wrote documentation for a DAO tool and earned my first on-chain reward. Super easy.”</div>
+    </div>
+  </div>
+
+  <!-- PROJECT SUCCESS EXAMPLES -->
+  <div class="section-header" style="margin-top: 16px;">
+    <h2>📈 Project success examples</h2>
+    <div class="sub">Real campaigns delivered by the Gibwork community.</div>
+  </div>
+  <div class="success-grid">
+    <div class="success-story-card">
+      <h4>🌱 Community growth</h4>
+      <span class="tag">+2.4k members</span>
+      <p>Moderation & engagement campaign for a new L2. 40 contributors earned rewards.</p>
+      <div class="stat-line"><span>Tasks: 180</span><span>⚡ 4.2 ETH</span></div>
+    </div>
+    <div class="success-story-card">
+      <h4>🎨 Design sprint</h4>
+      <span class="tag">brand kit</span>
+      <p>12 designers delivered logos, banners, and UI mockups in 5 days.</p>
+      <div class="stat-line"><span>Tasks: 64</span><span>⚡ 2.1 ETH</span></div>
+    </div>
+    <div class="success-story-card">
+      <h4>🧑‍💻 Dev tasks</h4>
+      <span class="tag">solidity + frontend</span>
+      <p>Smart contract integration & dApp interface. Completed ahead of schedule.</p>
+      <div class="stat-line"><span>Tasks: 27</span><span>⚡ 8.7 ETH</span></div>
+    </div>
+    <div class="success-story-card">
+      <h4>📄 Content creation</h4>
+      <span class="tag">10 articles</span>
+      <p>Technical writing for DeFi protocol. 5 writers contributed across timezones.</p>
+      <div class="stat-line"><span>Tasks: 42</span><span>⚡ 1.8 ETH</span></div>
+    </div>
+  </div>
+
+  <!-- RESULTS DASHBOARD -->
+  <div class="dashboard-row">
+    <div class="dashboard-metric">
+      <div class="number">14,820</div>
+      <div class="label">Tasks completed</div>
+    </div>
+    <div class="dashboard-metric">
+      <div class="number">3,420</div>
+      <div class="label">Contributors paid</div>
+    </div>
+    <div class="dashboard-metric">
+      <div class="number">246 ETH</div>
+      <div class="label">Rewards distributed</div>
