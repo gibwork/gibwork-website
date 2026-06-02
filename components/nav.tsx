@@ -13,6 +13,7 @@ import { useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { FADE_IN, FADE_UP_ANIMATION_VARIANTS } from "@/lib/framer-variants";
 import { Separator } from "./ui/separator";
+import { ThemeToggle } from "./theme-toggle";
 
 export function Nav() {
   const [isOpen, setIsOpen] = useState(false);
@@ -54,6 +55,7 @@ export function Nav() {
 
           <div className="flex items-center gap-2">
             <div className="hidden md:flex items-center">
+              <ThemeToggle />
               <Button size={"icon"} variant={"ghost"} asChild>
                 <Link href={siteConfig.youtubeUrl} target="_blank">
                   <YoutubeLogoMark className="size-5" />
@@ -159,6 +161,7 @@ export function Nav() {
               <Separator />
 
               <div className="flex justify-end sm:p-6 p-4">
+                <ThemeToggle />
                 <Button size={"icon"} variant={"ghost"} asChild>
                   <Link href={siteConfig.youtubeUrl} target="_blank">
                     <YoutubeLogoMark className="size-5" />
