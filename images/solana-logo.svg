@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1920 1080">
+    <defs>
+        <style>
+            .bg {
+                fill: #0F1A2E;
+            }
+            .accent {
+                fill: #00FFAA;
+            }
+            .text {
+                fill: white;
+                font-family: 'Inter', sans-serif;
+            }
+        </style>
+    </defs>
+    <rect class="bg" width="1920" height="1080"/>
+    <g transform="translate(50, 50)">
+        <text x="0" y="100" font-size="64" class="accent">Discover Bounties.</text>
+        <text x="0" y="170" font-size="64" class="accent">Complete Tasks.</text>
+        <text x="0" y="240" font-size="64" class="accent">Get Paid.</text>
+        <text x="0" y="350" font-size="32" class="text">Find active opportunities, submit work directly from your phone, track earnings, and withdraw instantly on Solana — from anywhere.</text>
+        <a href="https://apps.apple.com/app/gibwork/id6757281508">
+            <image x="0" y="400" width="135" height="40" xlink:href="path/to/apple-app-store-badge.png"/>
+        </a>
+        <a href="https://play.google.com/store/apps/details?id=com.gibwork.app">
+            <image x="160" y="400" width="135" height="40" xlink:href="path/to/google-play-badge.png"/>
+        </a>
+        <a href="https://app.gib.work/">
+            <text x="320" y="400" font-size="24" class="text">Use on Web</text>
+        </a>
+    </g>
+</svg>

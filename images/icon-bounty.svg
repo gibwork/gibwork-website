@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" fill="none" role="img" aria-label="Browse Bounties">
+  <!-- Magnifying glass circle -->
+  <circle cx="28" cy="28" r="18" stroke="#00FFAA" stroke-width="3.5" fill="none"/>
+  <!-- Magnifying glass handle -->
+  <line x1="41" y1="41" x2="54" y2="54" stroke="#00FFAA" stroke-width="3.5" stroke-linecap="round"/>
+  <!-- Star/bounty icon inside lens -->
+  <path d="M28 16 L30.5 23 L38 23 L32 28 L34 35 L28 30 L22 35 L24 28 L18 23 L25.5 23 Z" fill="#00FFAA"/>
+  <!-- Small accent dot representing "active bounty" -->
+  <circle cx="28" cy="28" r="2" fill="#0F1A2E"/>
+  <!-- Subtle glow ring -->
+  <circle cx="28" cy="28" r="18" stroke="#00FFAA" stroke-width="1" opacity="0.3" stroke-dasharray="4 4"/>
+</svg>

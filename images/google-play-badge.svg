@@ -1,0 +1,89 @@
+svg
+<svg xmlns="http://www.w3.org/2000/svg"
+     xmlns:xlink="http://www.w3.org/1999/xlink"
+     width="136" height="41"
+     viewBox="0 0 136 41"
+     version="1.1"
+     id="google-play-badge"
+     role="img"
+     aria-labelledby="badge-title badge-desc"
+     data-testid="google-play-badge"
+     preserveAspectRatio="xMidYMid meet">
+
+  <!-- Metadata -->
+  <metadata id="metadata">
+    <dc:date>2025-04-01</dc:date>
+    <dc:creator>Gibwork Engineering</dc:creator>
+    <dc:description>Official Google Play badge for Gibwork Android app</dc:description>
+    <dc:format>image/svg+xml</dc:format>
+  </metadata>
+
+  <title id="badge-title">Get it on Google Play</title>
+  <desc id="badge-desc">Download Gibwork from the Google Play Store – instant Solana payouts and mobile-first tasking.</desc>
+
+  <!-- Defs: gradients and filters -->
+  <defs>
+    <linearGradient id="bg-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#1a1a1a" />
+      <stop offset="100%" stop-color="#000000" />
+    </linearGradient>
+
+    <filter id="hover-glow" x="-10%" y="-10%" width="120%" height="120%">
+      <feGaussianBlur in="SourceAlpha" stdDeviation="2" result="blur"/>
+      <feFlood flood-color="#ffffff" flood-opacity="0.1" result="glowColor"/>
+      <feComposite in="glowColor" in2="blur" operator="in" result="softGlow"/>
+      <feMerge>
+        <feMergeNode in="softGlow"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+
+  <!-- Clickable link wrapper -->
+  <a xlink:href="https://play.google.com/store/apps/details?id=com.gibwork.app"
+     target="_blank"
+     rel="noopener noreferrer external"
+     aria-label="Download Gibwork on Google Play">
+    
+    <!-- Badge background with gradient -->
+    <rect x="0" y="0" width="136" height="41" rx="6" ry="6"
+          fill="url(#bg-gradient)" stroke="#333333" stroke-width="1.2"
+          vector-effect="non-scaling-stroke"
+          style="shape-rendering:crispEdges;"/>
+
+    <!-- Play triangle (adjusted for perfect centering) -->
+    <polygon points="20,13 20,28 38,20.5"
+             fill="#ffffff"
+             stroke="none"
+             stroke-linejoin="round"
+             style="shape-rendering:geometricPrecision"/>
+
+    <!-- "GET IT ON" text -->
+    <text x="48" y="17"
+          fill="#ffffff"
+          font-family="'Helvetica Neue', Helvetica, Arial, sans-serif"
+          font-size="8"
+          font-weight="600"
+          letter-spacing="1.2"
+          text-anchor="start"
+          dominant-baseline="baseline"
+          xml:space="preserve">GET IT ON</text>
+
+    <!-- "Google Play" text -->
+    <text x="48" y="29.5"
+          fill="#ffffff"
+          font-family="'Helvetica Neue', Helvetica, Arial, sans-serif"
+          font-size="13"
+          font-weight="bold"
+          letter-spacing="0.2"
+          text-anchor="start"
+          dominant-baseline="baseline"
+          xml:space="preserve">Google Play</text>
+
+    <!-- Fallback text for non-SVG renderers (hidden when SVG is displayed but readable by screen readers) -->
+    <text x="10" y="20" fill="transparent" font-size="0"
+          aria-hidden="true" role="presentation">Get it on Google Play</text>
+
+    <!-- Non‑interactive hover effect (CSS only, no JavaScript required) -->
+    <style>
+      #google-play-b
