@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- ============================================================
+       Gibwork – Production Landing Page
+       Version: 3.1.0
+       Last updated: 2025-06-21
+       Author: Gibwork Engineering
+       ============================================================ -->
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <meta name="description" content="Gibwork — Discover bounties, complete tasks, get paid instantly in Solana. Mobile-first onchain work marketplace for creators, developers & Web3 users." />
+  <meta name="keywords" content="gibwork, solana, bounties, tasks, mobile app, crypto payouts, freelancer, web3 jobs" />
+  <meta property="og:title" content="Gibwork — Discover Bounties. Complete Tasks. Get Paid." />
+  <meta property="og:description" content="Find active opportunities, submit work from your phone, track earnings, and withdraw instantly on Solana — from anywhere." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://gib.work/" />
+  <meta property="og:image" content="https://gib.work/og-image.jpg" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Gibwork — Discover Bounties. Complete Tasks. Get Paid." />
+  <meta name="twitter:description" content="Mobile-first onchain work marketplace. Get paid instantly in Solana." />
+  <meta name="theme-color" content="#0F1A2E" />
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self' https:; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https:; script-src 'self' 'unsafe-inline'; object-src 'none'; base-uri 'self'" />
+  <link rel="canonical" href="https://gib.work/" />
+  <link rel="icon" href="/favicon.ico" type="image/x-icon" />
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+  <title>Gibwork — Discover Bounties. Complete Tasks. Get Paid.</title>
+
+  <!-- Preconnect & preload for performance -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" as="style" crossorigin />
+  <!-- Preload hero video if available, otherwise skip -->
+  <link rel="preload" href="/hero-video.mp4" as="video" type="video/mp4" fetchpriority="high" media="(min-width: 768px)" />
+  <link rel="preload" href="/app-mockup.webp" as="image" fetchpriority="low" />
+
+  <!-- Deferred non‑critical CSS (print styles) -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" />
+
+  <style>
+    /* ===== RESET & VARIABLES ===== */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --bg-deep: #0F1A2E;
+      --bg-card: #152238;
+      --accent-green: #00FFAA;
+      --accent-dim: rgba(0, 255, 170, 0.12);
+      --white: #ffffff;
+      --gray-200: #e2e8f0;
+      --gray-400: #94a3b8;
+      --gray-500: #64748b;
+      --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+      --radius: 16px;
+      --radius-sm: 10px;
+      --max-w: 1200px;
+      --header-h: 68px;
+      --transition-speed: 0.25s;
+    }
+    html {
+      scroll-behavior: smooth;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+    body {
+      font-family: var(--font-sans);
+      background: var(--bg-deep);
+      color: var(--white);
+      line-height: 1.5;
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
+    a { color: inherit; text-decoration: none; }
+    img { max-width: 100%; height: auto; display: block; }
+
+    /* ===== UTILITY ===== */
+    .container {
+      max-width: var(--max-w);
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+    .sr-only {
+      position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px;
+      overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; border-width: 0;
+    }
+
+    /* ===== HEADER ===== */
+    header {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
+      height: var(--header-h);
+      background: rgba(15, 26, 46, 0.92);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+    }
+    header .container {
+      display: flex; align-items: center; justify-content: space-between;
+      height: 100%;
+    }
+    .logo {
+      font-weight: 800; font-size: 1.4rem;
+      letter-spacing: -0.02em;
+      display: flex; align-items: center; gap: 8px;
+    }
+    .logo span { color: var(--accent-green); }
+    nav a {
+      font-size: 0.9rem; font-weight: 500; color: var(--gray-400);
+      margin-left: 32px; transition: color var(--transition-speed);
+    }
+    nav a:hover, nav a:focus { color: var(--white); }
+
+    /* ===== HERO ===== */
+    .hero {
+      padding: calc(var(--header-h) + 64px) 0 80px;
