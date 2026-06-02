@@ -16,14 +16,14 @@ const workDetails = [
 
   {
     image: "/tasks/image-01.png",
-    title: "Design gibwork's new landing page",
-    amount: 500,
+    title: "Improve a landing page from a GitHub issue",
+    amount: 350,
     token: "usdc",
   },
   {
     image: "/tasks/image-02.png",
-    title: "Create developer challenges for Zircon",
-    amount: 500,
+    title: "Record product feedback with screenshots",
+    amount: 25,
     token: "usdc",
   },
   // {
@@ -34,8 +34,8 @@ const workDetails = [
   // },
   {
     image: "/tasks/image-03.png",
-    title: "Use slug- to share a set of links on X or Reddit",
-    amount: 100,
+    title: "Submit a mobile UX review",
+    amount: 15,
     token: "usdc",
   },
 ];
@@ -52,10 +52,10 @@ export function LookingFor() {
         >
           <TabsList className="mx-auto rounded-full">
             <TabsTrigger className="rounded-full px-4" value="1">
-              Looking for Help
+              Post work
             </TabsTrigger>
             <TabsTrigger className="rounded-full px-4" value="2">
-              Looking for Work
+              Earn rewards
             </TabsTrigger>
           </TabsList>
         </motion.div>
@@ -78,15 +78,15 @@ export function LookingFor() {
               variants={FADE_UP_ANIMATION_VARIANTS}
               className="text-3xl sm:text-4xl text-center font-semibold"
             >
-              Get help from an expert
+              Post tasks with clear rewards
             </motion.h2>
 
             <motion.p
               variants={FADE_UP_ANIMATION_VARIANTS}
               className="text-center mt-2 text-muted-foreground"
             >
-              Create work for others to complete and get the support you need to
-              achieve your goals.
+              Turn product needs into scoped tasks, GitHub bounties, campaigns, or feedback requests
+              with visible rewards and submission requirements.
             </motion.p>
 
             <motion.div
@@ -114,7 +114,7 @@ export function LookingFor() {
                 <CardHeader className="border-t">
                   <CardTitle className="text-lg">Open Source Bounty</CardTitle>
                   <CardDescription>
-                    Incentivize a pull request made from a Github issue.
+                    Fund GitHub issues and reward accepted pull requests.
                   </CardDescription>
                 </CardHeader>
               </Card>
@@ -130,7 +130,7 @@ export function LookingFor() {
                 <CardHeader className="border-t">
                   <CardTitle className="text-lg">Simple Task</CardTitle>
                   <CardDescription>
-                    Small tasks achievable in a few hours.
+                    Post focused research, testing, writing, design, or feedback work.
                   </CardDescription>
                 </CardHeader>
               </Card>
@@ -145,8 +145,7 @@ export function LookingFor() {
                 <CardHeader className="border-t">
                   <CardTitle className="text-lg">Services</CardTitle>
                   <CardDescription>
-                    Offer your skills and connect with users for custom
-                    services.
+                    Hire contributors or creators for custom scopes and recurring work.
                   </CardDescription>
                 </CardHeader>
               </Card>
@@ -172,14 +171,14 @@ export function LookingFor() {
               variants={FADE_UP_ANIMATION_VARIANTS}
               className="text-3xl sm:text-4xl text-center font-semibold"
             >
-              Get paid for your expertise
+              Find tasks you can finish
             </motion.h2>
             <motion.p
               variants={FADE_UP_ANIMATION_VARIANTS}
               className="text-center mt-2 text-muted-foreground"
             >
-              Discover work opportunities that you could do, complete the work,
-              and start earning.
+              Browse open bounties, submit proof of work, track review status, and receive approved
+              rewards in USDC or supported Solana tokens.
             </motion.p>
 
             <motion.div

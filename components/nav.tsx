@@ -30,7 +30,7 @@ export function Nav() {
           <div className="flex items-center gap-2">
             <Link href={"/"} className="flex items-center gap-2">
               <Image alt="" src={logo} className="size-10 rounded-md" />
-              <p className="font-bold text-3xl min-[420px]:block hidden">gibwork</p>
+              <p className="hidden text-3xl font-bold sm:block">gibwork</p>
             </Link>
 
             <div className="lg:absolute lg:top-1/2 uppercase lg:left-1/2 lg:-translate-x-1/2 lg:-translate-y-1/2 md:flex hidden">
@@ -104,7 +104,7 @@ export function Nav() {
               <div className="sm:px-6 px-4 h-16 flex justify-between items-center">
                 <Link href={"/"} className="flex items-center gap-2">
                   <Image alt="" src={logo} className="size-10 rounded-md" />
-                  <p className="font-bold text-xl min-[420px]:block hidden">gibwork</p>
+                  <p className="hidden text-xl font-bold sm:block">gibwork</p>
                 </Link>
 
                 <div className="flex items-center gap-2">
