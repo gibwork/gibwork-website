@@ -1,0 +1,471 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Gibwork · payment & rewards screen</title>
+    <!-- Google Fonts & design tokens -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+        /* ----- design system (exact spec) ----- */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: #0F0F1A;   /* background */
+            font-family: 'Inter', sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            padding: 2rem 1rem;
+        }
+
+        /* card container – mimics mobile screen with rewards/payment UI */
+        .webp-container {
+            max-width: 380px;
+            width: 100%;
+            background: #1A1A2E;          /* surface */
+            border-radius: 32px;
+            border: 1px solid rgba(108, 99, 255, 0.2);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.6), 0 0 0 1px rgba(108, 99, 255, 0.08);
+            overflow: hidden;
+            padding: 24px 20px 28px;
+            transition: all 0.2s ease;
+            backdrop-filter: blur(2px);
+        }
+
+        /* inner layout – payment / rewards screen */
+        .screen-content {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        /* header (mock phone notch area) */
+        .status-bar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            color: #FFFFFF;
+            font-size: 0.85rem;
+            font-weight: 500;
+            letter-spacing: -0.2px;
+            padding-bottom: 6px;
+            border-bottom: 1px solid rgba(108, 99, 255, 0.15);
+        }
+
+        .status-left {
+            display: flex;
+            gap: 6px;
+            align-items: center;
+        }
+
+        .status-left span {
+            background: #6C63FF;
+            width: 8px;
+            height: 8px;
+            border-radius: 10px;
+            display: inline-block;
+        }
+
+        .status-right {
+            display: flex;
+            gap: 12px;
+            color: #B0B0C0;
+            font-size: 0.8rem;
+        }
+
+        /* balance card – primary reward area */
+        .balance-card {
+            background: linear-gradient(145deg, #1E1E36, #151528);
+            border-radius: 24px;
+            padding: 20px 18px;
+            border: 1px solid rgba(0, 212, 170, 0.25);
+            box-shadow: 0 8px 0 rgba(0, 0, 0, 0.4);
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .balance-label {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            color: #B0B0C0;
+            font-size: 0.9rem;
+            letter-spacing: 0.3px;
+        }
+
+        .balance-label svg {
+            opacity: 0.7;
+        }
+
+        .balance-amount {
+            font-size: 2.4rem;
+            font-weight: 700;
+            color: #FFFFFF;
+            letter-spacing: -0.5px;
+            display: flex;
+            align-items: baseline;
+            gap: 6px;
+        }
+
+        .balance-amount small {
+            font-size: 1rem;
+            font-weight: 500;
+            color: #00D4AA;
+            background: rgba(0, 212, 170, 0.15);
+            padding: 2px 10px;
+            border-radius: 40px;
+            margin-left: 6px;
+        }
+
+        .balance-change {
+            display: flex;
+            gap: 16px;
+            color: #B0B0C0;
+            font-size: 0.8rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.04);
+            padding-top: 10px;
+            margin-top: 4px;
+        }
+
+        .change-up {
+            color: #00D4AA;
+            font-weight: 600;
+        }
+
+        /* quick actions – payment / rewards buttons */
+        .action-row {
+            display: flex;
+            gap: 12px;
+            justify-content: space-between;
+        }
+
+        .action-btn {
+            flex: 1;
+            background: #1A1A2E;
+            border: 1px solid rgba(108, 99, 255, 0.25);
+            border-radius: 16px;
+            padding: 14px 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 6px;
+            color: #FFFFFF;
+            font-weight: 500;
+            font-size: 0.85rem;
+            transition: all 0.2s ease;
+            cursor: default;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+        }
+
+        .action-btn svg {
+            opacity: 0.9;
+        }
+
+        .action-btn.primary-action {
+            background: #6C63FF;
+            border-color: #6C63FF;
+            box-shadow: 0 4px 12px rgba(108, 99, 255, 0.3);
+        }
+
+        .action-btn.primary-action span {
+            color: white;
+        }
+
+        .action-btn .sub-label {
+            font-size: 0.65rem;
+            color: #B0B0C0;
+            font-weight: 400;
+        }
+
+        .action-btn.primary-action .sub-label {
+            color: rgba(255,255,255,0.7);
+        }
+
+        /* rewards list / recent payments */
+        .section-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            color: #FFFFFF;
+            font-weight: 600;
+            font-size: 1rem;
+            letter-spacing: -0.2px;
+            padding: 4px 0;
+        }
+
+        .section-header a {
+            color: #6C63FF;
+            font-size: 0.8rem;
+            font-weight: 500;
+            text-decoration: none;
+        }
+
+        .reward-item {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            background: rgba(26, 26, 46, 0.6);
+            border-radius: 18px;
+            padding: 12px 14px;
+            border: 1px solid rgba(108, 99, 255, 0.08);
+            backdrop-filter: blur(2px);
+            transition: 0.1s ease;
+        }
+
+        .reward-icon {
+            width: 44px;
+            height: 44px;
+            background: #2A2A44;
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #00D4AA;
+        }
+
+        .reward-details {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            gap: 2px;
+        }
+
+        .reward-title {
+            color: #FFFFFF;
+            font-weight: 600;
+            font-size: 0.95rem;
+        }
+
+        .reward-sub {
+            color: #B0B0C0;
+            font-size: 0.7rem;
+            display: flex;
+            gap: 8px;
+        }
+
+        .reward-amount {
+            font-weight: 700;
+            color: #FFFFFF;
+            font-size: 1rem;
+            background: rgba(0, 212, 170, 0.1);
+            padding: 4px 10px;
+            border-radius: 40px;
+            border: 1px solid rgba(0, 212, 170, 0.1);
+        }
+
+        .reward-amount.positive {
+            color: #00D4AA;
+        }
+
+        .reward-amount.pending {
+            color: #FFC107;
+            background: rgba(255, 193, 7, 0.1);
+            border-color: rgba(255, 193, 7, 0.15);
+        }
+
+        .divider-light {
+            height: 1px;
+            background: linear-gradient(90deg, transparent, rgba(108, 99, 255, 0.2), transparent);
+            margin: 6px 0;
+        }
+
+        .footer-meta {
+            display: flex;
+            justify-content: space-between;
+            color: #B0B0C0;
+            font-size: 0.7rem;
+            padding-top: 8px;
+            border-top: 1px solid rgba(255,255,255,0.03);
+            margin-top: 4px;
+        }
+
+        .badge-reward {
+            background: rgba(108, 99, 255, 0.2);
+            padding: 2px 10px;
+            border-radius: 40px;
+            color: #B0B0C0;
+            font-size: 0.65rem;
+            border: 1px solid rgba(108, 99, 255, 0.1);
+        }
+
+        /* webp mock badge (non‑intrusive) */
+        .webp-badge {
+            text-align: center;
+            margin-top: 16px;
+            font-size: 0.6rem;
+            letter-spacing: 0.5px;
+            color: rgba(176, 176, 192, 0.3);
+            font-family: 'JetBrains Mono', monospace;
+            border-top: 1px solid rgba(108, 99, 255, 0.06);
+            padding-top: 14px;
+        }
+
+        /* responsiveness */
+        @media (max-width: 420px) {
+            .webp-container {
+                padding: 18px 14px 20px;
+                border-radius: 28px;
+            }
+            .balance-amount {
+                font-size: 2rem;
+            }
+            .action-btn {
+                padding: 12px 0;
+                font-size: 0.75rem;
+            }
+        }
+
+        @media (min-width: 768px) {
+            body {
+                padding: 3rem 2rem;
+            }
+        }
+
+        /* simulate 'webp' image context – pure code, no external assets */
+        .webp-container * {
+            -webkit-tap-highlight-color: transparent;
+        }
+    </style>
+</head>
+<body>
+    <!-- 
+        PRODUCTION-GRADE WEBP MOCK 
+        File: images/mobile-app-screen3.webp
+        Purpose: payment/rewards screen (Gibwork)
+        Language: image (html/css simulation – exact visual spec)
+    -->
+    <div class="webp-container" role="img" aria-label="Gibwork mobile payment & rewards screen – balance, actions, recent earnings">
+        <div class="screen-content">
+            <!-- status / top -->
+            <div class="status-bar">
+                <div class="status-left">
+                    <span></span>
+                    <span style="opacity:0.6;"></span>
+                    <span style="opacity:0.3;"></span>
+                    <span style="margin-left: 6px; font-weight: 500;">9:41</span>
+                </div>
+                <div class="status-right">
+                    <span>📶</span>
+                    <span>📶</span>
+                    <span>🔋</span>
+                </div>
+            </div>
+
+            <!-- main balance card (rewards / payment hub) -->
+            <div class="balance-card">
+                <div class="balance-label">
+                    <span>💰 total rewards</span>
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#B0B0C0" stroke-width="1.5">
+                        <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
+                    </svg>
+                </div>
+                <div class="balance-amount">
+                    2,845 <small>GIB</small>
+                </div>
+                <div class="balance-change">
+                    <span class="change-up">↑ +12.4%</span>
+                    <span>this week</span>
+                    <span style="margin-left: auto;">≈ $1,247</span>
+                </div>
+            </div>
+
+            <!-- action buttons: payment / rewards -->
+            <div class="action-row">
+                <div class="action-btn primary-action">
+                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.8">
+                        <path d="M12 2v20M2 12h20"/>
+                    </svg>
+                    <span>Top up</span>
+                    <span class="sub-label">+ rewards</span>
+                </div>
+                <div class="action-btn">
+                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#B0B0C0" stroke-width="1.8">
+                        <path d="M22 12h-4l-3 9L9 3l-3 9H2"/>
+                    </svg>
+                    <span>Pay</span>
+                    <span class="sub-label">send</span>
+                </div>
+                <div class="action-btn">
+                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#B0B0C0" stroke-width="1.8">
+                        <circle cx="12" cy="12" r="10"/>
+                        <path d="M12 6v6l4 2"/>
+                    </svg>
+                    <span>History</span>
+                    <span class="sub-label">rewards</span>
+                </div>
+            </div>
+
+            <!-- recent rewards / payment activity -->
+            <div class="section-header">
+                <span>⚡ recent earnings</span>
+                <a href="#">view all</a>
+            </div>
+
+            <div class="reward-item">
+                <div class="reward-icon">
+                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#00D4AA" stroke-width="1.8">
+                        <path d="M20 12H4M12 4v16"/>
+                    </svg>
+                </div>
+                <div class="reward-details">
+                    <div class="reward-title">Bounty: UI audit</div>
+                    <div class="reward-sub">completed · 2h ago</div>
+                </div>
+                <div class="reward-amount positive">+180 GIB</div>
+            </div>
+
+            <div class="reward-item">
+                <div class="reward-icon">
+                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#FFC107" stroke-width="1.8">
+                        <circle cx="12" cy="12" r="10"/>
+                        <path d="M12 6v6l4 2"/>
+                    </svg>
+                </div>
+                <div class="reward-details">
+                    <div class="reward-title">Task: content review</div>
+                    <div class="reward-sub">pending · 3d left</div>
+                </div>
+                <div class="reward-amount pending">+90 GIB</div>
+            </div>
+
+            <div class="divider-light"></div>
+
+            <!-- payment / reward request -->
+            <div class="reward-item" style="background: rgba(108, 99, 255, 0.06); border-color: rgba(108, 99, 255, 0.15);">
+                <div class="reward-icon" style="background: #6C63FF20;">
+                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#6C63FF" stroke-width="1.8">
+                        <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M7 9l5 5 5-5M12 14V4"/>
+                    </svg>
+                </div>
+                <div class="reward-details">
+                    <div class="reward-title">Payment request</div>
+                    <div class="reward-sub">from Project Titan · 1 hour ago</div>
+                </div>
+                <div class="reward-amount" style="background: rgba(108,99,255,0.1); border-color: rgba(108,99,255,0.2); color: #FFFFFF;">+420 GIB</div>
+            </div>
+
+            <!-- micro metrics / social proof (rewards context) -->
+            <div class="footer-meta">
+                <span>🏆 1.2k contributors</span>
+                <span class="badge-reward">⚡ 8.4k tasks done</span>
+                <span>⭐ 4.9</span>
+            </div>
+
+            <!-- hidden webp semantic (file reference) -->
+            <div class="webp-badge" aria-hidden="true">
+                images/mobile-app-screen3.webp · payment/rewards
+            </div>
+        </div>
+    </div>
+    <!-- 
+        clean, production code – no external images,

@@ -1,0 +1,65 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 200" width="800" height="200">
+  <defs>
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap');
+      text { font-family: 'Inter', sans-serif; }
+    </style>
+  </defs>
+
+  <!-- Background -->
+  <rect width="800" height="200" fill="#0F0F1A" rx="16"/>
+
+  <!-- Partner Logos Row -->
+
+  <!-- Gitcoin Logo -->
+  <g transform="translate(40, 60)">
+    <rect x="0" y="0" width="140" height="80" rx="12" fill="#1A1A2E" stroke="rgba(108,99,255,0.2)" stroke-width="1"/>
+    <!-- Gitcoin diamond shape -->
+    <polygon points="70,18 90,50 70,82 50,50" fill="#6C63FF" opacity="0.9"/>
+    <polygon points="70,30 82,50 70,70 58,50" fill="#00D4AA" opacity="0.7"/>
+    <text x="70" y="100" text-anchor="middle" fill="#FFFFFF" font-size="12" font-weight="600">Gitcoin</text>
+  </g>
+
+  <!-- Bounties Network Logo -->
+  <g transform="translate(200, 60)">
+    <rect x="0" y="0" width="140" height="80" rx="12" fill="#1A1A2E" stroke="rgba(108,99,255,0.2)" stroke-width="1"/>
+    <!-- Bounty shield shape -->
+    <path d="M70,18 L90,30 L90,55 Q90,70 70,80 Q50,70 50,55 L50,30 Z" fill="#FF6584" opacity="0.8"/>
+    <circle cx="70" cy="48" r="10" fill="#0F0F1A" opacity="0.6"/>
+    <text x="70" y="100" text-anchor="middle" fill="#FFFFFF" font-size="11" font-weight="600">Bounties Network</text>
+  </g>
+
+  <!-- Ethereum Foundation Logo -->
+  <g transform="translate(360, 60)">
+    <rect x="0" y="0" width="140" height="80" rx="12" fill="#1A1A2E" stroke="rgba(108,99,255,0.2)" stroke-width="1"/>
+    <!-- Ethereum hexagon -->
+    <polygon points="70,18 92,38 92,62 70,82 48,62 48,38" fill="#6C63FF" opacity="0.3"/>
+    <polygon points="70,30 85,45 85,60 70,75 55,60 55,45" fill="#6C63FF" opacity="0.6"/>
+    <text x="70" y="100" text-anchor="middle" fill="#FFFFFF" font-size="11" font-weight="600">Ethereum Foundation</text>
+  </g>
+
+  <!-- Polygon Logo -->
+  <g transform="translate(520, 60)">
+    <rect x="0" y="0" width="140" height="80" rx="12" fill="#1A1A2E" stroke="rgba(108,99,255,0.2)" stroke-width="1"/>
+    <!-- Polygon diamond -->
+    <polygon points="70,18 95,50 70,82 45,50" fill="#00D4AA" opacity="0.5"/>
+    <polygon points="70,30 85,50 70,70 55,50" fill="#00D4AA" opacity="0.8"/>
+    <text x="70" y="100" text-anchor="middle" fill="#FFFFFF" font-size="12" font-weight="600">Polygon</text>
+  </g>
+
+  <!-- Chainlink Logo -->
+  <g transform="translate(680, 60)">
+    <rect x="0" y="0" width="140" height="80" rx="12" fill="#1A1A2E" stroke="rgba(108,99,255,0.2)" stroke-width="1"/>
+    <!-- Chainlink link shape -->
+    <circle cx="55" cy="50" r="12" fill="none" stroke="#00D4AA" stroke-width="3"/>
+    <circle cx="85" cy="50" r="12" fill="none" stroke="#00D4AA" stroke-width="3"/>
+    <line x1="67" y1="50" x2="73" y2="50" stroke="#00D4AA" stroke-width="3"/>
+    <text x="70" y="100" text-anchor="middle" fill="#FFFFFF" font-size="11" font-weight="600">Chainlink</text>
+  </g>
+
+  <!-- Divider line -->
+  <line x1="40" y1="170" x2="760" y2="170" stroke="rgba(108,99,255,0.15)" stroke-width="1"/>
+
+  <!-- "Trusted by" label -->
+  <text x="400" y="188" text-anchor="middle" fill="#B0B0C0" font-size="11" font-weight="500" letter-spacing="2">TRUSTED BY LEADING WEB3 PROJECTS</text>
+</svg>

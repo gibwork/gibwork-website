@@ -1,0 +1,583 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
+  <title>Gibwork · Find Web3 Work. Complete Tasks. Get Paid.</title>
+  <!-- Google Fonts & JetBrains Mono -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <!-- Font Awesome 6 (free) -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <style>
+    /* ---------- RESET / BASE ---------- */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background-color: #0F0F1A;
+      color: #FFFFFF;
+      font-family: 'Inter', sans-serif;
+      font-size: 1rem;
+      line-height: 1.5;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    img {
+      display: block;
+      max-width: 100%;
+      height: auto;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    /* ---------- DESIGN TOKENS ---------- */
+    :root {
+      --primary: #6C63FF;
+      --secondary: #00D4AA;
+      --accent: #FF6584;
+      --bg: #0F0F1A;
+      --surface: #1A1A2E;
+      --text-primary: #FFFFFF;
+      --text-secondary: #B0B0C0;
+      --success: #00D4AA;
+      --warning: #FFC107;
+      --error: #FF5252;
+      --border-glow: rgba(108, 99, 255, 0.2);
+      --card-shadow: 0 4px 20px rgba(0,0,0,0.3);
+      --radius-card: 12px;
+      --radius-btn: 8px;
+      --max-width: 1200px;
+      --section-pad-mobile: 2rem 1rem;
+      --section-pad-desktop: 4rem 2rem;
+    }
+
+    /* ---------- UTILITY ---------- */
+    .container {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 0 1.5rem;
+    }
+
+    .section-padding {
+      padding: var(--section-pad-mobile);
+    }
+
+    @media (min-width: 768px) {
+      .section-padding {
+        padding: var(--section-pad-desktop);
+      }
+    }
+
+    .flex-center {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .text-gradient {
+      background: linear-gradient(135deg, var(--primary), var(--secondary));
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+      padding: 12px 24px;
+      border-radius: var(--radius-btn);
+      font-weight: 600;
+      font-size: 1rem;
+      border: none;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      background: transparent;
+      color: white;
+      line-height: 1.2;
+    }
+
+    .btn-primary {
+      background: var(--primary);
+      color: white;
+      box-shadow: 0 2px 12px rgba(108, 99, 255, 0.3);
+    }
+
+    .btn-primary:hover {
+      background: #5a52e0;
+      transform: translateY(-2px);
+      box-shadow: 0 8px 24px rgba(108, 99, 255, 0.4);
+    }
+
+    .btn-secondary {
+      background: transparent;
+      border: 1.5px solid var(--primary);
+      color: var(--text-primary);
+    }
+
+    .btn-secondary:hover {
+      background: rgba(108, 99, 255, 0.08);
+      border-color: #8b85ff;
+    }
+
+    .btn-accent {
+      background: var(--secondary);
+      color: #0F0F1A;
+      font-weight: 700;
+    }
+
+    .btn-accent:hover {
+      background: #00bf9a;
+      transform: scale(1.02);
+    }
+
+    .btn-lg {
+      padding: 16px 32px;
+      font-size: 1.1rem;
+    }
+
+    .card {
+      background: var(--surface);
+      border-radius: var(--radius-card);
+      border: 1px solid var(--border-glow);
+      box-shadow: var(--card-shadow);
+      padding: 1.5rem;
+      transition: transform 0.2s ease, box-shadow 0.2s;
+    }
+
+    .card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 12px 28px rgba(0,0,0,0.5);
+    }
+
+    /* ---------- HEADINGS ---------- */
+    h1, h2, h3, h4 {
+      font-family: 'Inter', sans-serif;
+      font-weight: 700;
+      line-height: 1.2;
+      letter-spacing: -0.02em;
+    }
+
+    h1 {
+      font-size: 2.8rem;
+    }
+    h2 {
+      font-size: 2.2rem;
+    }
+    h3 {
+      font-size: 1.5rem;
+    }
+
+    @media (min-width: 768px) {
+      h1 { font-size: 3.5rem; }
+      h2 { font-size: 2.5rem; }
+      h3 { font-size: 1.75rem; }
+    }
+
+    /* ---------- HEADER / NAV ---------- */
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem 1.5rem;
+      max-width: var(--max-width);
+      margin: 0 auto;
+    }
+
+    .logo {
+      font-weight: 700;
+      font-size: 1.6rem;
+      letter-spacing: -0.03em;
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+
+    .logo i {
+      color: var(--primary);
+      font-size: 1.8rem;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 2rem;
+      align-items: center;
+    }
+
+    .nav-links a {
+      color: var(--text-secondary);
+      font-weight: 500;
+      transition: color 0.2s;
+    }
+
+    .nav-links a:hover {
+      color: white;
+    }
+
+    .nav-cta {
+      background: var(--primary);
+      padding: 8px 18px;
+      border-radius: 30px;
+      color: white !important;
+      font-weight: 600;
+    }
+
+    .mobile-menu-icon {
+      display: none;
+      font-size: 1.8rem;
+      color: var(--text-primary);
+    }
+
+    @media (max-width: 768px) {
+      .nav-links {
+        display: none;
+      }
+      .mobile-menu-icon {
+        display: block;
+      }
+    }
+
+    /* ---------- HERO ---------- */
+    .hero {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      gap: 1.8rem;
+      padding: 2rem 1rem 3rem;
+    }
+
+    .hero h1 {
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    .hero-sub {
+      font-size: 1.2rem;
+      color: var(--text-secondary);
+      max-width: 680px;
+      margin: 0 auto;
+      line-height: 1.6;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 1rem;
+      margin-top: 0.5rem;
+    }
+
+    .hero-stats {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 2.5rem 3rem;
+      margin-top: 2rem;
+      background: rgba(26, 26, 46, 0.6);
+      backdrop-filter: blur(4px);
+      padding: 1.2rem 2rem;
+      border-radius: 60px;
+      border: 1px solid rgba(108, 99, 255, 0.15);
+    }
+
+    .stat-item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .stat-number {
+      font-size: 1.8rem;
+      font-weight: 700;
+      color: white;
+    }
+
+    .stat-label {
+      font-size: 0.85rem;
+      color: var(--text-secondary);
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+    }
+
+    @media (max-width: 600px) {
+      .hero-stats {
+        gap: 1.2rem;
+        padding: 1rem 1.2rem;
+        border-radius: 30px;
+        flex-wrap: wrap;
+      }
+      .stat-number {
+        font-size: 1.4rem;
+      }
+    }
+
+    /* ---------- HOW IT WORKS ---------- */
+    .how-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 2rem;
+      margin-top: 2rem;
+    }
+
+    .how-step {
+      text-align: center;
+      padding: 1.8rem 1rem;
+    }
+
+    .step-icon {
+      background: rgba(108, 99, 255, 0.12);
+      width: 70px;
+      height: 70px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 1.2rem;
+      font-size: 2rem;
+      color: var(--primary);
+      border: 1px solid rgba(108, 99, 255, 0.2);
+    }
+
+    .how-step h3 {
+      margin-bottom: 0.5rem;
+    }
+
+    .how-step p {
+      color: var(--text-secondary);
+      font-size: 0.95rem;
+    }
+
+    /* ---------- MOBILE APP SHOWCASE ---------- */
+    .app-showcase {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 2rem;
+      margin-top: 2rem;
+    }
+
+    .app-showcase-content {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 2rem;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .app-mockup {
+      max-width: 280px;
+      border-radius: 24px;
+      box-shadow: 0 20px 40px rgba(0,0,0,0.5);
+      border: 2px solid rgba(108, 99, 255, 0.15);
+    }
+
+    .app-features {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.2rem;
+      max-width: 500px;
+    }
+
+    .app-feature-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.8rem;
+    }
+
+    .app-feature-item i {
+      color: var(--secondary);
+      font-size: 1.3rem;
+      margin-top: 0.2rem;
+    }
+
+    .app-download-buttons {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      margin-top: 1rem;
+    }
+
+    .app-download-buttons .btn {
+      padding: 14px 28px;
+      font-size: 1rem;
+    }
+
+    @media (max-width: 600px) {
+      .app-features {
+        grid-template-columns: 1fr;
+      }
+      .app-mockup {
+        max-width: 200px;
+      }
+    }
+
+    /* ---------- FEATURED OPPORTUNITIES ---------- */
+    .opportunities-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 1.5rem;
+      margin-top: 2rem;
+    }
+
+    .opportunity-card {
+      padding: 1.5rem;
+    }
+
+    .opportunity-card h4 {
+      margin-bottom: 0.5rem;
+    }
+
+    .opportunity-card .meta {
+      display: flex;
+      gap: 1rem;
+      color: var(--text-secondary);
+      font-size: 0.85rem;
+      margin: 0.8rem 0;
+    }
+
+    .opportunity-card .reward {
+      color: var(--secondary);
+      font-weight: 700;
+      font-size: 1.1rem;
+    }
+
+    /* ---------- COMMUNITY & SUCCESS METRICS ---------- */
+    .metrics-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 2rem;
+      margin-top: 2rem;
+      text-align: center;
+    }
+
+    .metric-item {
+      padding: 1.5rem 1rem;
+    }
+
+    .metric-number {
+      font-size: 2.5rem;
+      font-weight: 800;
+      background: linear-gradient(135deg, var(--primary), var(--secondary));
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+
+    .metric-label {
+      color: var(--text-secondary);
+      font-size: 0.95rem;
+      margin-top: 0.3rem;
+    }
+
+    /* ---------- CTA ---------- */
+    .cta-section {
+      text-align: center;
+      padding: 3rem 1rem;
+      background: linear-gradient(135deg, rgba(108,99,255,0.08), rgba(0,212,170,0.08));
+      border-radius: 24px;
+      margin: 2rem 0;
+    }
+
+    .cta-section h2 {
+      margin-bottom: 1rem;
+    }
+
+    .cta-section p {
+      color: var(--text-secondary);
+      max-width: 600px;
+      margin: 0 auto 1.5rem;
+    }
+
+    /* ---------- FOOTER ---------- */
+    footer {
+      border-top: 1px solid rgba(255,255,255,0.05);
+      padding: 2rem 1rem;
+      text-align: center;
+      color: var(--text-secondary);
+      font-size: 0.9rem;
+    }
+
+    /* ---------- RESPONSIVE ---------- */
+    @media (max-width: 768px) {
+      .btn-lg {
+        padding: 14px 24px;
+        font-size: 1rem;
+      }
+      .hero h1 {
+        font-size: 2.2rem;
+      }
+      .hero-sub {
+        font-size: 1rem;
+      }
+      .section-padding {
+        padding: 2rem 1rem;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .hero-stats {
+        flex-direction: column;
+        gap: 0.8rem;
+        padding: 1rem;
+        border-radius: 20px;
+      }
+      .stat-number {
+        font-size: 1.2rem;
+      }
+      .app-download-buttons {
+        flex-direction: column;
+        align-items: center;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ========== HEADER ========== -->
+  <header>
+    <nav class="navbar" aria-label="Main navigation">
+      <div class="logo">
+        <i class="fas fa-bolt" aria-hidden="true"></i>
+        <span>Gibwork</span>
+      </div>
+      <div class="nav-links">
+        <a href="#how-it-works" aria-label="How it works">How it works</a>
+        <a href="#app" aria-label="Mobile app">App</a>
+        <a href="#opportunities" aria-label="Opportunities">Opportunities</a>
+        <a href="#community" aria-label="Community">Community</a>
+        <a href="#cta" class="nav-cta" aria-label="Get started">Get Started</a>
+      </div>
+      <button class="mobile-menu-icon" aria-label="Toggle menu" aria-expanded="false">
+        <i class="fas fa-bars" aria-hidden="true"></i>
+      </button>
+    </nav>
+  </header>
+
+  <main>
+    <!-- ========== HERO ========== -->
+    <section class="hero section-padding" aria-label="Hero section">
+      <h1 class="text-gradient">Find Web3 Work. Complete Tasks. Get Paid.</h1>
+      <p class="hero-sub">
+        Connect with projects, complete bounties, build your reputation, and earn rewards from anywhere.
+      </p>
+      <div class="hero-actions">
+        <a href="#cta" class="btn btn-primary btn-lg" aria-label="Start earning">Start Earning <i class="fas fa-arrow-right" aria-hidden="true"></i></a>
+        <a href="#app" class="btn btn-secondary btn-lg" aria-label="Download app">Download App <i class="fas fa-mobile-alt" aria-hidden="true"></i></a>
+      </div>
+      <div class="hero-stats">
+        <div class="stat-item">
+          <span class="stat-number" id="tasks-completed">12,400+</span>
+          <span class="stat-label">Tasks Completed</span>
+        </div>
+        <
