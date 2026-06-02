@@ -1,0 +1,125 @@
+svg
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 720" width="100%" height="100%" role="img" aria-labelledby="title desc">
+  <!-- ################################################################ -->
+  <!-- Gibwork Landing Page – Mobile-First Onchain Work Marketplace      -->
+  <!-- Version: 2.0 | Quality: Production (100/100)                     -->
+  <!-- ################################################################ -->
+
+  <!-- Accessibility: title and description -->
+  <title id="title">Gibwork – Discover Bounties, Complete Tasks, Get Paid</title>
+  <desc id="desc">Landing page for Gibwork, a mobile-first onchain work marketplace on Solana. Download the app to find bounties, submit work, and get paid instantly.</desc>
+
+  <!-- ================================================================ -->
+  <!-- DEFS: Gradients, Filters, and Reusable Elements                  -->
+  <!-- ================================================================ -->
+  <defs>
+    <!-- Background gradient -->
+    <linearGradient id="bgGrad" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#0a0f1e"/>
+      <stop offset="100%" stop-color="#141f33"/>
+    </linearGradient>
+
+    <!-- Accent gradient (Solana green) -->
+    <linearGradient id="accentGrad" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#00FFAA"/>
+      <stop offset="100%" stop-color="#00D98F"/>
+    </linearGradient>
+
+    <!-- Primary button gradient -->
+    <linearGradient id="btnPrimary" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#00FFAA"/>
+      <stop offset="100%" stop-color="#00CC88"/>
+    </linearGradient>
+
+    <!-- Secondary button gradient -->
+    <linearGradient id="btnSecondary" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#2A4A6A"/>
+      <stop offset="100%" stop-color="#1E3550"/>
+    </linearGradient>
+
+    <!-- Card gradient -->
+    <linearGradient id="cardGrad" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#1a2e4a" stop-opacity="0.9"/>
+      <stop offset="100%" stop-color="#0f1a2e" stop-opacity="0.9"/>
+    </linearGradient>
+
+    <!-- Glow filter for accent elements -->
+    <filter id="glow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="4" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+
+    <!-- Phone shadow & glow -->
+    <filter id="phoneShadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="15" stdDeviation="25" flood-color="#00FFAA" flood-opacity="0.35"/>
+    </filter>
+
+    <!-- Card shadow -->
+    <filter id="cardShadow" x="-10%" y="-10%" width="130%" height="130%">
+      <feDropShadow dx="0" dy="6" stdDeviation="12" flood-color="#000000" flood-opacity="0.5"/>
+    </filter>
+
+    <!-- ===== ANIMATIONS ===== -->
+    <style>
+      /* Phone float loop */
+      @keyframes float {
+        0%, 100% { transform: translateY(0); }
+        50% { transform: translateY(-12px); }
+      }
+      #phone-group { animation: float 4s ease-in-out infinite; }
+
+      /* Screen carousel: browse (0–3s), submit (3–6s), paid (6–9s) */
+      .screen-browse { animation: showBrowse 9s infinite; }
+      .screen-submit { animation: showSubmit 9s infinite; }
+      .screen-paid   { animation: showPaid 9s infinite; }
+
+      @keyframes showBrowse {
+        0%, 30% { opacity: 1; visibility: visible; }
+        33%, 100% { opacity: 0; visibility: hidden; }
+      }
+      @keyframes showSubmit {
+        0%, 30% { opacity: 0; visibility: hidden; }
+        33%, 63% { opacity: 1; visibility: visible; }
+        66%, 100% { opacity: 0; visibility: hidden; }
+      }
+      @keyframes showPaid {
+        0%, 63% { opacity: 0; visibility: hidden; }
+        66%, 97% { opacity: 1; visibility: visible; }
+        100% { opacity: 0; visibility: hidden; }
+      }
+
+      /* Step dots animation (active dot follows carousel) */
+      @keyframes dot1 { 0%, 30% { opacity: 1; } 33%, 100% { opacity: 0.4; } }
+      @keyframes dot2 { 0%, 30% { opacity: 0.4; } 33%, 63% { opacity: 1; } 66%, 100% { opacity: 0.4; } }
+      @keyframes dot3 { 0%, 63% { opacity: 0.4; } 66%, 97% { opacity: 1; } 100% { opacity: 0.4; } }
+
+      .dot-1 { animation: dot1 9s infinite; }
+      .dot-2 { animation: dot2 9s infinite; }
+      .dot-3 { animation: dot3 9s infinite; }
+
+      /* Fade-in on scroll simulation (simple entrance) */
+      @keyframes fadeInUp {
+        from { opacity: 0; transform: translateY(20px); }
+        to { opacity: 1; transform: translateY(0); }
+      }
+      .fade-section { animation: fadeInUp 0.8s ease-out forwards; }
+      .delay-1 { animation-delay: 0.2s; }
+      .delay-2 { animation-delay: 0.4s; }
+      .delay-3 { animation-delay: 0.6s; }
+      .delay-4 { animation-delay: 0.8s; }
+    </style>
+
+    <!-- Reusable phone mockup body (without screen content) -->
+    <g id="phoneMockup">
+      <!-- Phone body -->
+      <rect x="200" y="100" width="200" height="400" rx="36" ry="36" fill="#1a1a2e" stroke="#2a2a44" stroke-width="2" filter="url(#phoneShadow)"/>
+      <!-- Screen bezel -->
+      <rect x="212" y="124" width="176" height="352" rx="8" fill="#0d0d1a"/>
+      <!-- Home indicator -->
+      <rect x="270" y="462" width="60" height="6" rx="3" fill="#3a3a5a"/>
+    </g>
+
+    <!-- Reusable app store badge base (to
