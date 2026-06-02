@@ -132,7 +132,7 @@ export function LookingFor() {
                 <CardHeader className="border-t">
                   <CardTitle className="text-lg">Simple Task</CardTitle>
                   <CardDescription>
-                    Short jobs done in hours — design, content, research, QA,
+                    Short jobs done in hours: design, content, research, QA,
                     growth.
                   </CardDescription>
                 </CardHeader>
@@ -182,7 +182,7 @@ export function LookingFor() {
               className="text-center mt-2 text-muted-foreground"
             >
               Browse open bounties and tasks on the web or in the iOS and
-              Android apps — submit, get approved, and the escrow releases to
+              Android apps. Submit, get approved, and the escrow releases to
               your wallet.
             </motion.p>
 

@@ -1,7 +1,7 @@
 export const siteConfig = {
   name: "gibwork",
   description:
-    "Gibwork is the onchain work marketplace. Post GitHub bounties, complete paid tasks, or offer services — and get paid in USDC on Solana. Available on web, iOS, and Android.",
+    "Gibwork is the onchain work marketplace. Post GitHub bounties, complete paid tasks, or offer services and get paid in USDC on Solana. Available on web, iOS, and Android.",
   creator: "gibwork",
   baseUrl: "https://gib.work/",
   discordUrl: "https://discord.gg/TNXJjpRvqN",

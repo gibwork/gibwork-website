@@ -13,13 +13,14 @@ import { useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { FADE_IN, FADE_UP_ANIMATION_VARIANTS } from "@/lib/framer-variants";
 import { Separator } from "./ui/separator";
+import { ThemeToggle } from "./theme-toggle";
 
 export function Nav() {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
     <>
-      <nav className=" z-10 border-b bg-background/80 backdrop-blur-sm sticky top-0">
+      <nav className="z-50 border-b bg-background/80 backdrop-blur-sm sticky top-0">
         <motion.div
           variants={FADE_UP_ANIMATION_VARIANTS}
           initial="hidden"
@@ -82,6 +83,7 @@ export function Nav() {
                   <XLogoMark className="size-5" />
                 </Link>
               </Button>
+              <ThemeToggle />
             </div>
 
             <Button asChild className="group">
@@ -111,7 +113,7 @@ export function Nav() {
             initial="hidden"
             animate="show"
             exit="hidden"
-            className="fixed inset-0 bg-background z-10 overflow-auto"
+            className="fixed inset-0 bg-background z-50 overflow-auto"
           >
             <div className="flex flex-col">
               <div className="sm:px-6 px-4 h-16 flex justify-between items-center">
@@ -205,6 +207,7 @@ export function Nav() {
                     <XLogoMark className="size-5" />
                   </Link>
                 </Button>
+                <ThemeToggle />
               </div>
             </div>
           </motion.div>

@@ -15,16 +15,16 @@ export async function generateMetadata(
     description:
       "Post GitHub bounties, complete paid tasks, or list your services and get paid in USDC on Solana. Available on web, iOS, and Android.",
     openGraph: {
-      title: "Gibwork — Onchain work marketplace",
+      title: "Gibwork | Onchain work marketplace",
       description:
-        "Bounties, tasks, and services — paid in USDC on Solana. Available on iOS and Android.",
+        "Bounties, tasks, and services paid in USDC on Solana. Available on iOS and Android.",
       images: [`https://cdn.gib.work/metadata/default.png`],
     },
     twitter: {
       card: "summary_large_image",
-      title: "Gibwork — Onchain work marketplace",
+      title: "Gibwork | Onchain work marketplace",
       description:
-        "Bounties, tasks, and services — paid in USDC on Solana. Available on iOS and Android.",
+        "Bounties, tasks, and services paid in USDC on Solana. Available on iOS and Android.",
       images: [`https://cdn.gib.work/metadata/default.png`],
     },
   };

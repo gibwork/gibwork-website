@@ -25,7 +25,7 @@ const features = [
     icon: Briefcase,
     title: "Bounties across every skill",
     description:
-      "Design, dev, content, marketing, writing, research, UX testing — filter by skill, payout, and deadline.",
+      "Design, dev, content, marketing, writing, research, UX testing. Filter by skill, payout, and deadline.",
   },
   {
     icon: Send,
@@ -80,15 +80,15 @@ export function MobileApp() {
           variants={FADE_UP_ANIMATION_VARIANTS}
           className="relative order-2 lg:order-1 flex justify-center"
         >
-          <div className="absolute inset-0 -z-10 mx-auto h-[500px] w-[500px] max-w-full rounded-full bg-primary/10 blur-3xl" />
+          <div className="absolute inset-0 -z-10 mx-auto h-[500px] w-[500px] max-w-full rounded-full bg-primary/10 dark:bg-primary/30 blur-3xl" />
 
           {/* Device frame */}
-          <div className="relative w-[280px] sm:w-[320px] aspect-[9/19] rounded-[2.5rem] border-[10px] border-foreground/90 bg-foreground shadow-2xl shadow-foreground/20">
+          <div className="isolate relative w-[280px] sm:w-[320px] aspect-[9/19] rounded-[2.5rem] border-[10px] border-black bg-black shadow-2xl shadow-black/20">
             {/* Dynamic Island */}
-            <div className="absolute top-1.5 left-1/2 -translate-x-1/2 w-[88px] h-[26px] bg-foreground rounded-full z-20 shadow-inner" />
+            <div className="absolute top-1.5 left-1/2 -translate-x-1/2 w-[88px] h-[26px] bg-black rounded-full z-20 shadow-inner" />
 
-            {/* Screen */}
-            <div className="absolute inset-0 rounded-[1.75rem] overflow-hidden bg-background flex flex-col">
+            {/* Screen - forced light mode regardless of site theme */}
+            <div className="force-light absolute inset-0 rounded-[1.75rem] overflow-hidden bg-background flex flex-col">
               {/* Status bar */}
               <div className="flex items-center justify-between px-5 pt-2 pb-3 text-[10px] font-semibold">
                 <span className="pl-1">9:41</span>
@@ -203,7 +203,7 @@ export function MobileApp() {
             variants={FADE_UP_ANIMATION_VARIANTS}
             className="mt-3 text-muted-foreground max-w-xl lg:mx-0 mx-auto"
           >
-            Built for modern online work — simple tasks, clear requirements,
+            Built for modern online work: simple tasks, clear requirements,
             real payouts in USDC. Browse bounties, submit work, and watch USDC
             land in your wallet, all from your phone.
           </motion.p>
@@ -235,7 +235,7 @@ export function MobileApp() {
               href={siteConfig.appStoreUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-3 rounded-xl bg-foreground text-background px-5 py-3 hover:opacity-90 transition-opacity w-full sm:w-auto justify-center"
+              className="inline-flex items-center gap-3 rounded-xl bg-black text-white px-5 py-3 hover:opacity-90 transition-opacity w-full sm:w-auto justify-center"
             >
               <AppleIcon className="size-7" />
               <div className="text-left">
@@ -252,7 +252,7 @@ export function MobileApp() {
               href={siteConfig.playStoreUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-3 rounded-xl bg-foreground text-background px-5 py-3 hover:opacity-90 transition-opacity w-full sm:w-auto justify-center"
+              className="inline-flex items-center gap-3 rounded-xl bg-black text-white px-5 py-3 hover:opacity-90 transition-opacity w-full sm:w-auto justify-center"
             >
               <GooglePlayIcon className="size-7" />
               <div className="text-left">

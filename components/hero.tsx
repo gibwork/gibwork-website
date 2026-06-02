@@ -56,7 +56,7 @@ export function Hero() {
         className="max-w-2xl mt-4 w-full sm:text-lg text-muted-foreground"
       >
         Gibwork is the onchain work marketplace. Post bounties on GitHub issues,
-        complete paid tasks, or list your services — and get paid in USDC on
+        complete paid tasks, or list your services, and get paid in USDC on
         Solana. From your browser or your phone.
       </motion.p>
 
@@ -125,7 +125,7 @@ export function Hero() {
         <div className="rounded-lg overflow-hidden border bg-muted w-full">
           <Image alt="Gibwork web app dashboard" src={dashboard} />
         </div>
-        <div className="absolute inset-0 bg-gradient-to-t from-background via-background/60" />
+        <div className="absolute inset-0 bg-gradient-to-t from-background via-background/60 pointer-events-none" />
       </motion.div>
     </motion.section>
   );
