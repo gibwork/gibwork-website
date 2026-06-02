@@ -11,7 +11,7 @@ import { TwitterLogoMark } from "./logo/twitter";
 
 export function Footer() {
   return (
-    <footer className="relative w-full sm:pb-12 sm:px-6">
+    <footer className="relative w-full sm:pb-12 sm:px-6 bg-white z-[60] rounded-t-3xl shadow-[0_-10px_40px_rgba(0,0,0,0.05)] pt-6 sm:pt-12">
       <div className="w-full max-w-7xl mx-auto p-4 sm:p-8 shadow-sm sm:border border-0 border-t sm:rounded-lg rounded-none flex flex-col">
         <div className="flex items-start gap-4 w-full justify-between gap-x-40 md:flex-row flex-col gap-y-12">
           <div className="flex items-start flex-col">
@@ -59,7 +59,7 @@ export function Footer() {
               </Link>
               <Link
                 href={"https://docs.gib.work/"}
-                 target="_blank"
+                target="_blank"
                 className="text-muted-foreground transition-all hover:text-foreground group"
               >
                 Docs
@@ -71,7 +71,7 @@ export function Footer() {
               <p className="font-semibold">Resources</p>
               <Link
                 href={"https://legal.gib.work/privacy-policy.pdf"}
-                 target="_blank"
+                target="_blank"
                 className="text-muted-foreground transition-all hover:text-foreground group"
               >
                 Privacy Policy
