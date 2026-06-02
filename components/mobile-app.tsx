@@ -23,27 +23,27 @@ import taskThree from "@/public/tasks/image-03.png";
 const features = [
   {
     icon: Briefcase,
-    title: "Browse paid bounties",
+    title: "Bounties across every skill",
     description:
-      "Filter open bounties and tasks by skill, payout, and deadline.",
+      "Design, dev, content, marketing, writing, research, UX testing — filter by skill, payout, and deadline.",
   },
   {
     icon: Send,
     title: "Submit work in minutes",
     description:
-      "Attach your PR link, screenshots, or files and ship submissions from your phone.",
+      "Attach a PR link, screenshots, or files and ship from your phone. Connect GitHub, X, or Discord to prove the work.",
   },
   {
     icon: Bell,
     title: "Real-time approvals",
     description:
-      "Get push notifications the moment a creator reviews or approves your work.",
+      "Push notifications the moment a creator reviews, requests changes, or approves your work.",
   },
   {
     icon: Wallet,
-    title: "Manage USDC payouts",
+    title: "USDC straight to your wallet",
     description:
-      "Track earnings and payouts directly to your noncustodial Solana wallet.",
+      "Funds are escrowed onchain and released to your noncustodial Solana wallet the moment your submission is approved.",
   },
 ];
 
@@ -84,15 +84,15 @@ export function MobileApp() {
 
           {/* Device frame */}
           <div className="relative w-[280px] sm:w-[320px] aspect-[9/19] rounded-[2.5rem] border-[10px] border-foreground/90 bg-foreground shadow-2xl shadow-foreground/20">
-            {/* Notch */}
-            <div className="absolute top-0 left-1/2 -translate-x-1/2 w-24 h-6 bg-foreground rounded-b-2xl z-20" />
+            {/* Dynamic Island */}
+            <div className="absolute top-1.5 left-1/2 -translate-x-1/2 w-[88px] h-[26px] bg-foreground rounded-full z-20 shadow-inner" />
 
             {/* Screen */}
             <div className="absolute inset-0 rounded-[1.75rem] overflow-hidden bg-background flex flex-col">
               {/* Status bar */}
-              <div className="flex items-center justify-between px-6 pt-3 pb-1 text-[10px] font-semibold">
-                <span>9:41</span>
-                <div className="flex items-center gap-1 opacity-70">
+              <div className="flex items-center justify-between px-5 pt-2 pb-3 text-[10px] font-semibold">
+                <span className="pl-1">9:41</span>
+                <div className="flex items-center gap-1 opacity-70 pr-1">
                   <div className="h-2 w-3 rounded-sm bg-foreground" />
                   <div className="h-2 w-2 rounded-full bg-foreground" />
                   <div className="h-2 w-4 rounded-sm border border-foreground" />
@@ -196,15 +196,16 @@ export function MobileApp() {
             variants={FADE_UP_ANIMATION_VARIANTS}
             className="font-semibold text-3xl sm:text-4xl"
           >
-            Take Gibwork with you.
+            Find bounties. Get paid. From anywhere.
           </motion.h2>
 
           <motion.p
             variants={FADE_UP_ANIMATION_VARIANTS}
             className="mt-3 text-muted-foreground max-w-xl lg:mx-0 mx-auto"
           >
-            The Gibwork Android app lets you browse paid bounties, submit work,
-            track approvals, and watch USDC land in your wallet — from anywhere.
+            Built for modern online work — simple tasks, clear requirements,
+            real payouts in USDC. Browse bounties, submit work, and watch USDC
+            land in your wallet, all from your phone.
           </motion.p>
 
           <motion.ul
@@ -231,6 +232,23 @@ export function MobileApp() {
             className="mt-8 flex flex-col sm:flex-row items-center lg:items-start gap-3"
           >
             <Link
+              href={siteConfig.appStoreUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-3 rounded-xl bg-foreground text-background px-5 py-3 hover:opacity-90 transition-opacity w-full sm:w-auto justify-center"
+            >
+              <AppleIcon className="size-7" />
+              <div className="text-left">
+                <div className="text-[10px] uppercase opacity-70 leading-none">
+                  Download on the
+                </div>
+                <div className="text-base font-semibold leading-tight">
+                  App Store
+                </div>
+              </div>
+            </Link>
+
+            <Link
               href={siteConfig.playStoreUrl}
               target="_blank"
               rel="noopener noreferrer"
@@ -246,38 +264,31 @@ export function MobileApp() {
                 </div>
               </div>
             </Link>
-
-            <div className="inline-flex items-center gap-3 rounded-xl border px-5 py-3 text-muted-foreground w-full sm:w-auto justify-center">
-              <AppleIcon className="size-7" />
-              <div className="text-left">
-                <div className="text-[10px] uppercase opacity-70 leading-none">
-                  Coming soon
-                </div>
-                <div className="text-base font-semibold leading-tight">
-                  App Store
-                </div>
-              </div>
-            </div>
           </motion.div>
 
           <motion.div
             variants={FADE_UP_ANIMATION_VARIANTS}
-            className="mt-4 flex items-center lg:justify-start justify-center gap-2 text-xs text-muted-foreground"
+            className="mt-4 flex flex-wrap items-center lg:justify-start justify-center gap-x-3 gap-y-1 text-xs text-muted-foreground"
           >
-            <div className="flex items-center" aria-label="4.5 out of 5 stars">
-              {[0, 1, 2, 3, 4].map((i) => (
-                <Star
-                  key={i}
-                  className={
-                    i < 4
-                      ? "size-3.5 fill-amber-400 text-amber-400"
-                      : "size-3.5 fill-amber-400/50 text-amber-400/50"
-                  }
-                />
-              ))}
-            </div>
-            <span>4.5 average · 93 reviews · 10k+ downloads on Google Play</span>
+            <span className="inline-flex items-center gap-1.5">
+              <Star className="size-3.5 fill-amber-400 text-amber-400" />
+              4.9 on App Store
+            </span>
+            <span className="opacity-30">·</span>
+            <span className="inline-flex items-center gap-1.5">
+              <Star className="size-3.5 fill-amber-400 text-amber-400" />
+              4.5 on Google Play
+            </span>
+            <span className="opacity-30">·</span>
+            <span>10k+ downloads</span>
           </motion.div>
+
+          <motion.p
+            variants={FADE_UP_ANIMATION_VARIANTS}
+            className="mt-1.5 text-[11px] text-muted-foreground/70 lg:text-left text-center"
+          >
+            Also runs on macOS (Apple Silicon) and visionOS.
+          </motion.p>
         </div>
       </div>
     </motion.section>

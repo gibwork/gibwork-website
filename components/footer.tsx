@@ -7,7 +7,7 @@ import { siteConfig } from "@/lib/site-config";
 import { ArrowRight, ExternalLink } from "lucide-react";
 import { YoutubeLogoMark } from "./logo/youtube";
 import { DiscordLogoMark } from "./logo/discord";
-import { TwitterLogoMark } from "./logo/twitter";
+import { XLogoMark } from "./logo/x";
 
 export function Footer() {
   return (
@@ -69,6 +69,15 @@ export function Footer() {
             <div className="text-sm flex flex-col gap-2 items-start">
               <p className="font-semibold">Get the app</p>
               <Link
+                href={siteConfig.appStoreUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-muted-foreground transition-all hover:text-foreground group"
+              >
+                App Store
+                <ExternalLink className="inline-block size-4 group-hover:scale-100 scale-0 transition-all ml-1" />
+              </Link>
+              <Link
                 href={siteConfig.playStoreUrl}
                 target="_blank"
                 rel="noopener noreferrer"
@@ -77,9 +86,6 @@ export function Footer() {
                 Google Play
                 <ExternalLink className="inline-block size-4 group-hover:scale-100 scale-0 transition-all ml-1" />
               </Link>
-              <span className="text-muted-foreground/60">
-                App Store · coming soon
-              </span>
               <Link
                 href={siteConfig.appUrl}
                 target="_blank"
@@ -110,6 +116,7 @@ export function Footer() {
               href={siteConfig.youtubeUrl}
               target="_blank"
               className="hover:scale-105 transition-all"
+              aria-label="Gibwork on YouTube"
             >
               <YoutubeLogoMark className="size-5" />
             </Link>
@@ -117,11 +124,17 @@ export function Footer() {
               href={siteConfig.discordUrl}
               target="_blank"
               className="hover:scale-105 transition-all"
+              aria-label="Gibwork on Discord"
             >
               <DiscordLogoMark className="size-5" />
             </Link>
-            <Link href={siteConfig.xUrl} target="_blank" className="hover:scale-105 transition-all">
-              <TwitterLogoMark className="size-5" />
+            <Link
+              href={siteConfig.xUrl}
+              target="_blank"
+              className="hover:scale-105 transition-all"
+              aria-label="Gibwork on X"
+            >
+              <XLogoMark className="size-5" />
             </Link>
           </div>
 

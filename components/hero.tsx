@@ -29,11 +29,7 @@ export function Hero() {
       className="relative flex pt-16 sm:pt-24 pb-24 sm:pb-32 text-center flex-col justify-center items-center px-4 sm:px-6 w-full mx-auto max-w-7xl"
     >
       <motion.div variants={FADE_UP_ANIMATION_VARIANTS}>
-        <Link
-          href={siteConfig.playStoreUrl}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
+        <Link href="#mobile-app">
           <Badge
             variant={"secondary"}
             className="gap-2 px-3 py-1 hover:bg-secondary/80 transition-colors"
@@ -42,7 +38,7 @@ export function Hero() {
               <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-primary opacity-60" />
               <span className="relative inline-flex size-2 rounded-full bg-primary" />
             </span>
-            The Gibwork Android app is live
+            Now on iOS and Android
             <ArrowRight className="size-3" />
           </Badge>
         </Link>
@@ -81,13 +77,9 @@ export function Hero() {
           className="group w-full sm:w-auto"
           asChild
         >
-          <Link
-            href={siteConfig.playStoreUrl}
-            target="_blank"
-            rel="noopener noreferrer"
-          >
+          <Link href="#mobile-app">
             <Smartphone className="size-4" />
-            Get it on Google Play
+            Get the mobile app
           </Link>
         </Button>
       </motion.div>
@@ -96,6 +88,11 @@ export function Hero() {
         variants={FADE_UP_ANIMATION_VARIANTS}
         className="flex flex-wrap items-center justify-center gap-x-4 gap-y-2 text-xs sm:text-sm mt-6 text-muted-foreground"
       >
+        <span className="inline-flex items-center gap-1.5">
+          <Star className="size-3.5 fill-current" />
+          4.9 on App Store
+        </span>
+        <span className="opacity-30">·</span>
         <span className="inline-flex items-center gap-1.5">
           <Star className="size-3.5 fill-current" />
           4.5 on Google Play

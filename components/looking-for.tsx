@@ -181,8 +181,9 @@ export function LookingFor() {
               variants={FADE_UP_ANIMATION_VARIANTS}
               className="text-center mt-2 text-muted-foreground"
             >
-              Browse open bounties and tasks on the web or in the Android app —
-              submit, get approved, and the escrow releases to your wallet.
+              Browse open bounties and tasks on the web or in the iOS and
+              Android apps — submit, get approved, and the escrow releases to
+              your wallet.
             </motion.p>
 
             <motion.div

@@ -1,7 +1,7 @@
 "use client";
 
 import { DiscordLogoMark } from "@/components/logo/discord";
-import { TwitterLogoMark } from "@/components/logo/twitter";
+import { XLogoMark } from "@/components/logo/x";
 import { Button } from "@/components/ui/button";
 import { ArrowRight, Menu, X } from "lucide-react";
 import Link from "next/link";
@@ -33,7 +33,7 @@ export function Nav() {
               <p className="font-bold text-3xl min-[420px]:block hidden">gibwork</p>
             </Link>
 
-            <div className="lg:absolute lg:top-1/2 uppercase lg:left-1/2 lg:-translate-x-1/2 lg:-translate-y-1/2 md:flex hidden">
+            <div className="lg:absolute lg:top-1/2 uppercase lg:left-1/2 lg:-translate-x-1/2 lg:-translate-y-1/2 lg:flex hidden">
               <Button asChild variant={"ghost"} className="text-muted-foreground text-xs">
                 <Link href={"/#about"}>About</Link>
               </Button>
@@ -53,21 +53,33 @@ export function Nav() {
           </div>
 
           <div className="flex items-center gap-2">
-            <div className="hidden md:flex items-center">
+            <div className="hidden lg:flex items-center">
               <Button size={"icon"} variant={"ghost"} asChild>
-                <Link href={siteConfig.youtubeUrl} target="_blank">
+                <Link
+                  href={siteConfig.youtubeUrl}
+                  target="_blank"
+                  aria-label="Gibwork on YouTube"
+                >
                   <YoutubeLogoMark className="size-5" />
                 </Link>
               </Button>
               <Button size={"icon"} variant={"ghost"} asChild>
-                <Link href={siteConfig.discordUrl} target="_blank">
+                <Link
+                  href={siteConfig.discordUrl}
+                  target="_blank"
+                  aria-label="Gibwork on Discord"
+                >
                   <DiscordLogoMark className="size-5" />
                 </Link>
               </Button>
 
               <Button size={"icon"} variant={"ghost"} asChild>
-                <Link href={siteConfig.xUrl} target="_blank">
-                  <TwitterLogoMark className="size-5" />
+                <Link
+                  href={siteConfig.xUrl}
+                  target="_blank"
+                  aria-label="Gibwork on X"
+                >
+                  <XLogoMark className="size-5" />
                 </Link>
               </Button>
             </div>
@@ -82,8 +94,9 @@ export function Nav() {
             <Button
               size={"icon"}
               variant={"secondary"}
-              className="md:hidden"
+              className="lg:hidden"
               onClick={() => setIsOpen(true)}
+              aria-label="Open menu"
             >
               <Menu className="size-5" />
             </Button>
@@ -115,7 +128,12 @@ export function Nav() {
                     </Link>
                   </Button>
 
-                  <Button size={"icon"} variant={"secondary"} onClick={() => setIsOpen(false)}>
+                  <Button
+                    size={"icon"}
+                    variant={"secondary"}
+                    onClick={() => setIsOpen(false)}
+                    aria-label="Close menu"
+                  >
                     <X className="size-5" />
                   </Button>
                 </div>
@@ -160,19 +178,31 @@ export function Nav() {
 
               <div className="flex justify-end sm:p-6 p-4">
                 <Button size={"icon"} variant={"ghost"} asChild>
-                  <Link href={siteConfig.youtubeUrl} target="_blank">
+                  <Link
+                    href={siteConfig.youtubeUrl}
+                    target="_blank"
+                    aria-label="Gibwork on YouTube"
+                  >
                     <YoutubeLogoMark className="size-5" />
                   </Link>
                 </Button>
                 <Button size={"icon"} variant={"ghost"} asChild>
-                  <Link href={siteConfig.discordUrl} target="_blank">
+                  <Link
+                    href={siteConfig.discordUrl}
+                    target="_blank"
+                    aria-label="Gibwork on Discord"
+                  >
                     <DiscordLogoMark className="size-5" />
                   </Link>
                 </Button>
 
                 <Button size={"icon"} variant={"ghost"} asChild>
-                  <Link href={siteConfig.xUrl} target="_blank">
-                    <TwitterLogoMark className="size-5" />
+                  <Link
+                    href={siteConfig.xUrl}
+                    target="_blank"
+                    aria-label="Gibwork on X"
+                  >
+                    <XLogoMark className="size-5" />
                   </Link>
                 </Button>
               </div>

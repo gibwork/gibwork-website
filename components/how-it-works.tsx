@@ -17,7 +17,7 @@ const steps = [
     icon: CheckCircle2,
     title: "Submit on web or mobile",
     description:
-      "Workers attach a PR link, screenshots, or files from their browser or the Android app. Creators review on their own time.",
+      "Workers attach a PR link, screenshots, or files from their browser or the iOS / Android app. Creators review on their own time.",
   },
   {
     label: "03",

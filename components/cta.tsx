@@ -54,13 +54,9 @@ export function CTA() {
           className="group w-full sm:w-auto"
           size="lg"
         >
-          <Link
-            href={siteConfig.playStoreUrl}
-            target="_blank"
-            rel="noopener noreferrer"
-          >
+          <Link href="#mobile-app">
             <Smartphone className="size-4" />
-            Get it on Google Play
+            Get the mobile app
           </Link>
         </Button>
       </motion.div>

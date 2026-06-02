@@ -72,9 +72,9 @@ export function Faq() {
           <AccordionItem value="item-mobile">
             <AccordionTrigger>Is there a mobile app?</AccordionTrigger>
             <AccordionContent>
-              Yes — the Gibwork Android app is available on Google Play. You can
-              browse bounties, submit work, track approvals, and manage payouts
-              from your phone. iOS is coming soon.
+              Yes — the Gibwork app is available on both the App Store and
+              Google Play. You can browse bounties, submit work, track
+              approvals, and manage USDC payouts from your phone.
             </AccordionContent>
           </AccordionItem>
           <AccordionItem value="item-escrow">
