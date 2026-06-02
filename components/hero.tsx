@@ -54,7 +54,7 @@ export function Hero() {
 
       <motion.div variants={SCALE_IN}>
         <motion.div whileHover={{ scale: 1.04 }} whileTap={{ scale: 0.96 }}>
-          <Button className="group mt-8 animate-glow-pulse hover:animate-none" asChild>
+          <Button className="group mt-8" asChild>
             <Link href={siteConfig.appUrl} target="_blank">
               Get Started For Free
               <ArrowRight className="size-0 group-hover:size-5 transition-all -ml-2 group-hover:ml-0" />

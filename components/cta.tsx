@@ -2,7 +2,7 @@
 
 import { Button } from "@/components/ui/button";
 import { ArrowRight } from "lucide-react";
-import Ripple from "./ui/ripple";
+import { DotGrid } from "./ui/dot-grid";
 import { motion } from "framer-motion";
 import { SPRING_UP, SCALE_IN, STAGGER_CONTAINER } from "@/lib/framer-variants";
 import Link from "next/link";
@@ -38,7 +38,7 @@ export function CTA() {
           whileHover={{ scale: 1.04 }}
           whileTap={{ scale: 0.96 }}
         >
-          <Button asChild className="mt-8 group animate-glow-pulse hover:animate-none">
+          <Button asChild className="mt-8 group">
             <Link href={siteConfig.appUrl} target="_blank">
               Get Started
               <ArrowRight className="size-0 group-hover:size-5 transition-all -ml-2 group-hover:ml-0" />
@@ -47,7 +47,7 @@ export function CTA() {
         </motion.div>
       </motion.div>
 
-      <Ripple mainCircleSize={320} numCircles={8} mainCircleOpacity={0.2} />
+      <DotGrid />
     </motion.section>
   );
 }

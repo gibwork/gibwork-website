@@ -55,7 +55,7 @@ export function Testimonial() {
           </motion.p>
         </motion.div>
 
-        <div className="overflow-auto flex items-start gap-2 pb-4 sm:hidden">
+        <div className="overflow-auto scrollbar-hide flex items-start gap-2 pb-4 sm:hidden">
           {[...leftTweetIds, ...rightTweetIds].map((id) => {
             return (
               <ClientTweetCard
