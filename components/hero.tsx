@@ -11,8 +11,6 @@ import { siteConfig } from "@/lib/site-config";
 import SparklesText from "./ui/sparkles-text";
 import { motion } from "framer-motion";
 import { FADE_UP_ANIMATION_VARIANTS } from "@/lib/framer-variants";
-import { Clipboard } from "flowbite-react"
-
 
 export function Hero() {
   return (
@@ -33,14 +31,14 @@ export function Hero() {
       <motion.div variants={FADE_UP_ANIMATION_VARIANTS}>
         <Badge variant={"secondary"}>
           <div className="size-1 rounded-full bg-muted-foreground mr-2" />
-          Introducing gibwork
+          Bounties, tasks, and payouts in one workflow
           <div className="size-1 rounded-full bg-muted-foreground ml-2" />
         </Badge>
       </motion.div>
 
       <motion.div variants={FADE_UP_ANIMATION_VARIANTS} className="relative z-0">
         <SparklesText
-          text="Find Talent, Find Work"
+          text="Find bounties. Submit work. Get paid."
           className="font-semibold text-5xl sm:text-6xl mt-4"
         />
       </motion.div>
@@ -49,24 +47,43 @@ export function Hero() {
         variants={FADE_UP_ANIMATION_VARIANTS}
         className="max-w-2xl mt-4 w-full sm:text-lg text-muted-foreground"
       >
-        Whether you&apos;re searching for your next gig or seeking skilled individuals, our platform
-        connects you with the perfect match.
+        Gibwork helps teams fund clear tasks and helps contributors discover
+        bounties, submit proof, track review status, and manage stablecoin
+        payouts from web or iPhone.
       </motion.p>
 
-      <motion.div variants={FADE_UP_ANIMATION_VARIANTS}>
-        <Button className="group mt-8" asChild>
+      <motion.div
+        variants={FADE_UP_ANIMATION_VARIANTS}
+        className="mt-8 flex flex-col sm:flex-row gap-3"
+      >
+        <Button className="group" asChild>
           <Link href={siteConfig.appUrl} target="_blank">
-            Get Started For Free
+            Explore open work
             <ArrowRight className="size-0 group-hover:size-5 transition-all -ml-2 group-hover:ml-0" />
+          </Link>
+        </Button>
+        <Button variant="outline" asChild>
+          <Link href={siteConfig.appStoreUrl} target="_blank">
+            Download iPhone app
           </Link>
         </Button>
       </motion.div>
 
       <motion.div
         variants={FADE_UP_ANIMATION_VARIANTS}
+        className="flex flex-wrap items-center justify-center gap-x-4 gap-y-2 text-sm mt-4 text-muted-foreground"
+      >
+        <span>Public task discovery</span>
+        <span className="hidden sm:inline">/</span>
+        <span>Proof-based submissions</span>
+        <span className="hidden sm:inline">/</span>
+        <span>USDC/SOL wallet payouts</span>
+      </motion.div>
+
+      <motion.div
+        variants={FADE_UP_ANIMATION_VARIANTS}
         className="flex items-center gap-2 text-sm mt-4"
       >
-
         <span className="opacity-80">powered by</span>
         <Link
           href={"https://solana.com/"}
