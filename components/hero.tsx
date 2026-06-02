@@ -11,7 +11,6 @@ import { siteConfig } from "@/lib/site-config";
 import SparklesText from "./ui/sparkles-text";
 import { motion } from "framer-motion";
 import { FADE_UP_ANIMATION_VARIANTS } from "@/lib/framer-variants";
-import { Clipboard } from "flowbite-react"
 
 
 export function Hero() {
@@ -40,7 +39,7 @@ export function Hero() {
 
       <motion.div variants={FADE_UP_ANIMATION_VARIANTS} className="relative z-0">
         <SparklesText
-          text="Find Talent, Find Work"
+          text="Onchain work, paid when it ships"
           className="font-semibold text-5xl sm:text-6xl mt-4"
         />
       </motion.div>
@@ -49,8 +48,8 @@ export function Hero() {
         variants={FADE_UP_ANIMATION_VARIANTS}
         className="max-w-2xl mt-4 w-full sm:text-lg text-muted-foreground"
       >
-        Whether you&apos;re searching for your next gig or seeking skilled individuals, our platform
-        connects you with the perfect match.
+        Gibwork helps teams fund concrete tasks and helps contributors discover paid work across
+        GitHub bounties, creator campaigns, and community jobs with wallet-native payouts.
       </motion.p>
 
       <motion.div variants={FADE_UP_ANIMATION_VARIANTS}>
@@ -60,6 +59,15 @@ export function Hero() {
             <ArrowRight className="size-0 group-hover:size-5 transition-all -ml-2 group-hover:ml-0" />
           </Link>
         </Button>
+      </motion.div>
+
+      <motion.div
+        variants={FADE_UP_ANIMATION_VARIANTS}
+        className="mt-6 flex flex-wrap items-center justify-center gap-2 text-sm text-muted-foreground"
+      >
+        <span className="rounded-full border bg-background px-3 py-1">Open source bounties</span>
+        <span className="rounded-full border bg-background px-3 py-1">Mobile app access</span>
+        <span className="rounded-full border bg-background px-3 py-1">USDC and SOL payouts</span>
       </motion.div>
 
       <motion.div

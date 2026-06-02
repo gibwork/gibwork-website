@@ -49,11 +49,9 @@ export function LogoList() {
         </p>
 
         <p className="lg:max-w-3xl w-full text-muted-foreground lg:mt-0 mt-4">
-          Gibwork is powered by a dedicated team of innovators and professionals committed to
-          connecting talent with opportunities. Our team combines expertise in technology, design,
-          and user experience to build and manage the platform, ensuring it serves the needs of both
-          job seekers and employers. We strive to create a seamless experience that empowers users
-          to find work or the right talent efficiently.
+          Gibwork gives crypto teams a practical way to turn product needs, community campaigns,
+          and open source issues into funded work. Contributors can discover opportunities,
+          submit proof, and get rewarded through wallet-native payouts when their work is approved.
         </p>
       </motion.div>
 
