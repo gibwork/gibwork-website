@@ -6,7 +6,8 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "test": "echo \"Error: no test specified\" && exit 0"
   },
   "dependencies": {
     "@next/third-parties": "^14.2.11",
@@ -15,20 +16,25 @@
     "@radix-ui/react-slot": "^1.1.0",
     "@radix-ui/react-tabs": "^1.1.0",
     "@tabler/icons-react": "^3.12.0",
+    "@tsparticles/react": "^3.0.0",
+    "@tsparticles/slim": "^4.1.2",
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.1.1",
     "dotenv": "^16.4.5",
+    "embla-carousel-react": "^8.6.0",
     "flowbite-react": "^0.10.2",
-    "framer-motion": "^11.3.30",
+    "framer-motion": "^11.18.2",
     "lucide-react": "^0.435.0",
     "next": "14.2.6",
     "posthog-js": "^1.253.2",
     "react": "^18",
+    "react-countup": "^6.5.3",
     "react-dom": "^18",
     "react-tweet": "^3.2.1",
     "sharp": "^0.34.1",
-    "tailwind-merge": "^2.5.2",
-    "tailwindcss-animate": "^1.0.7"
+    "tailwind-merge": "^2.6.1",
+    "tailwindcss-animate": "^1.0.7",
+    "tsparticles-slim": "^2.12.0"
   },
   "devDependencies": {
     "@types/node": "^20",
