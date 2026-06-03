@@ -1,7 +1,7 @@
 "use client";
 
 import { DiscordLogoMark } from "@/components/logo/discord";
-import { TwitterLogoMark } from "@/components/logo/twitter";
+import { XLogoMark } from "@/components/logo/x";
 import { Button } from "@/components/ui/button";
 import { ArrowRight, Menu, X } from "lucide-react";
 import Link from "next/link";
@@ -13,13 +13,14 @@ import { useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { FADE_IN, FADE_UP_ANIMATION_VARIANTS } from "@/lib/framer-variants";
 import { Separator } from "./ui/separator";
+import { ThemeToggle } from "./theme-toggle";
 
 export function Nav() {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
     <>
-      <nav className=" z-10 border-b bg-background/80 backdrop-blur-sm sticky top-0">
+      <nav className="z-50 border-b bg-background/80 backdrop-blur-sm sticky top-0">
         <motion.div
           variants={FADE_UP_ANIMATION_VARIANTS}
           initial="hidden"
@@ -33,16 +34,16 @@ export function Nav() {
               <p className="font-bold text-3xl min-[420px]:block hidden">gibwork</p>
             </Link>
 
-            <div className="lg:absolute lg:top-1/2 uppercase lg:left-1/2 lg:-translate-x-1/2 lg:-translate-y-1/2 md:flex hidden">
+            <div className="lg:absolute lg:top-1/2 uppercase lg:left-1/2 lg:-translate-x-1/2 lg:-translate-y-1/2 lg:flex hidden">
               <Button asChild variant={"ghost"} className="text-muted-foreground text-xs">
                 <Link href={"/#about"}>About</Link>
               </Button>
               <Button asChild variant={"ghost"} className="text-muted-foreground text-xs">
-                <Link href={"/#testimonial"}>Testimonial</Link>
+                <Link href={"/#how-it-works"}>How it works</Link>
               </Button>
-              {/* <Button asChild variant={"ghost"} className="text-muted-foreground text-xs">
-                <Link href={"https://jup.ag/swap/SOL-F7Hwf8ib5DVCoiuyGr618Y3gon429Rnd1r5F9R5upump"} target="_blank">Token</Link>
-              </Button> */}
+              <Button asChild variant={"ghost"} className="text-muted-foreground text-xs">
+                <Link href={"/#mobile-app"}>Mobile</Link>
+              </Button>
               <Button asChild variant={"ghost"} className="text-muted-foreground text-xs">
                 <Link href={"/#faq"}>FAQ</Link>
               </Button>
@@ -53,23 +54,36 @@ export function Nav() {
           </div>
 
           <div className="flex items-center gap-2">
-            <div className="hidden md:flex items-center">
+            <div className="hidden lg:flex items-center">
               <Button size={"icon"} variant={"ghost"} asChild>
-                <Link href={siteConfig.youtubeUrl} target="_blank">
+                <Link
+                  href={siteConfig.youtubeUrl}
+                  target="_blank"
+                  aria-label="Gibwork on YouTube"
+                >
                   <YoutubeLogoMark className="size-5" />
                 </Link>
               </Button>
               <Button size={"icon"} variant={"ghost"} asChild>
-                <Link href={siteConfig.discordUrl} target="_blank">
+                <Link
+                  href={siteConfig.discordUrl}
+                  target="_blank"
+                  aria-label="Gibwork on Discord"
+                >
                   <DiscordLogoMark className="size-5" />
                 </Link>
               </Button>
 
               <Button size={"icon"} variant={"ghost"} asChild>
-                <Link href={siteConfig.xUrl} target="_blank">
-                  <TwitterLogoMark className="size-5" />
+                <Link
+                  href={siteConfig.xUrl}
+                  target="_blank"
+                  aria-label="Gibwork on X"
+                >
+                  <XLogoMark className="size-5" />
                 </Link>
               </Button>
+              <ThemeToggle />
             </div>
 
             <Button asChild className="group">
@@ -82,8 +96,9 @@ export function Nav() {
             <Button
               size={"icon"}
               variant={"secondary"}
-              className="md:hidden"
+              className="lg:hidden"
               onClick={() => setIsOpen(true)}
+              aria-label="Open menu"
             >
               <Menu className="size-5" />
             </Button>
@@ -98,7 +113,7 @@ export function Nav() {
             initial="hidden"
             animate="show"
             exit="hidden"
-            className="fixed inset-0 bg-background z-10 overflow-auto"
+            className="fixed inset-0 bg-background z-50 overflow-auto"
           >
             <div className="flex flex-col">
               <div className="sm:px-6 px-4 h-16 flex justify-between items-center">
@@ -115,7 +130,12 @@ export function Nav() {
                     </Link>
                   </Button>
 
-                  <Button size={"icon"} variant={"secondary"} onClick={() => setIsOpen(false)}>
+                  <Button
+                    size={"icon"}
+                    variant={"secondary"}
+                    onClick={() => setIsOpen(false)}
+                    aria-label="Close menu"
+                  >
                     <X className="size-5" />
                   </Button>
                 </div>
@@ -136,16 +156,16 @@ export function Nav() {
                   onClick={() => setIsOpen(false)}
                   className="text-muted-foreground uppercase"
                 >
-                  <Link href={"/#testimonial"}>Testimonial</Link>
+                  <Link href={"/#how-it-works"}>How it works</Link>
                 </Button>
-                {/* <Button
+                <Button
                   asChild
                   variant={"ghost"}
                   onClick={() => setIsOpen(false)}
                   className="text-muted-foreground uppercase"
                 >
-                  <Link href={"/#team"}>Team</Link>
-                </Button> */}
+                  <Link href={"/#mobile-app"}>Mobile</Link>
+                </Button>
                 <Button
                   asChild
                   variant={"ghost"}
@@ -154,27 +174,48 @@ export function Nav() {
                 >
                   <Link href={"/#faq"}>FAQ</Link>
                 </Button>
+                <Button
+                  asChild
+                  variant={"ghost"}
+                  onClick={() => setIsOpen(false)}
+                  className="text-muted-foreground uppercase"
+                >
+                  <Link href={"https://docs.gib.work/"} target="_blank">Docs</Link>
+                </Button>
               </div>
 
               <Separator />
 
               <div className="flex justify-end sm:p-6 p-4">
                 <Button size={"icon"} variant={"ghost"} asChild>
-                  <Link href={siteConfig.youtubeUrl} target="_blank">
+                  <Link
+                    href={siteConfig.youtubeUrl}
+                    target="_blank"
+                    aria-label="Gibwork on YouTube"
+                  >
                     <YoutubeLogoMark className="size-5" />
                   </Link>
                 </Button>
                 <Button size={"icon"} variant={"ghost"} asChild>
-                  <Link href={siteConfig.discordUrl} target="_blank">
+                  <Link
+                    href={siteConfig.discordUrl}
+                    target="_blank"
+                    aria-label="Gibwork on Discord"
+                  >
                     <DiscordLogoMark className="size-5" />
                   </Link>
                 </Button>
 
                 <Button size={"icon"} variant={"ghost"} asChild>
-                  <Link href={siteConfig.xUrl} target="_blank">
-                    <TwitterLogoMark className="size-5" />
+                  <Link
+                    href={siteConfig.xUrl}
+                    target="_blank"
+                    aria-label="Gibwork on X"
+                  >
+                    <XLogoMark className="size-5" />
                   </Link>
                 </Button>
+                <ThemeToggle />
               </div>
             </div>
           </motion.div>

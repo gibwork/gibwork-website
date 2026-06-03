@@ -64,8 +64,48 @@ export function Faq() {
           <AccordionItem value="item-3">
             <AccordionTrigger>What payment methods does gibwork support?</AccordionTrigger>
             <AccordionContent>
-              We only support wallet transactions, i.e., depositing the winning amount directly to
-              your wallet in the form of crypto or stablecoins.
+              Gibwork is fully onchain. Payouts are sent directly to your
+              noncustodial Solana wallet in USDC or any other Solana SPL token
+              the creator chose to fund the work with.
+            </AccordionContent>
+          </AccordionItem>
+          <AccordionItem value="item-mobile">
+            <AccordionTrigger>Is there a mobile app?</AccordionTrigger>
+            <AccordionContent>
+              Yes, the Gibwork app is available on both the App Store and
+              Google Play. You can browse bounties, submit work, track
+              approvals, and manage USDC payouts from your phone.
+            </AccordionContent>
+          </AccordionItem>
+          <AccordionItem value="item-escrow">
+            <AccordionTrigger>
+              How do I know a bounty will actually pay out?
+            </AccordionTrigger>
+            <AccordionContent>
+              Funds are escrowed onchain the moment a creator publishes work.
+              You can confirm the escrow on Solana before you start. Once your
+              submission is approved, the smart contract releases payment to
+              your wallet automatically.
+            </AccordionContent>
+          </AccordionItem>
+          <AccordionItem value="item-tips">
+            <AccordionTrigger>What are GitHub Tips?</AccordionTrigger>
+            <AccordionContent>
+              GitHub Tips let anyone tip a contributor directly when their pull
+              request gets merged. The tip is sent in USDC to the contributor's
+              Solana wallet. It's a lightweight way to reward open source work
+              without posting a full bounty.
+            </AccordionContent>
+          </AccordionItem>
+          <AccordionItem value="item-private">
+            <AccordionTrigger>
+              Can I post a private task only visible to specific people?
+            </AccordionTrigger>
+            <AccordionContent>
+              Yes. When creating a task you can set it to private, which
+              restricts visibility so only contributors you invite can view and
+              apply. Funds are still escrowed onchain the same way as public
+              tasks.
             </AccordionContent>
           </AccordionItem>
           {/* <AccordionItem value="item-4">

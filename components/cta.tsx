@@ -1,7 +1,7 @@
 "use client";
 
 import { Button } from "@/components/ui/button";
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, Smartphone } from "lucide-react";
 import Ripple from "./ui/ripple";
 import { motion } from "framer-motion";
 import { FADE_UP_ANIMATION_VARIANTS } from "@/lib/framer-variants";
@@ -28,20 +28,35 @@ export function CTA() {
         variants={FADE_UP_ANIMATION_VARIANTS}
         className="font-semibold text-3xl sm:text-4xl text-center"
       >
-        Start exploring
+        Start earning today
       </motion.h2>
       <motion.p
         variants={FADE_UP_ANIMATION_VARIANTS}
-        className="text-center mt-2 text-muted-foreground"
+        className="text-center mt-3 text-muted-foreground max-w-xl"
       >
-        Check out gibwork and create or complete your very first work.
+        Join thousands of builders, designers, and creators who get paid in USDC
+        on Solana for the work they ship.
       </motion.p>
 
-      <motion.div variants={FADE_UP_ANIMATION_VARIANTS}>
-        <Button asChild className="mt-8 group">
+      <motion.div
+        variants={FADE_UP_ANIMATION_VARIANTS}
+        className="mt-8 flex flex-col sm:flex-row items-center gap-3 z-10"
+      >
+        <Button asChild className="group w-full sm:w-auto" size="lg">
           <Link href={siteConfig.appUrl} target="_blank">
-            Get Started
-            <ArrowRight className="size-0 group-hover:size-5 transition-all -ml-2 group-hover:ml-0" />
+            Open the web app
+            <ArrowRight className="size-4 transition-transform group-hover:translate-x-0.5" />
+          </Link>
+        </Button>
+        <Button
+          asChild
+          variant="outline"
+          className="group w-full sm:w-auto"
+          size="lg"
+        >
+          <Link href="#mobile-app">
+            <Smartphone className="size-4" />
+            Get the mobile app
           </Link>
         </Button>
       </motion.div>

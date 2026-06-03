@@ -62,19 +62,18 @@ export function LogoList() {
         className="relative mt-16 flex w-full flex-col items-center justify-center overflow-hidden"
       >
         <Marquee pauseOnHover className="[--duration:20s]">
-          <Image alt="Solana Foundation" src={solanaFoundation} className="h-8 w-auto px-6" />
-          <Image alt="send" src={send} className="h-8 w-auto px-4" />
-          <Image alt="alldomains" src={alldomains} className="h-8 w-auto px-4" />
-          <div className=" px-6 text-2xl font-medium">
-            <Image alt="deansList" src={deansList} className="h-8 w-auto inline" /> Dean's List
+          <Image alt="Solana Foundation" src={solanaFoundation} className="h-8 w-auto px-6 dark:invert" />
+          <Image alt="send" src={send} className="h-8 w-auto px-4 dark:invert" />
+          <Image alt="alldomains" src={alldomains} className="h-8 w-auto px-4 dark:invert" />
+          <div className="px-6 text-2xl font-medium text-foreground flex items-center gap-2">
+            <Image alt="deansList" src={deansList} className="h-8 w-auto inline dark:invert" /> Dean's List
           </div>
-          <Image alt="magic" src={magic} className="h-8 w-auto px-6" />
-          <Image alt="blinksgg" src={blinksGG} className="h-8 w-auto px-6" />
-          <Image alt="realms" src={realms} className="h-8 w-auto px-6" />
-          <Image alt="zircon" src={zircon} className="h-8 w-auto px-6" />
-          <Image alt="decaf" src={decaf} className="h-8 w-auto px-6" />
-          <Image alt="pubkey" src={pubkey} className="h-8 w-auto px-6" />
-
+          <Image alt="magic" src={magic} className="h-8 w-auto px-6 dark:invert" />
+          <Image alt="blinksgg" src={blinksGG} className="h-8 w-auto px-6 dark:invert" />
+          <Image alt="realms" src={realms} className="h-8 w-auto px-6 dark:invert" />
+          <Image alt="zircon" src={zircon} className="h-8 w-auto px-6 dark:invert" />
+          <Image alt="decaf" src={decaf} className="h-8 w-auto px-6 dark:invert" />
+          <Image alt="pubkey" src={pubkey} className="h-8 w-auto px-6 dark:invert" />
         </Marquee>
 
         <div className="pointer-events-none absolute inset-y-0 left-0 w-1/5 bg-gradient-to-r from-background"></div>
