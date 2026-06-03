@@ -19,7 +19,7 @@ export function Nav() {
 
   return (
     <>
-      <nav className=" z-10 border-b bg-background/80 backdrop-blur-sm sticky top-0">
+      <nav className="z-10 border-b bg-background/80 backdrop-blur-sm sticky top-0">
         <motion.div
           variants={FADE_UP_ANIMATION_VARIANTS}
           initial="hidden"
@@ -38,11 +38,14 @@ export function Nav() {
                 <Link href={"/#about"}>About</Link>
               </Button>
               <Button asChild variant={"ghost"} className="text-muted-foreground text-xs">
-                <Link href={"/#testimonial"}>Testimonial</Link>
+                <Link href={"/#how-it-works"}>How It Works</Link>
               </Button>
-              {/* <Button asChild variant={"ghost"} className="text-muted-foreground text-xs">
-                <Link href={"https://jup.ag/swap/SOL-F7Hwf8ib5DVCoiuyGr618Y3gon429Rnd1r5F9R5upump"} target="_blank">Token</Link>
-              </Button> */}
+              <Button asChild variant={"ghost"} className="text-muted-foreground text-xs">
+                <Link href={"/#mobile-app"}>Mobile App</Link>
+              </Button>
+              <Button asChild variant={"ghost"} className="text-muted-foreground text-xs">
+                <Link href={"/#testimonial"}>Reviews</Link>
+              </Button>
               <Button asChild variant={"ghost"} className="text-muted-foreground text-xs">
                 <Link href={"/#faq"}>FAQ</Link>
               </Button>
@@ -64,7 +67,6 @@ export function Nav() {
                   <DiscordLogoMark className="size-5" />
                 </Link>
               </Button>
-
               <Button size={"icon"} variant={"ghost"} asChild>
                 <Link href={siteConfig.xUrl} target="_blank">
                   <TwitterLogoMark className="size-5" />
@@ -106,7 +108,6 @@ export function Nav() {
                   <Image alt="" src={logo} className="size-10 rounded-md" />
                   <p className="font-bold text-xl min-[420px]:block hidden">gibwork</p>
                 </Link>
-
                 <div className="flex items-center gap-2">
                   <Button asChild className="group">
                     <Link href={siteConfig.appUrl} target="_blank">
@@ -114,7 +115,6 @@ export function Nav() {
                       <ArrowRight className="size-0 group-hover:size-5 transition-all -ml-2 group-hover:ml-0" />
                     </Link>
                   </Button>
-
                   <Button size={"icon"} variant={"secondary"} onClick={() => setIsOpen(false)}>
                     <X className="size-5" />
                   </Button>
@@ -122,38 +122,23 @@ export function Nav() {
               </div>
 
               <div className="flex items-end flex-col sm:p-6 p-4">
-                <Button
-                  asChild
-                  variant={"ghost"}
-                  onClick={() => setIsOpen(false)}
-                  className="text-muted-foreground uppercase"
-                >
-                  <Link href={"/#about"}>About</Link>
-                </Button>
-                <Button
-                  asChild
-                  variant={"ghost"}
-                  onClick={() => setIsOpen(false)}
-                  className="text-muted-foreground uppercase"
-                >
-                  <Link href={"/#testimonial"}>Testimonial</Link>
-                </Button>
-                {/* <Button
-                  asChild
-                  variant={"ghost"}
-                  onClick={() => setIsOpen(false)}
-                  className="text-muted-foreground uppercase"
-                >
-                  <Link href={"/#team"}>Team</Link>
-                </Button> */}
-                <Button
-                  asChild
-                  variant={"ghost"}
-                  onClick={() => setIsOpen(false)}
-                  className="text-muted-foreground uppercase"
-                >
-                  <Link href={"/#faq"}>FAQ</Link>
-                </Button>
+                {[
+                  { href: "/#about", label: "About" },
+                  { href: "/#how-it-works", label: "How It Works" },
+                  { href: "/#mobile-app", label: "Mobile App" },
+                  { href: "/#testimonial", label: "Reviews" },
+                  { href: "/#faq", label: "FAQ" },
+                ].map((item) => (
+                  <Button
+                    key={item.href}
+                    asChild
+                    variant={"ghost"}
+                    onClick={() => setIsOpen(false)}
+                    className="text-muted-foreground uppercase"
+                  >
+                    <Link href={item.href}>{item.label}</Link>
+                  </Button>
+                ))}
               </div>
 
               <Separator />
@@ -169,7 +154,6 @@ export function Nav() {
                     <DiscordLogoMark className="size-5" />
                   </Link>
                 </Button>
-
                 <Button size={"icon"} variant={"ghost"} asChild>
                   <Link href={siteConfig.xUrl} target="_blank">
                     <TwitterLogoMark className="size-5" />
