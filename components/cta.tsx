@@ -17,31 +17,44 @@ export function CTA() {
       variants={{
         hidden: {},
         show: {
-          transition: {
-            staggerChildren: 0.15,
-          },
+          transition: { staggerChildren: 0.15 },
         },
       }}
       className="relative py-24 sm:py-32 border-y px-4 sm:px-6 flex items-center w-full max-w-7xl mx-auto justify-center flex-col overflow-hidden"
     >
+      <motion.p
+        variants={FADE_UP_ANIMATION_VARIANTS}
+        className="text-primary font-semibold text-sm"
+      >
+        GET STARTED TODAY
+      </motion.p>
       <motion.h2
         variants={FADE_UP_ANIMATION_VARIANTS}
-        className="font-semibold text-3xl sm:text-4xl text-center"
+        className="font-semibold text-3xl sm:text-4xl text-center mt-2"
       >
-        Start exploring
+        Ready to earn your first crypto payment?
       </motion.h2>
       <motion.p
         variants={FADE_UP_ANIMATION_VARIANTS}
-        className="text-center mt-2 text-muted-foreground"
+        className="text-center mt-3 text-muted-foreground max-w-md"
       >
-        Check out gibwork and create or complete your very first work.
+        Join thousands of contributors and hundreds of Web3 projects. Connect your wallet and
+        start in minutes — no fees, no middlemen.
       </motion.p>
 
-      <motion.div variants={FADE_UP_ANIMATION_VARIANTS}>
-        <Button asChild className="mt-8 group">
+      <motion.div
+        variants={FADE_UP_ANIMATION_VARIANTS}
+        className="flex items-center gap-3 mt-8 flex-wrap justify-center"
+      >
+        <Button asChild className="group">
           <Link href={siteConfig.appUrl} target="_blank">
-            Get Started
+            Get Started Free
             <ArrowRight className="size-0 group-hover:size-5 transition-all -ml-2 group-hover:ml-0" />
+          </Link>
+        </Button>
+        <Button asChild variant="outline">
+          <Link href="https://docs.gib.work/" target="_blank">
+            Read the Docs
           </Link>
         </Button>
       </motion.div>
