@@ -21,6 +21,7 @@ type WorkDetail = {
   sponsor: string;
   title: string;
   token: string;
+  tokenImageUrl: string;
 };
 
 type LookingForProps = {
@@ -38,6 +39,7 @@ const fallbackWorkDetails: WorkDetail[] = [
     title: "Design gibwork's new landing page",
     amount: 500,
     token: "USDC",
+    tokenImageUrl: "/token-usdc.png",
   },
   {
     category: "Development",
@@ -47,6 +49,7 @@ const fallbackWorkDetails: WorkDetail[] = [
     title: "Create developer challenges for Zircon",
     amount: 500,
     token: "USDC",
+    tokenImageUrl: "/token-usdc.png",
   },
   // {
   //   image: "/tasks/image-04.png",
@@ -62,6 +65,7 @@ const fallbackWorkDetails: WorkDetail[] = [
     title: "Use slug- to share a set of links on X or Reddit",
     amount: 100,
     token: "USDC",
+    tokenImageUrl: "/token-usdc.png",
   },
 ];
 
@@ -216,7 +220,7 @@ export function LookingFor({ liveWorkDetails = [] }: LookingForProps) {
             >
               {workDetails.map((_detail) => (
                 <Link
-                  key={_detail.title}
+                  key={_detail.href}
                   href={_detail.href}
                   target="_blank"
                   className="group"
@@ -226,7 +230,7 @@ export function LookingFor({ liveWorkDetails = [] }: LookingForProps) {
                       <Image
                         alt={`${_detail.token} token`}
                         fill
-                        src={`/token-${_detail.token.toLowerCase()}.png`}
+                        src={_detail.tokenImageUrl}
                         className="h-full w-full object-cover"
                       />
                     </div>

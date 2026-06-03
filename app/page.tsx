@@ -8,6 +8,7 @@ import { Testimonial } from "@/components/testimonial";
 import { Faq } from "@/components/faq";
 
 type ExploreAsset = {
+  imageUrl: string;
   symbol: string;
 };
 
@@ -39,6 +40,7 @@ type LiveWorkDetail = {
   sponsor: string;
   title: string;
   token: string;
+  tokenImageUrl: string;
 };
 
 const dateFormatter = new Intl.DateTimeFormat("en", {
@@ -76,6 +78,7 @@ async function getLiveWorkDetails(): Promise<LiveWorkDetail[]> {
         sponsor: listing.user.username,
         title: listing.title.trim(),
         token: listing.asset!.symbol,
+        tokenImageUrl: listing.asset!.imageUrl,
       }));
   } catch {
     return [];
