@@ -11,6 +11,7 @@ import {
 } from "@/components/ui/accordion";
 import { motion } from "framer-motion";
 import { FADE_UP_ANIMATION_VARIANTS } from "@/lib/framer-variants";
+import Link from "next/link";
 
 export function Faq() {
   return (
@@ -66,6 +67,14 @@ export function Faq() {
             <AccordionContent>
               We only support wallet transactions, i.e., depositing the winning amount directly to
               your wallet in the form of crypto or stablecoins.
+            </AccordionContent>
+          </AccordionItem>
+          <AccordionItem value="item-4">
+            <AccordionTrigger>Other query?</AccordionTrigger>
+            <AccordionContent>
+              <Link href="https://discord.com/invite/TNXJjpRvqN" target="_blank" className="text-violet-600 underline">
+                 Join our Discord
+              </Link>
             </AccordionContent>
           </AccordionItem>
           {/* <AccordionItem value="item-4">

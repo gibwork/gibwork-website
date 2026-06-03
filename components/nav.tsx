@@ -19,7 +19,7 @@ export function Nav() {
 
   return (
     <>
-      <nav className=" z-10 border-b bg-background/80 backdrop-blur-sm sticky top-0">
+      <nav className=" z-20 border-b bg-background/80 backdrop-blur-sm sticky top-0">
         <motion.div
           variants={FADE_UP_ANIMATION_VARIANTS}
           initial="hidden"
@@ -38,11 +38,11 @@ export function Nav() {
                 <Link href={"/#about"}>About</Link>
               </Button>
               <Button asChild variant={"ghost"} className="text-muted-foreground text-xs">
-                <Link href={"/#testimonial"}>Testimonial</Link>
+                <Link href={"/#features"}>why us</Link>
               </Button>
-              {/* <Button asChild variant={"ghost"} className="text-muted-foreground text-xs">
-                <Link href={"https://jup.ag/swap/SOL-F7Hwf8ib5DVCoiuyGr618Y3gon429Rnd1r5F9R5upump"} target="_blank">Token</Link>
-              </Button> */}
+              <Button asChild variant={"ghost"} className="text-muted-foreground text-xs">
+                <Link href={"/#mobileapp"}>mobile</Link>
+              </Button>
               <Button asChild variant={"ghost"} className="text-muted-foreground text-xs">
                 <Link href={"/#faq"}>FAQ</Link>
               </Button>
@@ -64,7 +64,6 @@ export function Nav() {
                   <DiscordLogoMark className="size-5" />
                 </Link>
               </Button>
-
               <Button size={"icon"} variant={"ghost"} asChild>
                 <Link href={siteConfig.xUrl} target="_blank">
                   <TwitterLogoMark className="size-5" />
@@ -74,18 +73,19 @@ export function Nav() {
 
             <Button asChild className="group">
               <Link href={siteConfig.appUrl} target="_blank">
-                Open App
+                Open Web
                 <ArrowRight className="size-0 group-hover:size-5 transition-all -ml-2 group-hover:ml-0" />
               </Link>
             </Button>
 
+            {/* hamburger toggles between Menu and X */}
             <Button
               size={"icon"}
               variant={"secondary"}
               className="md:hidden"
-              onClick={() => setIsOpen(true)}
+              onClick={() => setIsOpen((prev) => !prev)}
             >
-              <Menu className="size-5" />
+              {isOpen ? <X className="size-5" /> : <Menu className="size-5" />}
             </Button>
           </div>
         </motion.div>
@@ -115,12 +115,17 @@ export function Nav() {
                     </Link>
                   </Button>
 
-                  <Button size={"icon"} variant={"secondary"} onClick={() => setIsOpen(false)}>
+                  <Button
+                    size={"icon"}
+                    variant={"secondary"}
+                    onClick={() => setIsOpen(false)}
+                  >
                     <X className="size-5" />
                   </Button>
                 </div>
               </div>
 
+              {/* all nav links matching desktop */}
               <div className="flex items-end flex-col sm:p-6 p-4">
                 <Button
                   asChild
@@ -136,16 +141,16 @@ export function Nav() {
                   onClick={() => setIsOpen(false)}
                   className="text-muted-foreground uppercase"
                 >
-                  <Link href={"/#testimonial"}>Testimonial</Link>
+                  <Link href={"/#features"}>Why us</Link>
                 </Button>
-                {/* <Button
+                <Button
                   asChild
                   variant={"ghost"}
                   onClick={() => setIsOpen(false)}
                   className="text-muted-foreground uppercase"
                 >
-                  <Link href={"/#team"}>Team</Link>
-                </Button> */}
+                  <Link href={"/#mobileapp"}>Mobile</Link>
+                </Button>
                 <Button
                   asChild
                   variant={"ghost"}
@@ -153,6 +158,16 @@ export function Nav() {
                   className="text-muted-foreground uppercase"
                 >
                   <Link href={"/#faq"}>FAQ</Link>
+                </Button>
+                <Button
+                  asChild
+                  variant={"ghost"}
+                  onClick={() => setIsOpen(false)}
+                  className="text-muted-foreground uppercase"
+                >
+                  <Link href={"https://docs.gib.work/"} target="_blank">
+                    Docs
+                  </Link>
                 </Button>
               </div>
 
@@ -169,7 +184,6 @@ export function Nav() {
                     <DiscordLogoMark className="size-5" />
                   </Link>
                 </Button>
-
                 <Button size={"icon"} variant={"ghost"} asChild>
                   <Link href={siteConfig.xUrl} target="_blank">
                     <TwitterLogoMark className="size-5" />
