@@ -51,14 +51,30 @@ export function Faq() {
               What&apos;s the difference between a bounty and a task?
             </AccordionTrigger>
             <AccordionContent>
-              A bounty is a Github issue with a monetary reward.  A task is a
-              specific, often smaller job that needs to be completed.
+              A bounty is outcome-based work with a reward pool, often used for
+              open source, design, research, content, or competitive
+              submissions. A task is usually a specific piece of work with clear
+              requirements, such as testing an app, posting content, submitting
+              feedback, or completing a GitHub issue.
             </AccordionContent>
           </AccordionItem>
           <AccordionItem value="item-2">
             <AccordionTrigger>How do I get paid for completed work?</AccordionTrigger>
             <AccordionContent>
-              Once your work is approved by the creator, the funds will be released to your noncustodial wallet.
+              Read the requirements, submit proof of work, and wait for the
+              creator to review it. Once your submission is approved or selected,
+              the funds will be released to your noncustodial wallet.
+            </AccordionContent>
+          </AccordionItem>
+          <AccordionItem value="item-8">
+            <AccordionTrigger>
+              What kind of proof should I submit?
+            </AccordionTrigger>
+            <AccordionContent>
+              Each task or bounty defines its own proof requirements. Common
+              submissions include a GitHub PR, social post, screenshot, document,
+              demo link, or other requested evidence that shows the work was
+              completed.
             </AccordionContent>
           </AccordionItem>
           <AccordionItem value="item-3">
