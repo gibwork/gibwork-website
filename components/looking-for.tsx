@@ -16,14 +16,14 @@ const workDetails = [
 
   {
     image: "/tasks/image-01.png",
-    title: "Design gibwork's new landing page",
-    amount: 500,
+    title: "Improve a landing page via GitHub PR",
+    amount: 350,
     token: "usdc",
   },
   {
     image: "/tasks/image-02.png",
-    title: "Create developer challenges for Zircon",
-    amount: 500,
+    title: "Create an educational X thread",
+    amount: 200,
     token: "usdc",
   },
   // {
@@ -34,8 +34,8 @@ const workDetails = [
   // },
   {
     image: "/tasks/image-03.png",
-    title: "Use slug- to share a set of links on X or Reddit",
-    amount: 100,
+    title: "Submit product feedback or app screenshots",
+    amount: 150,
     token: "usdc",
   },
 ];
