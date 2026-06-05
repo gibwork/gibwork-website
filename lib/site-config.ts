@@ -8,6 +8,8 @@ export const siteConfig = {
   youtubeUrl: "https://www.youtube.com/@gibwork_",
   xUrl: "https://twitter.com/intent/follow?screen_name=gib_work",
   appUrl: "https://app.gib.work/",
+  createBountyUrl: "https://app.gib.work/bounties/create",
+  createTaskUrl: "https://app.gib.work/tasks/create",
   xHandle: "gib_work",
   themeColor: "#ffffff",
 };
