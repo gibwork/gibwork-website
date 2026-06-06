@@ -2,7 +2,7 @@
 
 import { SolanaLogoType } from "@/components/logo/solana";
 import { Button } from "@/components/ui/button";
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, ClipboardCheck } from "lucide-react";
 import Image from "next/image";
 import dashboard from "@/public/dashboard-2.png";
 import { Badge } from "@/components/ui/badge";
@@ -33,14 +33,14 @@ export function Hero() {
       <motion.div variants={FADE_UP_ANIMATION_VARIANTS}>
         <Badge variant={"secondary"}>
           <div className="size-1 rounded-full bg-muted-foreground mr-2" />
-          Introducing gibwork
+          Onchain work marketplace
           <div className="size-1 rounded-full bg-muted-foreground ml-2" />
         </Badge>
       </motion.div>
 
       <motion.div variants={FADE_UP_ANIMATION_VARIANTS} className="relative z-0">
         <SparklesText
-          text="Find Talent, Find Work"
+          text="Fund Tasks, Submit Proof"
           className="font-semibold text-5xl sm:text-6xl mt-4"
         />
       </motion.div>
@@ -49,17 +49,38 @@ export function Hero() {
         variants={FADE_UP_ANIMATION_VARIANTS}
         className="max-w-2xl mt-4 w-full sm:text-lg text-muted-foreground"
       >
-        Whether you&apos;re searching for your next gig or seeking skilled individuals, our platform
-        connects you with the perfect match.
+        Gibwork helps projects post focused tasks and contributors complete work, submit proof,
+        and claim USDC or Solana rewards from a noncustodial wallet.
       </motion.p>
 
-      <motion.div variants={FADE_UP_ANIMATION_VARIANTS}>
-        <Button className="group mt-8" asChild>
-          <Link href={siteConfig.appUrl} target="_blank">
-            Get Started For Free
+      <motion.div
+        variants={FADE_UP_ANIMATION_VARIANTS}
+        className="mt-8 flex flex-col sm:flex-row items-center justify-center gap-3"
+      >
+        <Button className="group w-full sm:w-auto" asChild>
+          <Link href={siteConfig.findTasksUrl} target="_blank">
+            Find paid tasks
             <ArrowRight className="size-0 group-hover:size-5 transition-all -ml-2 group-hover:ml-0" />
           </Link>
         </Button>
+        <Button variant={"outline"} className="group w-full sm:w-auto" asChild>
+          <Link href={siteConfig.postTaskUrl} target="_blank">
+            Post a task
+            <ArrowRight className="size-0 group-hover:size-5 transition-all -ml-2 group-hover:ml-0" />
+          </Link>
+        </Button>
+      </motion.div>
+
+      <motion.div
+        variants={FADE_UP_ANIMATION_VARIANTS}
+        className="mt-5 flex flex-wrap items-center justify-center gap-x-4 gap-y-2 text-sm text-muted-foreground"
+      >
+        {["Escrow-backed tasks", "GitHub bounties", "Wallet payouts"].map((item) => (
+          <span key={item} className="inline-flex items-center gap-1.5">
+            <ClipboardCheck className="size-4 text-primary" />
+            {item}
+          </span>
+        ))}
       </motion.div>
 
       <motion.div
