@@ -41,9 +41,10 @@ export function Faq() {
           <AccordionItem value="item-6">
             <AccordionTrigger>How do I create Work on Gibwork?</AccordionTrigger>
             <AccordionContent>
-              Under the earnings display on the apps home page, click the
-              &quot;Create&quot; buttons for creating Open Source Bounties and Task. These buttons guide you through the process of creating and posting jobs on the
-              platform.
+              In the app, use the create flow to post a task, open source
+              bounty, or service request. Add the scope, requirements,
+              deadline, and reward so contributors can submit clear proof of
+              completion.
             </AccordionContent>
           </AccordionItem>
           <AccordionItem value="item-1">
@@ -51,21 +52,24 @@ export function Faq() {
               What&apos;s the difference between a bounty and a task?
             </AccordionTrigger>
             <AccordionContent>
-              A bounty is a Github issue with a monetary reward.  A task is a
-              specific, often smaller job that needs to be completed.
+              A bounty is tied to a GitHub issue or pull request outcome. A
+              task is a specific job with a proof submission, such as content,
+              research, design, or a smaller product deliverable.
             </AccordionContent>
           </AccordionItem>
           <AccordionItem value="item-2">
             <AccordionTrigger>How do I get paid for completed work?</AccordionTrigger>
             <AccordionContent>
-              Once your work is approved by the creator, the funds will be released to your noncustodial wallet.
+              Submit the requested proof in the app. Once the creator approves
+              the submission, the reward is released to your noncustodial
+              wallet.
             </AccordionContent>
           </AccordionItem>
           <AccordionItem value="item-3">
             <AccordionTrigger>What payment methods does gibwork support?</AccordionTrigger>
             <AccordionContent>
-              We only support wallet transactions, i.e., depositing the winning amount directly to
-              your wallet in the form of crypto or stablecoins.
+              Gibwork supports wallet-based payments on Solana, including
+              crypto and stablecoin rewards such as USDC where available.
             </AccordionContent>
           </AccordionItem>
           {/* <AccordionItem value="item-4">
