@@ -21,7 +21,8 @@ export function Footer() {
             </div>
             <h2 className="font-semibold text-2xl sm:text-3xl mt-4">Join our community</h2>
             <p className="text-muted-foreground sm:text-base text-sm">
-              Meet like-minded people and find work opportunities easily.
+              Find funded work, post clear tasks, and coordinate payouts with
+              the Gibwork community.
             </p>
           </div>
 
