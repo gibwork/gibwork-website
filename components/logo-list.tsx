@@ -30,7 +30,7 @@ export function LogoList() {
           },
         },
       }}
-      id="about"
+      id="partners"
       className="relative flex flex-col px-4 sm:px-6 py-16 sm:py-24 w-full mx-auto max-w-7xl border-y lg:text-left text-center"
     >
       <motion.p

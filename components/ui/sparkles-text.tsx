@@ -1,6 +1,13 @@
 "use client";
 
-import { CSSProperties, ReactElement, useEffect, useState } from "react";
+import {
+  cloneElement,
+  CSSProperties,
+  ReactElement,
+  ReactNode,
+  useEffect,
+  useState,
+} from "react";
 import { motion } from "framer-motion";
 
 import { cn } from "@/lib/utils";
@@ -15,6 +22,12 @@ interface Sparkle {
   lifespan: number;
 }
 
+interface SparklesTextElementProps {
+  children?: ReactNode;
+  className?: string;
+  style?: CSSProperties;
+}
+
 interface SparklesTextProps {
   /**
    * @default <div />
@@ -22,7 +35,7 @@ interface SparklesTextProps {
    * @description
    * The component to be rendered as the text
    * */
-  as?: ReactElement;
+  as?: ReactElement<SparklesTextElementProps>;
 
   /**
    * @default ""
@@ -62,6 +75,7 @@ interface SparklesTextProps {
 
 const SparklesText: React.FC<SparklesTextProps> = ({
   text,
+  as,
   colors = { first: "#9E7AFF", second: "#FE8BBB" },
   className,
   sparklesCount = 10,
@@ -104,24 +118,27 @@ const SparklesText: React.FC<SparklesTextProps> = ({
     return () => clearInterval(interval);
   }, [colors.first, colors.second]);
 
-  return (
-    <div
-      className={cn("text-6xl font-bold", className)}
-      {...props}
-      style={
-        {
-          "--sparkles-first-color": `${colors.first}`,
-          "--sparkles-second-color": `${colors.second}`,
-        } as CSSProperties
-      }
-    >
+  const textElement = as ?? <div />;
+
+  return cloneElement(
+    textElement,
+    {
+      className: cn("text-6xl font-bold", textElement.props.className, className),
+      ...props,
+      style: {
+        ...textElement.props.style,
+        "--sparkles-first-color": `${colors.first}`,
+        "--sparkles-second-color": `${colors.second}`,
+      } as CSSProperties,
+    },
+    <>
       <span className="relative inline-block">
         {sparkles.map((sparkle) => (
           <Sparkle key={sparkle.id} {...sparkle} />
         ))}
         <strong>{text}</strong>
       </span>
-    </div>
+    </>
   );
 };
 
