@@ -219,7 +219,22 @@ export const MagicTweet = ({
   components?: TwitterComponents;
   className?: string;
 }) => {
-  const enrichedTweet = enrichTweet(tweet);
+  // sanitize tweet data to ensure all fields that react-tweet's enrichTweet
+  // depends on are present, preventing runtime crashes from missing properties
+  const text = tweet.text ?? "";
+  const sanitizedTweet = {
+    ...tweet,
+    text,
+    display_text_range: tweet.display_text_range ?? [0, Array.from(text).length],
+    entities: {
+      ...tweet.entities,
+      urls: tweet.entities?.urls ?? [],
+      hashtags: tweet.entities?.hashtags ?? [],
+      user_mentions: tweet.entities?.user_mentions ?? [],
+      symbols: tweet.entities?.symbols ?? [],
+    },
+  };
+  const enrichedTweet = enrichTweet(sanitizedTweet);
   return (
     <div
       className={cn(
