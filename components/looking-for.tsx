@@ -78,15 +78,15 @@ export function LookingFor() {
               variants={FADE_UP_ANIMATION_VARIANTS}
               className="text-3xl sm:text-4xl text-center font-semibold"
             >
-              Get help from an expert
+              Turn project needs into funded work
             </motion.h2>
 
             <motion.p
               variants={FADE_UP_ANIMATION_VARIANTS}
               className="text-center mt-2 text-muted-foreground"
             >
-              Create work for others to complete and get the support you need to
-              achieve your goals.
+              Create clear opportunities for builders, creatives, operators, and
+              researchers, then review the work in one place.
             </motion.p>
 
             <motion.div
@@ -107,14 +107,15 @@ export function LookingFor() {
                 <Image
                   src="https://cdn.gib.work/misc/open_source_bounty.png"
                   alt="Open Source Bounty"
-                  className="h-40 w-full "
+                  className="h-40 w-full object-cover"
                   width={100}
                   height={100}
                 />
                 <CardHeader className="border-t">
                   <CardTitle className="text-lg">Open Source Bounty</CardTitle>
                   <CardDescription>
-                    Incentivize a pull request made from a Github issue.
+                    Incentivize a pull request from a GitHub issue and reward
+                    the contributor who ships it.
                   </CardDescription>
                 </CardHeader>
               </Card>
@@ -122,31 +123,32 @@ export function LookingFor() {
               <Card className="overflow-hidden">
                 <Image
                   src="https://cdn.gib.work/misc/simple_task.png"
-                  alt="Open Source Bounty"
-                  className="h-40 w-full "
+                  alt="Simple Task"
+                  className="h-40 w-full object-cover"
                   width={100}
                   height={100}
                 />
                 <CardHeader className="border-t">
                   <CardTitle className="text-lg">Simple Task</CardTitle>
                   <CardDescription>
-                    Small tasks achievable in a few hours.
+                    Post focused jobs for content, QA, research, testing, growth,
+                    feedback, and community work.
                   </CardDescription>
                 </CardHeader>
               </Card>
               <Card className="overflow-hidden">
                 <Image
                   src="https://cdn.gib.work/misc/services.png"
-                  alt="Open Source Bounty"
-                  className="h-40 w-full "
+                  alt="Services"
+                  className="h-40 w-full object-cover"
                   width={100}
                   height={100}
                 />
                 <CardHeader className="border-t">
                   <CardTitle className="text-lg">Services</CardTitle>
                   <CardDescription>
-                    Offer your skills and connect with users for custom
-                    services.
+                    Find specialists for custom scopes and repeatable support
+                    without turning every need into a hiring process.
                   </CardDescription>
                 </CardHeader>
               </Card>
@@ -172,14 +174,14 @@ export function LookingFor() {
               variants={FADE_UP_ANIMATION_VARIANTS}
               className="text-3xl sm:text-4xl text-center font-semibold"
             >
-              Get paid for your expertise
+              Complete work from web or mobile
             </motion.h2>
             <motion.p
               variants={FADE_UP_ANIMATION_VARIANTS}
               className="text-center mt-2 text-muted-foreground"
             >
-              Discover work opportunities that you could do, complete the work,
-              and start earning.
+              Browse paid bounties, understand the requirements, submit your
+              deliverable, and follow progress from review to payout.
             </motion.p>
 
             <motion.div

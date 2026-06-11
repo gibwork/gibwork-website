@@ -2,7 +2,7 @@
 
 import { SolanaLogoType } from "@/components/logo/solana";
 import { Button } from "@/components/ui/button";
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, BadgeDollarSign, CheckCircle2, Smartphone } from "lucide-react";
 import Image from "next/image";
 import dashboard from "@/public/dashboard-2.png";
 import { Badge } from "@/components/ui/badge";
@@ -11,8 +11,6 @@ import { siteConfig } from "@/lib/site-config";
 import SparklesText from "./ui/sparkles-text";
 import { motion } from "framer-motion";
 import { FADE_UP_ANIMATION_VARIANTS } from "@/lib/framer-variants";
-import { Clipboard } from "flowbite-react"
-
 
 export function Hero() {
   return (
@@ -28,45 +26,75 @@ export function Hero() {
           },
         },
       }}
-      className="relative flex pt-16 sm:pt-24 pb-24 sm:pb-32 text-center flex-col justify-center items-center px-4 sm:px-6 w-full mx-auto max-w-7xl"
+      className="relative flex pt-16 sm:pt-24 pb-20 sm:pb-28 text-center flex-col justify-center items-center px-4 sm:px-6 w-full mx-auto max-w-7xl overflow-hidden"
     >
+      <div className="pointer-events-none absolute inset-x-0 top-0 -z-10 h-[34rem] bg-[radial-gradient(circle_at_top,hsl(var(--primary)/0.18),transparent_58%)]" />
+
       <motion.div variants={FADE_UP_ANIMATION_VARIANTS}>
-        <Badge variant={"secondary"}>
-          <div className="size-1 rounded-full bg-muted-foreground mr-2" />
-          Introducing gibwork
-          <div className="size-1 rounded-full bg-muted-foreground ml-2" />
+        <Badge variant={"secondary"} className="gap-2">
+          <Smartphone className="size-3.5 text-primary" />
+          Web and iPhone bounties marketplace
         </Badge>
       </motion.div>
 
       <motion.div variants={FADE_UP_ANIMATION_VARIANTS} className="relative z-0">
         <SparklesText
-          text="Find Talent, Find Work"
-          className="font-semibold text-5xl sm:text-6xl mt-4"
+          text="Gibwork"
+          className="font-semibold text-6xl sm:text-7xl mt-5"
         />
       </motion.div>
 
       <motion.p
         variants={FADE_UP_ANIMATION_VARIANTS}
-        className="max-w-2xl mt-4 w-full sm:text-lg text-muted-foreground"
+        className="max-w-3xl mt-5 w-full sm:text-xl text-muted-foreground"
       >
-        Whether you&apos;re searching for your next gig or seeking skilled individuals, our platform
-        connects you with the perfect match.
+        The onchain work marketplace for teams that need tasks done and contributors
+        who want to earn from anywhere. Post bounties, review submissions, and release
+        stablecoin payouts through one simple flow.
       </motion.p>
 
-      <motion.div variants={FADE_UP_ANIMATION_VARIANTS}>
-        <Button className="group mt-8" asChild>
+      <motion.div
+        variants={FADE_UP_ANIMATION_VARIANTS}
+        className="mt-8 flex flex-col sm:flex-row items-center justify-center gap-3"
+      >
+        <Button className="group w-full sm:w-auto" size="lg" asChild>
           <Link href={siteConfig.appUrl} target="_blank">
-            Get Started For Free
+            Open Gibwork
             <ArrowRight className="size-0 group-hover:size-5 transition-all -ml-2 group-hover:ml-0" />
+          </Link>
+        </Button>
+        <Button className="w-full sm:w-auto" size="lg" variant="outline" asChild>
+          <Link href={siteConfig.appStoreUrl} target="_blank">
+            Download iPhone app
+            <Smartphone className="size-4" />
           </Link>
         </Button>
       </motion.div>
 
       <motion.div
         variants={FADE_UP_ANIMATION_VARIANTS}
-        className="flex items-center gap-2 text-sm mt-4"
+        className="mt-8 grid w-full max-w-3xl grid-cols-1 gap-3 text-left sm:grid-cols-3"
       >
+        {[
+          { icon: BadgeDollarSign, label: "Stablecoin payouts", detail: "USDC and SPL token rewards" },
+          { icon: CheckCircle2, label: "Submission tracking", detail: "Review, approve, and release" },
+          { icon: Smartphone, label: "Mobile ready", detail: "Find and submit work on iPhone" },
+        ].map((item) => (
+          <div
+            key={item.label}
+            className="rounded-lg border bg-background/80 p-4 shadow-sm backdrop-blur"
+          >
+            <item.icon className="size-5 text-primary" />
+            <p className="mt-3 font-semibold">{item.label}</p>
+            <p className="mt-1 text-sm text-muted-foreground">{item.detail}</p>
+          </div>
+        ))}
+      </motion.div>
 
+      <motion.div
+        variants={FADE_UP_ANIMATION_VARIANTS}
+        className="flex items-center gap-2 text-sm mt-6"
+      >
         <span className="opacity-80">powered by</span>
         <Link
           href={"https://solana.com/"}
@@ -77,39 +105,30 @@ export function Hero() {
         </Link>
       </motion.div>
 
-      {/* <motion.div
-        variants={FADE_UP_ANIMATION_VARIANTS}
-        className="flex items-center gap-2 text-sm mt-4 p-1 font-light"
-      >
-        <div className="flex relative flex-row bg-stone-100 rounded-sm">
-          <div className="flex justify-center align-middle pt-2 mb-2 px-1">
-            <img src="https://media.gib.work/work-logo.png" className="rounded-full w-5" />
-            <span className="ms-2 opacity-80 font-medium md:visible hidden">CA</span>
-          </div>
-          <div className="md:flex hidden pt-2">
-            F7Hwf8ib5DVCoiuyGr618Y3gon429Rnd1r5F9R5upump
-          </div>
-          <div className="flex md:hidden pt-2">
-            F7Hwf8ib5D.....d1r5F9R5upump
-          </div>
-          <div className="bg-stone-100 hidden md:flex items-center w-16 py-1 justify-center border-s-2 border-white ms-1 rounded-e-lg">
-            <Clipboard.WithIconText className="bg-stone-50 border-none p-0 px-1 text-black hover:text-black"
-              valueToCopy="F7Hwf8ib5DVCoiuyGr618Y3gon429Rnd1r5F9R5upump" />
-          </div>
-          <div className="bg-stone-100 block w-16 md:hidden items-center justify-start border-s-2 border-white ms-1 rounded-e-lg">
-            <Clipboard.WithIconText className="bg-stone-100 border-none p-0 pt-2 px-1 flex text-black hover:text-black"
-              valueToCopy="F7Hwf8ib5DVCoiuyGr618Y3gon429Rnd1r5F9R5upump" />
-          </div>
-        </div>
-      </motion.div> */}
-
       <motion.div variants={FADE_UP_ANIMATION_VARIANTS} className="mt-16 sm:mt-24 relative z-0">
         <div className="rounded-t-lg bg-foreground/5 h-3 mx-12" />
         <div className="rounded-t-lg bg-foreground/10 h-3 mx-6" />
-        <div className="rounded-lg overflow-hidden border bg-muted w-full">
+        <div className="rounded-lg overflow-hidden border bg-muted w-full shadow-2xl shadow-primary/10">
           <Image alt="" src={dashboard} />
         </div>
-        <div className="absolute inset-0 bg-gradient-to-t from-background via-background/60" />
+        <div className="absolute inset-0 bg-gradient-to-t from-background via-background/45" />
+        <div className="absolute -right-2 bottom-6 hidden w-56 rounded-[2rem] border bg-background p-3 text-left shadow-2xl shadow-primary/20 md:block">
+          <div className="rounded-[1.5rem] border bg-muted/50 p-4">
+            <div className="mx-auto mb-4 h-1.5 w-12 rounded-full bg-foreground/20" />
+            <div className="rounded-lg bg-background p-3 shadow-sm">
+              <p className="text-xs font-medium text-primary">Active bounty</p>
+              <p className="mt-1 text-sm font-semibold">Submit landing page UX review</p>
+              <div className="mt-3 flex items-center justify-between">
+                <span className="text-xs text-muted-foreground">Reward</span>
+                <span className="font-semibold">$350 USDC</span>
+              </div>
+            </div>
+            <div className="mt-3 rounded-lg bg-primary p-3 text-primary-foreground">
+              <p className="text-xs opacity-80">Status</p>
+              <p className="text-sm font-semibold">Ready to submit</p>
+            </div>
+          </div>
+        </div>
       </motion.div>
     </motion.section>
   );
