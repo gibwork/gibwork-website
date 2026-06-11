@@ -10,21 +10,46 @@ import {
 import Image from "next/image";
 import { motion } from "framer-motion";
 import { FADE_UP_ANIMATION_VARIANTS } from "@/lib/framer-variants";
+import Link from "next/link";
+import { ArrowUpRight } from "lucide-react";
 
-const workDetails = [
+type WorkDetail = {
+  amount: number;
+  category: string;
+  closes: string;
+  href: string;
+  sponsor: string;
+  title: string;
+  token: string;
+  tokenImageUrl: string;
+};
+
+type LookingForProps = {
+  liveWorkDetails?: WorkDetail[];
+};
+
+const fallbackWorkDetails: WorkDetail[] = [
   // { image: "/tasks/image-04.png", title: "Create a FAQ list for gibwork", amount: 1, token: "sol" },
 
   {
-    image: "/tasks/image-01.png",
+    category: "Development",
+    closes: "",
+    href: "https://app.gib.work/",
+    sponsor: "gibwork",
     title: "Design gibwork's new landing page",
     amount: 500,
-    token: "usdc",
+    token: "USDC",
+    tokenImageUrl: "/token-usdc.png",
   },
   {
-    image: "/tasks/image-02.png",
+    category: "Development",
+    closes: "",
+    href: "https://app.gib.work/",
+    sponsor: "zircon",
     title: "Create developer challenges for Zircon",
     amount: 500,
-    token: "usdc",
+    token: "USDC",
+    tokenImageUrl: "/token-usdc.png",
   },
   // {
   //   image: "/tasks/image-04.png",
@@ -33,14 +58,21 @@ const workDetails = [
   //   token: "usdc",
   // },
   {
-    image: "/tasks/image-03.png",
+    category: "Social Media",
+    closes: "",
+    href: "https://app.gib.work/",
+    sponsor: "slug",
     title: "Use slug- to share a set of links on X or Reddit",
     amount: 100,
-    token: "usdc",
+    token: "USDC",
+    tokenImageUrl: "/token-usdc.png",
   },
 ];
 
-export function LookingFor() {
+export function LookingFor({ liveWorkDetails = [] }: LookingForProps) {
+  const workDetails =
+    liveWorkDetails.length > 0 ? liveWorkDetails : fallbackWorkDetails;
+
   return (
     <section className="relative max-w-5xl mx-auto w-full py-16 sm:py-24 px-4 sm:px-6">
       <Tabs defaultValue="1" className="w-full flex flex-col items-center">
@@ -178,8 +210,8 @@ export function LookingFor() {
               variants={FADE_UP_ANIMATION_VARIANTS}
               className="text-center mt-2 text-muted-foreground"
             >
-              Discover work opportunities that you could do, complete the work,
-              and start earning.
+              Browse funded opportunities from the live marketplace, complete
+              the work, and start earning.
             </motion.p>
 
             <motion.div
@@ -187,35 +219,50 @@ export function LookingFor() {
               className="flex flex-col gap-2 mt-8 w-full"
             >
               {workDetails.map((_detail) => (
-                <Card
-                  key={_detail.title}
-                  className="p-4 flex items-center gap-4"
+                <Link
+                  key={_detail.href}
+                  href={_detail.href}
+                  target="_blank"
+                  className="group"
                 >
-                  <div className="relative aspect-square rounded-full shrink-0 w-12 bg-muted overflow-hidden">
-                    <Image
-                      alt=""
-                      fill
-                      src={_detail.image}
-                      className="h-full w-full object-cover"
-                    />
-                  </div>
-
-                  <p className="font-semibold grow truncate">{_detail.title}</p>
-
-                  <div className="font-semibold flex items-center justify-end gap-2 shrink-0">
-                    <p>{_detail.amount}</p>
-                    <div className="relative aspect-square rounded-full w-8 bg-muted overflow-hidden">
+                  <Card className="p-4 flex items-center gap-4 transition-colors group-hover:bg-muted/40">
+                    <div className="relative aspect-square rounded-full shrink-0 w-12 bg-muted overflow-hidden">
                       <Image
-                        alt=""
+                        alt={`${_detail.token} token`}
                         fill
-                        src={`/token-${_detail.token}.png`}
+                        src={_detail.tokenImageUrl}
                         className="h-full w-full object-cover"
                       />
                     </div>
-                  </div>
-                </Card>
+
+                    <div className="grow min-w-0">
+                      <p className="font-semibold leading-snug sm:truncate">
+                        {_detail.title}
+                      </p>
+                      <p className="text-sm leading-snug text-muted-foreground sm:truncate">
+                        @{_detail.sponsor} · {_detail.category}
+                        {_detail.closes ? ` · Closes ${_detail.closes}` : ""}
+                      </p>
+                    </div>
+
+                    <div className="font-semibold flex items-center justify-end gap-2 shrink-0">
+                      <p>{_detail.amount}</p>
+                      <p className="text-sm text-muted-foreground">
+                        {_detail.token}
+                      </p>
+                      <ArrowUpRight className="size-4 text-muted-foreground transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
+                    </div>
+                  </Card>
+                </Link>
               ))}
             </motion.div>
+
+            <motion.p
+              variants={FADE_UP_ANIMATION_VARIANTS}
+              className="mt-4 text-center text-xs text-muted-foreground"
+            >
+              Live opportunities refresh from app.gib.work every five minutes.
+            </motion.p>
           </motion.div>
         </TabsContent>
       </Tabs>
