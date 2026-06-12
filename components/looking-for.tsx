@@ -7,6 +7,7 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
+import { Badge } from "@/components/ui/badge";
 import Image from "next/image";
 import { motion } from "framer-motion";
 import { FADE_UP_ANIMATION_VARIANTS } from "@/lib/framer-variants";
@@ -42,7 +43,7 @@ const workDetails = [
 
 export function LookingFor() {
   return (
-    <section className="relative max-w-5xl mx-auto w-full py-16 sm:py-24 px-4 sm:px-6">
+    <section id="work-types" className="relative max-w-5xl mx-auto w-full py-16 sm:py-24 px-4 sm:px-6">
       <Tabs defaultValue="1" className="w-full flex flex-col items-center">
         <motion.div
           variants={FADE_UP_ANIMATION_VARIANTS}
@@ -112,9 +113,11 @@ export function LookingFor() {
                   height={100}
                 />
                 <CardHeader className="border-t">
+                  <Badge variant="secondary" className="w-fit">Best for open source</Badge>
                   <CardTitle className="text-lg">Open Source Bounty</CardTitle>
                   <CardDescription>
-                    Incentivize a pull request made from a Github issue.
+                    Link a GitHub issue, fund the reward, and pay the contributor whose pull
+                    request is accepted.
                   </CardDescription>
                 </CardHeader>
               </Card>
@@ -128,9 +131,11 @@ export function LookingFor() {
                   height={100}
                 />
                 <CardHeader className="border-t">
+                  <Badge variant="secondary" className="w-fit">Best for quick deliverables</Badge>
                   <CardTitle className="text-lg">Simple Task</CardTitle>
                   <CardDescription>
-                    Small tasks achievable in a few hours.
+                    Assign a scoped job with clear proof requirements, review the submission,
+                    and release payment when it is complete.
                   </CardDescription>
                 </CardHeader>
               </Card>
@@ -143,10 +148,11 @@ export function LookingFor() {
                   height={100}
                 />
                 <CardHeader className="border-t">
+                  <Badge variant="secondary" className="w-fit">Best for ongoing talent</Badge>
                   <CardTitle className="text-lg">Services</CardTitle>
                   <CardDescription>
-                    Offer your skills and connect with users for custom
-                    services.
+                    Let freelancers package repeatable skills so teams can hire trusted help
+                    for custom work.
                   </CardDescription>
                 </CardHeader>
               </Card>
