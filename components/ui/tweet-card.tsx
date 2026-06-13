@@ -238,7 +238,7 @@ export const MagicTweet = ({
   return (
     <div
       className={cn(
-        "relative flex h-full w-full max-w-[32rem] flex-col gap-2 rounded-lg border p-4 backdrop-blur-md shadow-sm",
+        "relative flex h-full w-full max-w-[32rem] flex-col gap-2 rounded-lg border bg-white p-4 backdrop-blur-md shadow-sm",
         className
       )}
       {...props}
@@ -264,12 +264,12 @@ export const TweetCard = async ({
 }) => {
   const tweet = id
     ? await getTweet(id).catch((err) => {
-        if (onError) {
-          onError(err);
-        } else {
-          console.error(err);
-        }
-      })
+      if (onError) {
+        onError(err);
+      } else {
+        console.error(err);
+      }
+    })
     : undefined;
 
   if (!tweet) {

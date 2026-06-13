@@ -1,22 +1,16 @@
 "use client";
 
-import { Button } from "@/components/ui/button";
-import { ArrowRight } from "lucide-react";
-import Image from "next/image";
+import { useRef } from "react";
+import { useScroll, useTransform, motion } from "framer-motion";
 import ClientTweetCard from "./ui/client-tweet-card";
-import { motion } from "framer-motion";
-import { FADE_UP_ANIMATION_VARIANTS } from "@/lib/framer-variants";
 
 export function Testimonial() {
-  const leftTweetIds = [
+  const allTweetIds = [
     "1732524014407405834",
     "1858982833131581468",
     "1857194661867053478",
     "1816482399238115673",
     "1823431121906098583",
-  ];
-
-  const rightTweetIds = [
     "1765227347400143288",
     "1816549566055088458",
     "1872424711185187214",
@@ -24,71 +18,54 @@ export function Testimonial() {
     "1852087693804495003",
   ];
 
+  const sectionRef = useRef<HTMLDivElement>(null);
+  const { scrollYProgress } = useScroll({
+    target: sectionRef,
+    offset: ["start end", "end start"],
+  });
+
+  // Scroll tweets left as user scrolls through the section
+  // Move from 0% to -60% of the row width
+  const x = useTransform(scrollYProgress, [0, 1], ["0%", "-55%"]);
+
   return (
     <section
       id="testimonial"
-      className="relative py-16 sm:py-24 px-4 sm:px-6 flex flex-col mx-auto w-full max-w-7xl"
+      ref={sectionRef}
+      className="relative z-40 bg-[#e1a2ec] rounded-t-3xl min-h-[250vh] w-full"
     >
-      <div className="flex lg:items-start gap-x-12 gap-y-12 lg:flex-row flex-col">
-        <motion.div
-          initial="hidden"
-          whileInView="show"
-          viewport={{ once: true }}
-          variants={{
-            hidden: {},
-            show: {
-              transition: {
-                staggerChildren: 0.15,
-              },
-            },
-          }}
-          className="lg:w-96 shrink-0 lg:sticky top-24 lg:text-left text-center"
-        >
-          <motion.p
-            variants={FADE_UP_ANIMATION_VARIANTS}
-            className="text-primary font-semibold text-sm"
+      <div className="sticky top-16 h-[calc(100vh-4rem)] flex flex-col justify-center overflow-hidden w-full">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 mb-16 w-full">
+          <motion.div
+            initial={{ opacity: 0, y: 32 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-80px" }}
+            transition={{ duration: 0.6 }}
           >
-            TESTIMONIALS
-          </motion.p>
-          <motion.h2
-            variants={FADE_UP_ANIMATION_VARIANTS}
-            className="font-semibold text-3xl sm:text-4xl mt-2"
-          >
-            Hear what our users have to say
-          </motion.h2>
-          <motion.p
-            variants={FADE_UP_ANIMATION_VARIANTS}
-            className=" mt-4 text-muted-foreground"
-          >
-            From freelancers finding their next gig to companies discovering top
-            talent.
-          </motion.p>
-        </motion.div>
-
-        <div className="overflow-auto flex items-start gap-2 pb-4 sm:hidden">
-          {[...leftTweetIds, ...rightTweetIds].map((id) => {
-            return (
-              <ClientTweetCard
-                key={id}
-                id={id}
-                className="shrink-0 max-w-[calc(100vw-96px)]"
-              />
-            );
-          })}
+            <p className="text-primary font-black text-sm tracking-widest uppercase">
+              TESTIMONIALS
+            </p>
+            <h2 className="font-bold text-4xl sm:text-5xl mt-3 max-w-xl">
+              Hear what our users have to say
+            </h2>
+            <p className="mt-4 text-muted-foreground text-lg max-w-lg">
+              From freelancers finding their next gig to companies discovering top talent.
+            </p>
+          </motion.div>
         </div>
 
-        <div className="grow hidden sm:grid sm:grid-cols-2 gap-6 w-full place-items-start">
-          <div className="flex flex-col gap-6 w-full ">
-            {leftTweetIds.map((id) => (
-              <ClientTweetCard key={id} id={id} />
+        {/* Horizontal scroll strip driven by page scroll */}
+        <div className="overflow-visible w-full">
+          <motion.div
+            style={{ x }}
+            className="flex gap-6 pl-4 sm:pl-6 w-max"
+          >
+            {allTweetIds.map((id) => (
+              <div key={id} className="w-[320px] sm:w-[380px] shrink-0">
+                <ClientTweetCard id={id} />
+              </div>
             ))}
-          </div>
-
-          <div className="flex flex-col gap-6 w-full ">
-            {rightTweetIds.map((id) => (
-              <ClientTweetCard key={id} id={id} />
-            ))}
-          </div>
+          </motion.div>
         </div>
       </div>
     </section>
