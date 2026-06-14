@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gibwork – Earn Rewards by Contributing to Open Source & AI Workflows</title>
+  <meta name="description" content="Discover tasks, contribute meaningful work, collaborate with projects, and get rewarded through Gibwork's growing ecosystem.">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap">
+  <style>
+    /* ––– CSS Design System (same as provided) ––– */
+    :root {
+      --color-primary: #6B46C1;
+      --color-primary-hover: #5a3d9e;
+      --color-primary-active: #4a2d8e;
+      --color-secondary: #8B5CF6;
+      --color-accent: #10B981;
+      --color-accent-hover: #059669;
+      --color-error: #E53E3E;
+      --color-warning: #DD6B20;
+      --color-success: #38A169;
+      --color-info: #3182CE;
+      --color-neutral-50: #FAFAFA;
+      --color-neutral-100: #F7FAFC;
+      --color-neutral-200: #EDF2F7;
+      --color-neutral-300: #E2E8F0;
+      --color-neutral-400: #CBD5E0;
+      --color-neutral-500: #A0AEC0;
+      --color-neutral-600: #718096;
+      --color-neutral-700: #2D3748;
+      --color-neutral-800: #1A202C;
+      --color-neutral-900: #171923;
+      --color-white: #FFFFFF;
+      --color-black: #000000;
+      --hero-gradient: linear-gradient(135deg, #6B46C1 0%, #8B5CF6 100%);
+      --text-color: var(--color-neutral-800);
+      --text-color-light: var(--color-neutral-600);
+      --bg-color: var(--color-neutral-100);
+      --bg-dark: var(--color-neutral-900);
+      --font-headings: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      --font-body: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      --font-size-h1: clamp(2rem, 5vw, 2.5rem);
+      --font-size-h2: clamp(1.5rem, 4vw, 2rem);
+      --font-size-h3: clamp(1.25rem, 3vw, 1.5rem);
+      --font-size-h4: clamp(1.125rem, 2.5vw, 1.25rem);
+      --font-size-body: 1rem;
+      --font-size-small: 0.875rem;
+      --font-size-xs: 0.75rem;
+      --font-weight-regular: 400;
+      --font-weight-semibold: 600;
+      --font-weight-bold: 700;
+      --line-height-body: 1.6;
+      --line-height-heading: 1.2;
+      --space-xs: 0.5rem;
+      --space-sm: 1rem;
+      --space-md: 1.5rem;
+      --space-lg: 2rem;
+      --space-xl: 3rem;
+      --space-2xl: 4rem;
+      --space-3xl: 6rem;
+      --radius-sm: 0.375rem;
+      --radius-md: 0.75rem;
+      --radius-lg: 1rem;
+      --radius-full: 9999px;
+      --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.05);
+      --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.08);
+      --shadow-lg: 0 8px 16px rgba(0, 0, 0, 0.12);
+      --shadow-xl: 0 12px 24px rgba(0, 0, 0, 0.16);
+      --shadow-primary: 0 2px 4px rgba(107, 70, 193, 0.3);
+      --transition-fast: 150ms ease;
+      --transition-base: 250ms ease;
+      --transition-slow: 350ms ease;
+      --max-width: 1200px;
+      --container-padding: 0 var(--space-sm);
+      --hero-padding-mobile: 3rem 0;
+      --hero-padding-desktop: 5rem 0;
+      --z-base: 0;
+      --z-dropdown: 100;
+      --z-sticky: 200;
+      --z-modal: 300;
+      --z-toast: 400;
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; text-rendering: optimizeLegibility; overflow-x: hidden; }
+    body { font-family: var(--font-body); font-size: var(--font-size-body); line-height: var(--line-height-body); color: var(--text-color); background-color: var(--bg-color); min-height: 100vh; }
+    :focus-visible { outline: 2px solid var(--color-primary); outline-offset: 2px; box-shadow: 0 0 0 4px rgba(107, 70, 193, 0.15); }
+    :focus:not(:focus-visible) { outline: none; }
+    ::selection { background-color: var(--color-primary); color: var(--color-white); }
+    @media (forced-colors: active) { :focus-visible { outline: 2px solid ButtonText; } }
+    @media (prefers-reduced-motion: reduce) { *, *::before, *::after { animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; transition-duration: 0.01ms !important; scroll-behavior: auto !important; } }
+    img { max-width: 100%; height: auto; display: block; }
+    a { color: inherit; text-decoration: none; }
+    .container { max-width: var(--max-width); margin: 0 auto; padding: var(--container-padding); }
+    .btn { display: inline-flex; align-items: center; justify-content: center; padding: 0.75rem 1.5rem; border-radius: var(--radius-md); font-weight: var(--font-weight-semibold); font-size: var(--font-size-body); transition: var(--transition-base); border: none; cursor: pointer; gap: 0.5rem; }
+    .btn-primary { background: var(--color-primary); color: var(--color-white); box-shadow: var(--shadow-primary); }
+    .btn-primary:hover, .btn-primary:focus-visible { background: var(--color-primary-hover); transform: translateY(-2px); box-shadow: var(--shadow-lg); }
+    .btn-secondary { background: transparent; color: var(--color-primary); border: 2px solid var(--color-primary); }
+    .btn-secondary:hover, .btn-secondary:focus-visible { background: var(--color-primary); color: var(--color-white); transform: translateY(-2px); }
+    .section { padding: var(--space-2xl) 0; }
+    .section-title { font-family: var(--font-headings); font-size: var(--font-size-h2); font-weight: var(--font-weight-bold); text-align: center; margin-bottom: var(--space-lg); line-height: var(--line-height-heading); }
+    .section-subtitle { text-align: center; color: var(--text-color-light); max-width: 600px; margin: 0 auto var(--space-xl); font-size: var(--font-size-body); }
+    /* Header */
+    .header { background: var(--color-white); box-shadow: var(--shadow-sm); position: sticky; top: 0; z-index: var(--z-sticky); }
+    .header .container { display: flex; align-items: center; justify-content: space-between; padding-top: var(--space-sm); padding-bottom: var(--space-sm); }
+    .logo { font-family: var(--font-headings); font-size: 1.5rem; font-weight: var(--font-weight-bold);

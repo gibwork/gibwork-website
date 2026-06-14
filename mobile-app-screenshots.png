@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Gibwork – Earn Rewards by Contributing to Open Source & AI Workflows</title>
+  <meta name="description" content="Discover tasks, contribute meaningful work, collaborate with projects, and get rewarded through Gibwork's growing ecosystem." />
+  <meta name="theme-color" content="#0F0F1A" />
+  <meta name="robots" content="index, follow" />
+  <meta name="author" content="Gibwork Inc." />
+
+  <!-- Security: Content Security Policy -->
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https://images.ctfassets.net; script-src 'self' 'unsafe-inline' https://www.googletagmanager.com; connect-src 'self'; frame-ancestors 'none';" />
+
+  <!-- Preconnects for performance -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+  <!-- DNS prefetch -->
+  <link rel="dns-prefetch" href="https://fonts.googleapis.com" />
+  <link rel="dns-prefetch" href="https://fonts.gstatic.com" />
+
+  <!-- Preload critical font -->
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" />
+
+  <!-- Structured Data (JSON-LD) -->
+  <script type="application/ld+json">
+    [{
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "Gibwork",
+      "applicationCategory": "BusinessApplication",
+      "operatingSystem": "Web, iOS, Android",
+      "description": "Earn rewards by contributing to open source and AI-powered workflows.",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "USD"
+      },
+      "featureList": [
+        "Open-source collaboration",
+        "AI-powered workflows",
+        "Mobile accessibility",
+        "GitHub integration",
+        "Transparent rewards",
+        "Community-driven ecosystem"
+      ]
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "name": "Gibwork",
+      "url": "https://gibwork.io",
+      "logo": "https://gibwork.io/logo.png",
+      "sameAs": [
+        "https://twitter.com/gibwork",
+        "https://github.com/gibwork"
+      ],
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "telephone": "+1-800-000-0000",
+        "contactType": "customer service"
+      }
+    }]
+  </script>
+
+  <!-- Font stylesheet loaded asynchronously with fallback -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" media="print" onload="this.media='all'" />
+  <noscript>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" />
+  </noscript>
+
+  <!-- Inline critical CSS -->
+  <style>
+    /* ===== RESET & BASE ===== */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --color-primary: #6C5CE7;
+      --color-primary-hover: #5A4BD1;
+      --color-secondary: #00D2D3;
+      --color-secondary-hover: #00B8B9;
+      --color-bg: #0F0F1A;
+      --color-surface: #1A1A2E;
+      --color-text: #E0E0E0;
+      --color-text-heading: #FFFFFF;
+      --color-muted: #A0A0B0;
+      --border-radius: 12px;
+      --max-width: 1200px;
+      --font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      --transition: 0.3s ease;
+    }
+
+    html { scroll-behavior: smooth; font-size: 16px; }
+
+    body {
+      font-family: var(--font-family);
+      background-color: var(--color-bg);
+      color: var(--color-text);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    a { color: var(--color-secondary); text-decoration: none; transition: color var(--transition); }
+    a:hover { color: var(--color-secondary-hover); }
+    a:focus { outline: 2px solid var(--color-primary); outline-offset: 2px; }
+
+    img { max-width: 100%; height: auto; display: block; }
+
+    .container { width: 100%; max-width: var(--max-width); margin: 0 auto; padding: 0 1.5rem; }
+
+    /* ===== HEADER / NAV ===== */
+    .header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(15, 15, 26, 0.95);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(255,255,255,0.05);
+    }
+
+    .nav { display: flex; align-items: center; justify-content: space-between; padding: 1rem 0; }
+
+    .nav-logo { display: flex; align-items: center; gap: 0.5rem; font-weight: 700; font-size: 1.5rem; color: var(--color-text-heading); }
+    .nav-logo img { height: 32px; width: auto; }
+
+    .nav-links { display: flex; gap: 2rem; list-style: none; }
+    .nav-links a { color: var(--color-muted); font-weight: 500; font-size: 0.95rem; }
+    .nav-links a:hover { color: var(--color-text-heading); }
+
+    .nav-cta { display: flex; gap: 1rem; align-items: center; }
+
+    /* ===== BUTTONS ===== */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.75rem 1.75rem;
+      border-radius: 8px;
+      font-weight: 600;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: all var(--transition);
+      border: none
