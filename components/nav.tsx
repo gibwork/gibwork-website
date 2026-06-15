@@ -9,13 +9,126 @@ import Image from "next/image";
 import logo from "@/public/work-logo.png";
 import { YoutubeLogoMark } from "./logo/youtube";
 import { siteConfig } from "@/lib/site-config";
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { FADE_IN, FADE_UP_ANIMATION_VARIANTS } from "@/lib/framer-variants";
 import { Separator } from "./ui/separator";
 
 export function Nav() {
   const [isOpen, setIsOpen] = useState(false);
+  const openMenuButtonRef = useRef<HTMLButtonElement>(null);
+  const menuDialogRef = useRef<HTMLDivElement>(null);
+  const closeMenuButtonRef = useRef<HTMLButtonElement>(null);
+
+  useEffect(() => {
+    if (!isOpen) {
+      return;
+    }
+
+    const previouslyFocusedElement =
+      document.activeElement instanceof HTMLElement ? document.activeElement : null;
+    const previousBodyOverflow = document.body.style.overflow;
+    document.body.style.overflow = "hidden";
+    closeMenuButtonRef.current?.focus();
+
+    const getFocusableElements = () => {
+      const dialog = menuDialogRef.current;
+
+      if (!dialog) {
+        return [] as HTMLElement[];
+      }
+
+      return Array.from(
+        dialog.querySelectorAll<HTMLElement>(
+          [
+            "a[href]",
+            "button:not([disabled])",
+            "textarea:not([disabled])",
+            "input:not([disabled])",
+            "select:not([disabled])",
+            '[tabindex]:not([tabindex="-1"])',
+          ].join(",")
+        )
+      ).filter((element) => {
+        const style = window.getComputedStyle(element);
+
+        return (
+          !element.hasAttribute("disabled") &&
+          style.display !== "none" &&
+          style.visibility !== "hidden" &&
+          element.getClientRects().length > 0
+        );
+      });
+    };
+
+    const focusFirstElement = () => {
+      const [firstFocusableElement] = getFocusableElements();
+      firstFocusableElement?.focus();
+    };
+
+    const focusLastElement = () => {
+      const focusableElements = getFocusableElements();
+      focusableElements.at(-1)?.focus();
+    };
+
+    const handleKeyDown = (event: KeyboardEvent) => {
+      if (event.key === "Escape") {
+        event.preventDefault();
+        setIsOpen(false);
+        return;
+      }
+
+      if (event.key !== "Tab") {
+        return;
+      }
+
+      const focusableElements = getFocusableElements();
+
+      if (focusableElements.length === 0) {
+        event.preventDefault();
+        return;
+      }
+
+      const firstFocusableElement = focusableElements[0];
+      const lastFocusableElement = focusableElements[focusableElements.length - 1];
+
+      if (event.shiftKey && document.activeElement === firstFocusableElement) {
+        event.preventDefault();
+        lastFocusableElement.focus();
+        return;
+      }
+
+      if (!event.shiftKey && document.activeElement === lastFocusableElement) {
+        event.preventDefault();
+        firstFocusableElement.focus();
+      }
+    };
+
+    const handleFocusIn = (event: FocusEvent) => {
+      const dialog = menuDialogRef.current;
+
+      if (!dialog || !event.target || dialog.contains(event.target as Node)) {
+        return;
+      }
+
+      focusFirstElement();
+    };
+
+    document.addEventListener("keydown", handleKeyDown);
+    document.addEventListener("focusin", handleFocusIn);
+
+    return () => {
+      document.removeEventListener("keydown", handleKeyDown);
+      document.removeEventListener("focusin", handleFocusIn);
+      document.body.style.overflow = previousBodyOverflow;
+
+      if (previouslyFocusedElement?.isConnected) {
+        previouslyFocusedElement.focus();
+      } else {
+        openMenuButtonRef.current?.focus();
+      }
+    };
+  }, [isOpen]);
 
   return (
     <>
@@ -83,9 +196,13 @@ export function Nav() {
               size={"icon"}
               variant={"secondary"}
               className="md:hidden"
+              ref={openMenuButtonRef}
+              aria-label="Open mobile navigation"
+              aria-expanded={isOpen}
+              aria-controls="mobile-navigation-dialog"
               onClick={() => setIsOpen(true)}
             >
-              <Menu className="size-5" />
+              <Menu className="size-5" aria-hidden="true" />
             </Button>
           </div>
         </motion.div>
@@ -94,6 +211,11 @@ export function Nav() {
       <AnimatePresence>
         {isOpen && (
           <motion.div
+            ref={menuDialogRef}
+            id="mobile-navigation-dialog"
+            role="dialog"
+            aria-modal="true"
+            aria-label="Mobile navigation"
             variants={FADE_IN}
             initial="hidden"
             animate="show"
@@ -115,8 +237,14 @@ export function Nav() {
                     </Link>
                   </Button>
 
-                  <Button size={"icon"} variant={"secondary"} onClick={() => setIsOpen(false)}>
-                    <X className="size-5" />
+                  <Button
+                    ref={closeMenuButtonRef}
+                    size={"icon"}
+                    variant={"secondary"}
+                    aria-label="Close mobile navigation"
+                    onClick={() => setIsOpen(false)}
+                  >
+                    <X className="size-5" aria-hidden="true" />
                   </Button>
                 </div>
               </div>
