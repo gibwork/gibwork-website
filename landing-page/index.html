@@ -1,0 +1,502 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
+  <title>Gibwork — Decentralized work marketplace for top tech talent</title>
+  <!-- Google Fonts: Inter (clean, modern sans) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet">
+  <!-- Font Awesome 6 (free icons) -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <style>
+    /* ---------- RESET & BASE ---------- */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      background: #f9fafc;
+      color: #0b1a2e;
+      line-height: 1.5;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    /* ---------- HEADER / NAV (lightweight) ---------- */
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 0;
+      flex-wrap: wrap;
+    }
+
+    .logo {
+      font-weight: 700;
+      font-size: 1.8rem;
+      letter-spacing: -0.02em;
+      color: #0b1a2e;
+    }
+    .logo span {
+      color: #6c5ce7;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 32px;
+      align-items: center;
+    }
+    .nav-links a {
+      text-decoration: none;
+      color: #1f2a44;
+      font-weight: 500;
+      font-size: 0.95rem;
+      transition: color 0.2s;
+    }
+    .nav-links a:hover {
+      color: #6c5ce7;
+    }
+    .btn-outline {
+      border: 1px solid #d0d7e2;
+      padding: 8px 20px;
+      border-radius: 40px;
+      font-weight: 600;
+      background: transparent;
+      transition: 0.2s;
+    }
+    .btn-outline:hover {
+      border-color: #6c5ce7;
+      background: #f4f2ff;
+    }
+
+    .btn-primary {
+      background: #6c5ce7;
+      color: #ffffff !important;
+      padding: 10px 24px;
+      border-radius: 40px;
+      font-weight: 600;
+      border: none;
+      transition: background 0.2s, transform 0.1s;
+      display: inline-block;
+      text-decoration: none;
+    }
+    .btn-primary:hover {
+      background: #5a4bd1;
+      transform: scale(0.98);
+    }
+
+    /* ---------- HERO SECTION (above the fold) ---------- */
+    .hero {
+      padding: 60px 0 40px;
+    }
+    .hero-grid {
+      display: flex;
+      align-items: center;
+      gap: 40px;
+      flex-wrap: wrap;
+    }
+    .hero-content {
+      flex: 1 1 45%;
+    }
+    .hero-visual {
+      flex: 1 1 45%;
+      background: #eef1f9;
+      border-radius: 48px;
+      padding: 30px 20px;
+      min-height: 280px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      box-shadow: 0 20px 35px -8px rgba(0,0,0,0.05);
+    }
+    .hero h1 {
+      font-size: 2.8rem;
+      font-weight: 800;
+      letter-spacing: -0.03em;
+      line-height: 1.2;
+      margin-bottom: 20px;
+      color: #0b1a2e;
+    }
+    .hero h1 i {
+      color: #6c5ce7;
+    }
+    .hero p {
+      font-size: 1.2rem;
+      color: #2c3a5e;
+      max-width: 550px;
+      margin-bottom: 32px;
+      font-weight: 400;
+    }
+    .hero-cta {
+      display: flex;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+    .hero-cta .btn-primary {
+      padding: 14px 32px;
+      font-size: 1rem;
+    }
+    .hero-cta .btn-outline {
+      padding: 14px 32px;
+      font-size: 1rem;
+      background: white;
+    }
+    .mockup-icon {
+      font-size: 4rem;
+      color: #6c5ce7;
+      opacity: 0.6;
+    }
+    .mockup-label {
+      font-weight: 600;
+      color: #1f2a44;
+      margin-top: 12px;
+      font-size: 1.1rem;
+    }
+
+    /* ---------- HOW IT WORKS (3-step icon grid) ---------- */
+    .how-it-works {
+      padding: 80px 0 60px;
+    }
+    .section-title {
+      font-size: 2.2rem;
+      font-weight: 700;
+      text-align: center;
+      margin-bottom: 16px;
+      letter-spacing: -0.02em;
+    }
+    .section-sub {
+      text-align: center;
+      color: #3b4a6b;
+      max-width: 640px;
+      margin: 0 auto 56px;
+      font-size: 1.1rem;
+    }
+    .steps-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 32px;
+    }
+    .step-card {
+      background: white;
+      border-radius: 32px;
+      padding: 32px 24px 28px;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.02);
+      transition: transform 0.2s, box-shadow 0.2s;
+      border: 1px solid #f0f3f9;
+      text-align: center;
+    }
+    .step-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 20px 30px -8px rgba(108, 92, 231, 0.08);
+      border-color: #e0e7f5;
+    }
+    .step-icon {
+      background: #f2f0ff;
+      width: 72px;
+      height: 72px;
+      border-radius: 24px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 20px;
+      font-size: 2.2rem;
+      color: #6c5ce7;
+    }
+    .step-card h3 {
+      font-size: 1.5rem;
+      font-weight: 700;
+      margin-bottom: 12px;
+    }
+    .step-card p {
+      color: #3b4a6b;
+      font-size: 0.95rem;
+      line-height: 1.5;
+    }
+    .step-badge {
+      display: inline-block;
+      background: #eef1f9;
+      border-radius: 40px;
+      padding: 4px 14px;
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: #1f2a44;
+      margin-bottom: 16px;
+      letter-spacing: 0.02em;
+    }
+
+    /* ---------- MOBILE APP SECTION (split) ---------- */
+    .mobile-section {
+      padding: 70px 0 90px;
+      background: #ffffff;
+      border-radius: 64px 64px 0 0;
+      margin-top: 20px;
+    }
+    .mobile-split {
+      display: flex;
+      align-items: center;
+      gap: 50px;
+      flex-wrap: wrap;
+    }
+    .mobile-left {
+      flex: 1 1 40%;
+      display: flex;
+      justify-content: center;
+    }
+    .mobile-right {
+      flex: 1 1 50%;
+    }
+    .phone-frame {
+      background: #1b1b2f;
+      border-radius: 48px;
+      padding: 16px 8px;
+      max-width: 280px;
+      width: 100%;
+      box-shadow: 0 30px 40px -12px rgba(0,0,0,0.25);
+    }
+    .phone-screen {
+      background: #f5f7fe;
+      border-radius: 36px;
+      padding: 24px 12px;
+      min-height: 380px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      color: #0b1a2e;
+    }
+    .phone-screen i {
+      font-size: 3.5rem;
+      color: #6c5ce7;
+      margin-bottom: 12px;
+    }
+    .phone-screen .dashboard-dots {
+      display: flex;
+      gap: 8px;
+      margin: 16px 0 8px;
+    }
+    .phone-screen .dashboard-dots span {
+      width: 10px;
+      height: 10px;
+      border-radius: 10px;
+      background: #6c5ce7;
+      opacity: 0.3;
+    }
+    .phone-screen .dashboard-dots span.active {
+      opacity: 1;
+      width: 28px;
+    }
+    .phone-label {
+      font-weight: 600;
+      margin-top: 8px;
+      font-size: 0.9rem;
+      color: #1f2a44;
+    }
+    .mobile-right h2 {
+      font-size: 2.4rem;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      line-height: 1.2;
+      margin-bottom: 20px;
+    }
+    .mobile-right p {
+      font-size: 1.1rem;
+      color: #2c3a5e;
+      margin-bottom: 32px;
+      max-width: 480px;
+    }
+    .download-buttons {
+      display: flex;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+    .download-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      background: #0b1a2e;
+      padding: 14px 28px;
+      border-radius: 48px;
+      color: white;
+      font-weight: 600;
+      text-decoration: none;
+      transition: background 0.2s, transform 0.1s;
+      border: none;
+      font-size: 1rem;
+    }
+    .download-btn i {
+      font-size: 1.6rem;
+    }
+    .download-btn:hover {
+      background: #1f2a44;
+      transform: scale(0.97);
+    }
+    .download-btn:focus-visible {
+      outline: 3px solid #6c5ce7;
+      outline-offset: 2px;
+    }
+    .btn-primary:focus-visible {
+      outline: 3px solid #0b1a2e;
+      outline-offset: 2px;
+    }
+    .btn-outline:focus-visible {
+      outline: 3px solid #6c5ce7;
+      outline-offset: 2px;
+    }
+
+    /* ---------- FOOTER (lightweight) ---------- */
+    .footer {
+      text-align: center;
+      padding: 40px 0 20px;
+      color: #5a6a8a;
+      font-size: 0.9rem;
+      border-top: 1px solid #eef1f9;
+    }
+
+    /* ---------- RESPONSIVE ---------- */
+    @media (max-width: 768px) {
+      .hero h1 {
+        font-size: 2rem;
+      }
+      .steps-grid {
+        grid-template-columns: 1fr;
+        gap: 24px;
+      }
+      .mobile-split {
+        flex-direction: column;
+        text-align: center;
+      }
+      .mobile-right h2 {
+        font-size: 2rem;
+      }
+      .download-buttons {
+        justify-content: center;
+      }
+      .nav-links {
+        gap: 16px;
+        flex-wrap: wrap;
+        justify-content: center;
+        margin-top: 12px;
+      }
+      .navbar {
+        flex-direction: column;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .container {
+        padding: 0 16px;
+      }
+      .hero h1 {
+        font-size: 1.7rem;
+      }
+      .hero p {
+        font-size: 1rem;
+      }
+      .section-title {
+        font-size: 1.8rem;
+      }
+    }
+
+    /* ---------- UTILITY ---------- */
+    .sr-only {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      padding: 0;
+      margin: -1px;
+      overflow: hidden;
+      clip: rect(0,0,0,0);
+      white-space: nowrap;
+      border: 0;
+    }
+  </style>
+</head>
+<body>
+  <!-- Main content wrapper for semantic structure -->
+  <main id="main-content" role="main">
+    <!-- Navigation -->
+    <header class="container" role="banner">
+      <nav class="navbar" aria-label="Main navigation">
+        <div class="logo" aria-label="Gibwork logo">Gib<span>work</span></div>
+        <div class="nav-links">
+          <a href="#how-it-works" aria-label="How it works section">How it works</a>
+          <a href="#mobile-app" aria-label="Mobile app section">Mobile app</a>
+          <a href="#" class="btn-outline" aria-label="Sign in to your account">Sign in</a>
+          <a href="#" class="btn-primary" aria-label="Get started with Gibwork">Get started</a>
+        </div>
+      </nav>
+    </header>
+
+    <!-- Hero Section (above the fold) -->
+    <section class="hero container" aria-labelledby="hero-heading">
+      <div class="hero-grid">
+        <div class="hero-content">
+          <h1 id="hero-heading">The Decentralized Work Marketplace for <i>Top Tech Talent</i></h1>
+          <p>Earn on the go. Anytime. Anywhere. Bring the Solana talent layer to your pocket — track bounties, submit work, and receive instant payouts.</p>
+          <div class="hero-cta">
+            <a href="#" class="btn-primary" aria-label="Explore bounties and start earning">Explore bounties</a>
+            <a href="#how-it-works" class="btn-outline" aria-label="Learn how Gibwork works">How it works</a>
+          </div>
+        </div>
+        <div class="hero-visual" aria-hidden="true">
+          <div style="text-align:center;">
+            <i class="fas fa-code mockup-icon" aria-hidden="true"></i>
+            <div class="mockup-label">Smart contract dashboard</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- How it Works (3-step icon grid) -->
+    <section class="how-it-works container" id="how-it-works" aria-labelledby="how-heading">
+      <h2 class="section-title" id="how-heading">How it works</h2>
+      <p class="section-sub">From discovery to payout — three simple steps to start earning on-chain.</p>
+      <div class="steps-grid" role="list">
+        <!-- Step 1 -->
+        <article class="step-card" role="listitem">
+          <div class="step-icon" aria-hidden="true"><i class="fas fa-search"></i></div>
+          <span class="step-badge">Step 1</span>
+          <h3>Discover Bounties</h3>
+          <p>Browse open ecosystem tasks matched to your skills. Filter by tech stack, reward, and timeline.</p>
+        </article>
+        <!-- Step 2 -->
+        <article class="step-card" role="listitem">
+          <div class="step-icon" aria-hidden="true"><i class="fas fa-rocket"></i></div>
+          <span class="step-badge">Step 2</span>
+          <h3>Submit &amp; Ship</h3>
+          <p>Execute deliverables and submit directly via GitHub integration or the Gibwork mobile app.</p>
+        </article>
+        <!-- Step 3 -->
+        <article class="step-card" role="listitem">
+          <div class="step-icon" aria-hidden="true"><i class="fas fa-wallet"></i></div>
+          <span class="step-badge">Step 3</span>
+          <h3>Get Paid Instantly</h3>
+          <p>Receive automated, secure Solana-native token payouts directly to your wallet — no delays.</p>
+        </article>
+      </div>
+    </section>
+
+    <!-- Mobile App Section (split layout) -->
+    <section class="mobile-section" id="mobile-app" aria-labelledby="mobile-heading">
+      <div class="container mobile-split">
+        <div class="mobile-left" aria-hidden="true">
+          <div class="phone-frame">
+            <div class="phone-screen">
+              <i class="fas fa-bolt" aria-hidden="true"></i>
+              <div class="dashboard-dots">
+                <span class="active"></span>
+                <span></span>
+                <span></span>
+              </div>
+              <div class="phone
