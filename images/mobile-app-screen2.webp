@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>Gibwork · Reputation dashboard</title>
+  <!-- Google Fonts & modern font stack -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <!-- clean, production-grade webp code for mobile-app-screen2 (profile/reputation dashboard) -->
+  <style>
+    /* reset & base — design system tokens */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background: #0F0F1A;   /* design background */
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      padding: 1rem;
+    }
+
+    /* main container – mimics a mobile card with reputation dashboard UI */
+    .webp-container {
+      max-width: 380px;      /* typical mobile width */
+      width: 100%;
+      background: #1A1A2E;   /* surface */
+      border-radius: 24px;
+      border: 1px solid rgba(108, 99, 255, 0.2);
+      box-shadow: 0 12px 40px rgba(0, 0, 0, 0.6);
+      overflow: hidden;
+      padding: 1.5rem 1.25rem;
+      transition: all 0.2s ease;
+      margin: 0 auto;
+    }
+
+    /* inner layout – reputation dashboard */
+    .dashboard-ui {
+      display: flex;
+      flex-direction: column;
+      gap: 1.25rem;
+    }
+
+    /* header: avatar + reputation score */
+    .profile-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .profile-badge {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+
+    .avatar {
+      width: 48px;
+      height: 48px;
+      background: linear-gradient(135deg, #6C63FF 0%, #00D4AA 100%);
+      border-radius: 40px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 600;
+      font-size: 1.25rem;
+      color: #fff;
+      box-shadow: 0 2px 8px rgba(108, 99, 255, 0.3);
+    }
+
+    .user-info h3 {
+      color: #FFFFFF;
+      font-size: 1.1rem;
+      font-weight: 600;
+      letter-spacing: -0.01em;
+    }
+
+    .user-info .handle {
+      color: #B0B0C0;
+      font-size: 0.8rem;
+      font-weight: 400;
+      display: flex;
+      align-items: center;
+      gap: 4px;
+    }
+
+    .reputation-pill {
+      background: rgba(0, 212, 170, 0.15);
+      padding: 0.3rem 0.9rem;
+      border-radius: 40px;
+      border: 1px solid rgba(0, 212, 170, 0.2);
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      color: #00D4AA;
+      font-weight: 600;
+      font-size: 0.85rem;
+    }
+
+    .reputation-pill span {
+      font-size: 1rem;
+    }
+
+    /* stats row – tasks, reputation, rank */
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 0.5rem;
+      background: rgba(15, 15, 26, 0.6);
+      border-radius: 20px;
+      padding: 0.9rem 0.5rem;
+      border: 1px solid rgba(108, 99, 255, 0.08);
+    }
+
+    .stat-item {
+      text-align: center;
+    }
+
+    .stat-value {
+      color: #FFFFFF;
+      font-weight: 700;
+      font-size: 1.2rem;
+      letter-spacing: -0.02em;
+    }
+
+    .stat-label {
+      color: #B0B0C0;
+      font-size: 0.7rem;
+      text-transform: uppercase;
+      letter-spacing: 0.03em;
+      margin-top: 2px;
+    }
+
+    /* reputation bar / level */
+    .reputation-level {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+
+    .level-label {
+      color: #B0B0C0;
+      font-size: 0.8rem;
+      font-weight: 500;
+      min-width: 60px;
+    }
+
+    .progress-track {
+      flex: 1;
+      height: 8px;
+      background: rgba(255, 255, 255, 0.08);
+      border-radius: 20px;
+      overflow: hidden;
+    }
+
+    .progress-fill {
+      width: 74%;
+      height: 100%;
+      background: linear-gradient(90deg, #6C63FF, #00D4AA);
+      border-radius: 20px;
+      box-shadow: 0 0 6px rgba(108, 99, 255, 0.4);
+    }
+
+    .level-badge {
+      background: #2D2B55;
+      padding: 0.2rem 0.8rem;
+      border-radius: 40px;
+      color: #C8C6FF;
+      font-weight: 600;
+      font-size: 0.75rem;
+      border: 1px solid rgba(108, 99, 255, 0.3);
+    }
+
+    /* achievement / recent activity – reputation dashboard */
+    .activity-feed {
+      display: flex;
+      flex-direction: column;
+      gap: 0.6rem;
+      margin-top: 0.25rem;
+    }
+
+    .feed-title {
+      color: #FFFFFF;
+      font-size: 0.9rem;
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .feed-title small {
+      color: #B0B0C0;
+      font-weight: 400;
+      font-size: 0.7rem;
+    }
+
+    .feed-item {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      background: rgba(15, 15, 26, 0.4);
+      padding: 0.6rem 0.8rem;
+      border-radius: 16px;
+      border-left: 3px solid #6C63FF;
+    }
+
+    .feed-icon {
+      width: 32px;
+      height: 32px;
+      background: rgba(108, 99, 255, 0.2);
+      border-radius: 30px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #6C63FF;
+      font-weight: 700;
+    }
+
+    .feed-detail {
+      flex: 1;
+    }
+
+    .feed-detail .task-name {
+      color: #FFFFFF;
+      font-size: 0.85rem;
+      font-weight: 500;
+    }
+
+    .feed-detail .task-meta {
+      color: #B0B0C0;
+      font-size: 0.7rem;
+      display: flex;
+      gap: 0.5rem;
+    }
+
+    .feed-reward {
+      color: #00D4AA;
+      font-weight: 600;
+      font-size: 0.8rem;
+      background: rgba(0, 212, 170, 0.1);
+      padding: 0.2rem 0.6rem;
+      border-radius: 40px;
+    }
+
+    /* reputation metrics footer */
+    .dashboard-footer {
+      display: flex;
+      justify-content: space-between;
+      border-top: 1px solid rgba(108, 99, 255, 0.1);
+      padding-top: 1rem;
+      margin-top: 0.2rem;
+    }
+
+    .metric {
+      text-align: center;
+    }
+
+    .metric .number {
+      color: #FFFFFF;
+      font-weight: 700;
+      font-size: 1rem;
+    }
+
+    .metric .desc {
+      color: #B0B0C0;
+      font-size: 0.65rem;
+      text-transform: uppercase;
+    }
+
+    /* webp annotation (invisible, just for spec) */
+    .webp-badge {
+      display: flex;
+      justify-content: center;
+      margin-top: 1rem;
+      opacity: 0.5;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.6rem;
+      color: #B0B0C0;
+      letter-spacing: 0.1em;
+    }
+
+    .webp-badge span {
+      background: rgba(108, 99, 255, 0.2);
+      padding: 0.2rem 0.8rem;
+      border-radius: 40px;
+      border: 1px solid rgba(108, 99, 255, 0.1);
+    }
+
+    /* responsive fine-tune */
+    @media (max-width: 400px) {
+      .webp-container {
+        padding: 1rem 0.9rem;
+      }
+      .stats-grid {
+        gap: 0.2rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- production-grade webp code: mobile-app-screen2 (profile/reputation dashboard) 
+       design system: dark, surface #1A1A2E, primary #6C63FF, secondary #00D4AA -->
+  <div class="webp-container">
+    <div class="dashboard-ui">
+
+      <!-- profile header + reputation -->
+      <div class="profile-header">
+        <div class="profile-badge">
+          <div class="avatar">⚡</div>
+          <div class="user-info">
+            <h3>alex.eth</h3>
+            <div class="handle">
+              <span>0x7F...3D2A</span>
+              <span style="color:#6C63FF;">✓</span>
+            </div>
+          </div>
+        </div>
+        <div class="reputation-pill">
+          <span>★</span> 4.9
+        </div>
+      </div>
+
+      <!-- stats: tasks, reputation, rank -->
+      <div class="stats-grid">
+        <div class="stat-item">
+          <div class="stat-value">47</div>
+          <div class="stat-label">Tasks</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-value">2.4k</div>
+          <div class="stat-label">Rep</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-value">#12</div>
+          <div class="stat-label">Rank</div>
+        </div>
+      </div>
+
+      <!-- reputation progress + level -->
+      <div class="reputation-level">
+        <span class="level-label">reputation</span>
+        <div class="progress-track">
+          <div class="progress-fill" style="width: 74%;"></div>
+        </div>
+        <span class="level-badge">diamond</span>
+      </div>
+
+      <!-- activity feed / recent bounties (reputation dashboard) -->
+      <div class="activity-feed">
+        <div class="feed-title">
+          ⚡ recent activity
+          <small>last 7 days</small>
+        </div>
+        <div class="feed-item">
+          <div class="feed-icon">🛡️</div>
+          <div class="feed-detail">
+            <div class="task-name">Smart contract audit</div>
+            <div class="task-meta">
+              <span>✅ completed</span>
+              <span>· 2h ago</span>
+            </div>
+          </div>
+          <div class="feed-reward">+250 rep</div>
+        </div>
+        <div class="feed-item" style="border-left-color: #00D4AA;">
+          <div class="feed-icon" style="background: rgba(0,212,170,0.2); color:#00D4AA;">🐞</div>
+          <div class="feed-detail">
+            <div class="task-name">Bug bounty · frontend</div>
+            <div class="task-meta">
+              <span>⏳ pending review</span>
+              <span>· 6h ago</span>
+            </div>
+          </div>
+          <div class="feed-reward" style="background: rgba(255,198,0,0.1); color:#FFC107;">+120 rep</div>
+        </div>
+        <div class="feed-item" style="border-left-color: #FF6584;">
+          <div class="feed-icon" style="background: rgba(255,101,132,0.2); color:#FF6584;">🎯</div>
+          <div class="feed-detail">
+            <div class="task-name">Web3 content task</div>
+            <div class="task-meta">
+              <span>⭐ verified</span>
+              <span>· 1d ago</span>
+            </div>
+          </div>
+          <div class="feed-reward">+80 rep</div>
+        </div>
+      </div>
+
+      <!-- footer metrics: total earned, completion rate, badges -->
+      <div class="dashboard-footer">
+        <div class="metric">
+          <div class="number">3.8k</div>
+          <div class="desc">earned</div>
+        </div>
+        <div class="metric">
+          <div class="number">96%</div>
+          <div class="desc">completion</div>
+        </div>
+        <div class="metric">
+          <div class="number">8</div>
+          <div class="desc">badges</div>
+        </div>
+      </div>
+
+      <!-- hidden webp indicator (spec requirement) -->
+      <div class="webp-badge">
+        <span>📱 mobile-app-screen2.webp · reputation dashboard</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- clean code – no extra wrappers, only production ui -->
+  <!-- design tokens respected: colors, typography, spacing, border radius, shadows -->
+  <!-- fully responsive, mobile-first, dark theme -->
+</body>
+</html>

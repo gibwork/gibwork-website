@@ -1,0 +1,72 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" width="120" height="120">
+  <defs>
+    <linearGradient id="coinGrad1" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#6C63FF;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#00D4AA;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="coinGrad2" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#00D4AA;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#6C63FF;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="coinGrad3" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#6C63FF;stop-opacity:0.8" />
+      <stop offset="100%" style="stop-color:#00D4AA;stop-opacity:0.8" />
+    </linearGradient>
+    <linearGradient id="starGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#FFC107;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#FF6584;stop-opacity:1" />
+    </linearGradient>
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="2" result="coloredBlur"/>
+      <feMerge>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    <filter id="shadow">
+      <feDropShadow dx="0" dy="2" stdDeviation="3" flood-color="#000" flood-opacity="0.3"/>
+    </filter>
+  </defs>
+
+  <!-- Background circle -->
+  <circle cx="60" cy="60" r="58" fill="#1A1A2E" stroke="rgba(108,99,255,0.2)" stroke-width="2"/>
+  <circle cx="60" cy="60" r="50" fill="none" stroke="rgba(108,99,255,0.1)" stroke-width="1"/>
+
+  <!-- Bottom coin (largest, behind) -->
+  <ellipse cx="60" cy="78" rx="28" ry="8" fill="url(#coinGrad3)" opacity="0.6" filter="url(#shadow)"/>
+  <ellipse cx="60" cy="76" rx="28" ry="8" fill="url(#coinGrad3)" opacity="0.8"/>
+  <ellipse cx="60" cy="74" rx="28" ry="8" fill="url(#coinGrad3)"/>
+  <ellipse cx="60" cy="74" rx="22" ry="5" fill="none" stroke="rgba(255,255,255,0.15)" stroke-width="0.5"/>
+  <text x="60" y="77" text-anchor="middle" font-family="Inter, sans-serif" font-size="7" font-weight="700" fill="#FFFFFF" opacity="0.6">$</text>
+
+  <!-- Middle coin -->
+  <ellipse cx="60" cy="68" rx="24" ry="7" fill="url(#coinGrad2)" opacity="0.7" filter="url(#shadow)"/>
+  <ellipse cx="60" cy="66" rx="24" ry="7" fill="url(#coinGrad2)" opacity="0.9"/>
+  <ellipse cx="60" cy="64" rx="24" ry="7" fill="url(#coinGrad2)"/>
+  <ellipse cx="60" cy="64" rx="18" ry="4" fill="none" stroke="rgba(255,255,255,0.15)" stroke-width="0.5"/>
+  <text x="60" y="67" text-anchor="middle" font-family="Inter, sans-serif" font-size="6" font-weight="700" fill="#FFFFFF" opacity="0.7">$</text>
+
+  <!-- Top coin (front) -->
+  <ellipse cx="60" cy="58" rx="20" ry="6" fill="url(#coinGrad1)" opacity="0.8" filter="url(#shadow)"/>
+  <ellipse cx="60" cy="56" rx="20" ry="6" fill="url(#coinGrad1)" opacity="0.95"/>
+  <ellipse cx="60" cy="54" rx="20" ry="6" fill="url(#coinGrad1)"/>
+  <ellipse cx="60" cy="54" rx="14" ry="3.5" fill="none" stroke="rgba(255,255,255,0.2)" stroke-width="0.5"/>
+  <text x="60" y="57" text-anchor="middle" font-family="Inter, sans-serif" font-size="5.5" font-weight="700" fill="#FFFFFF" opacity="0.8">$</text>
+
+  <!-- Star on top -->
+  <g filter="url(#glow)">
+    <polygon points="60,28 63,38 74,38 65,45 68,56 60,49 52,56 55,45 46,38 57,38" fill="url(#starGrad)" stroke="rgba(255,255,255,0.3)" stroke-width="0.5"/>
+  </g>
+
+  <!-- Sparkle dots around star -->
+  <circle cx="72" cy="32" r="1.5" fill="#FFC107" opacity="0.8"/>
+  <circle cx="48" cy="35" r="1" fill="#FFC107" opacity="0.6"/>
+  <circle cx="75" cy="42" r="1" fill="#FFC107" opacity="0.5"/>
+  <circle cx="45" cy="48" r="1.2" fill="#FFC107" opacity="0.7"/>
+
+  <!-- Subtle shine on top coin -->
+  <ellipse cx="55" cy="52" rx="6" ry="2" fill="rgba(255,255,255,0.08)" transform="rotate(-20,55,52)"/>
+
+  <!-- Ring highlight -->
+  <circle cx="60" cy="60" r="48" fill="none" stroke="rgba(108,99,255,0.15)" stroke-width="1" stroke-dasharray="4,4"/>
+</svg>

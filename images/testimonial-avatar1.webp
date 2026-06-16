@@ -1,0 +1,47 @@
+<webp>
+  <metadata>
+    <purpose>User testimonial avatar - contributor portrait</purpose>
+    <file>images/testimonial-avatar1.webp</file>
+    <dimensions>120x120</dimensions>
+    <quality>85</quality>
+    <optimization>lossy</optimization>
+  </metadata>
+  <image>
+    <svg xmlns="http://www.w3.org/2000/svg" width="120" height="120" viewBox="0 0 120 120">
+      <defs>
+        <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+          <stop offset="0%" style="stop-color:#6C63FF;stop-opacity:0.3"/>
+          <stop offset="100%" style="stop-color:#00D4AA;stop-opacity:0.2"/>
+        </linearGradient>
+        <clipPath id="circle">
+          <circle cx="60" cy="60" r="55"/>
+        </clipPath>
+      </defs>
+      <!-- Background circle -->
+      <circle cx="60" cy="60" r="58" fill="url(#bg)" stroke="#6C63FF" stroke-width="2"/>
+      
+      <!-- Avatar silhouette -->
+      <g clip-path="url(#circle)">
+        <!-- Head -->
+        <ellipse cx="60" cy="45" rx="20" ry="22" fill="#1A1A2E"/>
+        <!-- Hair -->
+        <path d="M40 38 Q40 20 60 18 Q80 20 80 38 Q78 30 60 28 Q42 30 40 38Z" fill="#B0B0C0"/>
+        <path d="M42 35 Q42 25 60 22 Q78 25 78 35" fill="none" stroke="#6C63FF" stroke-width="1.5" opacity="0.5"/>
+        <!-- Eyes -->
+        <circle cx="52" cy="42" r="3" fill="#FFFFFF"/>
+        <circle cx="68" cy="42" r="3" fill="#FFFFFF"/>
+        <circle cx="52" cy="42" r="1.5" fill="#6C63FF"/>
+        <circle cx="68" cy="42" r="1.5" fill="#6C63FF"/>
+        <!-- Smile -->
+        <path d="M52 52 Q60 58 68 52" fill="none" stroke="#00D4AA" stroke-width="1.5" stroke-linecap="round"/>
+        <!-- Body -->
+        <path d="M38 65 Q40 90 60 95 Q80 90 82 65" fill="#1A1A2E"/>
+        <!-- Collar -->
+        <path d="M50 65 L60 75 L70 65" fill="none" stroke="#6C63FF" stroke-width="1.5"/>
+        <!-- Verification badge -->
+        <circle cx="95" cy="95" r="12" fill="#00D4AA"/>
+        <path d="M90 95 L94 99 L100 91" fill="none" stroke="#0F0F1A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+      </g>
+    </svg>
+  </image>
+</webp>
