@@ -1,0 +1,466 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gibwork · project success</title>
+    <!-- fonts & design tokens -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+    <!-- clean base & tokens -->
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            background: #ffffff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            font-family: 'Roboto', sans-serif;
+            padding: 24px;
+        }
+        /* main card – screenshot container (production grade jpg simulation) */
+        .gibwork-success {
+            max-width: 1280px;
+            width: 100%;
+            background: #ffffff;
+            border-radius: 24px;
+            box-shadow: 0 20px 40px -12px rgba(0,0,0,0.08), 0 8px 24px -6px rgba(0,0,0,0.02);
+            padding: 32px 32px 40px;
+            border: 1px solid #dadce0;
+            transition: all 0.1s ease;
+        }
+
+        /* design system tokens */
+        :root {
+            --primary: #1a73e8;
+            --secondary: #34a853;
+            --accent: #fbbc04;
+            --bg: #ffffff;
+            --text: #202124;
+            --muted: #5f6368;
+            --success: #0f9d58;
+            --border: #dadce0;
+            --heading: 'Inter', sans-serif;
+            --body: 'Roboto', sans-serif;
+        }
+
+        /* section header component */
+        .section-header {
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+            margin-bottom: 28px;
+        }
+        .section-header h2 {
+            font-family: var(--heading);
+            font-weight: 600;
+            font-size: 28px;
+            color: var(--text);
+            letter-spacing: -0.02em;
+        }
+        .section-header .sub {
+            font-family: var(--body);
+            font-weight: 400;
+            font-size: 16px;
+            color: var(--muted);
+        }
+
+        /* metrics row (dashboard) */
+        .dashboard-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+            margin-bottom: 40px;
+        }
+        .dashboard-metric {
+            background: #f8f9fa;
+            border-radius: 20px;
+            padding: 20px 12px 16px;
+            text-align: center;
+            border: 1px solid var(--border);
+            transition: 0.1s;
+        }
+        .dashboard-metric .metric-value {
+            font-family: var(--heading);
+            font-weight: 700;
+            font-size: 32px;
+            color: var(--primary);
+            line-height: 1.2;
+        }
+        .dashboard-metric .metric-label {
+            font-family: var(--body);
+            font-size: 15px;
+            color: var(--muted);
+            font-weight: 500;
+            margin-top: 6px;
+            letter-spacing: 0.01em;
+        }
+        .dashboard-metric .metric-trend {
+            font-size: 13px;
+            color: var(--success);
+            font-weight: 500;
+            margin-top: 4px;
+        }
+
+        /* contributor spotlight (cards) */
+        .spotlight-row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            margin-bottom: 40px;
+        }
+        .spotlight-card {
+            flex: 1 1 220px;
+            background: #ffffff;
+            border: 1px solid var(--border);
+            border-radius: 20px;
+            padding: 20px 18px 18px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.02);
+            transition: 0.1s;
+            display: flex;
+            flex-direction: column;
+        }
+        .spotlight-card .contributor {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 12px;
+        }
+        .spotlight-card .avatar {
+            width: 44px;
+            height: 44px;
+            background: #e8f0fe;
+            border-radius: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 600;
+            font-size: 18px;
+            color: var(--primary);
+            font-family: var(--heading);
+        }
+        .spotlight-card .user-info {
+            display: flex;
+            flex-direction: column;
+        }
+        .spotlight-card .username {
+            font-family: var(--heading);
+            font-weight: 600;
+            font-size: 17px;
+            color: var(--text);
+        }
+        .spotlight-card .task-tag {
+            font-size: 13px;
+            background: #f1f3f4;
+            padding: 2px 10px;
+            border-radius: 30px;
+            color: var(--muted);
+            font-weight: 500;
+            display: inline-block;
+            width: fit-content;
+            margin: 6px 0 8px;
+        }
+        .spotlight-card .reward {
+            font-weight: 600;
+            color: var(--secondary);
+            font-size: 18px;
+            font-family: var(--heading);
+            margin-bottom: 8px;
+        }
+        .spotlight-card .testimonial {
+            font-size: 14px;
+            line-height: 1.5;
+            color: #3c4043;
+            border-left: 3px solid var(--accent);
+            padding-left: 12px;
+            margin-top: 4px;
+            font-style: italic;
+            background: #fefcf0;
+            padding: 8px 12px;
+            border-radius: 0 12px 12px 0;
+        }
+
+        /* success stories (project examples) */
+        .success-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+            margin-bottom: 36px;
+        }
+        .success-story-card {
+            background: #ffffff;
+            border: 1px solid var(--border);
+            border-radius: 20px;
+            padding: 18px 16px 16px;
+            transition: 0.1s;
+        }
+        .success-story-card .story-icon {
+            font-size: 26px;
+            margin-bottom: 6px;
+        }
+        .success-story-card h4 {
+            font-family: var(--heading);
+            font-weight: 600;
+            font-size: 18px;
+            color: var(--text);
+            margin-bottom: 4px;
+        }
+        .success-story-card .story-desc {
+            font-size: 14px;
+            color: var(--muted);
+            line-height: 1.4;
+            margin: 6px 0 10px;
+        }
+        .success-story-card .story-meta {
+            display: flex;
+            justify-content: space-between;
+            font-size: 13px;
+            font-weight: 500;
+            color: var(--text);
+            border-top: 1px solid #eceff1;
+            padding-top: 10px;
+            margin-top: 4px;
+        }
+        .story-meta .completed {
+            color: var(--success);
+        }
+
+        /* trust badges row */
+        .trust-row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 24px 32px;
+            align-items: center;
+            justify-content: center;
+            padding: 16px 0 8px;
+            border-top: 1px solid #eef0f2;
+            margin-top: 8px;
+        }
+        .trust-badge {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-family: var(--body);
+            font-weight: 500;
+            color: #2c2f33;
+            background: #f8f9fa;
+            padding: 6px 18px 6px 14px;
+            border-radius: 40px;
+            border: 1px solid #e2e5e9;
+            font-size: 15px;
+        }
+        .trust-badge .badge-icon {
+            font-size: 20px;
+        }
+
+        /* responsive touches */
+        @media (max-width: 900px) {
+            .dashboard-grid, .success-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            .gibwork-success {
+                padding: 24px 18px;
+            }
+        }
+        @media (max-width: 600px) {
+            .dashboard-grid, .success-grid {
+                grid-template-columns: 1fr;
+            }
+            .spotlight-row {
+                flex-direction: column;
+            }
+        }
+
+        /* extra polish */
+        .badge-icon-small {
+            background: var(--primary);
+            border-radius: 20px;
+            color: white;
+            font-size: 12px;
+            padding: 2px 8px;
+            margin-left: 6px;
+        }
+        .text-muted-small {
+            color: var(--muted);
+            font-size: 13px;
+        }
+        .fw-500 {
+            font-weight: 500;
+        }
+        .mt-1 {
+            margin-top: 4px;
+        }
+        .mb-1 {
+            margin-bottom: 4px;
+        }
+    </style>
+</head>
+<body>
+<div class="gibwork-success">
+    <!-- HEADER: project success / community growth -->
+    <div class="section-header">
+        <h2>📈 Community growth · completed campaign</h2>
+        <div class="sub">Real contributors, real on‑chain rewards — proof of platform impact</div>
+    </div>
+
+    <!-- RESULTS DASHBOARD (metrics) -->
+    <div class="dashboard-grid">
+        <div class="dashboard-metric">
+            <div class="metric-value">14.2k</div>
+            <div class="metric-label">Tasks completed</div>
+            <div class="metric-trend">↑ 23% vs last month</div>
+        </div>
+        <div class="dashboard-metric">
+            <div class="metric-value">3,840</div>
+            <div class="metric-label">Contributors paid</div>
+            <div class="metric-trend">+ 412 new</div>
+        </div>
+        <div class="dashboard-metric">
+            <div class="metric-value">$186k</div>
+            <div class="metric-label">Rewards distributed</div>
+            <div class="metric-trend">on‑chain verified</div>
+        </div>
+        <div class="dashboard-metric">
+            <div class="metric-value">47</div>
+            <div class="metric-label">Active projects</div>
+            <div class="metric-trend">+8 this week</div>
+        </div>
+    </div>
+
+    <!-- CONTRIBUTOR SPOTLIGHT (real examples) -->
+    <div style="margin-bottom: 8px; font-family: var(--heading); font-weight: 600; font-size: 20px; color: var(--text);">
+        ⚡ Contributor spotlight
+    </div>
+    <div class="spotlight-row">
+        <!-- card 1 -->
+        <div class="spotlight-card">
+            <div class="contributor">
+                <div class="avatar">JM</div>
+                <div class="user-info">
+                    <span class="username">jessica_m</span>
+                    <span class="text-muted-small">@jessica_m</span>
+                </div>
+            </div>
+            <div class="task-tag">🎨 design task</div>
+            <div class="reward">+ 0.85 ETH</div>
+            <div class="testimonial">“Completed a design task in 2 days and earned my first on‑chain reward through Gibwork.”</div>
+        </div>
+        <!-- card 2 -->
+        <div class="spotlight-card">
+            <div class="contributor">
+                <div class="avatar">TK</div>
+                <div class="user-info">
+                    <span class="username">tomas_k</span>
+                    <span class="text-muted-small">@tomas_code</span>
+                </div>
+            </div>
+            <div class="task-tag">🧩 development</div>
+            <div class="reward">+ 1.2 ETH</div>
+            <div class="testimonial">“Smart contract audit & frontend integration – paid in 48h. Best freelance experience.”</div>
+        </div>
+        <!-- card 3 -->
+        <div class="spotlight-card">
+            <div class="contributor">
+                <div class="avatar">AR</div>
+                <div class="user-info">
+                    <span class="username">ariana.r</span>
+                    <span class="text-muted-small">@ariana.creates</span>
+                </div>
+            </div>
+            <div class="task-tag">📝 content writing</div>
+            <div class="reward">+ 0.42 ETH</div>
+            <div class="testimonial">“Wrote 6 web3 articles for a DeFi project – reward arrived on‑chain instantly.”</div>
+        </div>
+        <!-- card 4 -->
+        <div class="spotlight-card">
+            <div class="contributor">
+                <div class="avatar">ML</div>
+                <div class="user-info">
+                    <span class="username">marcus_li</span>
+                    <span class="text-muted-small">@marcus.eth</span>
+                </div>
+            </div>
+            <div class="task-tag">📊 community growth</div>
+            <div class="reward">+ 2.1 ETH</div>
+            <div class="testimonial">“Ran a 2-week growth campaign: +3k members, reward streamed on‑chain. Huge!”</div>
+        </div>
+    </div>
+
+    <!-- PROJECT SUCCESS EXAMPLES (campaign showcase) -->
+    <div style="margin-bottom: 8px; font-family: var(--heading); font-weight: 600; font-size: 20px; color: var(--text);">
+        🚀 Completed campaigns
+    </div>
+    <div class="success-grid">
+        <div class="success-story-card">
+            <div class="story-icon">🌱</div>
+            <h4>Community growth</h4>
+            <div class="story-desc">Discord & Twitter engagement +12k members, 400+ on-chain tasks</div>
+            <div class="story-meta">
+                <span>rewards: 4.8 ETH</span>
+                <span class="completed">✅ completed</span>
+            </div>
+        </div>
+        <div class="success-story-card">
+            <div class="story-icon">🎨</div>
+            <h4>Content creation</h4>
+            <div class="story-desc">30 articles, 15 videos, 50+ social posts for web3 brand</div>
+            <div class="story-meta">
+                <span>rewards: 3.2 ETH</span>
+                <span class="completed">✅ completed</span>
+            </div>
+        </div>
+        <div class="success-story-card">
+            <div class="story-icon">🖌️</div>
+            <h4>Design work</h4>
+            <div class="story-desc">UI/UX, branding, and 3D assets – 22 contributors</div>
+            <div class="story-meta">
+                <span>rewards: 6.1 ETH</span>
+                <span class="completed">✅ completed</span>
+            </div>
+        </div>
+        <div class="success-story-card">
+            <div class="story-icon">⚙️</div>
+            <h4>Development tasks</h4>
+            <div class="story-desc">Smart contract, dApp frontend, and integration tasks</div>
+            <div class="story-meta">
+                <span>rewards: 9.7 ETH</span>
+                <span class="completed">✅ completed</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- TRUST INDICATORS + on‑chain transparency -->
+    <div class="trust-row">
+        <div class="trust-badge">
+            <span class="badge-icon">🔗</span> on‑chain transparency
+            <span class="badge-icon-small">verified</span>
+        </div>
+        <div class="trust-badge">
+            <span class="badge-icon">🌍</span> global talent access
+        </div>
+        <div class="trust-badge">
+            <span class="badge-icon">🧾</span> open contribution model
+        </div>
+        <div class="trust-badge">
+            <span class="badge-icon">✅</span> 100% on‑chain rewards
+        </div>
+    </div>
+
+    <!-- subtle footer / extra context (benefits) -->
+    <div style="display: flex; justify-content: space-between; align-items: center; margin-top: 24px; font-size: 14px; color: var(--muted); border-top: 1px solid #f0f2f4; padding-top: 18px; flex-wrap: wrap;">
+        <div style="display: flex; gap: 20px; flex-wrap: wrap;">
+            <span>⭐ <strong>trusted by 140+ projects</strong></span>
+            <span>📦 <strong>14.2k tasks</strong> completed</span>
+            <span>💎 <strong>$186k</strong> distributed</span>
+        </div>
+        <div style="color: var(--primary); font-weight: 500;">
+            gibwork.io / success
+        </div>
+    </div>
+    <!-- micro description:

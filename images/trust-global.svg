@@ -1,0 +1,186 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" width="800" height="600">
+  <defs>
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Roboto:wght@400;500&display=swap');
+    </style>
+    <linearGradient id="bgGrad" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#f8f9fa"/>
+      <stop offset="100%" stop-color="#ffffff"/>
+    </linearGradient>
+    <linearGradient id="globeGrad" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#1a73e8"/>
+      <stop offset="100%" stop-color="#0d47a1"/>
+    </linearGradient>
+    <linearGradient id="globeShine" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="rgba(255,255,255,0.3)"/>
+      <stop offset="100%" stop-color="rgba(255,255,255,0)"/>
+    </linearGradient>
+    <filter id="shadow1" x="-10%" y="-10%" width="130%" height="130%">
+      <feDropShadow dx="0" dy="2" stdDeviation="4" flood-color="#000" flood-opacity="0.08"/>
+    </filter>
+    <filter id="shadow2" x="-10%" y="-10%" width="130%" height="130%">
+      <feDropShadow dx="0" dy="1" stdDeviation="2" flood-color="#000" flood-opacity="0.06"/>
+    </filter>
+  </defs>
+
+  <!-- Background -->
+  <rect width="800" height="600" fill="url(#bgGrad)" rx="12"/>
+
+  <!-- Border -->
+  <rect x="1" y="1" width="798" height="598" fill="none" stroke="#dadce0" stroke-width="1" rx="12"/>
+
+  <!-- Section Header -->
+  <text x="400" y="48" text-anchor="middle" font-family="Inter, sans-serif" font-size="28" font-weight="700" fill="#202124">Global Talent Access</text>
+  <text x="400" y="74" text-anchor="middle" font-family="Roboto, sans-serif" font-size="16" fill="#5f6368">Trusted by contributors and projects worldwide</text>
+
+  <!-- Globe Icon -->
+  <g transform="translate(400, 160)">
+    <circle cx="0" cy="0" r="48" fill="url(#globeGrad)" opacity="0.12"/>
+    <circle cx="0" cy="0" r="40" fill="url(#globeGrad)" opacity="0.15"/>
+    <circle cx="0" cy="0" r="32" fill="url(#globeGrad)" opacity="0.2"/>
+    <circle cx="0" cy="0" r="24" fill="url(#globeGrad)" opacity="0.25"/>
+    <circle cx="0" cy="0" r="16" fill="url(#globeGrad)" opacity="0.3"/>
+
+    <!-- Globe rings -->
+    <ellipse cx="0" cy="0" rx="40" ry="16" fill="none" stroke="#1a73e8" stroke-width="1.5" opacity="0.5"/>
+    <ellipse cx="0" cy="0" rx="16" ry="40" fill="none" stroke="#1a73e8" stroke-width="1.5" opacity="0.5"/>
+    <ellipse cx="0" cy="0" rx="40" ry="16" fill="none" stroke="#1a73e8" stroke-width="1.5" opacity="0.3" transform="rotate(45)"/>
+    <ellipse cx="0" cy="0" rx="40" ry="16" fill="none" stroke="#1a73e8" stroke-width="1.5" opacity="0.3" transform="rotate(-45)"/>
+
+    <!-- Globe highlight -->
+    <circle cx="-8" cy="-10" r="12" fill="url(#globeShine)"/>
+
+    <!-- Center dot -->
+    <circle cx="0" cy="0" r="4" fill="#1a73e8"/>
+  </g>
+
+  <!-- Trust Badges Row -->
+  <g transform="translate(0, 230)">
+    <!-- Badge 1: On-chain Transparency -->
+    <g transform="translate(80, 0)" filter="url(#shadow2)">
+      <rect x="0" y="0" width="180" height="56" rx="28" fill="#ffffff" stroke="#dadce0" stroke-width="1"/>
+      <circle cx="28" cy="28" r="16" fill="#1a73e8" opacity="0.1"/>
+      <path d="M22 28l4 4 8-8" fill="none" stroke="#1a73e8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+      <text x="52" y="24" font-family="Inter, sans-serif" font-size="13" font-weight="600" fill="#202124">On-chain</text>
+      <text x="52" y="40" font-family="Roboto, sans-serif" font-size="11" fill="#5f6368">Transparency</text>
+    </g>
+
+    <!-- Badge 2: Open Contribution -->
+    <g transform="translate(310, 0)" filter="url(#shadow2)">
+      <rect x="0" y="0" width="180" height="56" rx="28" fill="#ffffff" stroke="#dadce0" stroke-width="1"/>
+      <circle cx="28" cy="28" r="16" fill="#34a853" opacity="0.1"/>
+      <path d="M20 28h16M28 20v16" fill="none" stroke="#34a853" stroke-width="2" stroke-linecap="round"/>
+      <text x="52" y="24" font-family="Inter, sans-serif" font-size="13" font-weight="600" fill="#202124">Open</text>
+      <text x="52" y="40" font-family="Roboto, sans-serif" font-size="11" fill="#5f6368">Contribution Model</text>
+    </g>
+
+    <!-- Badge 3: Global Talent -->
+    <g transform="translate(540, 0)" filter="url(#shadow2)">
+      <rect x="0" y="0" width="180" height="56" rx="28" fill="#1a73e8" stroke="none"/>
+      <circle cx="28" cy="28" r="16" fill="rgba(255,255,255,0.2)"/>
+      <circle cx="28" cy="28" r="8" fill="none" stroke="#fff" stroke-width="1.5"/>
+      <ellipse cx="28" cy="28" rx="8" ry="3" fill="none" stroke="#fff" stroke-width="1"/>
+      <text x="52" y="24" font-family="Inter, sans-serif" font-size="13" font-weight="600" fill="#ffffff">Global</text>
+      <text x="52" y="40" font-family="Roboto, sans-serif" font-size="11" fill="rgba(255,255,255,0.85)">Talent Access</text>
+    </g>
+  </g>
+
+  <!-- Dashboard Metrics -->
+  <g transform="translate(0, 310)">
+    <rect x="40" y="0" width="720" height="80" rx="12" fill="#ffffff" stroke="#dadce0" stroke-width="1" filter="url(#shadow1)"/>
+
+    <!-- Metric 1 -->
+    <g transform="translate(80, 0)">
+      <text x="0" y="32" font-family="Inter, sans-serif" font-size="24" font-weight="700" fill="#1a73e8">12,847</text>
+      <text x="0" y="52" font-family="Roboto, sans-serif" font-size="12" fill="#5f6368">Tasks Completed</text>
+    </g>
+
+    <line x1="200" y1="20" x2="200" y2="60" stroke="#dadce0" stroke-width="1"/>
+
+    <!-- Metric 2 -->
+    <g transform="translate(260, 0)">
+      <text x="0" y="32" font-family="Inter, sans-serif" font-size="24" font-weight="700" fill="#34a853">3,421</text>
+      <text x="0" y="52" font-family="Roboto, sans-serif" font-size="12" fill="#5f6368">Contributors Paid</text>
+    </g>
+
+    <line x1="420" y1="20" x2="420" y2="60" stroke="#dadce0" stroke-width="1"/>
+
+    <!-- Metric 3 -->
+    <g transform="translate(480, 0)">
+      <text x="0" y="32" font-family="Inter, sans-serif" font-size="24" font-weight="700" fill="#fbbc04">$284K</text>
+      <text x="0" y="52" font-family="Roboto, sans-serif" font-size="12" fill="#5f6368">Total Rewards</text>
+    </g>
+
+    <line x1="600" y1="20" x2="600" y2="60" stroke="#dadce0" stroke-width="1"/>
+
+    <!-- Metric 4 -->
+    <g transform="translate(640, 0)">
+      <text x="0" y="32" font-family="Inter, sans-serif" font-size="24" font-weight="700" fill="#0f9d58">156</text>
+      <text x="0" y="52" font-family="Roboto, sans-serif" font-size="12" fill="#5f6368">Active Projects</text>
+    </g>
+  </g>
+
+  <!-- Contributor Spotlight Section -->
+  <g transform="translate(0, 420)">
+    <text x="40" y="0" font-family="Inter, sans-serif" font-size="16" font-weight="600" fill="#202124">Contributor Spotlight</text>
+
+    <!-- Card 1 -->
+    <g transform="translate(40, 16)" filter="url(#shadow2)">
+      <rect x="0" y="0" width="340" height="72" rx="10" fill="#ffffff" stroke="#dadce0" stroke-width="1"/>
+      <circle cx="36" cy="36" r="18" fill="#1a73e8" opacity="0.1"/>
+      <text x="36" y="41" text-anchor="middle" font-family="Inter, sans-serif" font-size="14" font-weight="600" fill="#1a73e8">JD</text>
+      <text x="64" y="28" font-family="Inter, sans-serif" font-size="13" font-weight="600" fill="#202124">@johndoe</text>
+      <text x="64" y="44" font-family="Roboto, sans-serif" font-size="11" fill="#5f6368">Design Task · Earned $250</text>
+      <text x="64" y="58" font-family="Roboto, sans-serif" font-size="10" fill="#0f9d58">✓ Completed in 2 days</text>
+    </g>
+
+    <!-- Card 2 -->
+    <g transform="translate(420, 16)" filter="url(#shadow2)">
+      <rect x="0" y="0" width="340" height="72" rx="10" fill="#ffffff" stroke="#dadce0" stroke-width="1"/>
+      <circle cx="36" cy="36" r="18" fill="#34a853" opacity="0.1"/>
+      <text x="36" y="41" text-anchor="middle" font-family="Inter, sans-serif" font-size="14" font-weight="600" fill="#34a853">AS</text>
+      <text x="64" y="28" font-family="Inter, sans-serif" font-size="13" font-weight="600" fill="#202124">@alexsmith</text>
+      <text x="64" y="44" font-family="Roboto, sans-serif" font-size="11" fill="#5f6368">Content Writing · Earned $180</text>
+      <text x="64" y="58" font-family="Roboto, sans-serif" font-size="10" fill="#0f9d58">✓ 5 articles published</text>
+    </g>
+  </g>
+
+  <!-- Project Success Section -->
+  <g transform="translate(0, 520)">
+    <text x="40" y="0" font-family="Inter, sans-serif" font-size="16" font-weight="600" fill="#202124">Project Success Stories</text>
+
+    <!-- Story 1 -->
+    <g transform="translate(40, 16)" filter="url(#shadow2)">
+      <rect x="0" y="0" width="220" height="56" rx="8" fill="#ffffff" stroke="#dadce0" stroke-width="1"/>
+      <rect x="0" y="0" width="4" height="56" rx="2" fill="#1a73e8"/>
+      <text x="16" y="24" font-family="Inter, sans-serif" font-size="12" font-weight="600" fill="#202124">Community Growth</text>
+      <text x="16" y="42" font-family="Roboto, sans-serif" font-size="11" fill="#5f6368">+2,400 members in 30 days</text>
+    </g>
+
+    <!-- Story 2 -->
+    <g transform="translate(290, 16)" filter="url(#shadow2)">
+      <rect x="0" y="0" width="220" height="56" rx="8" fill="#ffffff" stroke="#dadce0" stroke-width="1"/>
+      <rect x="0" y="0" width="4" height="56" rx="2" fill="#34a853"/>
+      <text x="16" y="24" font-family="Inter, sans-serif" font-size="12" font-weight="600" fill="#202124">Design Sprint</text>
+      <text x="16" y="42" font-family="Roboto, sans-serif" font-size="11" fill="#5f6368">12 UI mockups delivered</text>
+    </g>
+
+    <!-- Story 3 -->
+    <g transform="translate(540, 16)" filter="url(#shadow2)">
+      <rect x="0" y="0" width="220" height="56" rx="8" fill="#ffffff" stroke="#dadce0" stroke-width="1"/>
+      <rect x="0" y="0" width="4" height="56" rx="2" fill="#fbbc04"/>
+      <text x="16" y="24" font-family="Inter, sans-serif" font-size="12" font-weight="600" fill="#202124">Web3 Development</text>
+      <text x="16" y="42" font-family="Roboto, sans-serif" font-size="11" fill="#5f6368">Smart contract deployed</text>
+    </g>
+  </g>
+
+  <!-- Decorative dots pattern -->
+  <g opacity="0.03">
+    <circle cx="20" cy="20" r="2" fill="#1a73e8"/>
+    <circle cx="780" cy="20" r="2" fill="#1a73e8"/>
+    <circle cx="20" cy="580" r="2" fill="#1a73e8"/>
+    <circle cx="780" cy="580" r="2" fill="#1a73e8"/>
+    <circle cx="400" cy="580" r="2" fill="#1a73e8"/>
+    <circle cx="400" cy="20" r="2" fill="#1a73e8"/>
+  </g>
+</svg>

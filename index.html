@@ -1,0 +1,489 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gibwork · Trusted on‑chain work</title>
+  <!-- Google Fonts: Inter + Roboto -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+  <!-- Font Awesome 6 (free) for icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <style>
+    /* ---------- RESET & BASE ---------- */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background-color: #ffffff;
+      color: #202124;
+      font-family: 'Roboto', sans-serif;
+      line-height: 1.5;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    h1, h2, h3, h4, h5, h6 {
+      font-family: 'Inter', sans-serif;
+      font-weight: 600;
+      letter-spacing: -0.01em;
+    }
+
+    .container {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    /* ---------- SECTION HEADER (reusable) ---------- */
+    .section-header {
+      text-align: center;
+      margin-bottom: 48px;
+    }
+
+    .section-header h2 {
+      font-size: 2rem;  /* 32px */
+      font-weight: 700;
+      color: #202124;
+      margin-bottom: 8px;
+    }
+
+    .section-header p {
+      font-size: 1.125rem;
+      color: #5f6368;
+      max-width: 640px;
+      margin: 0 auto;
+    }
+
+    /* ---------- SPOTLIGHT CARDS ---------- */
+    .spotlight-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 24px;
+      margin-bottom: 48px;
+    }
+
+    .spotlight-card {
+      background: #ffffff;
+      border: 1px solid #dadce0;
+      border-radius: 20px;
+      padding: 24px;
+      transition: box-shadow 0.2s ease, transform 0.15s ease;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .spotlight-card:hover {
+      box-shadow: 0 8px 24px rgba(0,0,0,0.04);
+      transform: translateY(-2px);
+    }
+
+    .spotlight-card .user-row {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 16px;
+    }
+
+    .spotlight-card .avatar {
+      width: 48px;
+      height: 48px;
+      background: #1a73e8;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-weight: 600;
+      font-size: 1.25rem;
+      font-family: 'Inter', sans-serif;
+      flex-shrink: 0;
+    }
+
+    .spotlight-card .user-info {
+      flex: 1;
+    }
+
+    .spotlight-card .username {
+      font-weight: 600;
+      font-size: 1.125rem;
+      color: #202124;
+      font-family: 'Inter', sans-serif;
+    }
+
+    .spotlight-card .task-label {
+      font-size: 0.875rem;
+      color: #5f6368;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      margin-top: 2px;
+    }
+
+    .spotlight-card .reward-badge {
+      background: #e8f5e9;
+      color: #0f9d58;
+      font-weight: 600;
+      font-size: 0.875rem;
+      padding: 4px 12px;
+      border-radius: 40px;
+      display: inline-block;
+      margin: 12px 0 10px;
+      width: fit-content;
+      border: 1px solid #b7e1bd;
+    }
+
+    .spotlight-card .testimonial {
+      font-size: 0.95rem;
+      color: #202124;
+      background: #f8f9fa;
+      padding: 12px 14px;
+      border-radius: 14px;
+      border-left: 3px solid #1a73e8;
+      margin-top: 6px;
+      line-height: 1.5;
+      flex: 1;
+    }
+
+    .spotlight-card .testimonial i {
+      color: #1a73e8;
+      margin-right: 4px;
+    }
+
+    /* ---------- SUCCESS STORY CARDS ---------- */
+    .success-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 24px;
+      margin-bottom: 48px;
+    }
+
+    .success-story-card {
+      background: #ffffff;
+      border: 1px solid #dadce0;
+      border-radius: 20px;
+      padding: 24px;
+      transition: box-shadow 0.2s ease;
+    }
+
+    .success-story-card:hover {
+      box-shadow: 0 6px 20px rgba(0,0,0,0.03);
+    }
+
+    .success-story-card .story-icon {
+      font-size: 2rem;
+      color: #1a73e8;
+      margin-bottom: 12px;
+    }
+
+    .success-story-card h3 {
+      font-size: 1.25rem;
+      font-weight: 600;
+      margin-bottom: 6px;
+      color: #202124;
+    }
+
+    .success-story-card .category-tag {
+      display: inline-block;
+      background: #e8f0fe;
+      color: #1a73e8;
+      font-size: 0.75rem;
+      font-weight: 600;
+      padding: 4px 12px;
+      border-radius: 40px;
+      letter-spacing: 0.02em;
+      margin-bottom: 12px;
+      border: 1px solid #c5d9f7;
+    }
+
+    .success-story-card p {
+      color: #5f6368;
+      font-size: 0.95rem;
+      margin-bottom: 16px;
+    }
+
+    .success-story-card .stats-line {
+      display: flex;
+      gap: 16px;
+      border-top: 1px solid #dadce0;
+      padding-top: 14px;
+      font-size: 0.9rem;
+      color: #202124;
+    }
+
+    .success-story-card .stats-line i {
+      color: #34a853;
+      width: 18px;
+    }
+
+    /* ---------- DASHBOARD METRICS ---------- */
+    .dashboard-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 24px;
+      margin-bottom: 48px;
+    }
+
+    .dashboard-metric {
+      background: #ffffff;
+      border: 1px solid #dadce0;
+      border-radius: 24px;
+      padding: 28px 16px;
+      text-align: center;
+      transition: box-shadow 0.2s ease;
+    }
+
+    .dashboard-metric:hover {
+      box-shadow: 0 8px 20px rgba(0,0,0,0.02);
+    }
+
+    .dashboard-metric .metric-value {
+      font-size: 2.5rem;  /* 40px */
+      font-weight: 700;
+      font-family: 'Inter', sans-serif;
+      color: #202124;
+      line-height: 1.2;
+    }
+
+    .dashboard-metric .metric-label {
+      font-size: 1rem;
+      color: #5f6368;
+      margin-top: 6px;
+      font-weight: 500;
+    }
+
+    .dashboard-metric .metric-icon {
+      font-size: 1.8rem;
+      color: #1a73e8;
+      margin-bottom: 8px;
+    }
+
+    /* ---------- TRUST BADGES ---------- */
+    .trust-grid {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 32px 48px;
+      margin: 32px 0 16px;
+    }
+
+    .trust-badge {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      background: #f8f9fa;
+      padding: 12px 24px 12px 20px;
+      border-radius: 60px;
+      border: 1px solid #dadce0;
+      font-weight: 500;
+      color: #202124;
+      font-size: 1rem;
+      transition: background 0.15s;
+    }
+
+    .trust-badge i {
+      font-size: 1.6rem;
+      color: #34a853;
+      width: 32px;
+      text-align: center;
+    }
+
+    .trust-badge .badge-text {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .trust-badge .badge-text strong {
+      font-family: 'Inter', sans-serif;
+      font-weight: 600;
+    }
+
+    .trust-badge .badge-text small {
+      font-size: 0.8rem;
+      color: #5f6368;
+      font-weight: 400;
+    }
+
+    /* ---------- RESPONSIVE ---------- */
+    @media (max-width: 1024px) {
+      .dashboard-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 640px) {
+      .container {
+        padding: 0 16px;
+      }
+      .section-header h2 {
+        font-size: 1.75rem;
+      }
+      .dashboard-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 16px;
+      }
+      .dashboard-metric .metric-value {
+        font-size: 2rem;
+      }
+      .trust-grid {
+        gap: 16px;
+        flex-direction: column;
+        align-items: center;
+      }
+      .trust-badge {
+        width: 100%;
+        max-width: 360px;
+      }
+      .spotlight-grid, .success-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .dashboard-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    /* ---------- UTILITY & SPACING ---------- */
+    .mt-1 { margin-top: 8px; }
+    .mb-1 { margin-bottom: 8px; }
+    .mb-2 { margin-bottom: 16px; }
+    .mb-3 { margin-bottom: 24px; }
+    .text-center { text-align: center; }
+    .sr-only {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      padding: 0;
+      margin: -1px;
+      overflow: hidden;
+      clip: rect(0,0,0,0);
+      border: 0;
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <!-- Contributor Spotlight Section -->
+    <section class="container" aria-labelledby="spotlight-heading">
+      <div class="section-header">
+        <h2 id="spotlight-heading">Contributor Spotlight</h2>
+        <p>Real people. Real earnings. Real results on-chain.</p>
+      </div>
+      <div class="spotlight-grid">
+        <!-- Card 1 -->
+        <article class="spotlight-card">
+          <div class="user-row">
+            <div class="avatar" aria-hidden="true">JD</div>
+            <div class="user-info">
+              <div class="username">JaneDoe.eth</div>
+              <div class="task-label"><i class="fas fa-paint-brush" aria-hidden="true"></i> Design Task</div>
+            </div>
+          </div>
+          <div class="reward-badge"><i class="fas fa-coins" aria-hidden="true"></i> +2,500 GIB</div>
+          <blockquote class="testimonial">
+            <i class="fas fa-quote-left" aria-hidden="true"></i> Completed a design task in 2 days and earned my first on-chain reward through Gibwork.
+          </blockquote>
+        </article>
+        <!-- Card 2 -->
+        <article class="spotlight-card">
+          <div class="user-row">
+            <div class="avatar" aria-hidden="true">MK</div>
+            <div class="user-info">
+              <div class="username">mike_dev</div>
+              <div class="task-label"><i class="fas fa-code" aria-hidden="true"></i> Smart Contract Audit</div>
+            </div>
+          </div>
+          <div class="reward-badge"><i class="fas fa-coins" aria-hidden="true"></i> +4,200 GIB</div>
+          <blockquote class="testimonial">
+            <i class="fas fa-quote-left" aria-hidden="true"></i> Audited a DeFi protocol and got paid instantly. The transparency is unmatched.
+          </blockquote>
+        </article>
+        <!-- Card 3 -->
+        <article class="spotlight-card">
+          <div class="user-row">
+            <div class="avatar" aria-hidden="true">AL</div>
+            <div class="user-info">
+              <div class="username">Alice_writer</div>
+              <div class="task-label"><i class="fas fa-feather-alt" aria-hidden="true"></i> Content Creation</div>
+            </div>
+          </div>
+          <div class="reward-badge"><i class="fas fa-coins" aria-hidden="true"></i> +1,800 GIB</div>
+          <blockquote class="testimonial">
+            <i class="fas fa-quote-left" aria-hidden="true"></i> Wrote technical documentation for a Web3 project. Smooth experience from start to finish.
+          </blockquote>
+        </article>
+      </div>
+    </section>
+
+    <!-- Project Success Examples -->
+    <section class="container" aria-labelledby="success-heading">
+      <div class="section-header">
+        <h2 id="success-heading">Project Success Examples</h2>
+        <p>See how projects have grown using Gibwork.</p>
+      </div>
+      <div class="success-grid">
+        <!-- Card 1 -->
+        <article class="success-story-card">
+          <div class="story-icon"><i class="fas fa-users" aria-hidden="true"></i></div>
+          <h3>Community Growth</h3>
+          <span class="category-tag">Marketing</span>
+          <p>Grew a Discord community from 0 to 12,000 members in 6 weeks using bounty tasks.</p>
+          <div class="stats-line">
+            <span><i class="fas fa-user-plus" aria-hidden="true"></i> 12k members</span>
+            <span><i class="fas fa-clock" aria-hidden="true"></i> 6 weeks</span>
+          </div>
+        </article>
+        <!-- Card 2 -->
+        <article class="success-story-card">
+          <div class="story-icon"><i class="fas fa-pen-fancy" aria-hidden="true"></i></div>
+          <h3>Content Creation</h3>
+          <span class="category-tag">Writing</span>
+          <p>Produced 50+ blog posts and tutorials for a DeFi platform with a distributed team.</p>
+          <div class="stats-line">
+            <span><i class="fas fa-file-alt" aria-hidden="true"></i> 50+ articles</span>
+            <span><i class="fas fa-eye" aria-hidden="true"></i> 200k views</span>
+          </div>
+        </article>
+        <!-- Card 3 -->
+        <article class="success-story-card">
+          <div class="story-icon"><i class="fas fa-paint-roller" aria-hidden="true"></i></div>
+          <h3>Design Work</h3>
+          <span class="category-tag">UI/UX</span>
+          <p>Redesigned the entire dApp interface with 15 contributors in under 3 weeks.</p>
+          <div class="stats-line">
+            <span><i class="fas fa-mobile-alt" aria-hidden="true"></i> 15 screens</span>
+            <span><i class="fas fa-star" aria-hidden="true"></i> 4.9 rating</span>
+          </div>
+        </article>
+        <!-- Card 4 -->
+        <article class="success-story-card">
+          <div class="story-icon"><i class="fas fa-cogs" aria-hidden="true"></i></div>
+          <h3>Development Tasks</h3>
+          <span class="category-tag">Engineering</span>
+          <p>Completed 30+ smart contract audits and integrations for an L2 scaling solution.</p>
+          <div class="stats-line">
+            <span><i class="fas fa-check-circle" aria-hidden="true"></i> 30 tasks</span>
+            <span><i class="fas fa-shield-alt" aria-hidden="true"></i> 0 vulnerabilities</span>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- Results Dashboard -->
+    <section class="container" aria-labelledby="dashboard-heading">
+      <div class="section-header">
+        <h2 id="dashboard-heading">Platform Results</h2>
+        <p>Real-time metrics from the Gibwork ecosystem.</p>
+      </div>
+      <div class="dashboard-grid">
+        <div class="dashboard-metric">
+          <div class="metric-icon"><i class="fas fa-check-double" aria-hidden="true"></i></div>
+          <div class="metric-value" id="tasks-completed">12,845</div>
+          <div class="metric-label">Tasks Completed</div>
+        </div>
+        <div class="dashboard-metric

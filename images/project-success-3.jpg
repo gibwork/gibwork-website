@@ -1,0 +1,447 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gibwork · Contributor spotlight & project success</title>
+  <!-- Google Fonts: Inter + Roboto (production grade) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+  <!-- Font Awesome 6 (free icons) -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background: #f8f9fa;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      font-family: 'Roboto', sans-serif;
+      padding: 24px;
+    }
+
+    /* main card – screenshot / illustration container */
+    .card {
+      max-width: 1280px;
+      width: 100%;
+      background: #ffffff;
+      border-radius: 32px;
+      box-shadow: 0 20px 40px -12px rgba(0, 0, 0, 0.15), 0 4px 18px rgba(0, 0, 0, 0.05);
+      padding: 40px 40px 48px;
+      border: 1px solid #dadce0;
+      transition: all 0.1s ease;
+    }
+
+    /* design tokens */
+    .section-tag {
+      font-family: 'Inter', sans-serif;
+      font-weight: 600;
+      font-size: 14px;
+      letter-spacing: 0.3px;
+      text-transform: uppercase;
+      color: #1a73e8;
+      margin-bottom: 8px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .section-title {
+      font-family: 'Inter', sans-serif;
+      font-weight: 700;
+      font-size: 32px;
+      color: #202124;
+      margin-bottom: 8px;
+    }
+
+    .section-sub {
+      font-size: 16px;
+      color: #5f6368;
+      margin-bottom: 32px;
+      max-width: 700px;
+      line-height: 1.5;
+    }
+
+    /* grid layout */
+    .grid-3 {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+      margin-bottom: 40px;
+    }
+
+    .spotlight-card {
+      background: #ffffff;
+      border: 1px solid #dadce0;
+      border-radius: 24px;
+      padding: 24px 20px 20px;
+      transition: box-shadow 0.2s;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.02);
+    }
+
+    .spotlight-card:hover {
+      box-shadow: 0 8px 24px rgba(26, 115, 232, 0.08);
+      border-color: #1a73e8;
+    }
+
+    .spotlight-header {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 16px;
+    }
+
+    .avatar {
+      width: 44px;
+      height: 44px;
+      background: #e8f0fe;
+      border-radius: 40px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #1a73e8;
+      font-weight: 600;
+      font-size: 18px;
+      font-family: 'Inter', sans-serif;
+    }
+
+    .avatar-icon {
+      font-size: 22px;
+      color: #1a73e8;
+    }
+
+    .username {
+      font-family: 'Inter', sans-serif;
+      font-weight: 600;
+      font-size: 18px;
+      color: #202124;
+    }
+
+    .badge-task {
+      background: #f1f3f4;
+      border-radius: 40px;
+      padding: 4px 12px;
+      font-size: 13px;
+      font-weight: 500;
+      color: #5f6368;
+      display: inline-block;
+      margin: 4px 0 8px;
+    }
+
+    .reward {
+      font-family: 'Inter', sans-serif;
+      font-weight: 600;
+      font-size: 20px;
+      color: #0f9d58;
+      margin: 8px 0 4px;
+    }
+
+    .testimonial {
+      font-size: 15px;
+      line-height: 1.5;
+      color: #202124;
+      background: #f8f9fa;
+      padding: 12px 14px;
+      border-radius: 16px;
+      margin: 12px 0 0;
+      border-left: 3px solid #34a853;
+      font-style: italic;
+    }
+
+    .success-story {
+      background: #ffffff;
+      border: 1px solid #dadce0;
+      border-radius: 24px;
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .story-icon {
+      font-size: 28px;
+      color: #1a73e8;
+      margin-bottom: 12px;
+    }
+
+    .story-title {
+      font-family: 'Inter', sans-serif;
+      font-weight: 600;
+      font-size: 20px;
+      color: #202124;
+      margin-bottom: 6px;
+    }
+
+    .story-desc {
+      font-size: 15px;
+      color: #5f6368;
+      line-height: 1.5;
+      flex: 1;
+    }
+
+    .story-metric {
+      margin-top: 16px;
+      font-weight: 500;
+      color: #0f9d58;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .dashboard-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 16px 24px;
+      background: #f8f9fa;
+      border-radius: 28px;
+      padding: 24px 32px;
+      margin-bottom: 32px;
+      border: 1px solid #dadce0;
+      justify-content: space-between;
+    }
+
+    .metric-item {
+      display: flex;
+      flex-direction: column;
+      min-width: 100px;
+    }
+
+    .metric-value {
+      font-family: 'Inter', sans-serif;
+      font-weight: 700;
+      font-size: 28px;
+      color: #202124;
+      letter-spacing: -0.3px;
+    }
+
+    .metric-label {
+      font-size: 14px;
+      color: #5f6368;
+      font-weight: 500;
+    }
+
+    .trust-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 24px 40px;
+      align-items: center;
+      padding: 16px 0 8px;
+      border-top: 1px solid #dadce0;
+      margin-top: 8px;
+    }
+
+    .trust-badge {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 15px;
+      color: #202124;
+      background: #ffffff;
+      padding: 6px 16px 6px 12px;
+      border-radius: 40px;
+      border: 1px solid #dadce0;
+    }
+
+    .trust-badge i {
+      color: #34a853;
+      font-size: 18px;
+    }
+
+    .badge-accent i {
+      color: #fbbc04;
+    }
+
+    .badge-primary i {
+      color: #1a73e8;
+    }
+
+    .btn-outline {
+      border: 1px solid #1a73e8;
+      background: transparent;
+      padding: 8px 20px;
+      border-radius: 40px;
+      font-weight: 500;
+      color: #1a73e8;
+      font-size: 15px;
+      transition: 0.15s;
+      cursor: default;
+      font-family: 'Inter', sans-serif;
+    }
+
+    .btn-outline i {
+      margin-right: 6px;
+    }
+
+    /* responsive */
+    @media (max-width: 900px) {
+      .card { padding: 28px 20px; }
+      .grid-3 { grid-template-columns: 1fr; gap: 20px; }
+      .dashboard-row { flex-direction: column; gap: 12px; }
+      .trust-row { flex-direction: column; align-items: flex-start; gap: 12px; }
+    }
+
+    /* illustration / screenshot fine details */
+    .chip {
+      background: #e8f0fe;
+      color: #1a73e8;
+      border-radius: 40px;
+      padding: 2px 12px;
+      font-size: 13px;
+      font-weight: 500;
+    }
+
+    .flex-between {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .mt-1 { margin-top: 8px; }
+    .mb-1 { margin-bottom: 8px; }
+    .op-6 { opacity: 0.7; }
+  </style>
+</head>
+<body>
+<div class="card">
+  <!-- header / section -->
+  <div>
+    <div class="section-tag">
+      <i class="fas fa-star" style="color: #fbbc04;"></i> contributor spotlight
+    </div>
+    <div class="section-title">
+      Real people, real earnings
+    </div>
+    <div class="section-sub">
+      New visitors ask: <strong>“Are people actually earning through Gibwork?”</strong> See completed tasks, rewards, and honest testimonials.
+    </div>
+  </div>
+
+  <!-- spotlight cards (3 contributors) -->
+  <div class="grid-3">
+    <!-- contributor 1 -->
+    <div class="spotlight-card">
+      <div class="spotlight-header">
+        <div class="avatar"><i class="fas fa-user-circle avatar-icon"></i></div>
+        <div>
+          <div class="username">@alex_design</div>
+          <div class="badge-task"><i class="far fa-clock" style="margin-right: 4px;"></i> design task</div>
+        </div>
+      </div>
+      <div class="reward"><i class="fas fa-coins" style="color: #fbbc04; margin-right: 6px;"></i> 0.85 ETH</div>
+      <div class="testimonial">
+        “Completed a design task in 2 days and earned my first on-chain reward through Gibwork.”
+      </div>
+      <div style="margin-top: 12px; font-size: 13px; color: #5f6368; display: flex; gap: 12px;">
+        <span><i class="far fa-check-circle" style="color: #0f9d58;"></i> verified</span>
+        <span><i class="fas fa-link" style="color: #1a73e8;"></i> on-chain tx</span>
+      </div>
+    </div>
+
+    <!-- contributor 2 -->
+    <div class="spotlight-card">
+      <div class="spotlight-header">
+        <div class="avatar"><i class="fas fa-user-astronaut avatar-icon"></i></div>
+        <div>
+          <div class="username">@maya_dev</div>
+          <div class="badge-task"><i class="fas fa-code" style="margin-right: 4px;"></i> development</div>
+        </div>
+      </div>
+      <div class="reward"><i class="fas fa-coins" style="color: #fbbc04; margin-right: 6px;"></i> 1,200 USDC</div>
+      <div class="testimonial">
+        “Built a full-stack module for a DeFi project. Payment was instant, on-chain. Exactly what I needed.”
+      </div>
+      <div style="margin-top: 12px; font-size: 13px; color: #5f6368; display: flex; gap: 12px;">
+        <span><i class="far fa-check-circle" style="color: #0f9d58;"></i> verified</span>
+        <span><i class="fas fa-link" style="color: #1a73e8;"></i> on-chain tx</span>
+      </div>
+    </div>
+
+    <!-- contributor 3 -->
+    <div class="spotlight-card">
+      <div class="spotlight-header">
+        <div class="avatar"><i class="fas fa-pen-fancy avatar-icon"></i></div>
+        <div>
+          <div class="username">@content_leo</div>
+          <div class="badge-task"><i class="fas fa-newspaper" style="margin-right: 4px;"></i> content creation</div>
+        </div>
+      </div>
+      <div class="reward"><i class="fas fa-coins" style="color: #fbbc04; margin-right: 6px;"></i> 650 DAI</div>
+      <div class="testimonial">
+        “Wrote 10 web3 articles for a launchpad. Fast review, immediate payout. Highly recommend.”
+      </div>
+      <div style="margin-top: 12px; font-size: 13px; color: #5f6368; display: flex; gap: 12px;">
+        <span><i class="far fa-check-circle" style="color: #0f9d58;"></i> verified</span>
+        <span><i class="fas fa-link" style="color: #1a73e8;"></i> on-chain tx</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- project success examples (showcase) -->
+  <div style="margin: 8px 0 12px;">
+    <div class="section-tag" style="margin-bottom: 4px;">
+      <i class="fas fa-rocket" style="color: #34a853;"></i> project success examples
+    </div>
+    <div style="font-family: 'Inter', sans-serif; font-weight: 600; font-size: 24px; color: #202124; margin-bottom: 20px;">
+      Completed campaigns that deliver
+    </div>
+  </div>
+
+  <div class="grid-3">
+    <div class="success-story">
+      <div class="story-icon"><i class="fas fa-users"></i></div>
+      <div class="story-title">Community growth</div>
+      <div class="story-desc">+3,200 active members in 4 weeks · on-chain engagement rewards. Project: <strong>NexusDAO</strong></div>
+      <div class="story-metric"><i class="fas fa-arrow-up" style="color: #0f9d58;"></i> 212% growth</div>
+    </div>
+    <div class="success-story">
+      <div class="story-icon"><i class="fas fa-palette"></i></div>
+      <div class="story-title">Design work</div>
+      <div class="story-desc">12 UI/UX tasks completed for <strong>DeFiLabs</strong>. Average delivery: 2.1 days. Reward: $8,400</div>
+      <div class="story-metric"><i class="fas fa-star" style="color: #fbbc04;"></i> 4.9 ★ avg rating</div>
+    </div>
+    <div class="success-story">
+      <div class="story-icon"><i class="fas fa-terminal"></i></div>
+      <div class="story-title">Development tasks</div>
+      <div class="story-desc">Smart contract audit & frontend integration. <strong>BlockVault</strong> shipped 2 weeks ahead.</div>
+      <div class="story-metric"><i class="fas fa-bolt" style="color: #1a73e8;"></i> 40+ contributions</div>
+    </div>
+  </div>
+
+  <!-- results dashboard (metrics) -->
+  <div style="margin: 32px 0 12px;">
+    <div class="section-tag" style="margin-bottom: 4px;">
+      <i class="fas fa-chart-simple" style="color: #1a73e8;"></i> results dashboard
+    </div>
+    <div style="font-family: 'Inter', sans-serif; font-weight: 600; font-size: 24px; color: #202124; margin-bottom: 16px;">
+      Platform metrics · live
+    </div>
+  </div>
+
+  <div class="dashboard-row">
+    <div class="metric-item">
+      <span class="metric-value">14,200+</span>
+      <span class="metric-label"><i class="far fa-circle-check" style="color: #0f9d58; margin-right: 4px;"></i> tasks completed</span>
+    </div>
+    <div class="metric-item">
+      <span class="metric-value">8,450</span>
+      <span class="metric-label"><i class="fas fa-user-check" style="color: #1a73e8; margin-right: 4px;"></i> contributors paid</span>
+    </div>
+    <div class="metric-item">
+      <span class="metric-value">$2.8M+</span>
+      <span class="metric-label"><i class="fas fa-coins" style="color: #fbbc04; margin-right: 4px;"></i> total rewards distributed</span>
+    </div>
+    <div class="metric-item">
+      <span class="metric-value">340</span>
+      <span class="metric-label"><i class="fas fa-briefcase" style="color: #34a853; margin-right: 4px;"></i> active projects</span>
+    </div>
+  </div>
+
+  <!-- trust indicators + global -->
+  <div class="trust-row">
+    <div class="trust-b

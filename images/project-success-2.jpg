@@ -1,0 +1,462 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gibwork · Contributor spotlight & project success</title>
+  <!-- Fonts & design system -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background: #ffffff;
+      font-family: 'Roboto', sans-serif;
+      color: #202124;
+      line-height: 1.5;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      padding: 2rem 1rem;
+    }
+
+    /* main card – screenshot container (production grade jpg simulation) */
+    .screenshot-card {
+      max-width: 1280px;
+      width: 100%;
+      background: #ffffff;
+      border-radius: 24px;
+      box-shadow: 0 20px 40px -12px rgba(0, 0, 0, 0.15), 0 4px 18px rgba(0, 0, 0, 0.05);
+      overflow: hidden;
+      padding: 2rem 2.5rem 2.5rem;
+      border: 1px solid #dadce0;
+      transition: box-shadow 0.2s ease;
+    }
+
+    /* typography scale */
+    h1, h2, h3, h4 {
+      font-family: 'Inter', sans-serif;
+      font-weight: 600;
+      letter-spacing: -0.02em;
+    }
+
+    h1 {
+      font-size: 2.5rem; /* 40px */
+      line-height: 1.2;
+    }
+
+    h2 {
+      font-size: 2rem; /* 32px */
+      margin-bottom: 0.5rem;
+    }
+
+    h3 {
+      font-size: 1.5rem; /* 24px */
+    }
+
+    .section-header {
+      font-size: 1.25rem; /* 20px */
+      font-weight: 600;
+      font-family: 'Inter', sans-serif;
+      color: #1a73e8;
+      border-bottom: 2px solid #1a73e8;
+      padding-bottom: 0.5rem;
+      margin-bottom: 1.5rem;
+      display: inline-block;
+    }
+
+    .text-muted {
+      color: #5f6368;
+      font-size: 0.95rem;
+    }
+
+    .text-small {
+      font-size: 0.85rem;
+    }
+
+    /* grid & layout */
+    .grid-2col {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2rem;
+    }
+
+    .grid-3col {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+    }
+
+    .grid-4col {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1.5rem;
+    }
+
+    .flex-row {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    .mt-2 { margin-top: 2rem; }
+    .mt-3 { margin-top: 2.5rem; }
+    .mb-1 { margin-bottom: 0.75rem; }
+    .mb-2 { margin-bottom: 1.5rem; }
+
+    /* spotlight card */
+    .spotlight-card {
+      background: #f8f9fc;
+      border-radius: 20px;
+      padding: 1.5rem;
+      border: 1px solid #dadce0;
+      transition: all 0.1s ease;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.02);
+    }
+
+    .spotlight-card .user {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      margin-bottom: 0.75rem;
+    }
+
+    .spotlight-card .avatar {
+      width: 44px;
+      height: 44px;
+      background: #1a73e8;
+      border-radius: 40px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-weight: 600;
+      font-family: 'Inter', sans-serif;
+      font-size: 1.1rem;
+    }
+
+    .spotlight-card .username {
+      font-weight: 600;
+      font-family: 'Inter', sans-serif;
+      font-size: 1.1rem;
+    }
+
+    .spotlight-card .task-tag {
+      background: #e8f0fe;
+      color: #1a73e8;
+      font-size: 0.75rem;
+      font-weight: 500;
+      padding: 0.2rem 0.7rem;
+      border-radius: 30px;
+      display: inline-block;
+      margin: 0.25rem 0 0.4rem;
+    }
+
+    .reward-badge {
+      background: #0f9d58;
+      color: white;
+      font-weight: 500;
+      font-size: 0.8rem;
+      padding: 0.2rem 0.8rem;
+      border-radius: 30px;
+      display: inline-block;
+    }
+
+    .testimonial {
+      font-style: italic;
+      color: #202124;
+      background: #ffffff;
+      padding: 0.75rem 1rem;
+      border-radius: 16px;
+      margin-top: 0.75rem;
+      border-left: 3px solid #34a853;
+      font-size: 0.9rem;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.02);
+    }
+
+    /* success story card */
+    .success-story-card {
+      background: #ffffff;
+      border: 1px solid #dadce0;
+      border-radius: 20px;
+      padding: 1.5rem 1.25rem;
+      transition: 0.1s ease;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.02);
+    }
+
+    .success-story-card .category {
+      font-size: 0.7rem;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      color: #5f6368;
+      font-weight: 500;
+    }
+
+    .success-story-card h4 {
+      font-size: 1.25rem;
+      margin: 0.25rem 0 0.5rem;
+    }
+
+    .success-story-card .metric-line {
+      display: flex;
+      justify-content: space-between;
+      border-top: 1px solid #dadce0;
+      padding-top: 0.75rem;
+      margin-top: 0.75rem;
+      font-size: 0.9rem;
+    }
+
+    /* dashboard metric */
+    .dashboard-metric {
+      background: #f8f9fc;
+      border-radius: 20px;
+      padding: 1.5rem 1rem;
+      text-align: center;
+      border: 1px solid #dadce0;
+    }
+
+    .dashboard-metric .number {
+      font-size: 2.2rem;
+      font-weight: 700;
+      font-family: 'Inter', sans-serif;
+      color: #1a73e8;
+      line-height: 1.2;
+    }
+
+    .dashboard-metric .label {
+      font-size: 0.9rem;
+      color: #5f6368;
+      margin-top: 0.25rem;
+    }
+
+    /* trust badge */
+    .trust-badge {
+      background: #ffffff;
+      border: 1px solid #dadce0;
+      border-radius: 40px;
+      padding: 0.5rem 1.2rem 0.5rem 1rem;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-weight: 500;
+      font-size: 0.9rem;
+      box-shadow: 0 1px 4px rgba(0,0,0,0.02);
+    }
+
+    .trust-badge .dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 10px;
+      background: #34a853;
+      display: inline-block;
+    }
+
+    .trust-badge .dot-accent {
+      background: #fbbc04;
+    }
+
+    .trust-badge .dot-primary {
+      background: #1a73e8;
+    }
+
+    .badge-group {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+      margin-top: 0.5rem;
+    }
+
+    /* on-chain indicator */
+    .on-chain {
+      background: #e8f0fe;
+      border-radius: 30px;
+      padding: 0.2rem 0.9rem;
+      font-size: 0.7rem;
+      font-weight: 500;
+      color: #1a73e8;
+      letter-spacing: 0.02em;
+    }
+
+    hr {
+      border: none;
+      border-top: 1px solid #dadce0;
+      margin: 1.8rem 0 1.2rem;
+    }
+
+    /* responsive */
+    @media (max-width: 900px) {
+      .grid-2col, .grid-3col, .grid-4col {
+        grid-template-columns: 1fr 1fr;
+      }
+      .screenshot-card {
+        padding: 1.5rem;
+      }
+    }
+
+    @media (max-width: 600px) {
+      .grid-2col, .grid-3col, .grid-4col {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    /* jpg simulation – clean background, no transparency */
+    .jpg-sim {
+      background: #ffffff;
+    }
+
+    /* extra polish */
+    .inline-icon {
+      background: #34a85320;
+      border-radius: 30px;
+      padding: 0.2rem 0.6rem;
+      font-size: 0.7rem;
+      color: #0f9d58;
+      font-weight: 500;
+    }
+  </style>
+</head>
+<body>
+<div class="screenshot-card jpg-sim">
+  
+  <!-- HEADER / section: contributor spotlight + proof -->
+  <div class="flex-row" style="justify-content: space-between; align-items: center; margin-bottom: 0.25rem;">
+    <h1 style="font-size: 2rem;">Gibwork<span style="color: #1a73e8; font-weight: 700;">.</span></h1>
+    <div class="trust-badge">
+      <span class="dot"></span> on‑chain transparency
+    </div>
+  </div>
+  <p class="text-muted" style="margin-bottom: 1.5rem;">Real contributions · verified rewards · open platform</p>
+
+  <!-- Contributor spotlight section -->
+  <div>
+    <div class="section-header">⭐ Contributor spotlight</div>
+    <div class="grid-3col">
+      <!-- card 1 -->
+      <div class="spotlight-card">
+        <div class="user">
+          <div class="avatar">JD</div>
+          <div>
+            <div class="username">jessie_design</div>
+            <div class="task-tag">design task</div>
+          </div>
+        </div>
+        <div class="flex-row" style="gap: 0.5rem; margin: 0.25rem 0 0.25rem;">
+          <span class="reward-badge">+ 0.45 ETH</span>
+          <span class="inline-icon">✓ completed</span>
+        </div>
+        <div class="testimonial">
+          “Completed a design task in 2 days and earned my first on-chain reward through Gibwork.”
+        </div>
+        <div style="margin-top: 0.5rem; font-size: 0.75rem; color: #5f6368;">task: brand identity · 2 days</div>
+      </div>
+      <!-- card 2 -->
+      <div class="spotlight-card">
+        <div class="user">
+          <div class="avatar" style="background: #34a853;">MK</div>
+          <div>
+            <div class="username">mike_dev</div>
+            <div class="task-tag">development</div>
+          </div>
+        </div>
+        <div class="flex-row" style="gap: 0.5rem; margin: 0.25rem 0 0.25rem;">
+          <span class="reward-badge" style="background: #1a73e8;">+ 1.2 ETH</span>
+          <span class="inline-icon" style="background: #e8f0fe; color:#1a73e8;">smart contract</span>
+        </div>
+        <div class="testimonial">
+          “Built a custom Solidity module – client loved it. Payment was instant on-chain.”
+        </div>
+        <div style="margin-top: 0.5rem; font-size: 0.75rem; color: #5f6368;">task: contract audit · 4 days</div>
+      </div>
+      <!-- card 3 -->
+      <div class="spotlight-card">
+        <div class="user">
+          <div class="avatar" style="background: #fbbc04; color:#202124;">AL</div>
+          <div>
+            <div class="username">alina_creates</div>
+            <div class="task-tag">content</div>
+          </div>
+        </div>
+        <div class="flex-row" style="gap: 0.5rem; margin: 0.25rem 0 0.25rem;">
+          <span class="reward-badge" style="background: #0f9d58;">+ 0.8 ETH</span>
+          <span class="inline-icon">content pack</span>
+        </div>
+        <div class="testimonial">
+          “Delivered 10 social assets in 3 days. Gibwork made it seamless and trustless.”
+        </div>
+        <div style="margin-top: 0.5rem; font-size: 0.75rem; color: #5f6368;">task: social campaign · 3 days</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Project success examples + results dashboard combined -->
+  <div class="grid-2col mt-3" style="align-items: start;">
+    <!-- left: success stories -->
+    <div>
+      <div class="section-header" style="margin-bottom: 1rem;">📈 project success</div>
+      <div class="grid-2col" style="gap: 1rem;">
+        <div class="success-story-card">
+          <div class="category">🌱 community growth</div>
+          <h4>Node DAO</h4>
+          <p style="font-size: 0.9rem; color: #5f6368;">+2.4k members in 2 weeks via bounties</p>
+          <div class="metric-line">
+            <span>tasks: 48</span>
+            <span style="color: #0f9d58;">reward: 3.2 ETH</span>
+          </div>
+        </div>
+        <div class="success-story-card">
+          <div class="category">🎨 design work</div>
+          <h4>DeFi Lens</h4>
+          <p style="font-size: 0.9rem; color: #5f6368;">rebrand & UI kit – 12 contributors</p>
+          <div class="metric-line">
+            <span>completed: 6 days</span>
+            <span style="color: #0f9d58;">payout: 4.1 ETH</span>
+          </div>
+        </div>
+        <div class="success-story-card">
+          <div class="category">📝 content creation</div>
+          <h4>EcoChain</h4>
+          <p style="font-size: 0.9rem; color: #5f6368;">30 articles + video in 10 days</p>
+          <div class="metric-line">
+            <span>views: 140k</span>
+            <span style="color: #0f9d58;">reward: 2.7 ETH</span>
+          </div>
+        </div>
+        <div class="success-story-card">
+          <div class="category">⚙️ development</div>
+          <h4>OpenVault</h4>
+          <p style="font-size: 0.9rem; color: #5f6368;">audit & frontend integration</p>
+          <div class="metric-line">
+            <span>PRs: 23</span>
+            <span style="color: #0f9d58;">bounty: 5.0 ETH</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- right: results dashboard + trust indicators -->
+    <div>
+      <div class="section-header" style="margin-bottom: 1rem;">📊 results dashboard</div>
+      <div class="grid-2col" style="gap: 1rem;">
+        <div class="dashboard-metric">
+          <div class="number">14,200+</div>
+          <div class="label">tasks completed</div>
+        </div>
+        <div class="dashboard-metric">
+          <div class="number" style="color: #34a853;">8,450</div>
+          <div class="label">contributors paid</div>
+        </div>
+        <div class="dashboard-metric">
+          <div class="number" style="color: #0f9d58;">2,180 ETH</div>
+          <div class="label">total rewards distributed</div>
+        </div>
+        <div class="dashboard-metric">
+          <div class="number" style="color
