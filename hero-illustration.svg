@@ -1,0 +1,100 @@
+svg
+<svg xmlns="http://www.w3.org/2000/svg"
+     xmlns:xlink="http://www.w3.org/1999/xlink"
+     version="1.1"
+     viewBox="0 0 1200 900"
+     width="100%" height="100%"
+     role="img"
+     aria-labelledby="mainTitle mainDesc"
+     style="background-color: #0D0D0D; font-family: 'Inter', system-ui, -apple-system, sans-serif;">
+
+  <!-- Accessibility metadata -->
+  <title id="mainTitle">Gibwork – Decentralized Bounty Ecosystem</title>
+  <desc id="mainDesc">
+    Professional landing page for Gibwork platform: Hero with dual CTAs (Web App &amp; Mobile App),
+    mobile app mockup showing push notifications and wallet signing,
+    dual‑sided value grid for Talents and Organizations,
+    and live network metrics bar (Total Bounties Funded, Active Earners, Avg Time‑to‑Reward).
+  </desc>
+
+  <!-- Definitions: gradients, filters, reusable components -->
+  <defs>
+    <!-- Background gradient -->
+    <linearGradient id="bgGrad" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#0D0D0D"/>
+      <stop offset="100%" stop-color="#1A1A2E"/>
+    </linearGradient>
+
+    <!-- Primary accent: purple to green -->
+    <linearGradient id="accentGrad" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#9945FF"/>
+      <stop offset="100%" stop-color="#14F195"/>
+    </linearGradient>
+
+    <!-- Reverse accent for buttons -->
+    <linearGradient id="accentGradReverse" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#14F195"/>
+      <stop offset="100%" stop-color="#9945FF"/>
+    </linearGradient>
+
+    <!-- Phone mockup background -->
+    <linearGradient id="phoneBg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#1A1A2E"/>
+      <stop offset="100%" stop-color="#0D0D0D"/>
+    </linearGradient>
+
+    <!-- Notification gradient -->
+    <linearGradient id="notifGrad" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#9945FF"/>
+      <stop offset="100%" stop-color="#14F195"/>
+    </linearGradient>
+
+    <!-- Glow effects -->
+    <filter id="glow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur in="SourceGraphic" stdDeviation="12" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+
+    <filter id="softGlow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur in="SourceGraphic" stdDeviation="24" result="blur"/>
+    </filter>
+
+    <!-- Drop shadow for cards and phone -->
+    <filter id="cardShadow" x="-5%" y="-5%" width="110%" height="110%">
+      <feDropShadow dx="0" dy="4" stdDeviation="8" flood-color="#000000" flood-opacity="0.4"/>
+    </filter>
+
+    <filter id="phoneShadow" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="8" stdDeviation="12" flood-color="#000000" flood-opacity="0.6"/>
+    </filter>
+
+    <!-- QR Code placeholder (simple pattern) -->
+    <g id="qrCode">
+      <rect x="0" y="0" width="60" height="60" rx="4" fill="white"/>
+      <rect x="4" y="4" width="52" height="52" rx="2" fill="#0D0D0D"/>
+      <rect x="8" y="8" width="44" height="44" fill="white"/>
+      <rect x="12" y="12" width="12" height="12" fill="#0D0D0D"/>
+      <rect x="28" y="12" width="12" height="12" fill="#0D0D0D"/>
+      <rect x="12" y="28" width="12" height="12" fill="#0D0D0D"/>
+      <rect x="28" y="28" width="12" height="12" fill="#14F195"/>
+    </g>
+
+    <!-- App Store badge placeholder -->
+    <g id="appStoreBadge">
+      <rect x="0" y="0" width="120" height="40" rx="6" fill="white"/>
+      <text x="60" y="24" text-anchor="middle" font-size="10" font-weight="bold" fill="#0D0D0D">App Store</text>
+    </g>
+
+    <!-- Google Play badge placeholder -->
+    <g id="googlePlayBadge">
+      <rect x="0" y="0" width="120" height="40" rx="6" fill="white"/>
+      <text x="60" y="24" text-anchor="middle" font-size="10" font-weight="bold" fill="#0D0D0D">Google Play</text>
+    </g>
+
+    <!-- Notification pattern -->
+    <g id="notification">
+      <rect x="0" y="0" width="200" height="50" rx="8" fill="#1A1A2E" stroke="#9945FF" stroke-width="1"/>
+      <circle cx="15" cy="25" r="6" fill="#14F195"/>

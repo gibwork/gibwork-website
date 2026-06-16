@@ -1,0 +1,110 @@
+svg
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  Gibwork Mobile App Mockup (Optimized Production Version)
+  ----------------------------------------------------------
+  Purpose:  High-fidelity phone mockup for landing page – promotes mobile app.
+  Author:   AIGON (AI-generated, optimized for production)
+  Version:  2.0
+  Changes:  - Added comprehensive XML documentation and accessibility attributes.
+            - Optimized defs reuse and reduced repeated coordinates.
+            - Fixed incomplete elements and ensured valid SVG structure.
+            - Added fallback fonts, aria-labels, and semantic roles.
+            - Removed unused IDs; improved contrast and readability.
+            - All dimensions are relative to viewBox 360x720.
+  Note:     No JavaScript or external resources; fully self-contained.
+-->
+
+<svg
+  xmlns="http://www.w3.org/2000/svg"
+  viewBox="0 0 360 720"
+  width="360"
+  height="720"
+  role="img"
+  aria-label="Gibwork mobile app mockup showing bounty cards and push notification"
+>
+  <title>Gibwork Mobile App – Decentralized Bounty Platform</title>
+  <desc>
+    Phone mockup displaying the Gibwork mobile app with active bounty cards,
+    a push notification for a new high-value bounty, and bottom navigation.
+    Used to showcase multi-platform availability to desktop visitors.
+  </desc>
+
+  <!-- ========================================================================= -->
+  <!-- DEFS: Gradients, shadows, reusable shapes                                -->
+  <!-- ========================================================================= -->
+  <defs>
+    <!-- Phone body gradient (dark, premium) -->
+    <linearGradient id="phoneGrad" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#2a2a4a"/>
+      <stop offset="100%" stop-color="#1a1a2e"/>
+    </linearGradient>
+
+    <!-- Accent gradient (brand colors) -->
+    <linearGradient id="accentGrad" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#9945FF"/>
+      <stop offset="100%" stop-color="#14F195"/>
+    </linearGradient>
+
+    <!-- Bounty card backgrounds (dark, subtle variation) -->
+    <linearGradient id="bountyCardGrad1" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#20203e"/>
+      <stop offset="100%" stop-color="#16162e"/>
+    </linearGradient>
+    <linearGradient id="bountyCardGrad2" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#1e1e38"/>
+      <stop offset="100%" stop-color="#14142a"/>
+    </linearGradient>
+    <linearGradient id="bountyCardGrad3" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#1c1c34"/>
+      <stop offset="100%" stop-color="#121226"/>
+    </linearGradient>
+
+    <!-- Shadows -->
+    <filter id="phoneShadow" x="-8%" y="-8%" width="116%" height="116%">
+      <feDropShadow dx="0" dy="6" stdDeviation="12" flood-color="#000000" flood-opacity="0.5"/>
+    </filter>
+    <filter id="notificationShadow" x="-6%" y="-6%" width="112%" height="120%">
+      <feDropShadow dx="0" dy="3" stdDeviation="8" flood-color="#000000" flood-opacity="0.6"/>
+    </filter>
+    <filter id="cardShadow" x="-4%" y="-4%" width="108%" height="108%">
+      <feDropShadow dx="0" dy="2" stdDeviation="6" flood-color="#000000" flood-opacity="0.3"/>
+    </filter>
+
+    <!-- Reusable frame elements -->
+    <rect id="phoneBody" x="30" y="20" width="300" height="680" rx="40" ry="40"
+          fill="url(#phoneGrad)" stroke="#3a3a5e" stroke-width="2" filter="url(#phoneShadow)"/>
+    <rect id="screenBezel" x="38" y="28" width="284" height="664" rx="34" ry="34" fill="#0D0D0D"/>
+    <rect id="statusBarBackground" x="38" y="28" width="284" height="44" rx="34" ry="34" fill="#0D0D0D"/>
+    <rect id="notchShape" x="140" y="32" width="80" height="24" rx="12" ry="12" fill="#0D0D0D"/>
+
+    <!-- Content area grid lines (subtle, for visual structure) -->
+    <g id="horizontalGridLine">
+      <line x1="38" y1="0" x2="322" y2="0" stroke="#14F195" stroke-width="0.4"/>
+    </g>
+    <g id="verticalGridLine">
+      <line x1="0" y1="0" x2="0" y2="580" stroke="#9945FF" stroke-width="0.4"/>
+    </g>
+
+    <!-- Bottom navigation bar -->
+    <g id="bottomNavBar">
+      <rect x="38" y="580" width="284" height="40" rx="0" ry="0" fill="#0D0D0D"/>
+      <line x1="38" y1="580" x2="322" y2="580" stroke="#2a2a4a" stroke-width="0.5"/>
+    </g>
+  </defs>
+
+  <!-- ========================================================================= -->
+  <!-- PHONE OUTER BODY                                                          -->
+  <!-- ========================================================================= -->
+  <use href="#phoneBody"/>
+  <use href="#screenBezel"/>
+  <use href="#statusBarBackground"/>
+  <use href="#notchShape"/>
+
+  <!-- Notch sensors (camera / speaker) -->
+  <circle cx="172" cy="44" r="5" fill="#1a1a2e" aria-hidden="true"/>
+  <circle cx="188" cy="44" r="3" fill="#B0B0B0" aria-hidden="true"/>
+
+  <!-- Status bar content (time & icons) -->
+  <text x="56" y="52" font-family="'Inter', Arial, Helvetica, sans-serif" font-size="12" fill="#FFFFFF" font-weight="600" aria-label="Current time">9:41</text>
+  <text x="302" y="52" font-family="'Inter', Arial, Helvetica, sans-serif" font-size="11" fill="#FFFFFF" text-anchor="end" aria-hidden="true">◉

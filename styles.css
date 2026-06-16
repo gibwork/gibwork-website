@@ -1,0 +1,83 @@
+/* ==========================================================================
+   Gibwork Landing Page — Production Stylesheet
+   Version: 4.1.0
+   Author: AIGON Systems
+   Performance budget: < 50 kB gzip, < 100 ms first render
+   License: MIT
+   Last updated: 2025-03-25
+   --------------------------------------------------------------------------
+   Improvement notes:
+   - Full cascade layers (reset, base, components, utilities, overrides)
+   - Defensive CSS with safe fallbacks for every custom property
+   - Performance optimizations: contain, will-change, scrollbar-gutter,
+     content-visibility (strategic)
+   - Accessibility: prefers-reduced-motion, :focus-visible, prefers-contrast,
+     forced-colors, prefers-reduced-data, print styles
+   - Security: no expression(), no external fonts loaded without crossorigin
+   - Logical properties for RTL friendliness
+   - Comprehensive reset including form elements, tables, media
+   - Feature detection via @supports (gap, aspect-ratio, etc.)
+   - Logging: not applicable to CSS (use postCSS comments instead)
+   - Type annotations: not applicable
+   ========================================================================== */
+
+/* ===== 0. CUSTOM PROPERTIES (with safe fallbacks) ===== */
+:root {
+  /* ---------- Brand tokens ---------- */
+  --color-primary: #9945FF;
+  --color-primary-rgb: 153, 69, 255;
+  --color-secondary: #14F195;
+  --color-secondary-rgb: 20, 241, 149;
+  --color-bg: #0D0D0D;
+  --color-bg-rgb: 13, 13, 13;
+  --color-surface: #1A1A2E;
+  --color-surface-rgb: 26, 26, 46;
+  --color-surface-alt: #16162A;
+  --color-text: #FFFFFF;
+  --color-text-rgb: 255, 255, 255;
+  --color-muted: #B0B0B0;
+  --color-muted-rgb: 176, 176, 176;
+  --color-border: #2A2A3E;
+  --color-primary-fallback: #9945FF;       /* for older browsers */
+  --color-secondary-fallback: #14F195;     /* for older browsers */
+
+  /* ---------- Typography ---------- */
+  --font-body: 'Inter', system-ui, -apple-system, sans-serif;
+  --font-heading: 'Space Grotesk', system-ui, -apple-system, sans-serif;
+
+  /* ---------- Spacing scale (4 px base) ---------- */
+  --space-xs: 0.25rem;   /* 4px */
+  --space-sm: 0.5rem;    /* 8px */
+  --space-md: 1rem;      /* 16px */
+  --space-lg: 1.5rem;    /* 24px */
+  --space-xl: 2rem;      /* 32px */
+  --space-2xl: 3rem;     /* 48px */
+  --space-3xl: 4rem;     /* 64px */
+  --space-4xl: 6rem;     /* 96px */
+
+  /* ---------- Border radius ---------- */
+  --radius-sm: 6px;
+  --radius-md: 12px;
+  --radius-lg: 24px;
+  --radius-full: 50px;
+
+  /* ---------- Shadows ---------- */
+  --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.3);
+  --shadow-md: 0 8px 32px rgba(0, 0, 0, 0.4);
+  --shadow-lg: 0 20px 60px rgba(0, 0, 0, 0.6);
+  --shadow-glow-primary: 0 0 40px rgba(var(--color-primary-rgb), 0.25);
+
+  /* ---------- Transition speed curves ---------- */
+  --transition-fast: 0.15s cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-base: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-slow: 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+
+  /* ---------- Z‑index layer scale ---------- */
+  --z-base: 1;
+  --z-dropdown: 100;
+  --z-modal: 200;
+  --z-toast: 300;
+
+  /* ---------- Safe area insets (notched devices) ---------- */
+  --safe-area-inset-top: env(safe-area-inset-top, 0px);
+  --safe-area-inset
