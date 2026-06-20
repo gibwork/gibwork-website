@@ -45,15 +45,15 @@ export function LogoList() {
         className="flex lg:flex-row flex-col gap-x-16 mt-2 justify-between"
       >
         <p className="lg:w-96 text-3xl sm:text-4xl font-semibold shrink-0">
-          Partners we have collaborated with
+          Trusted across the Solana ecosystem
         </p>
 
         <p className="lg:max-w-3xl w-full text-muted-foreground lg:mt-0 mt-4">
-          Gibwork is powered by a dedicated team of innovators and professionals committed to
-          connecting talent with opportunities. Our team combines expertise in technology, design,
-          and user experience to build and manage the platform, ensuring it serves the needs of both
-          job seekers and employers. We strive to create a seamless experience that empowers users
-          to find work or the right talent efficiently.
+          Teams, DAOs, and open-source projects use Gibwork to post bounties,
+          tasks, and services &mdash; and pay contributors instantly in crypto.
+          Every reward is held in on-chain escrow and released on approval, so
+          creators and earners can collaborate without intermediaries or the
+          usual payment friction.
         </p>
       </motion.div>
 

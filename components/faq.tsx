@@ -38,54 +38,57 @@ export function Faq() {
 
       <motion.div variants={FADE_UP_ANIMATION_VARIANTS} className="grow lg:max-w-3xl">
         <Accordion type="single" collapsible>
-          <AccordionItem value="item-6">
-            <AccordionTrigger>How do I create Work on Gibwork?</AccordionTrigger>
+          <AccordionItem value="item-1">
+            <AccordionTrigger>What can I post on Gibwork?</AccordionTrigger>
             <AccordionContent>
-              Under the earnings display on the apps home page, click the
-              &quot;Create&quot; buttons for creating Open Source Bounties and Task. These buttons guide you through the process of creating and posting jobs on the
-              platform.
+              Four kinds of work: open-source bounties on GitHub issues, simple
+              tasks, private tasks shared by link, and services you offer with
+              fixed pricing. Each can be funded in any Solana SPL token.
             </AccordionContent>
           </AccordionItem>
-          <AccordionItem value="item-1">
+          <AccordionItem value="item-2">
             <AccordionTrigger>
               What&apos;s the difference between a bounty and a task?
             </AccordionTrigger>
             <AccordionContent>
-              A bounty is a Github issue with a monetary reward.  A task is a
-              specific, often smaller job that needs to be completed.
-            </AccordionContent>
-          </AccordionItem>
-          <AccordionItem value="item-2">
-            <AccordionTrigger>How do I get paid for completed work?</AccordionTrigger>
-            <AccordionContent>
-              Once your work is approved by the creator, the funds will be released to your noncustodial wallet.
+              A bounty is tied to a GitHub issue and rewards a merged pull
+              request. A task is a standalone job &mdash; often smaller &mdash;
+              that someone completes and submits directly on Gibwork.
             </AccordionContent>
           </AccordionItem>
           <AccordionItem value="item-3">
-            <AccordionTrigger>What payment methods does gibwork support?</AccordionTrigger>
+            <AccordionTrigger>How do payments work?</AccordionTrigger>
             <AccordionContent>
-              We only support wallet transactions, i.e., depositing the winning amount directly to
-              your wallet in the form of crypto or stablecoins.
+              When you post work, the reward is locked in an on-chain Solana
+              escrow. Once you approve a submission, the funds are released
+              instantly to the worker&apos;s non-custodial wallet &mdash; no
+              invoices, no middlemen.
             </AccordionContent>
           </AccordionItem>
-          {/* <AccordionItem value="item-4">
-            <AccordionTrigger>Are there any fees for using gibwork?</AccordionTrigger>
+          <AccordionItem value="item-4">
+            <AccordionTrigger>What does Gibwork charge?</AccordionTrigger>
             <AccordionContent>
-              Gibwork charges a 5% service fee on transactions, the lowest in the industry!
-            </AccordionContent>
-          </AccordionItem> */}
-          {/* <AccordionItem value="item-5">
-            <AccordionTrigger>What is the purpose of the $WORK token?</AccordionTrigger>
-            <AccordionContent>
-              The $WORK Token provide access to a range of utilities within the platform, which could include community voting rights and participation in allocation of rewards funded by operational revenue.
+              Gibwork takes a small platform fee, deducted automatically when
+              escrow is released. A Gibwork Plus subscription lowers that fee for
+              people who post or earn regularly.
             </AccordionContent>
           </AccordionItem>
-          <AccordionItem value="item-7">
-            <AccordionTrigger>Where can I get $WORK?</AccordionTrigger>
+          <AccordionItem value="item-5">
+            <AccordionTrigger>Is there a mobile app?</AccordionTrigger>
             <AccordionContent>
-              You can seamlessly swap any SPL token for $WORK by using the platform at <a className="text-violet-600" href="https://jup.ag/swap/SOL-WORK">https://jup.ag/swap/SOL-WORK</a>.
+              Yes. The Gibwork app is on iOS and Android &mdash; discover
+              bounties, submit work, track your submissions, and manage payouts
+              from anywhere.
             </AccordionContent>
-          </AccordionItem> */}
+          </AccordionItem>
+          <AccordionItem value="item-6">
+            <AccordionTrigger>Can AI agents use Gibwork?</AccordionTrigger>
+            <AccordionContent>
+              They can. Gibwork integrates with the Solana Agent Kit, so
+              autonomous agents can create and fund tasks on-chain and pay people
+              to complete them.
+            </AccordionContent>
+          </AccordionItem>
         </Accordion>
       </motion.div>
     </motion.section>

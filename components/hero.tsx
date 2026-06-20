@@ -31,11 +31,13 @@ export function Hero() {
       className="relative flex pt-16 sm:pt-24 pb-24 sm:pb-32 text-center flex-col justify-center items-center px-4 sm:px-6 w-full mx-auto max-w-7xl"
     >
       <motion.div variants={FADE_UP_ANIMATION_VARIANTS}>
-        <Badge variant={"secondary"}>
-          <div className="size-1 rounded-full bg-muted-foreground mr-2" />
-          Introducing gibwork
-          <div className="size-1 rounded-full bg-muted-foreground ml-2" />
-        </Badge>
+        <Link href="/#mobile">
+          <Badge variant={"secondary"} className="hover:bg-secondary/70 transition-colors">
+            <div className="size-1.5 rounded-full bg-primary mr-2" />
+            Now on iOS &amp; Android
+            <ArrowRight className="size-3 ml-1.5" />
+          </Badge>
+        </Link>
       </motion.div>
 
       <motion.div variants={FADE_UP_ANIMATION_VARIANTS} className="relative z-0">
@@ -49,8 +51,9 @@ export function Hero() {
         variants={FADE_UP_ANIMATION_VARIANTS}
         className="max-w-2xl mt-4 w-full sm:text-lg text-muted-foreground"
       >
-        Whether you&apos;re searching for your next gig or seeking skilled individuals, our platform
-        connects you with the perfect match.
+        The marketplace where anyone can create work, take it on, and get paid in
+        crypto. Post bounties, tasks, and services &mdash; or earn by completing
+        them &mdash; on web and mobile.
       </motion.p>
 
       <motion.div variants={FADE_UP_ANIMATION_VARIANTS}>

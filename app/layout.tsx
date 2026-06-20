@@ -13,7 +13,7 @@ export async function generateMetadata(
   return {
     title: "Gibwork | Find Talent, Find Work",
     description:
-      "Gibwork connects skilled professionals with freelance work opportunities, offering seamless integration with all Solana tokens for secure and efficient transactions.",
+      "Gibwork is the marketplace where anyone can create work, take it on, and get paid in crypto. Post bounties, tasks, and services, or earn by completing them — on web and mobile, powered by Solana.",
     openGraph: {
       images: [`https://cdn.gib.work/metadata/default.png`],
     },

@@ -8,6 +8,7 @@ import { ArrowRight, ExternalLink } from "lucide-react";
 import { YoutubeLogoMark } from "./logo/youtube";
 import { DiscordLogoMark } from "./logo/discord";
 import { TwitterLogoMark } from "./logo/twitter";
+import { AppStoreBadge, GooglePlayBadge } from "./store-badges";
 
 export function Footer() {
   return (
@@ -23,6 +24,14 @@ export function Footer() {
             <p className="text-muted-foreground sm:text-base text-sm">
               Meet like-minded people and find work opportunities easily.
             </p>
+
+            <div className="mt-6">
+              <p className="font-semibold text-sm mb-2">Get the app</p>
+              <div className="flex items-center gap-2">
+                <AppStoreBadge href={siteConfig.appStoreUrl} className="block h-10" />
+                <GooglePlayBadge href={siteConfig.playStoreUrl} className="block h-10" />
+              </div>
+            </div>
           </div>
 
           <div className="grid grid-cols-2 gap-24">
