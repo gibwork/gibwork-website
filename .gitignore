@@ -1,5 +1,7 @@
 .next
 node_modules
+.test-dist
+*.tsbuildinfo
 
 .env
 .env.local

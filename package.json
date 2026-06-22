@@ -6,7 +6,8 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "test": "tsc lib/marketplace-proof.ts --outDir .test-dist --module commonjs --target es2020 --esModuleInterop --skipLibCheck --moduleResolution node && node --test lib/marketplace-proof.test.cjs"
   },
   "dependencies": {
     "@next/third-parties": "^14.2.11",
