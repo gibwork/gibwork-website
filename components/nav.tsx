@@ -83,6 +83,7 @@ export function Nav() {
               size={"icon"}
               variant={"secondary"}
               className="md:hidden"
+              aria-label="Open navigation menu"
               onClick={() => setIsOpen(true)}
             >
               <Menu className="size-5" />
@@ -116,6 +117,7 @@ export function Nav() {
                   </Button>
 
                   <Button size={"icon"} variant={"secondary"} onClick={() => setIsOpen(false)}>
+                    <span className="sr-only">Close navigation menu</span>
                     <X className="size-5" />
                   </Button>
                 </div>

@@ -16,13 +16,13 @@ const workDetails = [
 
   {
     image: "/tasks/image-01.png",
-    title: "Design gibwork's new landing page",
+    title: "Fix a GitHub issue with a PR",
     amount: 500,
     token: "usdc",
   },
   {
     image: "/tasks/image-02.png",
-    title: "Create developer challenges for Zircon",
+    title: "Create developer challenge docs",
     amount: 500,
     token: "usdc",
   },
@@ -34,7 +34,7 @@ const workDetails = [
   // },
   {
     image: "/tasks/image-03.png",
-    title: "Use slug- to share a set of links on X or Reddit",
+    title: "Record a product walkthrough",
     amount: 100,
     token: "usdc",
   },
@@ -85,8 +85,8 @@ export function LookingFor() {
               variants={FADE_UP_ANIMATION_VARIANTS}
               className="text-center mt-2 text-muted-foreground"
             >
-              Create work for others to complete and get the support you need to
-              achieve your goals.
+              Create funded bounties, tasks, or services with clear rewards and
+              reviewable submission requirements.
             </motion.p>
 
             <motion.div
@@ -114,7 +114,8 @@ export function LookingFor() {
                 <CardHeader className="border-t">
                   <CardTitle className="text-lg">Open Source Bounty</CardTitle>
                   <CardDescription>
-                    Incentivize a pull request made from a Github issue.
+                    Fund a GitHub issue and request a pull request that can be
+                    reviewed, merged, and paid out.
                   </CardDescription>
                 </CardHeader>
               </Card>
@@ -130,7 +131,8 @@ export function LookingFor() {
                 <CardHeader className="border-t">
                   <CardTitle className="text-lg">Simple Task</CardTitle>
                   <CardDescription>
-                    Small tasks achievable in a few hours.
+                    Collect screenshots, links, walkthroughs, research, or
+                    other proof for work that can be completed quickly.
                   </CardDescription>
                 </CardHeader>
               </Card>
@@ -145,8 +147,8 @@ export function LookingFor() {
                 <CardHeader className="border-t">
                   <CardTitle className="text-lg">Services</CardTitle>
                   <CardDescription>
-                    Offer your skills and connect with users for custom
-                    services.
+                    Offer scoped custom work and manage contributor requests
+                    from the same app.
                   </CardDescription>
                 </CardHeader>
               </Card>
@@ -178,8 +180,8 @@ export function LookingFor() {
               variants={FADE_UP_ANIMATION_VARIANTS}
               className="text-center mt-2 text-muted-foreground"
             >
-              Discover work opportunities that you could do, complete the work,
-              and start earning.
+              Browse funded opportunities, submit proof from desktop or mobile,
+              and earn wallet-native rewards for accepted work.
             </motion.p>
 
             <motion.div
