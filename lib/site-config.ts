@@ -7,7 +7,10 @@ export const siteConfig = {
   discordUrl: "https://discord.gg/TNXJjpRvqN",
   youtubeUrl: "https://www.youtube.com/@gibwork_",
   xUrl: "https://twitter.com/intent/follow?screen_name=gib_work",
+  telegramUrl: "https://t.me/gib_work",
   appUrl: "https://app.gib.work/",
+  tiktokUrl: "https://www.tiktok.com/@gib.work",
+  redditUrl: "https://www.reddit.com/r/GibworkApp/",
   xHandle: "gib_work",
   themeColor: "#ffffff",
 };
