@@ -28,19 +28,20 @@ export function CTA() {
         variants={FADE_UP_ANIMATION_VARIANTS}
         className="font-semibold text-3xl sm:text-4xl text-center"
       >
-        Start exploring
+        Start with live work
       </motion.h2>
       <motion.p
         variants={FADE_UP_ANIMATION_VARIANTS}
         className="text-center mt-2 text-muted-foreground"
       >
-        Check out gibwork and create or complete your very first work.
+        Browse funded tasks, create a bounty, or submit completed work from web
+        or mobile.
       </motion.p>
 
       <motion.div variants={FADE_UP_ANIMATION_VARIANTS}>
         <Button asChild className="mt-8 group">
           <Link href={siteConfig.appUrl} target="_blank">
-            Get Started
+            Open Gibwork
             <ArrowRight className="size-0 group-hover:size-5 transition-all -ml-2 group-hover:ml-0" />
           </Link>
         </Button>

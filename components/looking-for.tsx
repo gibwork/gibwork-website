@@ -12,30 +12,22 @@ import { motion } from "framer-motion";
 import { FADE_UP_ANIMATION_VARIANTS } from "@/lib/framer-variants";
 
 const workDetails = [
-  // { image: "/tasks/image-04.png", title: "Create a FAQ list for gibwork", amount: 1, token: "sol" },
-
   {
     image: "/tasks/image-01.png",
-    title: "Design gibwork's new landing page",
-    amount: 500,
+    title: "Improve the Gibwork landing page",
+    amount: 350,
     token: "usdc",
   },
   {
     image: "/tasks/image-02.png",
-    title: "Create developer challenges for Zircon",
-    amount: 500,
+    title: "Create a product walkthrough",
+    amount: 300,
     token: "usdc",
   },
-  // {
-  //   image: "/tasks/image-04.png",
-  //   title: "Share a link to your most used dApp",
-  //   amount: 100,
-  //   token: "usdc",
-  // },
   {
     image: "/tasks/image-03.png",
-    title: "Use slug- to share a set of links on X or Reddit",
-    amount: 100,
+    title: "Submit a verified GitHub enhancement",
+    amount: 175,
     token: "usdc",
   },
 ];
@@ -78,15 +70,15 @@ export function LookingFor() {
               variants={FADE_UP_ANIMATION_VARIANTS}
               className="text-3xl sm:text-4xl text-center font-semibold"
             >
-              Get help from an expert
+              Any skill. Any task. Paid on-chain.
             </motion.h2>
 
             <motion.p
               variants={FADE_UP_ANIMATION_VARIANTS}
               className="text-center mt-2 text-muted-foreground"
             >
-              Create work for others to complete and get the support you need to
-              achieve your goals.
+              Post tasks, services, or GitHub bounties with clear deliverables,
+              deadlines, and wallet-backed rewards.
             </motion.p>
 
             <motion.div
@@ -114,7 +106,8 @@ export function LookingFor() {
                 <CardHeader className="border-t">
                   <CardTitle className="text-lg">Open Source Bounty</CardTitle>
                   <CardDescription>
-                    Incentivize a pull request made from a Github issue.
+                    Fund GitHub issues and accept pull requests with reviewable
+                    proof of work.
                   </CardDescription>
                 </CardHeader>
               </Card>
@@ -130,7 +123,8 @@ export function LookingFor() {
                 <CardHeader className="border-t">
                   <CardTitle className="text-lg">Simple Task</CardTitle>
                   <CardDescription>
-                    Small tasks achievable in a few hours.
+                    Create focused work such as product feedback, content,
+                    QA, and research.
                   </CardDescription>
                 </CardHeader>
               </Card>
@@ -145,8 +139,8 @@ export function LookingFor() {
                 <CardHeader className="border-t">
                   <CardTitle className="text-lg">Services</CardTitle>
                   <CardDescription>
-                    Offer your skills and connect with users for custom
-                    services.
+                    Hire verified builders for custom work and release payment
+                    after approval.
                   </CardDescription>
                 </CardHeader>
               </Card>
@@ -172,14 +166,14 @@ export function LookingFor() {
               variants={FADE_UP_ANIMATION_VARIANTS}
               className="text-3xl sm:text-4xl text-center font-semibold"
             >
-              Get paid for your expertise
+              Find work you can complete
             </motion.h2>
             <motion.p
               variants={FADE_UP_ANIMATION_VARIANTS}
               className="text-center mt-2 text-muted-foreground"
             >
-              Discover work opportunities that you could do, complete the work,
-              and start earning.
+              Browse live opportunities, submit proof through Gibwork, and
+              receive approved rewards in your wallet.
             </motion.p>
 
             <motion.div
