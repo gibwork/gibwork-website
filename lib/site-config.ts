@@ -1,7 +1,7 @@
 export const siteConfig = {
   name: "gibwork",
   description:
-    "Join a community-driven platform for crypto bounties and paid Q&A. Discover talent, get answers, and drive your crypto initiatives forward.",
+    "Create funded tasks, open-source bounties, and service requests. Discover paid work, submit proof, and receive wallet-based payouts on Gibwork.",
   creator: "gibwork",
   baseUrl: "https://gib.work/",
   discordUrl: "https://discord.gg/TNXJjpRvqN",

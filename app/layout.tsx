@@ -2,6 +2,7 @@ import type { Metadata, ResolvingMetadata, Viewport } from "next";
 import { Inter } from "next/font/google";
 import { cn } from "@/lib/utils";
 import { Providers } from "@/components/providers/providers";
+import { siteConfig } from "@/lib/site-config";
 import "./globals.css";
 
 const inter = Inter({ subsets: ["latin"] });
@@ -11,10 +12,11 @@ export async function generateMetadata(
   parent: ResolvingMetadata
 ): Promise<Metadata> {
   return {
-    title: "Gibwork | Find Talent, Find Work",
-    description:
-      "Gibwork connects skilled professionals with freelance work opportunities, offering seamless integration with all Solana tokens for secure and efficient transactions.",
+    title: "Gibwork | Fund Work, Ship Proof, Get Paid",
+    description: siteConfig.description,
     openGraph: {
+      title: "Gibwork | Fund Work, Ship Proof, Get Paid",
+      description: siteConfig.description,
       images: [`https://cdn.gib.work/metadata/default.png`],
     },
   };
