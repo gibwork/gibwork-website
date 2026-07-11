@@ -11,9 +11,9 @@ export async function generateMetadata(
   parent: ResolvingMetadata
 ): Promise<Metadata> {
   return {
-    title: "Gibwork | Find Talent, Find Work",
+    title: "Gibwork | Onchain Work Marketplace",
     description:
-      "Gibwork connects skilled professionals with freelance work opportunities, offering seamless integration with all Solana tokens for secure and efficient transactions.",
+      "Gibwork connects teams and builders through paid tasks, open-source bounties, services, and wallet-based payouts on Solana.",
     openGraph: {
       images: [`https://cdn.gib.work/metadata/default.png`],
     },

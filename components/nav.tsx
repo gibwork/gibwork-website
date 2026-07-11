@@ -29,7 +29,7 @@ export function Nav() {
         >
           <div className="flex items-center gap-2">
             <Link href={"/"} className="flex items-center gap-2">
-              <Image alt="" src={logo} className="size-10 rounded-md" />
+              <Image alt="" src={logo} className="h-10 w-10 rounded-md" />
               <p className="font-bold text-3xl min-[420px]:block hidden">gibwork</p>
             </Link>
 
@@ -103,7 +103,7 @@ export function Nav() {
             <div className="flex flex-col">
               <div className="sm:px-6 px-4 h-16 flex justify-between items-center">
                 <Link href={"/"} className="flex items-center gap-2">
-                  <Image alt="" src={logo} className="size-10 rounded-md" />
+                  <Image alt="" src={logo} className="h-10 w-10 rounded-md" />
                   <p className="font-bold text-xl min-[420px]:block hidden">gibwork</p>
                 </Link>
 
