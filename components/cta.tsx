@@ -28,13 +28,13 @@ export function CTA() {
         variants={FADE_UP_ANIMATION_VARIANTS}
         className="font-semibold text-3xl sm:text-4xl text-center"
       >
-        Start exploring
+        Open the Gibwork app
       </motion.h2>
       <motion.p
         variants={FADE_UP_ANIMATION_VARIANTS}
         className="text-center mt-2 text-muted-foreground"
       >
-        Check out gibwork and create or complete your very first work.
+        Post a task, submit work, or review active bounties from the same workspace.
       </motion.p>
 
       <motion.div variants={FADE_UP_ANIMATION_VARIANTS}>

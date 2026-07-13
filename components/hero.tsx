@@ -11,7 +11,6 @@ import { siteConfig } from "@/lib/site-config";
 import SparklesText from "./ui/sparkles-text";
 import { motion } from "framer-motion";
 import { FADE_UP_ANIMATION_VARIANTS } from "@/lib/framer-variants";
-import { Clipboard } from "flowbite-react"
 
 
 export function Hero() {
@@ -33,7 +32,7 @@ export function Hero() {
       <motion.div variants={FADE_UP_ANIMATION_VARIANTS}>
         <Badge variant={"secondary"}>
           <div className="size-1 rounded-full bg-muted-foreground mr-2" />
-          Introducing gibwork
+          Onchain work marketplace
           <div className="size-1 rounded-full bg-muted-foreground ml-2" />
         </Badge>
       </motion.div>
@@ -49,8 +48,8 @@ export function Hero() {
         variants={FADE_UP_ANIMATION_VARIANTS}
         className="max-w-2xl mt-4 w-full sm:text-lg text-muted-foreground"
       >
-        Whether you&apos;re searching for your next gig or seeking skilled individuals, our platform
-        connects you with the perfect match.
+        Create tasks, fund bounties, review submissions, and get paid from a noncustodial wallet
+        across desktop and mobile.
       </motion.p>
 
       <motion.div variants={FADE_UP_ANIMATION_VARIANTS}>
