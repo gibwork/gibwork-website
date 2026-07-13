@@ -16,13 +16,13 @@ const workDetails = [
 
   {
     image: "/tasks/image-01.png",
-    title: "Design gibwork's new landing page",
-    amount: 500,
+    title: "Improve a product landing page",
+    amount: 350,
     token: "usdc",
   },
   {
     image: "/tasks/image-02.png",
-    title: "Create developer challenges for Zircon",
+    title: "Ship an open source bounty fix",
     amount: 500,
     token: "usdc",
   },
@@ -34,7 +34,7 @@ const workDetails = [
   // },
   {
     image: "/tasks/image-03.png",
-    title: "Use slug- to share a set of links on X or Reddit",
+    title: "Submit product feedback and UX notes",
     amount: 100,
     token: "usdc",
   },
@@ -42,7 +42,7 @@ const workDetails = [
 
 export function LookingFor() {
   return (
-    <section className="relative max-w-5xl mx-auto w-full py-16 sm:py-24 px-4 sm:px-6">
+    <section id="about" className="relative max-w-5xl mx-auto w-full py-16 sm:py-24 px-4 sm:px-6">
       <Tabs defaultValue="1" className="w-full flex flex-col items-center">
         <motion.div
           variants={FADE_UP_ANIMATION_VARIANTS}
@@ -86,7 +86,7 @@ export function LookingFor() {
               className="text-center mt-2 text-muted-foreground"
             >
               Create work for others to complete and get the support you need to
-              achieve your goals.
+              ship faster.
             </motion.p>
 
             <motion.div
@@ -114,7 +114,7 @@ export function LookingFor() {
                 <CardHeader className="border-t">
                   <CardTitle className="text-lg">Open Source Bounty</CardTitle>
                   <CardDescription>
-                    Incentivize a pull request made from a Github issue.
+                    Incentivize pull requests from GitHub issues.
                   </CardDescription>
                 </CardHeader>
               </Card>
@@ -130,7 +130,7 @@ export function LookingFor() {
                 <CardHeader className="border-t">
                   <CardTitle className="text-lg">Simple Task</CardTitle>
                   <CardDescription>
-                    Small tasks achievable in a few hours.
+                    Post focused tasks with clear deliverables and rewards.
                   </CardDescription>
                 </CardHeader>
               </Card>
@@ -179,7 +179,7 @@ export function LookingFor() {
               className="text-center mt-2 text-muted-foreground"
             >
               Discover work opportunities that you could do, complete the work,
-              and start earning.
+              submit proof, and track progress from review to payout.
             </motion.p>
 
             <motion.div

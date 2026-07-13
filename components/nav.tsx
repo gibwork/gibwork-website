@@ -40,6 +40,9 @@ export function Nav() {
               <Button asChild variant={"ghost"} className="text-muted-foreground text-xs">
                 <Link href={"/#testimonial"}>Testimonial</Link>
               </Button>
+              <Button asChild variant={"ghost"} className="text-muted-foreground text-xs">
+                <Link href={"/#mobile"}>Mobile App</Link>
+              </Button>
               {/* <Button asChild variant={"ghost"} className="text-muted-foreground text-xs">
                 <Link href={"https://jup.ag/swap/SOL-F7Hwf8ib5DVCoiuyGr618Y3gon429Rnd1r5F9R5upump"} target="_blank">Token</Link>
               </Button> */}
@@ -137,6 +140,14 @@ export function Nav() {
                   className="text-muted-foreground uppercase"
                 >
                   <Link href={"/#testimonial"}>Testimonial</Link>
+                </Button>
+                <Button
+                  asChild
+                  variant={"ghost"}
+                  onClick={() => setIsOpen(false)}
+                  className="text-muted-foreground uppercase"
+                >
+                  <Link href={"/#mobile"}>Mobile App</Link>
                 </Button>
                 {/* <Button
                   asChild

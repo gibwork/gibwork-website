@@ -43,6 +43,13 @@ export function Footer() {
                 Testimonial
                 <ArrowRight className="inline-block size-4 group-hover:scale-100 scale-0 transition-all ml-1" />
               </Link>
+              <Link
+                href={"/#mobile"}
+                className="text-muted-foreground transition-all hover:text-foreground group"
+              >
+                Mobile App
+                <ArrowRight className="inline-block size-4 group-hover:scale-100 scale-0 transition-all ml-1" />
+              </Link>
               {/* <Link
                 href={"/#team"}
                 className="text-muted-foreground transition-all hover:text-foreground group"
@@ -59,7 +66,7 @@ export function Footer() {
               </Link>
               <Link
                 href={"https://docs.gib.work/"}
-                 target="_blank"
+                target="_blank"
                 className="text-muted-foreground transition-all hover:text-foreground group"
               >
                 Docs
@@ -71,7 +78,7 @@ export function Footer() {
               <p className="font-semibold">Resources</p>
               <Link
                 href={"https://legal.gib.work/privacy-policy.pdf"}
-                 target="_blank"
+                target="_blank"
                 className="text-muted-foreground transition-all hover:text-foreground group"
               >
                 Privacy Policy
