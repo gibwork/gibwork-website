@@ -10,6 +10,33 @@ import {
 import Image from "next/image";
 import { motion } from "framer-motion";
 import { FADE_UP_ANIMATION_VARIANTS } from "@/lib/framer-variants";
+import Link from "next/link";
+import { ArrowUpRight } from "lucide-react";
+import { siteConfig } from "@/lib/site-config";
+
+const createWorkDetails = [
+  {
+    image: "https://cdn.gib.work/misc/open_source_bounty.png",
+    title: "Open Source Bounty",
+    description: "Fund a GitHub issue and reward approved pull requests.",
+    action: "Create bounty",
+    href: siteConfig.createBountyUrl,
+  },
+  {
+    image: "https://cdn.gib.work/misc/simple_task.png",
+    title: "Public Task",
+    description: "Publish focused work for the community to discover and complete.",
+    action: "Create public task",
+    href: siteConfig.createTaskUrl,
+  },
+  {
+    image: "https://cdn.gib.work/misc/services.png",
+    title: "Private Task",
+    description: "Create invite-only work and share access with the people you choose.",
+    action: "Create private task",
+    href: siteConfig.createTaskUrl,
+  },
+];
 
 const workDetails = [
   // { image: "/tasks/image-04.png", title: "Create a FAQ list for gibwork", amount: 1, token: "sol" },
@@ -85,71 +112,42 @@ export function LookingFor() {
               variants={FADE_UP_ANIMATION_VARIANTS}
               className="text-center mt-2 text-muted-foreground"
             >
-              Create work for others to complete and get the support you need to
-              achieve your goals.
+              Create public, private, or GitHub-linked work and get the support
+              you need to achieve your goals.
             </motion.p>
 
             <motion.div
               variants={FADE_UP_ANIMATION_VARIANTS}
               className="grid lg:grid-cols-3 gap-4 mt-8 lg:max-w-full max-w-3xl mx-auto"
             >
-              {/* <Card className="overflow-hidden">
-                <div className="h-32 sm:h-40 bg-muted" />
-                <CardHeader className="border-t">
-                  <CardTitle className="text-lg">Ask a Question</CardTitle>
-                  <CardDescription>
-                    Tap into the network of experts to answer your question fast.
-                  </CardDescription>
-                </CardHeader>
-              </Card> */}
-
-              <Card className="overflow-hidden">
-                <Image
-                  src="https://cdn.gib.work/misc/open_source_bounty.png"
-                  alt="Open Source Bounty"
-                  className="h-40 w-full "
-                  width={100}
-                  height={100}
-                />
-                <CardHeader className="border-t">
-                  <CardTitle className="text-lg">Open Source Bounty</CardTitle>
-                  <CardDescription>
-                    Incentivize a pull request made from a Github issue.
-                  </CardDescription>
-                </CardHeader>
-              </Card>
-
-              <Card className="overflow-hidden">
-                <Image
-                  src="https://cdn.gib.work/misc/simple_task.png"
-                  alt="Open Source Bounty"
-                  className="h-40 w-full "
-                  width={100}
-                  height={100}
-                />
-                <CardHeader className="border-t">
-                  <CardTitle className="text-lg">Simple Task</CardTitle>
-                  <CardDescription>
-                    Small tasks achievable in a few hours.
-                  </CardDescription>
-                </CardHeader>
-              </Card>
-              <Card className="overflow-hidden">
-                <Image
-                  src="https://cdn.gib.work/misc/services.png"
-                  alt="Open Source Bounty"
-                  className="h-40 w-full "
-                  width={100}
-                  height={100}
-                />
-                <CardHeader className="border-t">
-                  <CardTitle className="text-lg">Services</CardTitle>
-                  <CardDescription>
-                    Offer your skills and connect with users for custom
-                    services.
-                  </CardDescription>
-                </CardHeader>
-              </Card>
+              {createWorkDetails.map((detail) => (
+                <Link
+                  key={detail.title}
+                  href={detail.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="group rounded-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2"
+                  aria-label={`${detail.action} on Gibwork`}
+                >
+                  <Card className="h-full overflow-hidden transition-all group-hover:-translate-y-0.5 group-hover:border-primary/50 group-hover:shadow-md">
+                    <Image
+                      src={detail.image}
+                      alt={detail.title}
+                      className="h-40 w-full object-cover"
+                      width={100}
+                      height={100}
+                    />
+                    <CardHeader className="border-t">
+                      <CardTitle className="text-lg">{detail.title}</CardTitle>
+                      <CardDescription>{detail.description}</CardDescription>
+                      <span className="flex items-center gap-1 pt-2 text-sm font-medium text-primary">
+                        {detail.action}
+                        <ArrowUpRight className="size-4 transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
+                      </span>
+                    </CardHeader>
+                  </Card>
+                </Link>
+              ))}
             </motion.div>
           </motion.div>
         </TabsContent>
