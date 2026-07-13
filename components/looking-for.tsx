@@ -78,15 +78,15 @@ export function LookingFor() {
               variants={FADE_UP_ANIMATION_VARIANTS}
               className="text-3xl sm:text-4xl text-center font-semibold"
             >
-              Get help from an expert
+              Any skill. Any task. Paid onchain.
             </motion.h2>
 
             <motion.p
               variants={FADE_UP_ANIMATION_VARIANTS}
               className="text-center mt-2 text-muted-foreground"
             >
-              Create work for others to complete and get the support you need to
-              achieve your goals.
+              Fund the outcome you need, from code and design to content,
+              research, feedback, and community work.
             </motion.p>
 
             <motion.div
@@ -112,9 +112,9 @@ export function LookingFor() {
                   height={100}
                 />
                 <CardHeader className="border-t">
-                  <CardTitle className="text-lg">Open Source Bounty</CardTitle>
+                  <CardTitle className="text-lg">Open-source bounties</CardTitle>
                   <CardDescription>
-                    Incentivize a pull request made from a Github issue.
+                    Fund a GitHub issue and reward the pull request that solves it.
                   </CardDescription>
                 </CardHeader>
               </Card>
@@ -122,22 +122,22 @@ export function LookingFor() {
               <Card className="overflow-hidden">
                 <Image
                   src="https://cdn.gib.work/misc/simple_task.png"
-                  alt="Open Source Bounty"
+                  alt="Tasks and gigs"
                   className="h-40 w-full "
                   width={100}
                   height={100}
                 />
                 <CardHeader className="border-t">
-                  <CardTitle className="text-lg">Simple Task</CardTitle>
+                  <CardTitle className="text-lg">Tasks &amp; gigs</CardTitle>
                   <CardDescription>
-                    Small tasks achievable in a few hours.
+                    Get help with content, design, social, research, feedback, and more.
                   </CardDescription>
                 </CardHeader>
               </Card>
               <Card className="overflow-hidden">
                 <Image
                   src="https://cdn.gib.work/misc/services.png"
-                  alt="Open Source Bounty"
+                  alt="Professional services"
                   className="h-40 w-full "
                   width={100}
                   height={100}
@@ -145,8 +145,7 @@ export function LookingFor() {
                 <CardHeader className="border-t">
                   <CardTitle className="text-lg">Services</CardTitle>
                   <CardDescription>
-                    Offer your skills and connect with users for custom
-                    services.
+                    Find specialists for larger scopes and ongoing work.
                   </CardDescription>
                 </CardHeader>
               </Card>

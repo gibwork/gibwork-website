@@ -31,7 +31,7 @@ export function LogoList() {
         },
       }}
       id="about"
-      className="relative flex flex-col px-4 sm:px-6 py-16 sm:py-24 w-full mx-auto max-w-7xl border-y lg:text-left text-center"
+      className="relative flex min-w-0 flex-col overflow-hidden px-4 sm:px-6 py-16 sm:py-24 w-full mx-auto max-w-7xl border-y lg:text-left text-center"
     >
       <motion.p
         variants={FADE_UP_ANIMATION_VARIANTS}
@@ -59,9 +59,9 @@ export function LogoList() {
 
       <motion.div
         variants={FADE_UP_ANIMATION_VARIANTS}
-        className="relative mt-16 flex w-full flex-col items-center justify-center overflow-hidden"
+        className="relative mt-16 flex w-full min-w-0 max-w-full flex-col items-center justify-center overflow-hidden"
       >
-        <Marquee pauseOnHover className="[--duration:20s]">
+        <Marquee pauseOnHover className="w-full min-w-0 max-w-full [--duration:20s]">
           <Image alt="Solana Foundation" src={solanaFoundation} className="h-8 w-auto px-6" />
           <Image alt="send" src={send} className="h-8 w-auto px-4" />
           <Image alt="alldomains" src={alldomains} className="h-8 w-auto px-4" />

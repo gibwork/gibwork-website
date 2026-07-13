@@ -2,7 +2,7 @@
 
 import { SolanaLogoType } from "@/components/logo/solana";
 import { Button } from "@/components/ui/button";
-import { ArrowRight } from "lucide-react";
+import { ArrowDownToLine, ArrowRight, ShieldCheck, Zap } from "lucide-react";
 import Image from "next/image";
 import dashboard from "@/public/dashboard-2.png";
 import { Badge } from "@/components/ui/badge";
@@ -11,8 +11,7 @@ import { siteConfig } from "@/lib/site-config";
 import SparklesText from "./ui/sparkles-text";
 import { motion } from "framer-motion";
 import { FADE_UP_ANIMATION_VARIANTS } from "@/lib/framer-variants";
-import { Clipboard } from "flowbite-react"
-
+import { PhoneMockup } from "@/components/mobile-app";
 
 export function Hero() {
   return (
@@ -28,20 +27,20 @@ export function Hero() {
           },
         },
       }}
-      className="relative flex pt-16 sm:pt-24 pb-24 sm:pb-32 text-center flex-col justify-center items-center px-4 sm:px-6 w-full mx-auto max-w-7xl"
+      className="relative flex overflow-hidden pt-16 sm:pt-24 pb-20 sm:pb-28 text-center flex-col justify-center items-center px-4 sm:px-6 w-full mx-auto max-w-7xl"
     >
       <motion.div variants={FADE_UP_ANIMATION_VARIANTS}>
         <Badge variant={"secondary"}>
           <div className="size-1 rounded-full bg-muted-foreground mr-2" />
-          Introducing gibwork
+          Work and payments, onchain
           <div className="size-1 rounded-full bg-muted-foreground ml-2" />
         </Badge>
       </motion.div>
 
       <motion.div variants={FADE_UP_ANIMATION_VARIANTS} className="relative z-0">
         <SparklesText
-          text="Find Talent, Find Work"
-          className="font-semibold text-5xl sm:text-6xl mt-4"
+          text="Work. Get paid instantly. Anywhere."
+          className="font-semibold text-5xl sm:text-6xl mt-4 max-w-4xl"
         />
       </motion.div>
 
@@ -49,32 +48,40 @@ export function Hero() {
         variants={FADE_UP_ANIMATION_VARIANTS}
         className="max-w-2xl mt-4 w-full sm:text-lg text-muted-foreground"
       >
-        Whether you&apos;re searching for your next gig or seeking skilled individuals, our platform
-        connects you with the perfect match.
+        Create work, take it on, and get paid in USDC or any Solana token — no
+        invoices, no waiting, no borders.
       </motion.p>
 
-      <motion.div variants={FADE_UP_ANIMATION_VARIANTS}>
-        <Button className="group mt-8" asChild>
+      <motion.div
+        variants={FADE_UP_ANIMATION_VARIANTS}
+        className="mt-8 flex w-full flex-col items-stretch justify-center gap-3 min-[420px]:w-auto min-[420px]:flex-row"
+      >
+        <Button className="group" size="lg" asChild>
           <Link href={siteConfig.appUrl} target="_blank">
             Get Started For Free
             <ArrowRight className="size-0 group-hover:size-5 transition-all -ml-2 group-hover:ml-0" />
+          </Link>
+        </Button>
+        <Button variant="outline" size="lg" asChild>
+          <Link href="#mobile-app">
+            <ArrowDownToLine className="size-4" />
+            Download the app
           </Link>
         </Button>
       </motion.div>
 
       <motion.div
         variants={FADE_UP_ANIMATION_VARIANTS}
-        className="flex items-center gap-2 text-sm mt-4"
+        className="mt-6 flex flex-col items-center justify-center gap-3 text-sm text-muted-foreground sm:flex-row sm:gap-5"
       >
-
-        <span className="opacity-80">powered by</span>
-        <Link
-          href={"https://solana.com/"}
-          target="_blank"
-          className="hover:scale-105 transition-all"
-        >
-          <SolanaLogoType className="w-20 fill-foreground" />
-        </Link>
+        <span className="flex items-center gap-2">
+          <ShieldCheck className="size-4 text-primary" />
+          Funds protected by smart-contract escrow
+        </span>
+        <span className="flex items-center gap-2">
+          <Zap className="size-4 text-primary" />
+          Onchain settlement in seconds
+        </span>
       </motion.div>
 
       {/* <motion.div
@@ -103,13 +110,38 @@ export function Hero() {
         </div>
       </motion.div> */}
 
-      <motion.div variants={FADE_UP_ANIMATION_VARIANTS} className="mt-16 sm:mt-24 relative z-0">
+      <motion.div
+        variants={FADE_UP_ANIMATION_VARIANTS}
+        className="relative z-0 mt-12 flex w-full justify-center sm:hidden"
+      >
+        <PhoneMockup />
+      </motion.div>
+
+      <motion.div
+        variants={FADE_UP_ANIMATION_VARIANTS}
+        className="mt-20 hidden w-full min-w-0 max-w-6xl sm:block relative z-0"
+      >
         <div className="rounded-t-lg bg-foreground/5 h-3 mx-12" />
         <div className="rounded-t-lg bg-foreground/10 h-3 mx-6" />
-        <div className="rounded-lg overflow-hidden border bg-muted w-full">
-          <Image alt="" src={dashboard} />
+        <div className="w-full max-w-full overflow-hidden rounded-lg border bg-muted">
+          <Image
+            alt="Gibwork task marketplace dashboard"
+            src={dashboard}
+            className="h-auto w-full min-w-0 object-cover object-left-top"
+            priority
+          />
         </div>
         <div className="absolute inset-0 bg-gradient-to-t from-background via-background/60" />
+      </motion.div>
+
+      <motion.div
+        variants={FADE_UP_ANIMATION_VARIANTS}
+        className="mt-2 flex items-center gap-2 text-xs text-muted-foreground"
+      >
+        <span>Powered by</span>
+        <Link href="https://solana.com/" target="_blank" className="transition-transform hover:scale-105">
+          <SolanaLogoType className="w-20 fill-foreground" />
+        </Link>
       </motion.div>
     </motion.section>
   );

@@ -65,13 +65,13 @@ export function Testimonial() {
           </motion.p>
         </motion.div>
 
-        <div className="overflow-auto flex items-start gap-2 pb-4 sm:hidden">
+        <div className="flex w-full min-w-0 snap-x snap-mandatory items-start gap-3 overflow-x-auto overscroll-x-contain pb-4 sm:hidden">
           {[...leftTweetIds, ...rightTweetIds].map((id) => {
             return (
               <ClientTweetCard
                 key={id}
                 id={id}
-                className="shrink-0 max-w-[calc(100vw-96px)]"
+                className="w-[min(20rem,calc(100vw-3rem))] min-w-0 max-w-full shrink-0 snap-center"
               />
             );
           })}
