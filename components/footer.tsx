@@ -16,7 +16,7 @@ export function Footer() {
         <div className="flex items-start gap-4 w-full justify-between gap-x-40 md:flex-row flex-col gap-y-12">
           <div className="flex items-start flex-col">
             <div className="flex items-center gap-2">
-              <Image alt="" src={logo} className="size-10 rounded-md bg-muted" />
+              <Image alt="gibwork" src={logo} className="size-10 rounded-md bg-muted" />
               <p className="font-bold text-2xl">gibwork</p>
             </div>
             <h2 className="font-semibold text-2xl sm:text-3xl mt-4">Join our community</h2>
@@ -95,6 +95,7 @@ export function Footer() {
               href={siteConfig.youtubeUrl}
               target="_blank"
               className="hover:scale-105 transition-all"
+              aria-label="Follow gibwork on YouTube"
             >
               <YoutubeLogoMark className="size-5" />
             </Link>
@@ -102,10 +103,16 @@ export function Footer() {
               href={siteConfig.discordUrl}
               target="_blank"
               className="hover:scale-105 transition-all"
+              aria-label="Join the gibwork Discord"
             >
               <DiscordLogoMark className="size-5" />
             </Link>
-            <Link href={siteConfig.xUrl} target="_blank" className="hover:scale-105 transition-all">
+            <Link
+              href={siteConfig.xUrl}
+              target="_blank"
+              className="hover:scale-105 transition-all"
+              aria-label="Follow gibwork on X"
+            >
               <TwitterLogoMark className="size-5" />
             </Link>
           </div>

@@ -122,7 +122,7 @@ export function LookingFor() {
               <Card className="overflow-hidden">
                 <Image
                   src="https://cdn.gib.work/misc/simple_task.png"
-                  alt="Open Source Bounty"
+                  alt="Simple Task"
                   className="h-40 w-full "
                   width={100}
                   height={100}
@@ -137,7 +137,7 @@ export function LookingFor() {
               <Card className="overflow-hidden">
                 <Image
                   src="https://cdn.gib.work/misc/services.png"
-                  alt="Open Source Bounty"
+                  alt="Services"
                   className="h-40 w-full "
                   width={100}
                   height={100}
@@ -193,7 +193,7 @@ export function LookingFor() {
                 >
                   <div className="relative aspect-square rounded-full shrink-0 w-12 bg-muted overflow-hidden">
                     <Image
-                      alt=""
+                      alt={_detail.title}
                       fill
                       src={_detail.image}
                       className="h-full w-full object-cover"
@@ -206,7 +206,7 @@ export function LookingFor() {
                     <p>{_detail.amount}</p>
                     <div className="relative aspect-square rounded-full w-8 bg-muted overflow-hidden">
                       <Image
-                        alt=""
+                        alt={`${_detail.token.toUpperCase()} token`}
                         fill
                         src={`/token-${_detail.token}.png`}
                         className="h-full w-full object-cover"

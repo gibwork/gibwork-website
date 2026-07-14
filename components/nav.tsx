@@ -29,7 +29,7 @@ export function Nav() {
         >
           <div className="flex items-center gap-2">
             <Link href={"/"} className="flex items-center gap-2">
-              <Image alt="" src={logo} className="size-10 rounded-md" />
+              <Image alt="gibwork" src={logo} className="size-10 rounded-md" />
               <p className="font-bold text-3xl min-[420px]:block hidden">gibwork</p>
             </Link>
 
@@ -55,18 +55,18 @@ export function Nav() {
           <div className="flex items-center gap-2">
             <div className="hidden md:flex items-center">
               <Button size={"icon"} variant={"ghost"} asChild>
-                <Link href={siteConfig.youtubeUrl} target="_blank">
+                <Link href={siteConfig.youtubeUrl} target="_blank" aria-label="Follow gibwork on YouTube">
                   <YoutubeLogoMark className="size-5" />
                 </Link>
               </Button>
               <Button size={"icon"} variant={"ghost"} asChild>
-                <Link href={siteConfig.discordUrl} target="_blank">
+                <Link href={siteConfig.discordUrl} target="_blank" aria-label="Join the gibwork Discord">
                   <DiscordLogoMark className="size-5" />
                 </Link>
               </Button>
 
               <Button size={"icon"} variant={"ghost"} asChild>
-                <Link href={siteConfig.xUrl} target="_blank">
+                <Link href={siteConfig.xUrl} target="_blank" aria-label="Follow gibwork on X">
                   <TwitterLogoMark className="size-5" />
                 </Link>
               </Button>
@@ -84,6 +84,7 @@ export function Nav() {
               variant={"secondary"}
               className="md:hidden"
               onClick={() => setIsOpen(true)}
+              aria-label="Open navigation menu"
             >
               <Menu className="size-5" />
             </Button>
@@ -103,7 +104,7 @@ export function Nav() {
             <div className="flex flex-col">
               <div className="sm:px-6 px-4 h-16 flex justify-between items-center">
                 <Link href={"/"} className="flex items-center gap-2">
-                  <Image alt="" src={logo} className="size-10 rounded-md" />
+                  <Image alt="gibwork" src={logo} className="size-10 rounded-md" />
                   <p className="font-bold text-xl min-[420px]:block hidden">gibwork</p>
                 </Link>
 
@@ -115,7 +116,12 @@ export function Nav() {
                     </Link>
                   </Button>
 
-                  <Button size={"icon"} variant={"secondary"} onClick={() => setIsOpen(false)}>
+                  <Button
+                    size={"icon"}
+                    variant={"secondary"}
+                    onClick={() => setIsOpen(false)}
+                    aria-label="Close navigation menu"
+                  >
                     <X className="size-5" />
                   </Button>
                 </div>
@@ -154,24 +160,34 @@ export function Nav() {
                 >
                   <Link href={"/#faq"}>FAQ</Link>
                 </Button>
+                <Button
+                  asChild
+                  variant={"ghost"}
+                  onClick={() => setIsOpen(false)}
+                  className="text-muted-foreground uppercase"
+                >
+                  <Link href={"https://docs.gib.work/"} target="_blank">
+                    Docs
+                  </Link>
+                </Button>
               </div>
 
               <Separator />
 
               <div className="flex justify-end sm:p-6 p-4">
                 <Button size={"icon"} variant={"ghost"} asChild>
-                  <Link href={siteConfig.youtubeUrl} target="_blank">
+                  <Link href={siteConfig.youtubeUrl} target="_blank" aria-label="Follow gibwork on YouTube">
                     <YoutubeLogoMark className="size-5" />
                   </Link>
                 </Button>
                 <Button size={"icon"} variant={"ghost"} asChild>
-                  <Link href={siteConfig.discordUrl} target="_blank">
+                  <Link href={siteConfig.discordUrl} target="_blank" aria-label="Join the gibwork Discord">
                     <DiscordLogoMark className="size-5" />
                   </Link>
                 </Button>
 
                 <Button size={"icon"} variant={"ghost"} asChild>
-                  <Link href={siteConfig.xUrl} target="_blank">
+                  <Link href={siteConfig.xUrl} target="_blank" aria-label="Follow gibwork on X">
                     <TwitterLogoMark className="size-5" />
                   </Link>
                 </Button>
