@@ -7,21 +7,34 @@ import { MagicTweet, TweetNotFound, TweetSkeleton } from "@/components/ui/tweet-
 const ClientTweetCard = ({
   id,
   apiUrl,
-  fallback = <TweetSkeleton />,
+  fallback,
   components,
   fetchOptions,
   onError,
+  className,
   ...props
 }: TweetProps & { className?: string }) => {
   const { data, error, isLoading } = useTweet(id, apiUrl, fetchOptions);
 
-  if (isLoading) return fallback;
+  if (isLoading) return fallback ?? <TweetSkeleton className={className} />;
   if (error || !data) {
     const NotFound = components?.TweetNotFound || TweetNotFound;
-    return <NotFound error={onError ? onError(error) : error} />;
+    return (
+      <NotFound
+        className={className}
+        error={onError ? onError(error) : error}
+      />
+    );
   }
 
-  return <MagicTweet tweet={data} components={components} {...props} />;
+  return (
+    <MagicTweet
+      tweet={data}
+      components={components}
+      className={className}
+      {...props}
+    />
+  );
 };
 
 export default ClientTweetCard;
