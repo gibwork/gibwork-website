@@ -75,13 +75,10 @@ const config = {
           from: { transform: "translateY(0)" },
           to: { transform: "translateY(calc(-100% - var(--gap)))" },
         },
-        ripple: {
-          "0%, 100%": {
-            transform: "translate(-50%, -50%) scale(1)",
-          },
-          "50%": {
-            transform: "translate(-50%, -50%) scale(0.9)",
-          },
+        gradient: {
+          "0%": { backgroundPosition: "0% 50%" },
+          "50%": { backgroundPosition: "100% 50%" },
+          "100%": { backgroundPosition: "0% 50%" },
         },
       },
       animation: {
@@ -89,11 +86,24 @@ const config = {
         "accordion-up": "accordion-up 0.2s ease-out",
         marquee: "marquee var(--duration) linear infinite",
         "marquee-vertical": "marquee-vertical var(--duration) linear infinite",
-        ripple: "ripple var(--duration,2s) ease calc(var(--i, 0)*.2s) infinite",
+        gradient: "gradient 4s ease infinite",
       },
     },
   },
-  plugins: [require("tailwindcss-animate")],
+  plugins: [
+    require("tailwindcss-animate"),
+    function ({ addUtilities }: { addUtilities: Function }) {
+      addUtilities({
+        ".scrollbar-hide": {
+          "-ms-overflow-style": "none",
+          "scrollbar-width": "none",
+          "&::-webkit-scrollbar": {
+            display: "none",
+          },
+        },
+      });
+    },
+  ],
 } satisfies Config;
 
 export default config;

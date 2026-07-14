@@ -8,6 +8,7 @@ import { ArrowRight, ExternalLink } from "lucide-react";
 import { YoutubeLogoMark } from "./logo/youtube";
 import { DiscordLogoMark } from "./logo/discord";
 import { TwitterLogoMark } from "./logo/twitter";
+import { motion } from "framer-motion";
 
 export function Footer() {
   return (
@@ -91,23 +92,29 @@ export function Footer() {
 
         <div className="flex sm:items-end justify-between mt-12 w-full sm:flex-row flex-col gap-4">
           <div className="flex items-center gap-4">
-            <Link
-              href={siteConfig.youtubeUrl}
-              target="_blank"
-              className="hover:scale-105 transition-all"
-            >
-              <YoutubeLogoMark className="size-5" />
-            </Link>
-            <Link
-              href={siteConfig.discordUrl}
-              target="_blank"
-              className="hover:scale-105 transition-all"
-            >
-              <DiscordLogoMark className="size-5" />
-            </Link>
-            <Link href={siteConfig.xUrl} target="_blank" className="hover:scale-105 transition-all">
-              <TwitterLogoMark className="size-5" />
-            </Link>
+            <motion.div whileHover={{ scale: 1.2, rotate: 5 }} whileTap={{ scale: 0.9 }}>
+              <Link
+                href={siteConfig.youtubeUrl}
+                target="_blank"
+                className="block"
+              >
+                <YoutubeLogoMark className="size-5" />
+              </Link>
+            </motion.div>
+            <motion.div whileHover={{ scale: 1.2, rotate: -5 }} whileTap={{ scale: 0.9 }}>
+              <Link
+                href={siteConfig.discordUrl}
+                target="_blank"
+                className="block"
+              >
+                <DiscordLogoMark className="size-5" />
+              </Link>
+            </motion.div>
+            <motion.div whileHover={{ scale: 1.2, rotate: 5 }} whileTap={{ scale: 0.9 }}>
+              <Link href={siteConfig.xUrl} target="_blank" className="block">
+                <TwitterLogoMark className="size-5" />
+              </Link>
+            </motion.div>
           </div>
 
           <p className="text-xs text-muted-foreground">Made with ♥ by gibwork</p>

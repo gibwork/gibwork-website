@@ -2,7 +2,7 @@
 
 import Marquee from "./ui/marquee";
 import { motion } from "framer-motion";
-import { FADE_UP_ANIMATION_VARIANTS } from "@/lib/framer-variants";
+import { SPRING_UP, STAGGER_CONTAINER } from "@/lib/framer-variants";
 import Image from "next/image";
 import zircon from "@/public/logo/zircon.png";
 import magic from "@/public/logo/magic.png";
@@ -21,27 +21,20 @@ export function LogoList() {
     <motion.section
       initial="hidden"
       whileInView="show"
-      viewport={{ once: true }}
-      variants={{
-        hidden: {},
-        show: {
-          transition: {
-            staggerChildren: 0.15,
-          },
-        },
-      }}
+      viewport={{ once: true, margin: "-50px" }}
+      variants={STAGGER_CONTAINER}
       id="about"
       className="relative flex flex-col px-4 sm:px-6 py-16 sm:py-24 w-full mx-auto max-w-7xl border-y lg:text-left text-center"
     >
       <motion.p
-        variants={FADE_UP_ANIMATION_VARIANTS}
+        variants={SPRING_UP}
         className="text-primary font-semibold text-sm"
       >
         BRANDS THAT TRUST US
       </motion.p>
 
       <motion.div
-        variants={FADE_UP_ANIMATION_VARIANTS}
+        variants={SPRING_UP}
         className="flex lg:flex-row flex-col gap-x-16 mt-2 justify-between"
       >
         <p className="lg:w-96 text-3xl sm:text-4xl font-semibold shrink-0">
@@ -58,7 +51,7 @@ export function LogoList() {
       </motion.div>
 
       <motion.div
-        variants={FADE_UP_ANIMATION_VARIANTS}
+        variants={SPRING_UP}
         className="relative mt-16 flex w-full flex-col items-center justify-center overflow-hidden"
       >
         <Marquee pauseOnHover className="[--duration:20s]">

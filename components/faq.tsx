@@ -1,8 +1,5 @@
 "use client";
 
-import { Button } from "@/components/ui/button";
-import { ArrowRight } from "lucide-react";
-import Ripple from "./ui/ripple";
 import {
   Accordion,
   AccordionContent,
@@ -10,33 +7,26 @@ import {
   AccordionTrigger,
 } from "@/components/ui/accordion";
 import { motion } from "framer-motion";
-import { FADE_UP_ANIMATION_VARIANTS } from "@/lib/framer-variants";
+import { SPRING_UP, STAGGER_CONTAINER } from "@/lib/framer-variants";
 
 export function Faq() {
   return (
     <motion.section
       initial="hidden"
       whileInView="show"
-      viewport={{ once: true }}
-      variants={{
-        hidden: {},
-        show: {
-          transition: {
-            staggerChildren: 0.15,
-          },
-        },
-      }}
+      viewport={{ once: true, margin: "-50px" }}
+      variants={STAGGER_CONTAINER}
       id="faq"
       className="relative py-16 sm:py-24 justify-between lg:flex-row flex-col gap-y-8 gap-x-16 px-4 sm:px-6 flex w-full max-w-7xl mx-auto"
     >
       <motion.h2
-        variants={FADE_UP_ANIMATION_VARIANTS}
+        variants={SPRING_UP}
         className="font-semibold text-3xl sm:text-4xl shrink-0 lg:text-left text-center"
       >
         FAQs
       </motion.h2>
 
-      <motion.div variants={FADE_UP_ANIMATION_VARIANTS} className="grow lg:max-w-3xl">
+      <motion.div variants={SPRING_UP} className="grow lg:max-w-3xl">
         <Accordion type="single" collapsible>
           <AccordionItem value="item-6">
             <AccordionTrigger>How do I create Work on Gibwork?</AccordionTrigger>
