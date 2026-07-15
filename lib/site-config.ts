@@ -8,6 +8,8 @@ export const siteConfig = {
   youtubeUrl: "https://www.youtube.com/@gibwork_",
   xUrl: "https://twitter.com/intent/follow?screen_name=gib_work",
   appUrl: "https://app.gib.work/",
+  appStoreUrl: "https://apps.apple.com/ng/app/gibwork/id6757281508",
+  googlePlayUrl: "https://play.google.com/store/apps/details?id=com.gibwork.app",
   xHandle: "gib_work",
   themeColor: "#ffffff",
 };

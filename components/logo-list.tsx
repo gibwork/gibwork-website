@@ -62,18 +62,18 @@ export function LogoList() {
         className="relative mt-16 flex w-full flex-col items-center justify-center overflow-hidden"
       >
         <Marquee pauseOnHover className="[--duration:20s]">
-          <Image alt="Solana Foundation" src={solanaFoundation} className="h-8 w-auto px-6" />
-          <Image alt="send" src={send} className="h-8 w-auto px-4" />
-          <Image alt="alldomains" src={alldomains} className="h-8 w-auto px-4" />
+          <Image alt="Solana Foundation" src={solanaFoundation} className="h-8 w-40 object-contain px-6" />
+          <Image alt="send" src={send} className="h-8 w-36 object-contain px-4" />
+          <Image alt="alldomains" src={alldomains} className="h-8 w-36 object-contain px-4" />
           <div className=" px-6 text-2xl font-medium">
-            <Image alt="deansList" src={deansList} className="h-8 w-auto inline" /> Dean's List
+            <Image alt="deansList" src={deansList} className="h-8 w-8 object-contain inline" /> Dean's List
           </div>
-          <Image alt="magic" src={magic} className="h-8 w-auto px-6" />
-          <Image alt="blinksgg" src={blinksGG} className="h-8 w-auto px-6" />
-          <Image alt="realms" src={realms} className="h-8 w-auto px-6" />
-          <Image alt="zircon" src={zircon} className="h-8 w-auto px-6" />
-          <Image alt="decaf" src={decaf} className="h-8 w-auto px-6" />
-          <Image alt="pubkey" src={pubkey} className="h-8 w-auto px-6" />
+          <Image alt="magic" src={magic} className="h-8 w-36 object-contain px-6" />
+          <Image alt="blinksgg" src={blinksGG} className="h-8 w-36 object-contain px-6" />
+          <Image alt="realms" src={realms} className="h-8 w-36 object-contain px-6" />
+          <Image alt="zircon" src={zircon} className="h-8 w-36 object-contain px-6" />
+          <Image alt="decaf" src={decaf} className="h-8 w-36 object-contain px-6" />
+          <Image alt="pubkey" src={pubkey} className="h-8 w-36 object-contain px-6" />
 
         </Marquee>
 

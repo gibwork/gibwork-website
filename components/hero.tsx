@@ -11,8 +11,12 @@ import { siteConfig } from "@/lib/site-config";
 import SparklesText from "./ui/sparkles-text";
 import { motion } from "framer-motion";
 import { FADE_UP_ANIMATION_VARIANTS } from "@/lib/framer-variants";
-import { Clipboard } from "flowbite-react"
 
+const heroStats = [
+  { label: "Community members", value: "12K+" },
+  { label: "Android downloads", value: "10K+" },
+  { label: "Mobile apps", value: "iOS + Android" },
+];
 
 export function Hero() {
   return (
@@ -33,14 +37,15 @@ export function Hero() {
       <motion.div variants={FADE_UP_ANIMATION_VARIANTS}>
         <Badge variant={"secondary"}>
           <div className="size-1 rounded-full bg-muted-foreground mr-2" />
-          Introducing gibwork
+          Now with mobile app - iOS and Android
           <div className="size-1 rounded-full bg-muted-foreground ml-2" />
         </Badge>
       </motion.div>
 
       <motion.div variants={FADE_UP_ANIMATION_VARIANTS} className="relative z-0">
         <SparklesText
-          text="Find Talent, Find Work"
+          as="h1"
+          text="Fund Work, Ship Faster"
           className="font-semibold text-5xl sm:text-6xl mt-4"
         />
       </motion.div>
@@ -49,9 +54,21 @@ export function Hero() {
         variants={FADE_UP_ANIMATION_VARIANTS}
         className="max-w-2xl mt-4 w-full sm:text-lg text-muted-foreground"
       >
-        Whether you&apos;re searching for your next gig or seeking skilled individuals, our platform
-        connects you with the perfect match.
+        Gibwork connects teams and contributors through funded bounties, focused tasks,
+        and services with fast Solana-native stablecoin payments.
       </motion.p>
+
+      <motion.div
+        variants={FADE_UP_ANIMATION_VARIANTS}
+        className="mt-8 grid w-full max-w-3xl grid-cols-1 gap-3 sm:grid-cols-3"
+      >
+        {heroStats.map((stat) => (
+          <div key={stat.label} className="rounded-lg border bg-background/80 px-4 py-3">
+            <p className="text-2xl font-semibold">{stat.value}</p>
+            <p className="text-sm text-muted-foreground">{stat.label}</p>
+          </div>
+        ))}
+      </motion.div>
 
       <motion.div variants={FADE_UP_ANIMATION_VARIANTS}>
         <Button className="group mt-8" asChild>
