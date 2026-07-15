@@ -2,7 +2,7 @@
 
 import { SolanaLogoType } from "@/components/logo/solana";
 import { Button } from "@/components/ui/button";
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, Smartphone } from "lucide-react";
 import Image from "next/image";
 import dashboard from "@/public/dashboard-2.png";
 import { Badge } from "@/components/ui/badge";
@@ -11,7 +11,6 @@ import { siteConfig } from "@/lib/site-config";
 import SparklesText from "./ui/sparkles-text";
 import { motion } from "framer-motion";
 import { FADE_UP_ANIMATION_VARIANTS } from "@/lib/framer-variants";
-import { Clipboard } from "flowbite-react"
 
 
 export function Hero() {
@@ -33,15 +32,15 @@ export function Hero() {
       <motion.div variants={FADE_UP_ANIMATION_VARIANTS}>
         <Badge variant={"secondary"}>
           <div className="size-1 rounded-full bg-muted-foreground mr-2" />
-          Introducing gibwork
+          Now on iOS and Android
           <div className="size-1 rounded-full bg-muted-foreground ml-2" />
         </Badge>
       </motion.div>
 
-      <motion.div variants={FADE_UP_ANIMATION_VARIANTS} className="relative z-0">
+      <motion.div variants={FADE_UP_ANIMATION_VARIANTS} className="relative z-0 w-full">
         <SparklesText
-          text="Find Talent, Find Work"
-          className="font-semibold text-5xl sm:text-6xl mt-4"
+          text="Work onchain, from anywhere"
+          className="mt-4 max-w-full text-4xl font-semibold leading-tight sm:text-6xl"
         />
       </motion.div>
 
@@ -49,15 +48,30 @@ export function Hero() {
         variants={FADE_UP_ANIMATION_VARIANTS}
         className="max-w-2xl mt-4 w-full sm:text-lg text-muted-foreground"
       >
-        Whether you&apos;re searching for your next gig or seeking skilled individuals, our platform
-        connects you with the perfect match.
+        Browse funded tasks, submit work, and get paid through Solana-backed stablecoin workflows
+        from web or mobile.
       </motion.p>
 
-      <motion.div variants={FADE_UP_ANIMATION_VARIANTS}>
-        <Button className="group mt-8" asChild>
-          <Link href={siteConfig.appUrl} target="_blank">
-            Get Started For Free
+      <motion.div
+        variants={FADE_UP_ANIMATION_VARIANTS}
+        className="mt-8 flex w-full flex-col items-center justify-center gap-3 sm:flex-row"
+      >
+        <Button className="group w-full sm:w-auto" asChild>
+          <Link href={siteConfig.tasksUrl} target="_blank">
+            Browse tasks
             <ArrowRight className="size-0 group-hover:size-5 transition-all -ml-2 group-hover:ml-0" />
+          </Link>
+        </Button>
+        <Button className="w-full sm:w-auto" variant={"outline"} asChild>
+          <Link href={siteConfig.iosAppUrl} target="_blank">
+            <Smartphone className="size-4" />
+            iOS app
+          </Link>
+        </Button>
+        <Button className="w-full sm:w-auto" variant={"outline"} asChild>
+          <Link href={siteConfig.androidAppUrl} target="_blank">
+            <Smartphone className="size-4" />
+            Android app
           </Link>
         </Button>
       </motion.div>
@@ -103,11 +117,14 @@ export function Hero() {
         </div>
       </motion.div> */}
 
-      <motion.div variants={FADE_UP_ANIMATION_VARIANTS} className="mt-16 sm:mt-24 relative z-0">
+      <motion.div
+        variants={FADE_UP_ANIMATION_VARIANTS}
+        className="mt-16 w-full max-w-6xl sm:mt-24 relative z-0"
+      >
         <div className="rounded-t-lg bg-foreground/5 h-3 mx-12" />
         <div className="rounded-t-lg bg-foreground/10 h-3 mx-6" />
         <div className="rounded-lg overflow-hidden border bg-muted w-full">
-          <Image alt="" src={dashboard} />
+          <Image alt="" src={dashboard} className="h-auto w-full" />
         </div>
         <div className="absolute inset-0 bg-gradient-to-t from-background via-background/60" />
       </motion.div>
