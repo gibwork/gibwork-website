@@ -6,14 +6,19 @@ import { CTA } from "@/components/cta";
 import { Footer } from "@/components/footer";
 import { Testimonial } from "@/components/testimonial";
 import { Faq } from "@/components/faq";
+import { getMarketplaceProof } from "@/lib/marketplace-proof";
 
-export default function Home() {
+export const revalidate = 900;
+
+export default async function Home() {
+  const marketplaceProof = await getMarketplaceProof();
+
   return (
     <div className="flex flex-col z-0 relative">
       <Nav />
       <Hero />
       <LogoList />
-      <LookingFor />
+      <LookingFor marketplaceProof={marketplaceProof} />
       <Testimonial />
       <CTA />
       <Faq />

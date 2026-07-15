@@ -10,39 +10,37 @@ import {
 import Image from "next/image";
 import { motion } from "framer-motion";
 import { FADE_UP_ANIMATION_VARIANTS } from "@/lib/framer-variants";
+import type { MarketplaceProof } from "@/lib/marketplace-proof";
+import Link from "next/link";
+import { Badge } from "@/components/ui/badge";
+import { ArrowUpRight } from "lucide-react";
 
-const workDetails = [
-  // { image: "/tasks/image-04.png", title: "Create a FAQ list for gibwork", amount: 1, token: "sol" },
+function formatAmount(amount: number) {
+  return new Intl.NumberFormat("en-US", { maximumFractionDigits: 0 }).format(
+    amount,
+  );
+}
 
-  {
-    image: "/tasks/image-01.png",
-    title: "Design gibwork's new landing page",
-    amount: 500,
-    token: "usdc",
-  },
-  {
-    image: "/tasks/image-02.png",
-    title: "Create developer challenges for Zircon",
-    amount: 500,
-    token: "usdc",
-  },
-  // {
-  //   image: "/tasks/image-04.png",
-  //   title: "Share a link to your most used dApp",
-  //   amount: 100,
-  //   token: "usdc",
-  // },
-  {
-    image: "/tasks/image-03.png",
-    title: "Use slug- to share a set of links on X or Reddit",
-    amount: 100,
-    token: "usdc",
-  },
-];
+function formatDeadline(deadline: string | null) {
+  if (!deadline) return "Explore marketplace";
 
-export function LookingFor() {
+  return `Ends ${new Intl.DateTimeFormat("en-US", {
+    month: "short",
+    day: "numeric",
+    timeZone: "UTC",
+  }).format(new Date(deadline))}`;
+}
+
+export function LookingFor({
+  marketplaceProof,
+}: {
+  marketplaceProof: MarketplaceProof;
+}) {
   return (
-    <section className="relative max-w-5xl mx-auto w-full py-16 sm:py-24 px-4 sm:px-6">
+    <section
+      id="marketplace"
+      className="relative max-w-5xl mx-auto w-full py-16 sm:py-24 px-4 sm:px-6"
+    >
       <Tabs defaultValue="1" className="w-full flex flex-col items-center">
         <motion.div
           variants={FADE_UP_ANIMATION_VARIANTS}
@@ -178,44 +176,93 @@ export function LookingFor() {
               variants={FADE_UP_ANIMATION_VARIANTS}
               className="text-center mt-2 text-muted-foreground"
             >
-              Discover work opportunities that you could do, complete the work,
-              and start earning.
+              Browse funded opportunities, submit verifiable work, and receive
+              onchain rewards when your submission is approved.
             </motion.p>
+
+            {marketplaceProof.stats && (
+              <motion.dl
+                variants={FADE_UP_ANIMATION_VARIANTS}
+                className="mt-8 grid w-full grid-cols-2 gap-3 sm:grid-cols-4"
+              >
+                {[
+                  ["Open now", marketplaceProof.stats.openTasks],
+                  [
+                    "Available",
+                    `$${formatAmount(marketplaceProof.stats.availableRewards)}`,
+                  ],
+                  ["Categories", marketplaceProof.stats.categories],
+                  [
+                    "Top reward",
+                    `$${formatAmount(marketplaceProof.stats.highestReward)}`,
+                  ],
+                ].map(([label, value]) => (
+                  <div
+                    key={label}
+                    className="rounded-xl border bg-card p-3 text-center"
+                  >
+                    <dt className="text-xs text-muted-foreground">{label}</dt>
+                    <dd className="mt-1 text-lg font-semibold">{value}</dd>
+                  </div>
+                ))}
+              </motion.dl>
+            )}
 
             <motion.div
               variants={FADE_UP_ANIMATION_VARIANTS}
               className="flex flex-col gap-2 mt-8 w-full"
             >
-              {workDetails.map((_detail) => (
-                <Card
-                  key={_detail.title}
-                  className="p-4 flex items-center gap-4"
+              {marketplaceProof.tasks.map((task) => (
+                <Link
+                  key={task.id}
+                  href={task.href}
+                  target="_blank"
+                  className="group"
                 >
-                  <div className="relative aspect-square rounded-full shrink-0 w-12 bg-muted overflow-hidden">
-                    <Image
-                      alt=""
-                      fill
-                      src={_detail.image}
-                      className="h-full w-full object-cover"
-                    />
-                  </div>
-
-                  <p className="font-semibold grow truncate">{_detail.title}</p>
-
-                  <div className="font-semibold flex items-center justify-end gap-2 shrink-0">
-                    <p>{_detail.amount}</p>
-                    <div className="relative aspect-square rounded-full w-8 bg-muted overflow-hidden">
+                  <Card className="flex items-center gap-4 p-4 transition-colors group-hover:border-foreground/30 group-focus-visible:ring-2 group-focus-visible:ring-ring">
+                    <div className="relative aspect-square w-12 shrink-0 overflow-hidden rounded-full bg-muted">
                       <Image
                         alt=""
                         fill
-                        src={`/token-${_detail.token}.png`}
+                        src={task.tokenImageUrl ?? "/work-logo.png"}
                         className="h-full w-full object-cover"
                       />
                     </div>
-                  </div>
-                </Card>
+
+                    <div className="min-w-0 grow">
+                      <div className="flex flex-wrap items-center gap-2">
+                        <Badge variant="secondary">{task.category}</Badge>
+                        {task.verifiedOnly && (
+                          <Badge variant="outline">Verified only</Badge>
+                        )}
+                      </div>
+                      <p className="mt-2 truncate font-semibold">{task.title}</p>
+                      <p className="mt-1 text-xs text-muted-foreground">
+                        {formatDeadline(task.deadline)}
+                      </p>
+                    </div>
+
+                    <div className="flex shrink-0 items-center justify-end gap-2 font-semibold">
+                      <p>
+                        {task.amount === null
+                          ? "View"
+                          : `$${formatAmount(task.amount)}`}
+                      </p>
+                      <ArrowUpRight className="size-4 text-muted-foreground transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
+                    </div>
+                  </Card>
+                </Link>
               ))}
             </motion.div>
+
+            <motion.p
+              variants={FADE_UP_ANIMATION_VARIANTS}
+              className="mt-4 text-center text-xs text-muted-foreground"
+            >
+              {marketplaceProof.isLive
+                ? "Live funded work, refreshed every 15 minutes. Closed and expired listings are excluded."
+                : "Marketplace preview shown while live listings are temporarily unavailable."}
+            </motion.p>
           </motion.div>
         </TabsContent>
       </Tabs>
