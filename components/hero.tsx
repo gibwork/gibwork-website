@@ -40,17 +40,16 @@ export function Hero() {
 
       <motion.div variants={FADE_UP_ANIMATION_VARIANTS} className="relative z-0">
         <SparklesText
-          text="Find Talent, Find Work"
-          className="font-semibold text-5xl sm:text-6xl mt-4"
+          text="The Solana Talent Network"
+          className="font-bold text-5xl sm:text-7xl mt-4 tracking-tighter"
         />
       </motion.div>
 
       <motion.p
         variants={FADE_UP_ANIMATION_VARIANTS}
-        className="max-w-2xl mt-4 w-full sm:text-lg text-muted-foreground"
+        className="max-w-2xl mt-6 w-full sm:text-xl text-muted-foreground leading-relaxed"
       >
-        Whether you&apos;re searching for your next gig or seeking skilled individuals, our platform
-        connects you with the perfect match.
+        Whether you&apos;re hunting for high-paying Web3 bounties or seeking elite Solana engineers, our platform connects you instantly with zero friction.
       </motion.p>
 
       <motion.div variants={FADE_UP_ANIMATION_VARIANTS}>
