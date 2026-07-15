@@ -11,12 +11,14 @@ export default function Home() {
   return (
     <div className="flex flex-col z-0 relative">
       <Nav />
-      <Hero />
-      <LogoList />
-      <LookingFor />
-      <Testimonial />
-      <CTA />
-      <Faq />
+      <main id="main-content" tabIndex={-1}>
+        <Hero />
+        <LogoList />
+        <LookingFor />
+        <Testimonial />
+        <CTA />
+        <Faq />
+      </main>
       <Footer />
     </div>
   );
