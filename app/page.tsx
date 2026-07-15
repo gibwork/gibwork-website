@@ -6,6 +6,7 @@ import { CTA } from "@/components/cta";
 import { Footer } from "@/components/footer";
 import { Testimonial } from "@/components/testimonial";
 import { Faq } from "@/components/faq";
+import { WorkProofLoop } from "@/components/work-proof-loop";
 
 export default function Home() {
   return (
@@ -13,6 +14,7 @@ export default function Home() {
       <Nav />
       <Hero />
       <LogoList />
+      <WorkProofLoop />
       <LookingFor />
       <Testimonial />
       <CTA />
