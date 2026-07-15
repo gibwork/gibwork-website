@@ -2,9 +2,9 @@
 
 import { SolanaLogoType } from "@/components/logo/solana";
 import { Button } from "@/components/ui/button";
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, Laptop , Smartphone} from "lucide-react";
 import Image from "next/image";
-import dashboard from "@/public/dashboard-2.png";
+import dashboard from "@/public/v3homepage.png";
 import { Badge } from "@/components/ui/badge";
 import Link from "next/link";
 import { siteConfig } from "@/lib/site-config";
@@ -33,7 +33,7 @@ export function Hero() {
       <motion.div variants={FADE_UP_ANIMATION_VARIANTS}>
         <Badge variant={"secondary"}>
           <div className="size-1 rounded-full bg-muted-foreground mr-2" />
-          Introducing gibwork
+          Introducing gibwork V3
           <div className="size-1 rounded-full bg-muted-foreground ml-2" />
         </Badge>
       </motion.div>
@@ -49,18 +49,29 @@ export function Hero() {
         variants={FADE_UP_ANIMATION_VARIANTS}
         className="max-w-2xl mt-4 w-full sm:text-lg text-muted-foreground"
       >
-        Whether you&apos;re searching for your next gig or seeking skilled individuals, our platform
-        connects you with the perfect match.
+        Connect with freelancers, creators, and businesses worldwide to complete tasks, hire talent, and build faster with Web3.
       </motion.p>
 
-      <motion.div variants={FADE_UP_ANIMATION_VARIANTS}>
+      <div className="flex items-center gap-2 text-sm mt-4">
+              <motion.div variants={FADE_UP_ANIMATION_VARIANTS}>
         <Button className="group mt-8" asChild>
           <Link href={siteConfig.appUrl} target="_blank">
-            Get Started For Free
+            <Laptop/>Start Earning
             <ArrowRight className="size-0 group-hover:size-5 transition-all -ml-2 group-hover:ml-0" />
           </Link>
         </Button>
       </motion.div>
+            <motion.div variants={FADE_UP_ANIMATION_VARIANTS}>
+        <Button className="group mt-8" asChild>
+          <Link href={"/#mobileapp"}>
+            <Smartphone/> Download App
+            <ArrowRight className="size-0 group-hover:size-5 transition-all -ml-2 group-hover:ml-0" />
+          </Link>
+        </Button>
+      </motion.div>
+
+      </div>
+
 
       <motion.div
         variants={FADE_UP_ANIMATION_VARIANTS}

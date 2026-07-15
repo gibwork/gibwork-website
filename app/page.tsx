@@ -6,6 +6,11 @@ import { CTA } from "@/components/cta";
 import { Footer } from "@/components/footer";
 import { Testimonial } from "@/components/testimonial";
 import { Faq } from "@/components/faq";
+import HowItWorks from "@/components/hiw";
+import MobileApp from "@/components/mobileapp";
+import Features from "@/components/features";
+import ReferralSection from "@/components/referral-section";
+import MembershipSection from "@/components/membership-section";
 
 export default function Home() {
   return (
@@ -13,7 +18,12 @@ export default function Home() {
       <Nav />
       <Hero />
       <LogoList />
-      <LookingFor />
+      {/* <LookingFor /> */}
+      <Features/>
+      <HowItWorks/>
+      <MobileApp/>
+      <ReferralSection/>
+      <MembershipSection/>
       <Testimonial />
       <CTA />
       <Faq />

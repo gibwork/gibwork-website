@@ -8,6 +8,9 @@ import { ArrowRight, ExternalLink } from "lucide-react";
 import { YoutubeLogoMark } from "./logo/youtube";
 import { DiscordLogoMark } from "./logo/discord";
 import { TwitterLogoMark } from "./logo/twitter";
+import { TelegramLogoMark } from "./logo/telegram";
+import { RedditLogoMark } from "./logo/reddit";
+import { TikTokLogoMark } from "./logo/tiktok";
 
 export function Footer() {
   return (
@@ -36,6 +39,28 @@ export function Footer() {
                 <ArrowRight className="inline-block size-4 group-hover:scale-100 scale-0 transition-all ml-1" />
               </Link>
 
+                            <Link
+                href={"/#features"}
+                className="text-muted-foreground transition-all hover:text-foreground group"
+              >
+                Why Us
+                <ArrowRight className="inline-block size-4 group-hover:scale-100 scale-0 transition-all ml-1" />
+              </Link>
+
+              <Link
+                href={"/#how-it-works"}
+                className="text-muted-foreground transition-all hover:text-foreground group"
+              >
+                How it works
+                <ArrowRight className="inline-block size-4 group-hover:scale-100 scale-0 transition-all ml-1" />
+              </Link>
+              <Link
+                href={"/#mobileapp"}
+                className="text-muted-foreground transition-all hover:text-foreground group"
+              >
+                Mobile app
+                <ArrowRight className="inline-block size-4 group-hover:scale-100 scale-0 transition-all ml-1" />
+              </Link>
               <Link
                 href={"/#testimonial"}
                 className="text-muted-foreground transition-all hover:text-foreground group"
@@ -57,18 +82,18 @@ export function Footer() {
                 FAQ
                 <ArrowRight className="inline-block size-4 group-hover:scale-100 scale-0 transition-all ml-1" />
               </Link>
+            </div>
+
+            <div className="text-sm flex flex-col gap-2 items-start">
+              <p className="font-semibold">Resources</p>
               <Link
                 href={"https://docs.gib.work/"}
                  target="_blank"
                 className="text-muted-foreground transition-all hover:text-foreground group"
               >
                 Docs
-                <ArrowRight className="inline-block size-4 group-hover:scale-100 scale-0 transition-all ml-1" />
+                <ExternalLink className="inline-block size-4 group-hover:scale-100 scale-0 transition-all ml-1" />
               </Link>
-            </div>
-
-            <div className="text-sm flex flex-col gap-2 items-start">
-              <p className="font-semibold">Resources</p>
               <Link
                 href={"https://legal.gib.work/privacy-policy.pdf"}
                  target="_blank"
@@ -77,6 +102,15 @@ export function Footer() {
                 Privacy Policy
                 <ExternalLink className="inline-block size-4 group-hover:scale-100 scale-0 transition-all ml-1" />
               </Link>
+                            <Link
+                href={"https://app.gib.work/terms"}
+                 target="_blank"
+                className="text-muted-foreground transition-all hover:text-foreground group"
+              >
+                Terms of Use
+                <ExternalLink className="inline-block size-4 group-hover:scale-100 scale-0 transition-all ml-1" />
+              </Link>
+              
 
               {/* <Link
                 href={"#"}
@@ -107,6 +141,15 @@ export function Footer() {
             </Link>
             <Link href={siteConfig.xUrl} target="_blank" className="hover:scale-105 transition-all">
               <TwitterLogoMark className="size-5" />
+            </Link>
+            <Link href={siteConfig.telegramUrl} target="_blank" className="hover:scale-105 transition-all">
+              <TelegramLogoMark className="size-5" />
+            </Link>
+            <Link href={siteConfig.redditUrl} target="_blank" className="hover:scale-105 transition-all">
+              <RedditLogoMark className="size-5" />
+            </Link>
+            <Link href={siteConfig.tiktokUrl} target="_blank" className="hover:scale-105 transition-all">
+              <TikTokLogoMark className="size-5" />
             </Link>
           </div>
 
