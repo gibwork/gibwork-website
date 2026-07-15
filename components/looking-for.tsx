@@ -8,35 +8,43 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 import Image from "next/image";
+import Link from "next/link";
 import { motion } from "framer-motion";
+import { ArrowUpRight } from "lucide-react";
 import { FADE_UP_ANIMATION_VARIANTS } from "@/lib/framer-variants";
+import { Badge } from "@/components/ui/badge";
+import { siteConfig } from "@/lib/site-config";
 
 const workDetails = [
-  // { image: "/tasks/image-04.png", title: "Create a FAQ list for gibwork", amount: 1, token: "sol" },
-
   {
     image: "/tasks/image-01.png",
-    title: "Design gibwork's new landing page",
-    amount: 500,
+    title: "Improve a landing page via GitHub PR",
+    amount: 350,
     token: "usdc",
+    category: "Development",
+    proof: "GitHub PR or issue",
+    verifiedOnly: true,
+    href: `${siteConfig.appUrl}tasks/b7c2a3c9-c412-4613-9cfb-d8a5f54d14b7`,
   },
   {
     image: "/tasks/image-02.png",
-    title: "Create developer challenges for Zircon",
-    amount: 500,
+    title: "Create an X video reaction post",
+    amount: 200,
     token: "usdc",
+    category: "Social Media",
+    proof: "Post URL and screenshots",
+    verifiedOnly: false,
+    href: `${siteConfig.appUrl}tasks/66d9035f-501b-447e-b6dc-8667bfe4dade`,
   },
-  // {
-  //   image: "/tasks/image-04.png",
-  //   title: "Share a link to your most used dApp",
-  //   amount: 100,
-  //   token: "usdc",
-  // },
   {
     image: "/tasks/image-03.png",
-    title: "Use slug- to share a set of links on X or Reddit",
-    amount: 100,
+    title: "Submit product feedback or app screenshots",
+    amount: 150,
     token: "usdc",
+    category: "Misc",
+    proof: "Original photo and X post",
+    verifiedOnly: true,
+    href: `${siteConfig.appUrl}tasks/f58295c4-d9c7-4fc7-8d91-31287566bc91`,
   },
 ];
 
@@ -187,33 +195,52 @@ export function LookingFor() {
               className="flex flex-col gap-2 mt-8 w-full"
             >
               {workDetails.map((_detail) => (
-                <Card
+                <Link
                   key={_detail.title}
-                  className="p-4 flex items-center gap-4"
+                  href={_detail.href}
+                  target="_blank"
+                  className="rounded-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2"
                 >
-                  <div className="relative aspect-square rounded-full shrink-0 w-12 bg-muted overflow-hidden">
-                    <Image
-                      alt=""
-                      fill
-                      src={_detail.image}
-                      className="h-full w-full object-cover"
-                    />
-                  </div>
-
-                  <p className="font-semibold grow truncate">{_detail.title}</p>
-
-                  <div className="font-semibold flex items-center justify-end gap-2 shrink-0">
-                    <p>{_detail.amount}</p>
-                    <div className="relative aspect-square rounded-full w-8 bg-muted overflow-hidden">
+                  <Card className="p-4 flex items-center gap-4 transition-colors group hover:border-primary/40 hover:bg-muted/40">
+                    <div className="relative aspect-square rounded-full shrink-0 w-12 bg-muted overflow-hidden">
                       <Image
                         alt=""
                         fill
-                        src={`/token-${_detail.token}.png`}
+                        src={_detail.image}
                         className="h-full w-full object-cover"
                       />
                     </div>
-                  </div>
-                </Card>
+
+                    <div className="min-w-0 grow">
+                      <div className="flex items-center gap-2">
+                        <p className="font-semibold truncate">{_detail.title}</p>
+                        <ArrowUpRight className="size-4 shrink-0 text-muted-foreground transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
+                      </div>
+                      <div className="mt-1 flex flex-wrap items-center gap-2 text-xs text-muted-foreground">
+                        <span>{_detail.category}</span>
+                        <span aria-hidden="true">/</span>
+                        <span>{_detail.proof}</span>
+                        {_detail.verifiedOnly ? (
+                          <Badge variant="secondary" className="text-[10px]">
+                            Verified only
+                          </Badge>
+                        ) : null}
+                      </div>
+                    </div>
+
+                    <div className="font-semibold flex items-center justify-end gap-2 shrink-0">
+                      <p>{_detail.amount}</p>
+                      <div className="relative aspect-square rounded-full w-8 bg-muted overflow-hidden">
+                        <Image
+                          alt=""
+                          fill
+                          src={`/token-${_detail.token}.png`}
+                          className="h-full w-full object-cover"
+                        />
+                      </div>
+                    </div>
+                  </Card>
+                </Link>
               ))}
             </motion.div>
           </motion.div>
