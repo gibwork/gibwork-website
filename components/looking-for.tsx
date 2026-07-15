@@ -8,6 +8,7 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 import Image from "next/image";
+import Link from "next/link";
 import { motion } from "framer-motion";
 import { FADE_UP_ANIMATION_VARIANTS } from "@/lib/framer-variants";
 
@@ -93,67 +94,63 @@ export function LookingFor() {
               variants={FADE_UP_ANIMATION_VARIANTS}
               className="grid lg:grid-cols-3 gap-4 mt-8 lg:max-w-full max-w-3xl mx-auto"
             >
-              {/* <Card className="overflow-hidden">
-                <div className="h-32 sm:h-40 bg-muted" />
-                <CardHeader className="border-t">
-                  <CardTitle className="text-lg">Ask a Question</CardTitle>
-                  <CardDescription>
-                    Tap into the network of experts to answer your question fast.
-                  </CardDescription>
-                </CardHeader>
-              </Card> */}
+              <Link href="https://app.gib.work/explore?category=Open+Source" className="block h-full">
+                <Card className="overflow-hidden h-full hover:border-primary transition-colors cursor-pointer">
+                  <Image
+                    src="https://cdn.gib.work/misc/open_source_bounty.png"
+                    alt="Open Source Bounty"
+                    className="h-40 w-full object-cover"
+                    width={100}
+                    height={100}
+                  />
+                  <CardHeader className="border-t">
+                    <CardTitle className="text-lg">Open Source Bounty</CardTitle>
+                    <CardDescription>
+                      Incentivize a pull request made from a Github issue.
+                    </CardDescription>
+                  </CardHeader>
+                </Card>
+              </Link>
 
-              <Card className="overflow-hidden">
-                <Image
-                  src="https://cdn.gib.work/misc/open_source_bounty.png"
-                  alt="Open Source Bounty"
-                  className="h-40 w-full "
-                  width={100}
-                  height={100}
-                />
-                <CardHeader className="border-t">
-                  <CardTitle className="text-lg">Open Source Bounty</CardTitle>
-                  <CardDescription>
-                    Incentivize a pull request made from a Github issue.
-                  </CardDescription>
-                </CardHeader>
-              </Card>
+              <Link href="https://app.gib.work/explore" className="block h-full">
+                <Card className="overflow-hidden h-full hover:border-primary transition-colors cursor-pointer">
+                  <Image
+                    src="https://cdn.gib.work/misc/simple_task.png"
+                    alt="Simple Task"
+                    className="h-40 w-full object-cover"
+                    width={100}
+                    height={100}
+                  />
+                  <CardHeader className="border-t">
+                    <CardTitle className="text-lg">Simple Task</CardTitle>
+                    <CardDescription>
+                      Small tasks achievable in a few hours.
+                    </CardDescription>
+                  </CardHeader>
+                </Card>
+              </Link>
 
-              <Card className="overflow-hidden">
-                <Image
-                  src="https://cdn.gib.work/misc/simple_task.png"
-                  alt="Open Source Bounty"
-                  className="h-40 w-full "
-                  width={100}
-                  height={100}
-                />
-                <CardHeader className="border-t">
-                  <CardTitle className="text-lg">Simple Task</CardTitle>
-                  <CardDescription>
-                    Small tasks achievable in a few hours.
-                  </CardDescription>
-                </CardHeader>
-              </Card>
-              <Card className="overflow-hidden">
-                <Image
-                  src="https://cdn.gib.work/misc/services.png"
-                  alt="Open Source Bounty"
-                  className="h-40 w-full "
-                  width={100}
-                  height={100}
-                />
-                <CardHeader className="border-t">
-                  <CardTitle className="text-lg">Services</CardTitle>
-                  <CardDescription>
-                    Offer your skills and connect with users for custom
-                    services.
-                  </CardDescription>
-                </CardHeader>
-              </Card>
+              <Link href="https://app.gib.work/services" className="block h-full">
+                <Card className="overflow-hidden h-full hover:border-primary transition-colors cursor-pointer">
+                  <Image
+                    src="https://cdn.gib.work/misc/services.png"
+                    alt="Services"
+                    className="h-40 w-full object-cover"
+                    width={100}
+                    height={100}
+                  />
+                  <CardHeader className="border-t">
+                    <CardTitle className="text-lg">Services</CardTitle>
+                    <CardDescription>
+                      Offer your skills and connect with users for custom
+                      services.
+                    </CardDescription>
+                  </CardHeader>
+                </Card>
+              </Link>
             </motion.div>
           </motion.div>
-        </TabsContent>
-        <TabsContent value="2" className="mt-8 w-full max-w-3xl">
+        </TabsContent>        <TabsContent value="2" className="mt-8 w-full max-w-3xl">
           <motion.div
             initial="hidden"
             whileInView="show"
