@@ -37,7 +37,7 @@ export function LogoList() {
         variants={FADE_UP_ANIMATION_VARIANTS}
         className="text-primary font-semibold text-sm"
       >
-        BRANDS THAT TRUST US
+        TRUSTED BY BUILDERS
       </motion.p>
 
       <motion.div
@@ -45,15 +45,14 @@ export function LogoList() {
         className="flex lg:flex-row flex-col gap-x-16 mt-2 justify-between"
       >
         <p className="lg:w-96 text-3xl sm:text-4xl font-semibold shrink-0">
-          Partners we have collaborated with
+          Teams use Gibwork to move from brief to shipped work.
         </p>
 
         <p className="lg:max-w-3xl w-full text-muted-foreground lg:mt-0 mt-4">
-          Gibwork is powered by a dedicated team of innovators and professionals committed to
-          connecting talent with opportunities. Our team combines expertise in technology, design,
-          and user experience to build and manage the platform, ensuring it serves the needs of both
-          job seekers and employers. We strive to create a seamless experience that empowers users
-          to find work or the right talent efficiently.
+          Post a specific outcome, set the reward, and let contributors submit
+          the proof you need to review. Gibwork supports work that ranges from
+          GitHub pull requests and design assets to research, feedback, and
+          growth tasks.
         </p>
       </motion.div>
 
