@@ -55,6 +55,12 @@ export function Faq() {
               specific, often smaller job that needs to be completed.
             </AccordionContent>
           </AccordionItem>
+          <AccordionItem value="item-7">
+            <AccordionTrigger>Is there a mobile app?</AccordionTrigger>
+            <AccordionContent>
+              Yes! Gibwork has a mobile app available on Google Play for Android. You can discover bounties, complete tasks, and get paid from anywhere with our mobile app.
+            </AccordionContent>
+          </AccordionItem>
           <AccordionItem value="item-2">
             <AccordionTrigger>How do I get paid for completed work?</AccordionTrigger>
             <AccordionContent>
