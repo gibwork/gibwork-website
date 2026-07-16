@@ -2,7 +2,7 @@
 
 import { SolanaLogoType } from "@/components/logo/solana";
 import { Button } from "@/components/ui/button";
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, ShieldCheck, Smartphone, Wallet } from "lucide-react";
 import Image from "next/image";
 import dashboard from "@/public/dashboard-2.png";
 import { Badge } from "@/components/ui/badge";
@@ -11,10 +11,14 @@ import { siteConfig } from "@/lib/site-config";
 import SparklesText from "./ui/sparkles-text";
 import { motion } from "framer-motion";
 import { FADE_UP_ANIMATION_VARIANTS } from "@/lib/framer-variants";
-import { Clipboard } from "flowbite-react"
-
 
 export function Hero() {
+  const proofPoints = [
+    { icon: ShieldCheck, label: "Escrow-backed tasks" },
+    { icon: Wallet, label: "Stablecoin payouts" },
+    { icon: Smartphone, label: "Submit from iPhone" },
+  ];
+
   return (
     <motion.section
       initial="hidden"
@@ -33,14 +37,14 @@ export function Hero() {
       <motion.div variants={FADE_UP_ANIMATION_VARIANTS}>
         <Badge variant={"secondary"}>
           <div className="size-1 rounded-full bg-muted-foreground mr-2" />
-          Introducing gibwork
+          Onchain work marketplace
           <div className="size-1 rounded-full bg-muted-foreground ml-2" />
         </Badge>
       </motion.div>
 
       <motion.div variants={FADE_UP_ANIMATION_VARIANTS} className="relative z-0">
         <SparklesText
-          text="Find Talent, Find Work"
+          text="Tasks, bounties, and payouts in one workflow"
           className="font-semibold text-5xl sm:text-6xl mt-4"
         />
       </motion.div>
@@ -49,17 +53,41 @@ export function Hero() {
         variants={FADE_UP_ANIMATION_VARIANTS}
         className="max-w-2xl mt-4 w-full sm:text-lg text-muted-foreground"
       >
-        Whether you&apos;re searching for your next gig or seeking skilled individuals, our platform
-        connects you with the perfect match.
+        Post paid work, complete clear submissions, and track approvals through escrowed
+        stablecoin payouts on web or iPhone.
       </motion.p>
 
-      <motion.div variants={FADE_UP_ANIMATION_VARIANTS}>
-        <Button className="group mt-8" asChild>
+      <motion.div
+        variants={FADE_UP_ANIMATION_VARIANTS}
+        className="mt-8 flex flex-col items-center justify-center gap-3 sm:flex-row"
+      >
+        <Button className="group" asChild>
           <Link href={siteConfig.appUrl} target="_blank">
-            Get Started For Free
+            Open App
             <ArrowRight className="size-0 group-hover:size-5 transition-all -ml-2 group-hover:ml-0" />
           </Link>
         </Button>
+        <Button variant="outline" className="group" asChild>
+          <Link href={siteConfig.appStoreUrl} target="_blank">
+            <Smartphone className="size-4" />
+            Download iOS App
+          </Link>
+        </Button>
+      </motion.div>
+
+      <motion.div
+        variants={FADE_UP_ANIMATION_VARIANTS}
+        className="mt-6 flex max-w-3xl flex-wrap items-center justify-center gap-2 text-sm text-muted-foreground"
+      >
+        {proofPoints.map((item) => (
+          <div
+            key={item.label}
+            className="flex items-center gap-2 rounded-full border bg-background px-3 py-1.5"
+          >
+            <item.icon className="size-4 text-foreground" />
+            {item.label}
+          </div>
+        ))}
       </motion.div>
 
       <motion.div

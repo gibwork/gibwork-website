@@ -1,7 +1,7 @@
 "use client";
 
 import { Button } from "@/components/ui/button";
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, Smartphone } from "lucide-react";
 import Ripple from "./ui/ripple";
 import { motion } from "framer-motion";
 import { FADE_UP_ANIMATION_VARIANTS } from "@/lib/framer-variants";
@@ -28,20 +28,30 @@ export function CTA() {
         variants={FADE_UP_ANIMATION_VARIANTS}
         className="font-semibold text-3xl sm:text-4xl text-center"
       >
-        Start exploring
+        Start from web or iPhone
       </motion.h2>
       <motion.p
         variants={FADE_UP_ANIMATION_VARIANTS}
         className="text-center mt-2 text-muted-foreground"
       >
-        Check out gibwork and create or complete your very first work.
+        Create paid work, browse bounties, submit deliverables, and follow
+        approvals from one place.
       </motion.p>
 
-      <motion.div variants={FADE_UP_ANIMATION_VARIANTS}>
-        <Button asChild className="mt-8 group">
+      <motion.div
+        variants={FADE_UP_ANIMATION_VARIANTS}
+        className="mt-8 flex flex-col items-center justify-center gap-3 sm:flex-row"
+      >
+        <Button asChild className="group">
           <Link href={siteConfig.appUrl} target="_blank">
             Get Started
             <ArrowRight className="size-0 group-hover:size-5 transition-all -ml-2 group-hover:ml-0" />
+          </Link>
+        </Button>
+        <Button asChild variant="outline" className="group">
+          <Link href={siteConfig.appStoreUrl} target="_blank">
+            <Smartphone className="size-4" />
+            Download iOS App
           </Link>
         </Button>
       </motion.div>

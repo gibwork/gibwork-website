@@ -34,7 +34,7 @@ const workDetails = [
   // },
   {
     image: "/tasks/image-03.png",
-    title: "Use slug- to share a set of links on X or Reddit",
+    title: "Review a product flow and submit UX feedback",
     amount: 100,
     token: "usdc",
   },
@@ -78,15 +78,15 @@ export function LookingFor() {
               variants={FADE_UP_ANIMATION_VARIANTS}
               className="text-3xl sm:text-4xl text-center font-semibold"
             >
-              Get help from an expert
+              Get work done with clear deliverables
             </motion.h2>
 
             <motion.p
               variants={FADE_UP_ANIMATION_VARIANTS}
               className="text-center mt-2 text-muted-foreground"
             >
-              Create work for others to complete and get the support you need to
-              achieve your goals.
+              Create bounties, tasks, or services with instructions, review
+              submissions, and release payment when the work is approved.
             </motion.p>
 
             <motion.div
@@ -114,7 +114,7 @@ export function LookingFor() {
                 <CardHeader className="border-t">
                   <CardTitle className="text-lg">Open Source Bounty</CardTitle>
                   <CardDescription>
-                    Incentivize a pull request made from a Github issue.
+                    Incentivize a pull request tied to a GitHub issue.
                   </CardDescription>
                 </CardHeader>
               </Card>
@@ -130,7 +130,7 @@ export function LookingFor() {
                 <CardHeader className="border-t">
                   <CardTitle className="text-lg">Simple Task</CardTitle>
                   <CardDescription>
-                    Small tasks achievable in a few hours.
+                    Define small, reviewable tasks with clear proof requirements.
                   </CardDescription>
                 </CardHeader>
               </Card>
@@ -145,8 +145,8 @@ export function LookingFor() {
                 <CardHeader className="border-t">
                   <CardTitle className="text-lg">Services</CardTitle>
                   <CardDescription>
-                    Offer your skills and connect with users for custom
-                    services.
+                    Hire ongoing help for design, growth, research, support, and
+                    other custom services.
                   </CardDescription>
                 </CardHeader>
               </Card>
@@ -172,14 +172,14 @@ export function LookingFor() {
               variants={FADE_UP_ANIMATION_VARIANTS}
               className="text-3xl sm:text-4xl text-center font-semibold"
             >
-              Get paid for your expertise
+              Find work you can complete anywhere
             </motion.h2>
             <motion.p
               variants={FADE_UP_ANIMATION_VARIANTS}
               className="text-center mt-2 text-muted-foreground"
             >
-              Discover work opportunities that you could do, complete the work,
-              and start earning.
+              Browse live opportunities, understand the submission requirements,
+              and track your progress from claim to payout.
             </motion.p>
 
             <motion.div
