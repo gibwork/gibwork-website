@@ -14,12 +14,20 @@ import { AnimatePresence, motion } from "framer-motion";
 import { FADE_IN, FADE_UP_ANIMATION_VARIANTS } from "@/lib/framer-variants";
 import { Separator } from "./ui/separator";
 
+const navLinks = [
+  { href: "/#features", label: "Features" },
+  { href: "/#how-it-works", label: "How It Works" },
+  { href: "/#testimonial", label: "Testimonials" },
+  { href: "/#faq", label: "FAQ" },
+  { href: "/#about", label: "About" },
+];
+
 export function Nav() {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
     <>
-      <nav className=" z-10 border-b bg-background/80 backdrop-blur-sm sticky top-0">
+      <nav className="z-10 border-b bg-background/80 backdrop-blur-sm sticky top-0">
         <motion.div
           variants={FADE_UP_ANIMATION_VARIANTS}
           initial="hidden"
@@ -30,30 +38,36 @@ export function Nav() {
           <div className="flex items-center gap-2">
             <Link href={"/"} className="flex items-center gap-2">
               <Image alt="" src={logo} className="size-10 rounded-md" />
-              <p className="font-bold text-3xl min-[420px]:block hidden">gibwork</p>
+              <p className="font-bold text-3xl min-[420px]:block hidden">
+                gibwork
+              </p>
             </Link>
 
-            <div className="lg:absolute lg:top-1/2 uppercase lg:left-1/2 lg:-translate-x-1/2 lg:-translate-y-1/2 md:flex hidden">
-              <Button asChild variant={"ghost"} className="text-muted-foreground text-xs">
-                <Link href={"/#about"}>About</Link>
-              </Button>
-              <Button asChild variant={"ghost"} className="text-muted-foreground text-xs">
-                <Link href={"/#testimonial"}>Testimonial</Link>
-              </Button>
-              {/* <Button asChild variant={"ghost"} className="text-muted-foreground text-xs">
-                <Link href={"https://jup.ag/swap/SOL-F7Hwf8ib5DVCoiuyGr618Y3gon429Rnd1r5F9R5upump"} target="_blank">Token</Link>
-              </Button> */}
-              <Button asChild variant={"ghost"} className="text-muted-foreground text-xs">
-                <Link href={"/#faq"}>FAQ</Link>
-              </Button>
-              <Button asChild variant={"ghost"} className="text-muted-foreground text-xs">
-                <Link href={"https://docs.gib.work/"} target="_blank">DOCS</Link>
+            <div className="lg:absolute lg:top-1/2 uppercase lg:left-1/2 lg:-translate-x-1/2 lg:-translate-y-1/2 hidden lg:flex">
+              {navLinks.map((link) => (
+                <Button
+                  key={link.href}
+                  asChild
+                  variant={"ghost"}
+                  className="text-muted-foreground text-xs"
+                >
+                  <Link href={link.href}>{link.label}</Link>
+                </Button>
+              ))}
+              <Button
+                asChild
+                variant={"ghost"}
+                className="text-muted-foreground text-xs"
+              >
+                <Link href={"https://docs.gib.work/"} target="_blank">
+                  Docs
+                </Link>
               </Button>
             </div>
           </div>
 
           <div className="flex items-center gap-2">
-            <div className="hidden md:flex items-center">
+            <div className="hidden lg:flex items-center">
               <Button size={"icon"} variant={"ghost"} asChild>
                 <Link href={siteConfig.youtubeUrl} target="_blank">
                   <YoutubeLogoMark className="size-5" />
@@ -82,7 +96,7 @@ export function Nav() {
             <Button
               size={"icon"}
               variant={"secondary"}
-              className="md:hidden"
+              className="lg:hidden"
               onClick={() => setIsOpen(true)}
             >
               <Menu className="size-5" />
@@ -104,7 +118,9 @@ export function Nav() {
               <div className="sm:px-6 px-4 h-16 flex justify-between items-center">
                 <Link href={"/"} className="flex items-center gap-2">
                   <Image alt="" src={logo} className="size-10 rounded-md" />
-                  <p className="font-bold text-xl min-[420px]:block hidden">gibwork</p>
+                  <p className="font-bold text-xl min-[420px]:block hidden">
+                    gibwork
+                  </p>
                 </Link>
 
                 <div className="flex items-center gap-2">
@@ -115,44 +131,37 @@ export function Nav() {
                     </Link>
                   </Button>
 
-                  <Button size={"icon"} variant={"secondary"} onClick={() => setIsOpen(false)}>
+                  <Button
+                    size={"icon"}
+                    variant={"secondary"}
+                    onClick={() => setIsOpen(false)}
+                  >
                     <X className="size-5" />
                   </Button>
                 </div>
               </div>
 
               <div className="flex items-end flex-col sm:p-6 p-4">
+                {navLinks.map((link) => (
+                  <Button
+                    key={link.href}
+                    asChild
+                    variant={"ghost"}
+                    onClick={() => setIsOpen(false)}
+                    className="text-muted-foreground uppercase"
+                  >
+                    <Link href={link.href}>{link.label}</Link>
+                  </Button>
+                ))}
                 <Button
                   asChild
                   variant={"ghost"}
                   onClick={() => setIsOpen(false)}
                   className="text-muted-foreground uppercase"
                 >
-                  <Link href={"/#about"}>About</Link>
-                </Button>
-                <Button
-                  asChild
-                  variant={"ghost"}
-                  onClick={() => setIsOpen(false)}
-                  className="text-muted-foreground uppercase"
-                >
-                  <Link href={"/#testimonial"}>Testimonial</Link>
-                </Button>
-                {/* <Button
-                  asChild
-                  variant={"ghost"}
-                  onClick={() => setIsOpen(false)}
-                  className="text-muted-foreground uppercase"
-                >
-                  <Link href={"/#team"}>Team</Link>
-                </Button> */}
-                <Button
-                  asChild
-                  variant={"ghost"}
-                  onClick={() => setIsOpen(false)}
-                  className="text-muted-foreground uppercase"
-                >
-                  <Link href={"/#faq"}>FAQ</Link>
+                  <Link href={"https://docs.gib.work/"} target="_blank">
+                    Docs
+                  </Link>
                 </Button>
               </div>
 
