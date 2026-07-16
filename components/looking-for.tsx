@@ -1,224 +1,144 @@
 "use client";
 
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import {
-  Card,
-  CardDescription,
-  CardHeader,
-  CardTitle,
-} from "@/components/ui/card";
-import Image from "next/image";
 import { motion } from "framer-motion";
 import { FADE_UP_ANIMATION_VARIANTS } from "@/lib/framer-variants";
+import { Palette, Code, Server, Bug, PenTool, Search, GitBranch, Layers, TrendingUp, MessageSquare, Megaphone, Users } from "lucide-react";
 
-const workDetails = [
-  // { image: "/tasks/image-04.png", title: "Create a FAQ list for gibwork", amount: 1, token: "sol" },
-
+const taskCategories = [
   {
-    image: "/tasks/image-01.png",
-    title: "Design gibwork's new landing page",
-    amount: 500,
-    token: "usdc",
+    icon: Code,
+    title: "Development",
+    description: "Frontend, backend, smart contracts, and infrastructure",
+    exampleReward: "$500",
+    tasksCompleted: "2,341",
   },
   {
-    image: "/tasks/image-02.png",
-    title: "Create developer challenges for Zircon",
-    amount: 500,
-    token: "usdc",
+    icon: GitBranch,
+    title: "GitHub Bounties",
+    description: "Open source contributions, pull requests, and issue resolution",
+    exampleReward: "$300",
+    tasksCompleted: "1,892",
   },
-  // {
-  //   image: "/tasks/image-04.png",
-  //   title: "Share a link to your most used dApp",
-  //   amount: 100,
-  //   token: "usdc",
-  // },
   {
-    image: "/tasks/image-03.png",
-    title: "Use slug- to share a set of links on X or Reddit",
-    amount: 100,
-    token: "usdc",
+    icon: Palette,
+    title: "UX/UI Design",
+    description: "Interface design, user research, wireframes, and visual systems",
+    exampleReward: "$400",
+    tasksCompleted: "1,456",
+  },
+  {
+    icon: MessageSquare,
+    title: "Product Feedback",
+    description: "User testing, feedback collection, and product insights",
+    exampleReward: "$150",
+    tasksCompleted: "987",
+  },
+  {
+    icon: Bug,
+    title: "Product Testing",
+    description: "Quality assurance, bug testing, and user acceptance testing",
+    exampleReward: "$200",
+    tasksCompleted: "1,234",
+  },
+  {
+    icon: Search,
+    title: "Research",
+    description: "Market research, competitive analysis, and product strategy",
+    exampleReward: "$350",
+    tasksCompleted: "756",
+  },
+  {
+    icon: Megaphone,
+    title: "Marketing",
+    description: "Social media, content marketing, and growth strategies",
+    exampleReward: "$250",
+    tasksCompleted: "1,089",
+  },
+  {
+    icon: PenTool,
+    title: "Content",
+    description: "Technical writing, marketing copy, documentation, and content creation",
+    exampleReward: "$200",
+    tasksCompleted: "1,567",
+  },
+  {
+    icon: Users,
+    title: "Community",
+    description: "Community management, moderation, and engagement",
+    exampleReward: "$180",
+    tasksCompleted: "678",
+  },
+  {
+    icon: Layers,
+    title: "Custom Tasks",
+    description: "Miscellaneous work and specialized project requirements",
+    exampleReward: "Varies",
+    tasksCompleted: "2,345",
   },
 ];
 
 export function LookingFor() {
   return (
-    <section className="relative max-w-5xl mx-auto w-full py-16 sm:py-24 px-4 sm:px-6">
-      <Tabs defaultValue="1" className="w-full flex flex-col items-center">
-        <motion.div
-          variants={FADE_UP_ANIMATION_VARIANTS}
-          initial="hidden"
-          whileInView="show"
-          viewport={{ once: true }}
-        >
-          <TabsList className="mx-auto rounded-full">
-            <TabsTrigger className="rounded-full px-4" value="1">
-              Looking for Help
-            </TabsTrigger>
-            <TabsTrigger className="rounded-full px-4" value="2">
-              Looking for Work
-            </TabsTrigger>
-          </TabsList>
-        </motion.div>
-        <TabsContent value="1" className="mt-8 w-full max-w-7xl">
-          <motion.div
-            initial="hidden"
-            whileInView="show"
-            viewport={{ once: true }}
-            variants={{
-              hidden: {},
-              show: {
-                transition: {
-                  staggerChildren: 0.15,
-                },
-              },
-            }}
-            className="flex flex-col items-center"
-          >
-            <motion.h2
-              variants={FADE_UP_ANIMATION_VARIANTS}
-              className="text-3xl sm:text-4xl text-center font-semibold"
-            >
-              Get help from an expert
-            </motion.h2>
+    <section className="relative py-16 sm:py-24 px-4 sm:px-6 flex flex-col mx-auto w-full max-w-7xl">
+      <motion.div
+        initial="hidden"
+        whileInView="show"
+        viewport={{ once: true }}
+        variants={FADE_UP_ANIMATION_VARIANTS}
+        className="text-center"
+      >
+        <p className="text-primary font-semibold text-sm">MARKETPLACE</p>
+        <h2 className="font-semibold text-3xl sm:text-4xl mt-2">
+          One Marketplace. Thousands of Opportunities.
+        </h2>
+        <p className="mt-4 text-muted-foreground max-w-2xl mx-auto">
+          Explore diverse task categories and find opportunities that match your skills.
+        </p>
+      </motion.div>
 
-            <motion.p
-              variants={FADE_UP_ANIMATION_VARIANTS}
-              className="text-center mt-2 text-muted-foreground"
-            >
-              Create work for others to complete and get the support you need to
-              achieve your goals.
-            </motion.p>
-
+      <motion.div
+        initial="hidden"
+        whileInView="show"
+        viewport={{ once: true }}
+        variants={{
+          hidden: {},
+          show: {
+            transition: {
+              staggerChildren: 0.1,
+            },
+          },
+        }}
+        className="grid md:grid-cols-2 lg:grid-cols-5 gap-6 mt-12"
+      >
+        {taskCategories.map((category) => {
+          const Icon = category.icon;
+          return (
             <motion.div
+              key={category.title}
               variants={FADE_UP_ANIMATION_VARIANTS}
-              className="grid lg:grid-cols-3 gap-4 mt-8 lg:max-w-full max-w-3xl mx-auto"
+              className="p-6 rounded-2xl border bg-card hover:bg-accent/50 transition-colors"
             >
-              {/* <Card className="overflow-hidden">
-                <div className="h-32 sm:h-40 bg-muted" />
-                <CardHeader className="border-t">
-                  <CardTitle className="text-lg">Ask a Question</CardTitle>
-                  <CardDescription>
-                    Tap into the network of experts to answer your question fast.
-                  </CardDescription>
-                </CardHeader>
-              </Card> */}
-
-              <Card className="overflow-hidden">
-                <Image
-                  src="https://cdn.gib.work/misc/open_source_bounty.png"
-                  alt="Open Source Bounty"
-                  className="h-40 w-full "
-                  width={100}
-                  height={100}
-                />
-                <CardHeader className="border-t">
-                  <CardTitle className="text-lg">Open Source Bounty</CardTitle>
-                  <CardDescription>
-                    Incentivize a pull request made from a Github issue.
-                  </CardDescription>
-                </CardHeader>
-              </Card>
-
-              <Card className="overflow-hidden">
-                <Image
-                  src="https://cdn.gib.work/misc/simple_task.png"
-                  alt="Open Source Bounty"
-                  className="h-40 w-full "
-                  width={100}
-                  height={100}
-                />
-                <CardHeader className="border-t">
-                  <CardTitle className="text-lg">Simple Task</CardTitle>
-                  <CardDescription>
-                    Small tasks achievable in a few hours.
-                  </CardDescription>
-                </CardHeader>
-              </Card>
-              <Card className="overflow-hidden">
-                <Image
-                  src="https://cdn.gib.work/misc/services.png"
-                  alt="Open Source Bounty"
-                  className="h-40 w-full "
-                  width={100}
-                  height={100}
-                />
-                <CardHeader className="border-t">
-                  <CardTitle className="text-lg">Services</CardTitle>
-                  <CardDescription>
-                    Offer your skills and connect with users for custom
-                    services.
-                  </CardDescription>
-                </CardHeader>
-              </Card>
+              <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center mb-4">
+                <Icon className="w-6 h-6 text-primary" />
+              </div>
+              <h3 className="font-semibold text-lg">{category.title}</h3>
+              <p className="text-sm text-muted-foreground mt-2">
+                {category.description}
+              </p>
+              <div className="mt-4 pt-4 border-t">
+                <div className="flex justify-between text-sm">
+                  <span className="text-muted-foreground">Example Reward</span>
+                  <span className="font-semibold text-primary">{category.exampleReward}</span>
+                </div>
+                <div className="flex justify-between text-sm mt-2">
+                  <span className="text-muted-foreground">Tasks Completed</span>
+                  <span className="font-semibold">{category.tasksCompleted}</span>
+                </div>
+              </div>
             </motion.div>
-          </motion.div>
-        </TabsContent>
-        <TabsContent value="2" className="mt-8 w-full max-w-3xl">
-          <motion.div
-            initial="hidden"
-            whileInView="show"
-            viewport={{ once: true }}
-            variants={{
-              hidden: {},
-              show: {
-                transition: {
-                  staggerChildren: 0.15,
-                },
-              },
-            }}
-            className="flex flex-col items-center"
-          >
-            <motion.h2
-              variants={FADE_UP_ANIMATION_VARIANTS}
-              className="text-3xl sm:text-4xl text-center font-semibold"
-            >
-              Get paid for your expertise
-            </motion.h2>
-            <motion.p
-              variants={FADE_UP_ANIMATION_VARIANTS}
-              className="text-center mt-2 text-muted-foreground"
-            >
-              Discover work opportunities that you could do, complete the work,
-              and start earning.
-            </motion.p>
-
-            <motion.div
-              variants={FADE_UP_ANIMATION_VARIANTS}
-              className="flex flex-col gap-2 mt-8 w-full"
-            >
-              {workDetails.map((_detail) => (
-                <Card
-                  key={_detail.title}
-                  className="p-4 flex items-center gap-4"
-                >
-                  <div className="relative aspect-square rounded-full shrink-0 w-12 bg-muted overflow-hidden">
-                    <Image
-                      alt=""
-                      fill
-                      src={_detail.image}
-                      className="h-full w-full object-cover"
-                    />
-                  </div>
-
-                  <p className="font-semibold grow truncate">{_detail.title}</p>
-
-                  <div className="font-semibold flex items-center justify-end gap-2 shrink-0">
-                    <p>{_detail.amount}</p>
-                    <div className="relative aspect-square rounded-full w-8 bg-muted overflow-hidden">
-                      <Image
-                        alt=""
-                        fill
-                        src={`/token-${_detail.token}.png`}
-                        className="h-full w-full object-cover"
-                      />
-                    </div>
-                  </div>
-                </Card>
-              ))}
-            </motion.div>
-          </motion.div>
-        </TabsContent>
-      </Tabs>
+          );
+        })}
+      </motion.div>
     </section>
   );
 }

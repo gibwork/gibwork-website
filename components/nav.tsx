@@ -3,7 +3,7 @@
 import { DiscordLogoMark } from "@/components/logo/discord";
 import { TwitterLogoMark } from "@/components/logo/twitter";
 import { Button } from "@/components/ui/button";
-import { ArrowRight, Menu, X } from "lucide-react";
+import { ArrowRight, Menu, X, Sun, Moon } from "lucide-react";
 import Link from "next/link";
 import Image from "next/image";
 import logo from "@/public/work-logo.png";
@@ -13,13 +13,15 @@ import { useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { FADE_IN, FADE_UP_ANIMATION_VARIANTS } from "@/lib/framer-variants";
 import { Separator } from "./ui/separator";
+import { useTheme } from "next-themes";
 
 export function Nav() {
   const [isOpen, setIsOpen] = useState(false);
+  const { theme, setTheme } = useTheme();
 
   return (
     <>
-      <nav className=" z-10 border-b bg-background/80 backdrop-blur-sm sticky top-0">
+      <nav className=" z-10 border-b bg-background/80 backdrop-blur-sm sticky top-14">
         <motion.div
           variants={FADE_UP_ANIMATION_VARIANTS}
           initial="hidden"
@@ -54,6 +56,14 @@ export function Nav() {
 
           <div className="flex items-center gap-2">
             <div className="hidden md:flex items-center">
+              <Button
+                size={"icon"}
+                variant={"ghost"}
+                onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
+              >
+                <Sun className="size-5 dark:hidden" />
+                <Moon className="size-5 hidden dark:block" />
+              </Button>
               <Button size={"icon"} variant={"ghost"} asChild>
                 <Link href={siteConfig.youtubeUrl} target="_blank">
                   <YoutubeLogoMark className="size-5" />
@@ -159,6 +169,14 @@ export function Nav() {
               <Separator />
 
               <div className="flex justify-end sm:p-6 p-4">
+                <Button
+                  size={"icon"}
+                  variant={"ghost"}
+                  onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
+                >
+                  <Sun className="size-5 dark:hidden" />
+                  <Moon className="size-5 hidden dark:block" />
+                </Button>
                 <Button size={"icon"} variant={"ghost"} asChild>
                   <Link href={siteConfig.youtubeUrl} target="_blank">
                     <YoutubeLogoMark className="size-5" />

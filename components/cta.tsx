@@ -28,19 +28,25 @@ export function CTA() {
         variants={FADE_UP_ANIMATION_VARIANTS}
         className="font-semibold text-3xl sm:text-4xl text-center"
       >
-        Start exploring
+        Create Opportunities. Complete Work. Get Paid.
       </motion.h2>
       <motion.p
         variants={FADE_UP_ANIMATION_VARIANTS}
-        className="text-center mt-2 text-muted-foreground"
+        className="text-center mt-4 text-muted-foreground max-w-2xl mx-auto"
       >
-        Check out gibwork and create or complete your very first work.
+        Gibwork is a transparent onchain freelancing marketplace connecting projects and contributors through real work and instant rewards.
       </motion.p>
 
-      <motion.div variants={FADE_UP_ANIMATION_VARIANTS}>
-        <Button asChild className="mt-8 group">
+      <motion.div variants={FADE_UP_ANIMATION_VARIANTS} className="flex flex-wrap items-center justify-center gap-4 mt-8">
+        <Button className="group" asChild>
           <Link href={siteConfig.appUrl} target="_blank">
-            Get Started
+            Create Task
+            <ArrowRight className="size-0 group-hover:size-5 transition-all -ml-2 group-hover:ml-0" />
+          </Link>
+        </Button>
+        <Button className="group" variant="outline" asChild>
+          <Link href={siteConfig.appUrl} target="_blank">
+            Start Earning
             <ArrowRight className="size-0 group-hover:size-5 transition-all -ml-2 group-hover:ml-0" />
           </Link>
         </Button>
