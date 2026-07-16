@@ -115,11 +115,11 @@ const SparklesText: React.FC<SparklesTextProps> = ({
         } as CSSProperties
       }
     >
-      <span className="relative inline-block">
+      <span className="relative block max-w-full whitespace-normal">
         {sparkles.map((sparkle) => (
           <Sparkle key={sparkle.id} {...sparkle} />
         ))}
-        <strong>{text}</strong>
+        <strong className="block max-w-full whitespace-normal break-words">{text}</strong>
       </span>
     </div>
   );

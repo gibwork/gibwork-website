@@ -2,7 +2,7 @@
 
 import { SolanaLogoType } from "@/components/logo/solana";
 import { Button } from "@/components/ui/button";
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, Smartphone } from "lucide-react";
 import Image from "next/image";
 import dashboard from "@/public/dashboard-2.png";
 import { Badge } from "@/components/ui/badge";
@@ -11,10 +11,10 @@ import { siteConfig } from "@/lib/site-config";
 import SparklesText from "./ui/sparkles-text";
 import { motion } from "framer-motion";
 import { FADE_UP_ANIMATION_VARIANTS } from "@/lib/framer-variants";
-import { Clipboard } from "flowbite-react"
-
 
 export function Hero() {
+  const proofPoints = ["USDC bounties", "GitHub PR rewards", "Mobile submissions"];
+
   return (
     <motion.section
       initial="hidden"
@@ -33,15 +33,15 @@ export function Hero() {
       <motion.div variants={FADE_UP_ANIMATION_VARIANTS}>
         <Badge variant={"secondary"}>
           <div className="size-1 rounded-full bg-muted-foreground mr-2" />
-          Introducing gibwork
+          Onchain work marketplace
           <div className="size-1 rounded-full bg-muted-foreground ml-2" />
         </Badge>
       </motion.div>
 
       <motion.div variants={FADE_UP_ANIMATION_VARIANTS} className="relative z-0">
         <SparklesText
-          text="Find Talent, Find Work"
-          className="font-semibold text-5xl sm:text-6xl mt-4"
+          text="Find bounties. Get paid."
+          className="mx-auto mt-4 max-w-[21rem] text-balance font-semibold text-4xl leading-tight sm:max-w-none sm:text-6xl"
         />
       </motion.div>
 
@@ -49,17 +49,35 @@ export function Hero() {
         variants={FADE_UP_ANIMATION_VARIANTS}
         className="max-w-2xl mt-4 w-full sm:text-lg text-muted-foreground"
       >
-        Whether you&apos;re searching for your next gig or seeking skilled individuals, our platform
-        connects you with the perfect match.
+        Discover paid tasks, GitHub bounties, and creator campaigns across web and mobile.
+        Submit proof of work, track approvals, and withdraw USDC or supported Solana token rewards
+        from one place.
       </motion.p>
 
-      <motion.div variants={FADE_UP_ANIMATION_VARIANTS}>
-        <Button className="group mt-8" asChild>
+      <motion.div variants={FADE_UP_ANIMATION_VARIANTS} className="mt-8 flex flex-col sm:flex-row gap-3">
+        <Button className="group" asChild>
           <Link href={siteConfig.appUrl} target="_blank">
-            Get Started For Free
+            Browse open tasks
             <ArrowRight className="size-0 group-hover:size-5 transition-all -ml-2 group-hover:ml-0" />
           </Link>
         </Button>
+        <Button variant="secondary" className="group" asChild>
+          <Link href={siteConfig.mobileAppUrl} target="_blank">
+            Get the iOS app
+            <Smartphone className="size-4 ml-1 transition-all group-hover:translate-x-0.5" />
+          </Link>
+        </Button>
+      </motion.div>
+
+      <motion.div
+        variants={FADE_UP_ANIMATION_VARIANTS}
+        className="mt-5 flex flex-wrap items-center justify-center gap-2 text-sm text-muted-foreground"
+      >
+        {proofPoints.map((point) => (
+          <span key={point} className="rounded-full border bg-background px-3 py-1">
+            {point}
+          </span>
+        ))}
       </motion.div>
 
       <motion.div
