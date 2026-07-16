@@ -1,8 +1,5 @@
 "use client";
 
-import { Button } from "@/components/ui/button";
-import { ArrowRight } from "lucide-react";
-import Ripple from "./ui/ripple";
 import {
   Accordion,
   AccordionContent,
@@ -11,6 +8,45 @@ import {
 } from "@/components/ui/accordion";
 import { motion } from "framer-motion";
 import { FADE_UP_ANIMATION_VARIANTS } from "@/lib/framer-variants";
+
+const faqs = [
+  {
+    value: "item-1",
+    question: "How do I create work on Gibwork?",
+    answer:
+      "From the app's home page, click the \"Create\" button and choose between an Open Source Bounty (linked to a GitHub issue) or a Task (a standalone job). Fill in the details, set your reward amount in any Solana SPL token, and publish — funds are held in escrow until you approve the submission.",
+  },
+  {
+    value: "item-2",
+    question: "What's the difference between a bounty and a task?",
+    answer:
+      "A bounty is tied to a specific GitHub issue — contributors submit a pull request to claim the reward. A task is a standalone job that doesn't require a GitHub repo, useful for design work, writing, research, or any deliverable that can be reviewed off-chain.",
+  },
+  {
+    value: "item-3",
+    question: "How do I get paid for completed work?",
+    answer:
+      "Once the task or bounty creator approves your submission, the funds are released directly to your non-custodial Solana wallet. No withdrawal steps or intermediaries — it settles on-chain immediately.",
+  },
+  {
+    value: "item-4",
+    question: "What tokens does Gibwork support?",
+    answer:
+      "Gibwork supports any Solana SPL token — including USDC, SOL, and community tokens. The creator chooses the reward token when posting work, so you'll always know what you're earning before you start.",
+  },
+  {
+    value: "item-5",
+    question: "Can I post a private task only visible to specific people?",
+    answer:
+      "Yes. When creating a task you can mark it as private. Private tasks are only accessible to people you share the link with, making them ideal for contractor work, trusted contributor pools, or internal team bounties.",
+  },
+  {
+    value: "item-6",
+    question: "What are GitHub Tips?",
+    answer:
+      "GitHub Tips let open-source maintainers reward contributors directly for merged pull requests — even ones that weren't attached to a bounty. It's a lightweight way to say thank you with real crypto for valuable community contributions.",
+  },
+];
 
 export function Faq() {
   return (
@@ -38,54 +74,12 @@ export function Faq() {
 
       <motion.div variants={FADE_UP_ANIMATION_VARIANTS} className="grow lg:max-w-3xl">
         <Accordion type="single" collapsible>
-          <AccordionItem value="item-6">
-            <AccordionTrigger>How do I create Work on Gibwork?</AccordionTrigger>
-            <AccordionContent>
-              Under the earnings display on the apps home page, click the
-              &quot;Create&quot; buttons for creating Open Source Bounties and Task. These buttons guide you through the process of creating and posting jobs on the
-              platform.
-            </AccordionContent>
-          </AccordionItem>
-          <AccordionItem value="item-1">
-            <AccordionTrigger>
-              What&apos;s the difference between a bounty and a task?
-            </AccordionTrigger>
-            <AccordionContent>
-              A bounty is a Github issue with a monetary reward.  A task is a
-              specific, often smaller job that needs to be completed.
-            </AccordionContent>
-          </AccordionItem>
-          <AccordionItem value="item-2">
-            <AccordionTrigger>How do I get paid for completed work?</AccordionTrigger>
-            <AccordionContent>
-              Once your work is approved by the creator, the funds will be released to your noncustodial wallet.
-            </AccordionContent>
-          </AccordionItem>
-          <AccordionItem value="item-3">
-            <AccordionTrigger>What payment methods does gibwork support?</AccordionTrigger>
-            <AccordionContent>
-              We only support wallet transactions, i.e., depositing the winning amount directly to
-              your wallet in the form of crypto or stablecoins.
-            </AccordionContent>
-          </AccordionItem>
-          {/* <AccordionItem value="item-4">
-            <AccordionTrigger>Are there any fees for using gibwork?</AccordionTrigger>
-            <AccordionContent>
-              Gibwork charges a 5% service fee on transactions, the lowest in the industry!
-            </AccordionContent>
-          </AccordionItem> */}
-          {/* <AccordionItem value="item-5">
-            <AccordionTrigger>What is the purpose of the $WORK token?</AccordionTrigger>
-            <AccordionContent>
-              The $WORK Token provide access to a range of utilities within the platform, which could include community voting rights and participation in allocation of rewards funded by operational revenue.
-            </AccordionContent>
-          </AccordionItem>
-          <AccordionItem value="item-7">
-            <AccordionTrigger>Where can I get $WORK?</AccordionTrigger>
-            <AccordionContent>
-              You can seamlessly swap any SPL token for $WORK by using the platform at <a className="text-violet-600" href="https://jup.ag/swap/SOL-WORK">https://jup.ag/swap/SOL-WORK</a>.
-            </AccordionContent>
-          </AccordionItem> */}
+          {faqs.map((faq) => (
+            <AccordionItem key={faq.value} value={faq.value}>
+              <AccordionTrigger>{faq.question}</AccordionTrigger>
+              <AccordionContent>{faq.answer}</AccordionContent>
+            </AccordionItem>
+          ))}
         </Accordion>
       </motion.div>
     </motion.section>
