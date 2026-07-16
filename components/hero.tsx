@@ -14,6 +14,9 @@ import { FADE_UP_ANIMATION_VARIANTS } from "@/lib/framer-variants";
 import { Clipboard } from "flowbite-react"
 
 
+import { AppStoreLogo } from "./logo/app-store";
+import { PlayStoreLogo } from "./logo/play-store";
+
 export function Hero() {
   return (
     <motion.section
@@ -33,14 +36,14 @@ export function Hero() {
       <motion.div variants={FADE_UP_ANIMATION_VARIANTS}>
         <Badge variant={"secondary"}>
           <div className="size-1 rounded-full bg-muted-foreground mr-2" />
-          Introducing gibwork
+          The Web3 Native Freelance Marketplace
           <div className="size-1 rounded-full bg-muted-foreground ml-2" />
         </Badge>
       </motion.div>
 
       <motion.div variants={FADE_UP_ANIMATION_VARIANTS} className="relative z-0">
         <SparklesText
-          text="Find Talent, Find Work"
+          text="The Freelance Marketplace on Solana"
           className="font-semibold text-5xl sm:text-6xl mt-4"
         />
       </motion.div>
@@ -49,17 +52,35 @@ export function Hero() {
         variants={FADE_UP_ANIMATION_VARIANTS}
         className="max-w-2xl mt-4 w-full sm:text-lg text-muted-foreground"
       >
-        Whether you&apos;re searching for your next gig or seeking skilled individuals, our platform
-        connects you with the perfect match.
+        Find talent, find work, and get paid in any SPL token. Seamlessly manage
+        GitHub bounties and Solana Blinks.
       </motion.p>
 
-      <motion.div variants={FADE_UP_ANIMATION_VARIANTS}>
-        <Button className="group mt-8" asChild>
+      <motion.div
+        variants={FADE_UP_ANIMATION_VARIANTS}
+        className="flex sm:flex-row flex-col items-center gap-4 mt-8"
+      >
+        <Button className="group" asChild>
           <Link href={siteConfig.appUrl} target="_blank">
             Get Started For Free
             <ArrowRight className="size-0 group-hover:size-5 transition-all -ml-2 group-hover:ml-0" />
           </Link>
         </Button>
+
+        <div className="flex items-center gap-2">
+          <Button variant="outline" size="sm" asChild className="gap-2">
+            <Link href={siteConfig.appleAppStoreUrl} target="_blank">
+              <AppStoreLogo className="size-4" />
+              App Store
+            </Link>
+          </Button>
+          <Button variant="outline" size="sm" asChild className="gap-2">
+            <Link href={siteConfig.googlePlayStoreUrl} target="_blank">
+              <PlayStoreLogo className="size-4" />
+              Play Store
+            </Link>
+          </Button>
+        </div>
       </motion.div>
 
       <motion.div

@@ -107,14 +107,14 @@ export function LookingFor() {
                 <Image
                   src="https://cdn.gib.work/misc/open_source_bounty.png"
                   alt="Open Source Bounty"
-                  className="h-40 w-full "
-                  width={100}
-                  height={100}
+                  className="h-40 w-full object-cover"
+                  width={400}
+                  height={160}
                 />
                 <CardHeader className="border-t">
-                  <CardTitle className="text-lg">Open Source Bounty</CardTitle>
+                  <CardTitle className="text-lg">GitHub PR Bounties</CardTitle>
                   <CardDescription>
-                    Incentivize a pull request made from a Github issue.
+                    Incentivize contributions to your open-source projects by rewarding pull requests.
                   </CardDescription>
                 </CardHeader>
               </Card>
@@ -122,31 +122,30 @@ export function LookingFor() {
               <Card className="overflow-hidden">
                 <Image
                   src="https://cdn.gib.work/misc/simple_task.png"
-                  alt="Open Source Bounty"
-                  className="h-40 w-full "
-                  width={100}
-                  height={100}
+                  alt="Simple Task"
+                  className="h-40 w-full object-cover"
+                  width={400}
+                  height={160}
                 />
                 <CardHeader className="border-t">
-                  <CardTitle className="text-lg">Simple Task</CardTitle>
+                  <CardTitle className="text-lg">Bounties & Tasks</CardTitle>
                   <CardDescription>
-                    Small tasks achievable in a few hours.
+                    Create specific tasks or broader bounties for the community to solve.
                   </CardDescription>
                 </CardHeader>
               </Card>
               <Card className="overflow-hidden">
                 <Image
                   src="https://cdn.gib.work/misc/services.png"
-                  alt="Open Source Bounty"
-                  className="h-40 w-full "
-                  width={100}
-                  height={100}
+                  alt="Services"
+                  className="h-40 w-full object-cover"
+                  width={400}
+                  height={160}
                 />
                 <CardHeader className="border-t">
-                  <CardTitle className="text-lg">Services</CardTitle>
+                  <CardTitle className="text-lg">Specialized Services</CardTitle>
                   <CardDescription>
-                    Offer your skills and connect with users for custom
-                    services.
+                    Connect with experts for design, content, dev, and other custom services.
                   </CardDescription>
                 </CardHeader>
               </Card>
