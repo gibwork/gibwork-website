@@ -86,7 +86,7 @@ export function LookingFor() {
               className="text-center mt-2 text-muted-foreground"
             >
               Create work for others to complete and get the support you need to
-              achieve your goals.
+              ship product, content, and community outcomes faster.
             </motion.p>
 
             <motion.div
@@ -114,7 +114,7 @@ export function LookingFor() {
                 <CardHeader className="border-t">
                   <CardTitle className="text-lg">Open Source Bounty</CardTitle>
                   <CardDescription>
-                    Incentivize a pull request made from a Github issue.
+                    Fund a GitHub issue and review pull requests against a clear reward.
                   </CardDescription>
                 </CardHeader>
               </Card>
@@ -130,7 +130,7 @@ export function LookingFor() {
                 <CardHeader className="border-t">
                   <CardTitle className="text-lg">Simple Task</CardTitle>
                   <CardDescription>
-                    Small tasks achievable in a few hours.
+                    Post focused jobs with concrete proof requirements and deadlines.
                   </CardDescription>
                 </CardHeader>
               </Card>
@@ -145,8 +145,7 @@ export function LookingFor() {
                 <CardHeader className="border-t">
                   <CardTitle className="text-lg">Services</CardTitle>
                   <CardDescription>
-                    Offer your skills and connect with users for custom
-                    services.
+                    Request specialized help from contributors with relevant experience.
                   </CardDescription>
                 </CardHeader>
               </Card>
@@ -178,8 +177,8 @@ export function LookingFor() {
               variants={FADE_UP_ANIMATION_VARIANTS}
               className="text-center mt-2 text-muted-foreground"
             >
-              Discover work opportunities that you could do, complete the work,
-              and start earning.
+              Browse funded tasks, submit proof of work, and earn when your contribution is
+              approved.
             </motion.p>
 
             <motion.div
