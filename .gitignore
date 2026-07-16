@@ -3,3 +3,9 @@ node_modules
 
 .env
 .env.local
+
+# local QA artifacts
+.shots/
+.dev.log
+.prod.log
+tsconfig.tsbuildinfo

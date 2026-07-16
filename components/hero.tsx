@@ -2,7 +2,7 @@
 
 import { SolanaLogoType } from "@/components/logo/solana";
 import { Button } from "@/components/ui/button";
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, Github, Smartphone, Star } from "lucide-react";
 import Image from "next/image";
 import dashboard from "@/public/dashboard-2.png";
 import { Badge } from "@/components/ui/badge";
@@ -11,8 +11,6 @@ import { siteConfig } from "@/lib/site-config";
 import SparklesText from "./ui/sparkles-text";
 import { motion } from "framer-motion";
 import { FADE_UP_ANIMATION_VARIANTS } from "@/lib/framer-variants";
-import { Clipboard } from "flowbite-react"
-
 
 export function Hero() {
   return (
@@ -31,17 +29,25 @@ export function Hero() {
       className="relative flex pt-16 sm:pt-24 pb-24 sm:pb-32 text-center flex-col justify-center items-center px-4 sm:px-6 w-full mx-auto max-w-7xl"
     >
       <motion.div variants={FADE_UP_ANIMATION_VARIANTS}>
-        <Badge variant={"secondary"}>
-          <div className="size-1 rounded-full bg-muted-foreground mr-2" />
-          Introducing gibwork
-          <div className="size-1 rounded-full bg-muted-foreground ml-2" />
-        </Badge>
+        <Link href="#mobile-app">
+          <Badge
+            variant={"secondary"}
+            className="gap-2 px-3 py-1 hover:bg-secondary/80 transition-colors"
+          >
+            <span className="relative flex size-2">
+              <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-primary opacity-60" />
+              <span className="relative inline-flex size-2 rounded-full bg-primary" />
+            </span>
+            Now on iOS and Android
+            <ArrowRight className="size-3" />
+          </Badge>
+        </Link>
       </motion.div>
 
       <motion.div variants={FADE_UP_ANIMATION_VARIANTS} className="relative z-0">
         <SparklesText
-          text="Find Talent, Find Work"
-          className="font-semibold text-5xl sm:text-6xl mt-4"
+          text="Onchain work, paid in USDC."
+          className="font-semibold text-4xl sm:text-6xl mt-4 max-w-4xl"
         />
       </motion.div>
 
@@ -49,67 +55,77 @@ export function Hero() {
         variants={FADE_UP_ANIMATION_VARIANTS}
         className="max-w-2xl mt-4 w-full sm:text-lg text-muted-foreground"
       >
-        Whether you&apos;re searching for your next gig or seeking skilled individuals, our platform
-        connects you with the perfect match.
+        Gibwork is the onchain work marketplace. Post bounties on GitHub issues,
+        complete paid tasks, or list your services, and get paid in USDC on
+        Solana. From your browser or your phone.
       </motion.p>
 
-      <motion.div variants={FADE_UP_ANIMATION_VARIANTS}>
-        <Button className="group mt-8" asChild>
+      <motion.div
+        variants={FADE_UP_ANIMATION_VARIANTS}
+        className="flex flex-col sm:flex-row items-center gap-3 mt-8 w-full sm:w-auto"
+      >
+        <Button className="group w-full sm:w-auto" size="lg" asChild>
           <Link href={siteConfig.appUrl} target="_blank">
-            Get Started For Free
-            <ArrowRight className="size-0 group-hover:size-5 transition-all -ml-2 group-hover:ml-0" />
+            Open the web app
+            <ArrowRight className="size-4 transition-transform group-hover:translate-x-0.5" />
+          </Link>
+        </Button>
+
+        <Button
+          variant="outline"
+          size="lg"
+          className="group w-full sm:w-auto"
+          asChild
+        >
+          <Link href="#mobile-app">
+            <Smartphone className="size-4" />
+            Get the mobile app
           </Link>
         </Button>
       </motion.div>
 
       <motion.div
         variants={FADE_UP_ANIMATION_VARIANTS}
-        className="flex items-center gap-2 text-sm mt-4"
+        className="flex flex-wrap items-center justify-center gap-x-4 gap-y-2 text-xs sm:text-sm mt-6 text-muted-foreground"
       >
-
-        <span className="opacity-80">powered by</span>
-        <Link
-          href={"https://solana.com/"}
-          target="_blank"
-          className="hover:scale-105 transition-all"
-        >
-          <SolanaLogoType className="w-20 fill-foreground" />
-        </Link>
+        <span className="inline-flex items-center gap-1.5">
+          <Star className="size-3.5 fill-current" />
+          4.9 on App Store
+        </span>
+        <span className="opacity-30">·</span>
+        <span className="inline-flex items-center gap-1.5">
+          <Star className="size-3.5 fill-current" />
+          4.5 on Google Play
+        </span>
+        <span className="opacity-30">·</span>
+        <span className="inline-flex items-center gap-1.5">
+          <Github className="size-3.5" />
+          GitHub bounties
+        </span>
+        <span className="opacity-30">·</span>
+        <span className="inline-flex items-center gap-1.5">
+          Powered by
+          <Link
+            href={"https://solana.com/"}
+            target="_blank"
+            className="hover:scale-105 transition-transform"
+            aria-label="Solana"
+          >
+            <SolanaLogoType className="w-16 fill-foreground" />
+          </Link>
+        </span>
       </motion.div>
 
-      {/* <motion.div
+      <motion.div
         variants={FADE_UP_ANIMATION_VARIANTS}
-        className="flex items-center gap-2 text-sm mt-4 p-1 font-light"
+        className="mt-16 sm:mt-24 relative z-0 w-full"
       >
-        <div className="flex relative flex-row bg-stone-100 rounded-sm">
-          <div className="flex justify-center align-middle pt-2 mb-2 px-1">
-            <img src="https://media.gib.work/work-logo.png" className="rounded-full w-5" />
-            <span className="ms-2 opacity-80 font-medium md:visible hidden">CA</span>
-          </div>
-          <div className="md:flex hidden pt-2">
-            F7Hwf8ib5DVCoiuyGr618Y3gon429Rnd1r5F9R5upump
-          </div>
-          <div className="flex md:hidden pt-2">
-            F7Hwf8ib5D.....d1r5F9R5upump
-          </div>
-          <div className="bg-stone-100 hidden md:flex items-center w-16 py-1 justify-center border-s-2 border-white ms-1 rounded-e-lg">
-            <Clipboard.WithIconText className="bg-stone-50 border-none p-0 px-1 text-black hover:text-black"
-              valueToCopy="F7Hwf8ib5DVCoiuyGr618Y3gon429Rnd1r5F9R5upump" />
-          </div>
-          <div className="bg-stone-100 block w-16 md:hidden items-center justify-start border-s-2 border-white ms-1 rounded-e-lg">
-            <Clipboard.WithIconText className="bg-stone-100 border-none p-0 pt-2 px-1 flex text-black hover:text-black"
-              valueToCopy="F7Hwf8ib5DVCoiuyGr618Y3gon429Rnd1r5F9R5upump" />
-          </div>
-        </div>
-      </motion.div> */}
-
-      <motion.div variants={FADE_UP_ANIMATION_VARIANTS} className="mt-16 sm:mt-24 relative z-0">
         <div className="rounded-t-lg bg-foreground/5 h-3 mx-12" />
         <div className="rounded-t-lg bg-foreground/10 h-3 mx-6" />
         <div className="rounded-lg overflow-hidden border bg-muted w-full">
-          <Image alt="" src={dashboard} />
+          <Image alt="Gibwork web app dashboard" src={dashboard} />
         </div>
-        <div className="absolute inset-0 bg-gradient-to-t from-background via-background/60" />
+        <div className="absolute inset-0 bg-gradient-to-t from-background via-background/60 pointer-events-none" />
       </motion.div>
     </motion.section>
   );

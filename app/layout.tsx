@@ -11,10 +11,20 @@ export async function generateMetadata(
   parent: ResolvingMetadata
 ): Promise<Metadata> {
   return {
-    title: "Gibwork | Find Talent, Find Work",
+    title: "Gibwork | Onchain work marketplace · Paid in USDC",
     description:
-      "Gibwork connects skilled professionals with freelance work opportunities, offering seamless integration with all Solana tokens for secure and efficient transactions.",
+      "Post GitHub bounties, complete paid tasks, or list your services and get paid in USDC on Solana. Available on web, iOS, and Android.",
     openGraph: {
+      title: "Gibwork | Onchain work marketplace",
+      description:
+        "Bounties, tasks, and services paid in USDC on Solana. Available on iOS and Android.",
+      images: [`https://cdn.gib.work/metadata/default.png`],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: "Gibwork | Onchain work marketplace",
+      description:
+        "Bounties, tasks, and services paid in USDC on Solana. Available on iOS and Android.",
       images: [`https://cdn.gib.work/metadata/default.png`],
     },
   };
