@@ -94,6 +94,7 @@ export function Footer() {
             <Link
               href={siteConfig.youtubeUrl}
               target="_blank"
+              aria-label="gibwork on YouTube"
               className="hover:scale-105 transition-all"
             >
               <YoutubeLogoMark className="size-5" />
@@ -101,11 +102,17 @@ export function Footer() {
             <Link
               href={siteConfig.discordUrl}
               target="_blank"
+              aria-label="gibwork on Discord"
               className="hover:scale-105 transition-all"
             >
               <DiscordLogoMark className="size-5" />
             </Link>
-            <Link href={siteConfig.xUrl} target="_blank" className="hover:scale-105 transition-all">
+            <Link
+              href={siteConfig.xUrl}
+              target="_blank"
+              aria-label="gibwork on X"
+              className="hover:scale-105 transition-all"
+            >
               <TwitterLogoMark className="size-5" />
             </Link>
           </div>

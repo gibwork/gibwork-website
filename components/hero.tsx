@@ -11,8 +11,6 @@ import { siteConfig } from "@/lib/site-config";
 import SparklesText from "./ui/sparkles-text";
 import { motion } from "framer-motion";
 import { FADE_UP_ANIMATION_VARIANTS } from "@/lib/framer-variants";
-import { Clipboard } from "flowbite-react"
-
 
 export function Hero() {
   return (
@@ -107,7 +105,7 @@ export function Hero() {
         <div className="rounded-t-lg bg-foreground/5 h-3 mx-12" />
         <div className="rounded-t-lg bg-foreground/10 h-3 mx-6" />
         <div className="rounded-lg overflow-hidden border bg-muted w-full">
-          <Image alt="" src={dashboard} />
+          <Image alt="Preview of the gibwork app dashboard" src={dashboard} />
         </div>
         <div className="absolute inset-0 bg-gradient-to-t from-background via-background/60" />
       </motion.div>
