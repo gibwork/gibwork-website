@@ -11,10 +11,22 @@ export async function generateMetadata(
   parent: ResolvingMetadata
 ): Promise<Metadata> {
   return {
+    metadataBase: new URL("https://www.gib.work"),
     title: "Gibwork | Find Talent, Find Work",
     description:
       "Gibwork connects skilled professionals with freelance work opportunities, offering seamless integration with all Solana tokens for secure and efficient transactions.",
+    alternates: {
+      canonical: "./",
+    },
     openGraph: {
+      type: "website",
+      siteName: "gibwork",
+      images: [`https://cdn.gib.work/metadata/default.png`],
+    },
+    twitter: {
+      card: "summary_large_image",
+      site: "@gib_work",
+      creator: "@gib_work",
       images: [`https://cdn.gib.work/metadata/default.png`],
     },
   };
