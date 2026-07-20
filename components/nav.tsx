@@ -9,7 +9,7 @@ import Image from "next/image";
 import logo from "@/public/work-logo.png";
 import { YoutubeLogoMark } from "./logo/youtube";
 import { siteConfig } from "@/lib/site-config";
-import { useEffect, useRef, useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { FADE_IN, FADE_UP_ANIMATION_VARIANTS } from "@/lib/framer-variants";
 import { Separator } from "./ui/separator";
@@ -19,20 +19,24 @@ export function Nav() {
   const menuButtonRef = useRef<HTMLButtonElement>(null);
   const closeButtonRef = useRef<HTMLButtonElement>(null);
 
-  const closeMenu = () => {
+  const closeMenu = useCallback(() => {
     setIsOpen(false);
     menuButtonRef.current?.focus();
-  };
+  }, []);
 
   useEffect(() => {
     if (!isOpen) return;
     closeButtonRef.current?.focus();
+    document.body.style.overflow = "hidden";
     const onKeyDown = (event: KeyboardEvent) => {
       if (event.key === "Escape") closeMenu();
     };
     document.addEventListener("keydown", onKeyDown);
-    return () => document.removeEventListener("keydown", onKeyDown);
-  }, [isOpen]);
+    return () => {
+      document.body.style.overflow = "";
+      document.removeEventListener("keydown", onKeyDown);
+    };
+  }, [isOpen, closeMenu]);
 
   return (
     <>
