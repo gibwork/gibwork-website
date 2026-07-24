@@ -49,8 +49,8 @@ export function Hero() {
         variants={FADE_UP_ANIMATION_VARIANTS}
         className="max-w-2xl mt-4 w-full sm:text-lg text-muted-foreground"
       >
-        Whether you&apos;re searching for your next gig or seeking skilled individuals, our platform
-        connects you with the perfect match.
+                Post a bounty or take one on. Complete real work and get paid on-chain in
+        USDC or any Solana token &mdash; straight to a wallet you control.
       </motion.p>
 
       <motion.div variants={FADE_UP_ANIMATION_VARIANTS}>
