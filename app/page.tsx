@@ -1,6 +1,7 @@
 import { Nav } from "@/components/nav";
 import { LookingFor } from "@/components/looking-for";
 import { Hero } from "@/components/hero";
+import { MobileApp } from "@/components/mobile-app";
 import { LogoList } from "@/components/logo-list";
 import { CTA } from "@/components/cta";
 import { Footer } from "@/components/footer";
@@ -12,6 +13,7 @@ export default function Home() {
     <div className="flex flex-col z-0 relative">
       <Nav />
       <Hero />
+      <MobileApp />
       <LogoList />
       <LookingFor />
       <Testimonial />
