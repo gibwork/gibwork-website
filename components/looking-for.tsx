@@ -10,39 +10,26 @@ import {
 import Image from "next/image";
 import { motion } from "framer-motion";
 import { FADE_UP_ANIMATION_VARIANTS } from "@/lib/framer-variants";
+import Link from "next/link";
+import { ArrowUpRight } from "lucide-react";
+import type { FeaturedWork } from "@/lib/gibwork-api";
 
-const workDetails = [
-  // { image: "/tasks/image-04.png", title: "Create a FAQ list for gibwork", amount: 1, token: "sol" },
+type LookingForProps = {
+  featuredWork: FeaturedWork[];
+};
 
-  {
-    image: "/tasks/image-01.png",
-    title: "Design gibwork's new landing page",
-    amount: 500,
-    token: "usdc",
-  },
-  {
-    image: "/tasks/image-02.png",
-    title: "Create developer challenges for Zircon",
-    amount: 500,
-    token: "usdc",
-  },
-  // {
-  //   image: "/tasks/image-04.png",
-  //   title: "Share a link to your most used dApp",
-  //   amount: 100,
-  //   token: "usdc",
-  // },
-  {
-    image: "/tasks/image-03.png",
-    title: "Use slug- to share a set of links on X or Reddit",
-    amount: 100,
-    token: "usdc",
-  },
-];
+const rewardNumberFormatter = new Intl.NumberFormat("en-US", {
+  maximumFractionDigits: 2,
+});
 
-export function LookingFor() {
+export function LookingFor({ featuredWork }: LookingForProps) {
+  const isShowingLiveWork = featuredWork.every((work) => work.isLive);
+
   return (
-    <section className="relative max-w-5xl mx-auto w-full py-16 sm:py-24 px-4 sm:px-6">
+    <section
+      id="opportunities"
+      className="relative max-w-5xl mx-auto w-full py-16 sm:py-24 px-4 sm:px-6"
+    >
       <Tabs defaultValue="1" className="w-full flex flex-col items-center">
         <motion.div
           variants={FADE_UP_ANIMATION_VARIANTS}
@@ -172,48 +159,73 @@ export function LookingFor() {
               variants={FADE_UP_ANIMATION_VARIANTS}
               className="text-3xl sm:text-4xl text-center font-semibold"
             >
-              Get paid for your expertise
+              {isShowingLiveWork
+                ? "Live funded opportunities"
+                : "Explore funded work"}
             </motion.h2>
             <motion.p
               variants={FADE_UP_ANIMATION_VARIANTS}
               className="text-center mt-2 text-muted-foreground"
             >
-              Discover work opportunities that you could do, complete the work,
-              and start earning.
+              {isShowingLiveWork
+                ? "Browse open work from the marketplace, submit your best work, and get paid when it is approved."
+                : "See the kinds of paid opportunities you can discover on Gibwork."}
             </motion.p>
 
             <motion.div
               variants={FADE_UP_ANIMATION_VARIANTS}
               className="flex flex-col gap-2 mt-8 w-full"
             >
-              {workDetails.map((_detail) => (
-                <Card
-                  key={_detail.title}
-                  className="p-4 flex items-center gap-4"
+              {featuredWork.map((work) => (
+                <Link
+                  key={work.id}
+                  href={work.href}
+                  target="_blank"
+                  rel="noreferrer"
+                  aria-label={`View ${work.title} on Gibwork`}
+                  className="rounded-xl focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2"
                 >
-                  <div className="relative aspect-square rounded-full shrink-0 w-12 bg-muted overflow-hidden">
-                    <Image
-                      alt=""
-                      fill
-                      src={_detail.image}
-                      className="h-full w-full object-cover"
-                    />
-                  </div>
-
-                  <p className="font-semibold grow truncate">{_detail.title}</p>
-
-                  <div className="font-semibold flex items-center justify-end gap-2 shrink-0">
-                    <p>{_detail.amount}</p>
-                    <div className="relative aspect-square rounded-full w-8 bg-muted overflow-hidden">
+                  <Card className="group p-4 flex items-center gap-4 transition-colors hover:bg-muted/50">
+                    <div className="relative aspect-square rounded-full shrink-0 w-12 bg-muted overflow-hidden">
                       <Image
                         alt=""
                         fill
-                        src={`/token-${_detail.token}.png`}
+                        src={work.imageUrl}
                         className="h-full w-full object-cover"
                       />
                     </div>
-                  </div>
-                </Card>
+
+                    <div className="grow min-w-0">
+                      <div className="flex items-center gap-2">
+                        <p className="font-semibold truncate">{work.title}</p>
+                        {work.isLive && (
+                          <span className="inline-flex shrink-0 items-center gap-1 text-xs text-emerald-700">
+                            <span className="size-1.5 rounded-full bg-emerald-500" />
+                            Open
+                          </span>
+                        )}
+                      </div>
+                      <p className="text-sm text-muted-foreground">
+                        {work.isLive
+                          ? "Funded on Gibwork"
+                          : "Example opportunity"}
+                      </p>
+                    </div>
+
+                    <div className="font-semibold flex items-center justify-end gap-2 shrink-0">
+                      <p>{rewardNumberFormatter.format(work.amount)}</p>
+                      <div className="relative aspect-square rounded-full w-8 bg-muted overflow-hidden">
+                        <Image
+                          alt={`${work.token} reward`}
+                          fill
+                          src={work.tokenImageUrl}
+                          className="h-full w-full object-cover"
+                        />
+                      </div>
+                      <ArrowUpRight className="size-4 text-muted-foreground transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
+                    </div>
+                  </Card>
+                </Link>
               ))}
             </motion.div>
           </motion.div>
