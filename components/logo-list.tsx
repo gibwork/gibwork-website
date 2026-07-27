@@ -66,7 +66,7 @@ export function LogoList() {
           <Image alt="send" src={send} className="h-8 w-auto px-4" />
           <Image alt="alldomains" src={alldomains} className="h-8 w-auto px-4" />
           <div className=" px-6 text-2xl font-medium">
-            <Image alt="deansList" src={deansList} className="h-8 w-auto inline" /> Dean's List
+            <Image alt="deansList" src={deansList} className="h-8 w-auto inline" /> Dean&apos;s List
           </div>
           <Image alt="magic" src={magic} className="h-8 w-auto px-6" />
           <Image alt="blinksgg" src={blinksGG} className="h-8 w-auto px-6" />

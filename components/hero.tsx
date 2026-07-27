@@ -2,7 +2,7 @@
 
 import { SolanaLogoType } from "@/components/logo/solana";
 import { Button } from "@/components/ui/button";
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, HelpCircle, PlusCircle, Search } from "lucide-react";
 import Image from "next/image";
 import dashboard from "@/public/dashboard-2.png";
 import { Badge } from "@/components/ui/badge";
@@ -11,8 +11,6 @@ import { siteConfig } from "@/lib/site-config";
 import SparklesText from "./ui/sparkles-text";
 import { motion } from "framer-motion";
 import { FADE_UP_ANIMATION_VARIANTS } from "@/lib/framer-variants";
-import { Clipboard } from "flowbite-react"
-
 
 export function Hero() {
   return (
@@ -53,20 +51,38 @@ export function Hero() {
         connects you with the perfect match.
       </motion.p>
 
-      <motion.div variants={FADE_UP_ANIMATION_VARIANTS}>
-        <Button className="group mt-8" asChild>
+      {/* 3-split CTA buttons */}
+      <motion.div
+        variants={FADE_UP_ANIMATION_VARIANTS}
+        className="flex flex-wrap items-center justify-center gap-3 sm:gap-4 mt-8"
+      >
+        <Button className="group" asChild>
           <Link href={siteConfig.appUrl} target="_blank">
-            Get Started For Free
-            <ArrowRight className="size-0 group-hover:size-5 transition-all -ml-2 group-hover:ml-0" />
+            <Search className="size-4 mr-2" />
+            Browse Tasks
+            <ArrowRight className="size-4 ml-1 opacity-0 group-hover:opacity-100 group-hover:translate-x-1 transition-all" />
+          </Link>
+        </Button>
+
+        <Button variant="secondary" className="group" asChild>
+          <Link href={siteConfig.appUrl} target="_blank">
+            <PlusCircle className="size-4 mr-2" />
+            Post a Task
+          </Link>
+        </Button>
+
+        <Button variant="outline" className="group" asChild>
+          <Link href="#how-payments-work">
+            <HelpCircle className="size-4 mr-2" />
+            Learn How Payments Work
           </Link>
         </Button>
       </motion.div>
 
       <motion.div
         variants={FADE_UP_ANIMATION_VARIANTS}
-        className="flex items-center gap-2 text-sm mt-4"
+        className="flex items-center gap-2 text-sm mt-6"
       >
-
         <span className="opacity-80">powered by</span>
         <Link
           href={"https://solana.com/"}
@@ -76,32 +92,6 @@ export function Hero() {
           <SolanaLogoType className="w-20 fill-foreground" />
         </Link>
       </motion.div>
-
-      {/* <motion.div
-        variants={FADE_UP_ANIMATION_VARIANTS}
-        className="flex items-center gap-2 text-sm mt-4 p-1 font-light"
-      >
-        <div className="flex relative flex-row bg-stone-100 rounded-sm">
-          <div className="flex justify-center align-middle pt-2 mb-2 px-1">
-            <img src="https://media.gib.work/work-logo.png" className="rounded-full w-5" />
-            <span className="ms-2 opacity-80 font-medium md:visible hidden">CA</span>
-          </div>
-          <div className="md:flex hidden pt-2">
-            F7Hwf8ib5DVCoiuyGr618Y3gon429Rnd1r5F9R5upump
-          </div>
-          <div className="flex md:hidden pt-2">
-            F7Hwf8ib5D.....d1r5F9R5upump
-          </div>
-          <div className="bg-stone-100 hidden md:flex items-center w-16 py-1 justify-center border-s-2 border-white ms-1 rounded-e-lg">
-            <Clipboard.WithIconText className="bg-stone-50 border-none p-0 px-1 text-black hover:text-black"
-              valueToCopy="F7Hwf8ib5DVCoiuyGr618Y3gon429Rnd1r5F9R5upump" />
-          </div>
-          <div className="bg-stone-100 block w-16 md:hidden items-center justify-start border-s-2 border-white ms-1 rounded-e-lg">
-            <Clipboard.WithIconText className="bg-stone-100 border-none p-0 pt-2 px-1 flex text-black hover:text-black"
-              valueToCopy="F7Hwf8ib5DVCoiuyGr618Y3gon429Rnd1r5F9R5upump" />
-          </div>
-        </div>
-      </motion.div> */}
 
       <motion.div variants={FADE_UP_ANIMATION_VARIANTS} className="mt-16 sm:mt-24 relative z-0">
         <div className="rounded-t-lg bg-foreground/5 h-3 mx-12" />

@@ -1,7 +1,7 @@
 "use client";
 
 import { Button } from "@/components/ui/button";
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, HelpCircle, PlusCircle, Search } from "lucide-react";
 import Ripple from "./ui/ripple";
 import { motion } from "framer-motion";
 import { FADE_UP_ANIMATION_VARIANTS } from "@/lib/framer-variants";
@@ -34,14 +34,32 @@ export function CTA() {
         variants={FADE_UP_ANIMATION_VARIANTS}
         className="text-center mt-2 text-muted-foreground"
       >
-        Check out gibwork and create or complete your very first work.
+        Check out gibwork to browse active bounties, post tasks, or learn how payments work.
       </motion.p>
 
-      <motion.div variants={FADE_UP_ANIMATION_VARIANTS}>
-        <Button asChild className="mt-8 group">
+      <motion.div
+        variants={FADE_UP_ANIMATION_VARIANTS}
+        className="flex flex-wrap items-center justify-center gap-3 sm:gap-4 mt-8 z-10"
+      >
+        <Button className="group" asChild>
           <Link href={siteConfig.appUrl} target="_blank">
-            Get Started
-            <ArrowRight className="size-0 group-hover:size-5 transition-all -ml-2 group-hover:ml-0" />
+            <Search className="size-4 mr-2" />
+            Browse Tasks
+            <ArrowRight className="size-4 ml-1 opacity-0 group-hover:opacity-100 group-hover:translate-x-1 transition-all" />
+          </Link>
+        </Button>
+
+        <Button variant="secondary" className="group" asChild>
+          <Link href={siteConfig.appUrl} target="_blank">
+            <PlusCircle className="size-4 mr-2" />
+            Post a Task
+          </Link>
+        </Button>
+
+        <Button variant="outline" className="group" asChild>
+          <Link href="#how-payments-work">
+            <HelpCircle className="size-4 mr-2" />
+            Learn How Payments Work
           </Link>
         </Button>
       </motion.div>

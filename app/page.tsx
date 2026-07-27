@@ -2,6 +2,8 @@ import { Nav } from "@/components/nav";
 import { LookingFor } from "@/components/looking-for";
 import { Hero } from "@/components/hero";
 import { LogoList } from "@/components/logo-list";
+import { TaskRequirements } from "@/components/task-requirements";
+import { PayoutFlow } from "@/components/payout-flow";
 import { CTA } from "@/components/cta";
 import { Footer } from "@/components/footer";
 import { Testimonial } from "@/components/testimonial";
@@ -14,6 +16,8 @@ export default function Home() {
       <Hero />
       <LogoList />
       <LookingFor />
+      <TaskRequirements />
+      <PayoutFlow />
       <Testimonial />
       <CTA />
       <Faq />

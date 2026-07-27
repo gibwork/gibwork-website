@@ -112,7 +112,7 @@ export function LookingFor() {
                   height={100}
                 />
                 <CardHeader className="border-t">
-                  <CardTitle className="text-lg">Open Source Bounty</CardTitle>
+                  <CardTitle className="text-lg">Open-Source Bounties</CardTitle>
                   <CardDescription>
                     Incentivize a pull request made from a Github issue.
                   </CardDescription>
