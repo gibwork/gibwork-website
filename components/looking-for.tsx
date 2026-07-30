@@ -10,19 +10,20 @@ import {
 import Image from "next/image";
 import { motion } from "framer-motion";
 import { FADE_UP_ANIMATION_VARIANTS } from "@/lib/framer-variants";
+import { useSiteCopy } from "./use-site-copy";
 
 const workDetails = [
   // { image: "/tasks/image-04.png", title: "Create a FAQ list for gibwork", amount: 1, token: "sol" },
 
   {
     image: "/tasks/image-01.png",
-    title: "Design gibwork's new landing page",
+    titleKey: "landing",
     amount: 500,
     token: "usdc",
   },
   {
     image: "/tasks/image-02.png",
-    title: "Create developer challenges for Zircon",
+    titleKey: "zircon",
     amount: 500,
     token: "usdc",
   },
@@ -34,13 +35,15 @@ const workDetails = [
   // },
   {
     image: "/tasks/image-03.png",
-    title: "Use slug- to share a set of links on X or Reddit",
+    titleKey: "slug",
     amount: 100,
     token: "usdc",
   },
-];
+] as const;
 
 export function LookingFor() {
+  const { copy } = useSiteCopy();
+
   return (
     <section className="relative max-w-5xl mx-auto w-full py-16 sm:py-24 px-4 sm:px-6">
       <Tabs defaultValue="1" className="w-full flex flex-col items-center">
@@ -52,10 +55,10 @@ export function LookingFor() {
         >
           <TabsList className="mx-auto rounded-full">
             <TabsTrigger className="rounded-full px-4" value="1">
-              Looking for Help
+              {copy.work.helpTab}
             </TabsTrigger>
             <TabsTrigger className="rounded-full px-4" value="2">
-              Looking for Work
+              {copy.work.workTab}
             </TabsTrigger>
           </TabsList>
         </motion.div>
@@ -78,15 +81,14 @@ export function LookingFor() {
               variants={FADE_UP_ANIMATION_VARIANTS}
               className="text-3xl sm:text-4xl text-center font-semibold"
             >
-              Get help from an expert
+              {copy.work.helpHeading}
             </motion.h2>
 
             <motion.p
               variants={FADE_UP_ANIMATION_VARIANTS}
               className="text-center mt-2 text-muted-foreground"
             >
-              Create work for others to complete and get the support you need to
-              achieve your goals.
+              {copy.work.helpDescription}
             </motion.p>
 
             <motion.div
@@ -106,15 +108,15 @@ export function LookingFor() {
               <Card className="overflow-hidden">
                 <Image
                   src="https://cdn.gib.work/misc/open_source_bounty.png"
-                  alt="Open Source Bounty"
+                  alt={copy.work.bountyTitle}
                   className="h-40 w-full "
                   width={100}
                   height={100}
                 />
                 <CardHeader className="border-t">
-                  <CardTitle className="text-lg">Open Source Bounty</CardTitle>
+                  <CardTitle className="text-lg">{copy.work.bountyTitle}</CardTitle>
                   <CardDescription>
-                    Incentivize a pull request made from a Github issue.
+                    {copy.work.bountyDescription}
                   </CardDescription>
                 </CardHeader>
               </Card>
@@ -122,31 +124,30 @@ export function LookingFor() {
               <Card className="overflow-hidden">
                 <Image
                   src="https://cdn.gib.work/misc/simple_task.png"
-                  alt="Open Source Bounty"
+                  alt={copy.work.taskTitle}
                   className="h-40 w-full "
                   width={100}
                   height={100}
                 />
                 <CardHeader className="border-t">
-                  <CardTitle className="text-lg">Simple Task</CardTitle>
+                  <CardTitle className="text-lg">{copy.work.taskTitle}</CardTitle>
                   <CardDescription>
-                    Small tasks achievable in a few hours.
+                    {copy.work.taskDescription}
                   </CardDescription>
                 </CardHeader>
               </Card>
               <Card className="overflow-hidden">
                 <Image
                   src="https://cdn.gib.work/misc/services.png"
-                  alt="Open Source Bounty"
+                  alt={copy.work.servicesTitle}
                   className="h-40 w-full "
                   width={100}
                   height={100}
                 />
                 <CardHeader className="border-t">
-                  <CardTitle className="text-lg">Services</CardTitle>
+                  <CardTitle className="text-lg">{copy.work.servicesTitle}</CardTitle>
                   <CardDescription>
-                    Offer your skills and connect with users for custom
-                    services.
+                    {copy.work.servicesDescription}
                   </CardDescription>
                 </CardHeader>
               </Card>
@@ -172,14 +173,13 @@ export function LookingFor() {
               variants={FADE_UP_ANIMATION_VARIANTS}
               className="text-3xl sm:text-4xl text-center font-semibold"
             >
-              Get paid for your expertise
+              {copy.work.workHeading}
             </motion.h2>
             <motion.p
               variants={FADE_UP_ANIMATION_VARIANTS}
               className="text-center mt-2 text-muted-foreground"
             >
-              Discover work opportunities that you could do, complete the work,
-              and start earning.
+              {copy.work.workDescription}
             </motion.p>
 
             <motion.div
@@ -188,7 +188,7 @@ export function LookingFor() {
             >
               {workDetails.map((_detail) => (
                 <Card
-                  key={_detail.title}
+                  key={_detail.titleKey}
                   className="p-4 flex items-center gap-4"
                 >
                   <div className="relative aspect-square rounded-full shrink-0 w-12 bg-muted overflow-hidden">
@@ -200,7 +200,9 @@ export function LookingFor() {
                     />
                   </div>
 
-                  <p className="font-semibold grow truncate">{_detail.title}</p>
+                  <p className="font-semibold grow truncate">
+                    {copy.work.examples[_detail.titleKey]}
+                  </p>
 
                   <div className="font-semibold flex items-center justify-end gap-2 shrink-0">
                     <p>{_detail.amount}</p>

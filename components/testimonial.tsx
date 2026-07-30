@@ -6,8 +6,10 @@ import Image from "next/image";
 import ClientTweetCard from "./ui/client-tweet-card";
 import { motion } from "framer-motion";
 import { FADE_UP_ANIMATION_VARIANTS } from "@/lib/framer-variants";
+import { useSiteCopy } from "./use-site-copy";
 
 export function Testimonial() {
+  const { copy } = useSiteCopy();
   const leftTweetIds = [
     "1732524014407405834",
     "1858982833131581468",
@@ -48,20 +50,19 @@ export function Testimonial() {
             variants={FADE_UP_ANIMATION_VARIANTS}
             className="text-primary font-semibold text-sm"
           >
-            TESTIMONIALS
+            {copy.testimonials.eyebrow}
           </motion.p>
           <motion.h2
             variants={FADE_UP_ANIMATION_VARIANTS}
             className="font-semibold text-3xl sm:text-4xl mt-2"
           >
-            Hear what our users have to say
+            {copy.testimonials.heading}
           </motion.h2>
           <motion.p
             variants={FADE_UP_ANIMATION_VARIANTS}
             className=" mt-4 text-muted-foreground"
           >
-            From freelancers finding their next gig to companies discovering top
-            talent.
+            {copy.testimonials.description}
           </motion.p>
         </motion.div>
 
