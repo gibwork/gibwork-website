@@ -38,6 +38,9 @@ export function Nav() {
                 <Link href={"/#about"}>About</Link>
               </Button>
               <Button asChild variant={"ghost"} className="text-muted-foreground text-xs">
+                <Link href={"/#mobile-app"}>Mobile App</Link>
+              </Button>
+              <Button asChild variant={"ghost"} className="text-muted-foreground text-xs">
                 <Link href={"/#testimonial"}>Testimonial</Link>
               </Button>
               {/* <Button asChild variant={"ghost"} className="text-muted-foreground text-xs">
@@ -83,6 +86,7 @@ export function Nav() {
               size={"icon"}
               variant={"secondary"}
               className="md:hidden"
+              aria-label="Open navigation menu"
               onClick={() => setIsOpen(true)}
             >
               <Menu className="size-5" />
@@ -115,7 +119,12 @@ export function Nav() {
                     </Link>
                   </Button>
 
-                  <Button size={"icon"} variant={"secondary"} onClick={() => setIsOpen(false)}>
+                  <Button
+                    size={"icon"}
+                    variant={"secondary"}
+                    aria-label="Close navigation menu"
+                    onClick={() => setIsOpen(false)}
+                  >
                     <X className="size-5" />
                   </Button>
                 </div>
@@ -129,6 +138,14 @@ export function Nav() {
                   className="text-muted-foreground uppercase"
                 >
                   <Link href={"/#about"}>About</Link>
+                </Button>
+                <Button
+                  asChild
+                  variant={"ghost"}
+                  onClick={() => setIsOpen(false)}
+                  className="text-muted-foreground uppercase"
+                >
+                  <Link href={"/#mobile-app"}>Mobile App</Link>
                 </Button>
                 <Button
                   asChild
