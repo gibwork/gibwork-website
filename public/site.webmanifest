@@ -1,7 +1,7 @@
 {
   "name": "gibwork",
   "short_name": "gibwork",
-  "description": "Join a community-driven platform for crypto bounties and paid Q&A. Discover talent, get answers, and drive your crypto initiatives forward.",
+  "description": "Discover paid tasks and GitHub bounties, submit work, and track approved stablecoin payouts.",
   "start_url": "/",
   "display": "standalone",
   "background_color": "#FFFFFF",

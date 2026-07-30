@@ -35,6 +35,13 @@ export function Footer() {
                 About
                 <ArrowRight className="inline-block size-4 group-hover:scale-100 scale-0 transition-all ml-1" />
               </Link>
+              <Link
+                href={"/#mobile-app"}
+                className="text-muted-foreground transition-all hover:text-foreground group"
+              >
+                Mobile App
+                <ArrowRight className="inline-block size-4 group-hover:scale-100 scale-0 transition-all ml-1" />
+              </Link>
 
               <Link
                 href={"/#testimonial"}
