@@ -8,8 +8,11 @@ import { ArrowRight, ExternalLink } from "lucide-react";
 import { YoutubeLogoMark } from "./logo/youtube";
 import { DiscordLogoMark } from "./logo/discord";
 import { TwitterLogoMark } from "./logo/twitter";
+import { useSiteCopy } from "./use-site-copy";
 
 export function Footer() {
+  const { copy, withLocale } = useSiteCopy();
+
   return (
     <footer className="relative w-full sm:pb-12 sm:px-6">
       <div className="w-full max-w-7xl mx-auto p-4 sm:p-8 shadow-sm sm:border border-0 border-t sm:rounded-lg rounded-none flex flex-col">
@@ -19,28 +22,30 @@ export function Footer() {
               <Image alt="" src={logo} className="size-10 rounded-md bg-muted" />
               <p className="font-bold text-2xl">gibwork</p>
             </div>
-            <h2 className="font-semibold text-2xl sm:text-3xl mt-4">Join our community</h2>
+            <h2 className="font-semibold text-2xl sm:text-3xl mt-4">
+              {copy.footer.heading}
+            </h2>
             <p className="text-muted-foreground sm:text-base text-sm">
-              Meet like-minded people and find work opportunities easily.
+              {copy.footer.description}
             </p>
           </div>
 
           <div className="grid grid-cols-2 gap-24">
             <div className="text-sm flex flex-col gap-2 items-start">
-              <p className="font-semibold">Quick links</p>
+              <p className="font-semibold">{copy.footer.quickLinks}</p>
               <Link
-                href={"/#about"}
+                href={withLocale("/#about")}
                 className="text-muted-foreground transition-all hover:text-foreground group"
               >
-                About
+                {copy.nav.about}
                 <ArrowRight className="inline-block size-4 group-hover:scale-100 scale-0 transition-all ml-1" />
               </Link>
 
               <Link
-                href={"/#testimonial"}
+                href={withLocale("/#testimonial")}
                 className="text-muted-foreground transition-all hover:text-foreground group"
               >
-                Testimonial
+                {copy.nav.testimonial}
                 <ArrowRight className="inline-block size-4 group-hover:scale-100 scale-0 transition-all ml-1" />
               </Link>
               {/* <Link
@@ -51,10 +56,10 @@ export function Footer() {
                 <ArrowRight className="inline-block size-4 group-hover:scale-100 scale-0 transition-all ml-1" />
               </Link> */}
               <Link
-                href={"/#faq"}
+                href={withLocale("/#faq")}
                 className="text-muted-foreground transition-all hover:text-foreground group"
               >
-                FAQ
+                {copy.nav.faq}
                 <ArrowRight className="inline-block size-4 group-hover:scale-100 scale-0 transition-all ml-1" />
               </Link>
               <Link
@@ -62,19 +67,19 @@ export function Footer() {
                  target="_blank"
                 className="text-muted-foreground transition-all hover:text-foreground group"
               >
-                Docs
+                {copy.nav.docs}
                 <ArrowRight className="inline-block size-4 group-hover:scale-100 scale-0 transition-all ml-1" />
               </Link>
             </div>
 
             <div className="text-sm flex flex-col gap-2 items-start">
-              <p className="font-semibold">Resources</p>
+              <p className="font-semibold">{copy.footer.resources}</p>
               <Link
                 href={"https://legal.gib.work/privacy-policy.pdf"}
                  target="_blank"
                 className="text-muted-foreground transition-all hover:text-foreground group"
               >
-                Privacy Policy
+                {copy.footer.privacy}
                 <ExternalLink className="inline-block size-4 group-hover:scale-100 scale-0 transition-all ml-1" />
               </Link>
 
@@ -110,7 +115,7 @@ export function Footer() {
             </Link>
           </div>
 
-          <p className="text-xs text-muted-foreground">Made with ♥ by gibwork</p>
+          <p className="text-xs text-muted-foreground">{copy.footer.madeBy}</p>
         </div>
       </div>
     </footer>

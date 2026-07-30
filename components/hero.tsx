@@ -11,10 +11,12 @@ import { siteConfig } from "@/lib/site-config";
 import SparklesText from "./ui/sparkles-text";
 import { motion } from "framer-motion";
 import { FADE_UP_ANIMATION_VARIANTS } from "@/lib/framer-variants";
-import { Clipboard } from "flowbite-react"
+import { useSiteCopy } from "./use-site-copy";
 
 
 export function Hero() {
+  const { copy } = useSiteCopy();
+
   return (
     <motion.section
       initial="hidden"
@@ -33,14 +35,14 @@ export function Hero() {
       <motion.div variants={FADE_UP_ANIMATION_VARIANTS}>
         <Badge variant={"secondary"}>
           <div className="size-1 rounded-full bg-muted-foreground mr-2" />
-          Introducing gibwork
+          {copy.hero.badge}
           <div className="size-1 rounded-full bg-muted-foreground ml-2" />
         </Badge>
       </motion.div>
 
       <motion.div variants={FADE_UP_ANIMATION_VARIANTS} className="relative z-0">
         <SparklesText
-          text="Find Talent, Find Work"
+          text={copy.hero.heading}
           className="font-semibold text-5xl sm:text-6xl mt-4"
         />
       </motion.div>
@@ -49,14 +51,13 @@ export function Hero() {
         variants={FADE_UP_ANIMATION_VARIANTS}
         className="max-w-2xl mt-4 w-full sm:text-lg text-muted-foreground"
       >
-        Whether you&apos;re searching for your next gig or seeking skilled individuals, our platform
-        connects you with the perfect match.
+        {copy.hero.description}
       </motion.p>
 
       <motion.div variants={FADE_UP_ANIMATION_VARIANTS}>
         <Button className="group mt-8" asChild>
           <Link href={siteConfig.appUrl} target="_blank">
-            Get Started For Free
+            {copy.hero.cta}
             <ArrowRight className="size-0 group-hover:size-5 transition-all -ml-2 group-hover:ml-0" />
           </Link>
         </Button>
@@ -67,7 +68,7 @@ export function Hero() {
         className="flex items-center gap-2 text-sm mt-4"
       >
 
-        <span className="opacity-80">powered by</span>
+        <span className="opacity-80">{copy.hero.poweredBy}</span>
         <Link
           href={"https://solana.com/"}
           target="_blank"

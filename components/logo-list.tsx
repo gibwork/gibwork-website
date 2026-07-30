@@ -14,9 +14,12 @@ import blinksGG from "@/public/logo/blinksgg.png";
 import deansList from "@/public/logo/deans-list.png";
 import send from "@/public/logo/sendai.png";
 import alldomains from "@/public/logo/alldomains.png";
+import { useSiteCopy } from "./use-site-copy";
 
 
 export function LogoList() {
+  const { copy } = useSiteCopy();
+
   return (
     <motion.section
       initial="hidden"
@@ -37,7 +40,7 @@ export function LogoList() {
         variants={FADE_UP_ANIMATION_VARIANTS}
         className="text-primary font-semibold text-sm"
       >
-        BRANDS THAT TRUST US
+        {copy.partners.eyebrow}
       </motion.p>
 
       <motion.div
@@ -45,15 +48,11 @@ export function LogoList() {
         className="flex lg:flex-row flex-col gap-x-16 mt-2 justify-between"
       >
         <p className="lg:w-96 text-3xl sm:text-4xl font-semibold shrink-0">
-          Partners we have collaborated with
+          {copy.partners.heading}
         </p>
 
         <p className="lg:max-w-3xl w-full text-muted-foreground lg:mt-0 mt-4">
-          Gibwork is powered by a dedicated team of innovators and professionals committed to
-          connecting talent with opportunities. Our team combines expertise in technology, design,
-          and user experience to build and manage the platform, ensuring it serves the needs of both
-          job seekers and employers. We strive to create a seamless experience that empowers users
-          to find work or the right talent efficiently.
+          {copy.partners.description}
         </p>
       </motion.div>
 

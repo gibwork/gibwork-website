@@ -7,8 +7,11 @@ import { motion } from "framer-motion";
 import { FADE_UP_ANIMATION_VARIANTS } from "@/lib/framer-variants";
 import Link from "next/link";
 import { siteConfig } from "@/lib/site-config";
+import { useSiteCopy } from "./use-site-copy";
 
 export function CTA() {
+  const { copy } = useSiteCopy();
+
   return (
     <motion.section
       initial="hidden"
@@ -28,19 +31,19 @@ export function CTA() {
         variants={FADE_UP_ANIMATION_VARIANTS}
         className="font-semibold text-3xl sm:text-4xl text-center"
       >
-        Start exploring
+        {copy.cta.heading}
       </motion.h2>
       <motion.p
         variants={FADE_UP_ANIMATION_VARIANTS}
         className="text-center mt-2 text-muted-foreground"
       >
-        Check out gibwork and create or complete your very first work.
+        {copy.cta.description}
       </motion.p>
 
       <motion.div variants={FADE_UP_ANIMATION_VARIANTS}>
         <Button asChild className="mt-8 group">
           <Link href={siteConfig.appUrl} target="_blank">
-            Get Started
+            {copy.cta.button}
             <ArrowRight className="size-0 group-hover:size-5 transition-all -ml-2 group-hover:ml-0" />
           </Link>
         </Button>

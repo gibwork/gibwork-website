@@ -13,9 +13,12 @@ import { useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { FADE_IN, FADE_UP_ANIMATION_VARIANTS } from "@/lib/framer-variants";
 import { Separator } from "./ui/separator";
+import { LocaleSwitcher } from "./locale-switcher";
+import { useSiteCopy } from "./use-site-copy";
 
 export function Nav() {
   const [isOpen, setIsOpen] = useState(false);
+  const { copy, withLocale } = useSiteCopy();
 
   return (
     <>
@@ -28,32 +31,35 @@ export function Nav() {
           className="mx-auto max-w-7xl px-4 sm:px-6 h-16 w-full flex justify-between items-center gap-2"
         >
           <div className="flex items-center gap-2">
-            <Link href={"/"} className="flex items-center gap-2">
+            <Link href={withLocale("/")} className="flex items-center gap-2">
               <Image alt="" src={logo} className="size-10 rounded-md" />
               <p className="font-bold text-3xl min-[420px]:block hidden">gibwork</p>
             </Link>
 
-            <div className="lg:absolute lg:top-1/2 uppercase lg:left-1/2 lg:-translate-x-1/2 lg:-translate-y-1/2 md:flex hidden">
+            <div className="lg:absolute lg:top-1/2 uppercase lg:left-1/2 lg:-translate-x-1/2 lg:-translate-y-1/2 lg:flex hidden">
               <Button asChild variant={"ghost"} className="text-muted-foreground text-xs">
-                <Link href={"/#about"}>About</Link>
+                <Link href={withLocale("/#about")}>{copy.nav.about}</Link>
               </Button>
               <Button asChild variant={"ghost"} className="text-muted-foreground text-xs">
-                <Link href={"/#testimonial"}>Testimonial</Link>
+                <Link href={withLocale("/#testimonial")}>{copy.nav.testimonial}</Link>
               </Button>
               {/* <Button asChild variant={"ghost"} className="text-muted-foreground text-xs">
                 <Link href={"https://jup.ag/swap/SOL-F7Hwf8ib5DVCoiuyGr618Y3gon429Rnd1r5F9R5upump"} target="_blank">Token</Link>
               </Button> */}
               <Button asChild variant={"ghost"} className="text-muted-foreground text-xs">
-                <Link href={"/#faq"}>FAQ</Link>
+                <Link href={withLocale("/#faq")}>{copy.nav.faq}</Link>
               </Button>
               <Button asChild variant={"ghost"} className="text-muted-foreground text-xs">
-                <Link href={"https://docs.gib.work/"} target="_blank">DOCS</Link>
+                <Link href={"https://docs.gib.work/"} target="_blank">
+                  {copy.nav.docs}
+                </Link>
               </Button>
             </div>
           </div>
 
           <div className="flex items-center gap-2">
-            <div className="hidden md:flex items-center">
+            <div className="hidden lg:flex items-center">
+              <LocaleSwitcher />
               <Button size={"icon"} variant={"ghost"} asChild>
                 <Link href={siteConfig.youtubeUrl} target="_blank">
                   <YoutubeLogoMark className="size-5" />
@@ -74,7 +80,7 @@ export function Nav() {
 
             <Button asChild className="group">
               <Link href={siteConfig.appUrl} target="_blank">
-                Open App
+                {copy.nav.openApp}
                 <ArrowRight className="size-0 group-hover:size-5 transition-all -ml-2 group-hover:ml-0" />
               </Link>
             </Button>
@@ -82,8 +88,9 @@ export function Nav() {
             <Button
               size={"icon"}
               variant={"secondary"}
-              className="md:hidden"
+              className="lg:hidden"
               onClick={() => setIsOpen(true)}
+              aria-label={copy.nav.openMenu}
             >
               <Menu className="size-5" />
             </Button>
@@ -102,7 +109,7 @@ export function Nav() {
           >
             <div className="flex flex-col">
               <div className="sm:px-6 px-4 h-16 flex justify-between items-center">
-                <Link href={"/"} className="flex items-center gap-2">
+                <Link href={withLocale("/")} className="flex items-center gap-2">
                   <Image alt="" src={logo} className="size-10 rounded-md" />
                   <p className="font-bold text-xl min-[420px]:block hidden">gibwork</p>
                 </Link>
@@ -110,12 +117,17 @@ export function Nav() {
                 <div className="flex items-center gap-2">
                   <Button asChild className="group">
                     <Link href={siteConfig.appUrl} target="_blank">
-                      Open App
+                      {copy.nav.openApp}
                       <ArrowRight className="size-0 group-hover:size-5 transition-all -ml-2 group-hover:ml-0" />
                     </Link>
                   </Button>
 
-                  <Button size={"icon"} variant={"secondary"} onClick={() => setIsOpen(false)}>
+                  <Button
+                    size={"icon"}
+                    variant={"secondary"}
+                    onClick={() => setIsOpen(false)}
+                    aria-label={copy.nav.closeMenu}
+                  >
                     <X className="size-5" />
                   </Button>
                 </div>
@@ -128,7 +140,7 @@ export function Nav() {
                   onClick={() => setIsOpen(false)}
                   className="text-muted-foreground uppercase"
                 >
-                  <Link href={"/#about"}>About</Link>
+                  <Link href={withLocale("/#about")}>{copy.nav.about}</Link>
                 </Button>
                 <Button
                   asChild
@@ -136,7 +148,7 @@ export function Nav() {
                   onClick={() => setIsOpen(false)}
                   className="text-muted-foreground uppercase"
                 >
-                  <Link href={"/#testimonial"}>Testimonial</Link>
+                  <Link href={withLocale("/#testimonial")}>{copy.nav.testimonial}</Link>
                 </Button>
                 {/* <Button
                   asChild
@@ -152,11 +164,20 @@ export function Nav() {
                   onClick={() => setIsOpen(false)}
                   className="text-muted-foreground uppercase"
                 >
-                  <Link href={"/#faq"}>FAQ</Link>
+                  <Link href={withLocale("/#faq")}>{copy.nav.faq}</Link>
+                </Button>
+                <Button asChild variant={"ghost"} className="text-muted-foreground uppercase">
+                  <Link href="https://docs.gib.work/" target="_blank">
+                    {copy.nav.docs}
+                  </Link>
                 </Button>
               </div>
 
               <Separator />
+
+              <div className="flex justify-end sm:p-6 p-4">
+                <LocaleSwitcher />
+              </div>
 
               <div className="flex justify-end sm:p-6 p-4">
                 <Button size={"icon"} variant={"ghost"} asChild>
