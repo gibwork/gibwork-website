@@ -8,14 +8,29 @@ const inter = Inter({ subsets: ["latin"] });
 
 export async function generateMetadata(
   { params, searchParams }: any,
-  parent: ResolvingMetadata
+  parent: ResolvingMetadata,
 ): Promise<Metadata> {
   return {
-    title: "Gibwork | Find Talent, Find Work",
+    title: "Gibwork | Fund Outcomes, Find Work, Get Paid",
     description:
-      "Gibwork connects skilled professionals with freelance work opportunities, offering seamless integration with all Solana tokens for secure and efficient transactions.",
+      "Post outcome-based tasks and open-source bounties, discover paid work, review submissions, and settle rewards globally with Gibwork.",
     openGraph: {
+      title: "Gibwork | Fund Outcomes, Find Work, Get Paid",
+      description:
+        "One transparent flow for posting work, submitting proof, reviewing results, and releasing rewards.",
+      type: "website",
+      url: "https://gib.work/",
       images: [`https://cdn.gib.work/metadata/default.png`],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: "Gibwork | Fund Outcomes, Find Work, Get Paid",
+      description:
+        "Find paid work or fund outcomes with transparent submissions and global rewards.",
+      images: [`https://cdn.gib.work/metadata/default.png`],
+    },
+    alternates: {
+      canonical: "https://gib.work/",
     },
   };
 }

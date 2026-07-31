@@ -16,12 +16,18 @@ export function Footer() {
         <div className="flex items-start gap-4 w-full justify-between gap-x-40 md:flex-row flex-col gap-y-12">
           <div className="flex items-start flex-col">
             <div className="flex items-center gap-2">
-              <Image alt="" src={logo} className="size-10 rounded-md bg-muted" />
+              <Image
+                alt="Gibwork"
+                src={logo}
+                className="size-10 rounded-md bg-muted"
+              />
               <p className="font-bold text-2xl">gibwork</p>
             </div>
-            <h2 className="font-semibold text-2xl sm:text-3xl mt-4">Join our community</h2>
+            <h2 className="font-semibold text-2xl sm:text-3xl mt-4">
+              Work without borders
+            </h2>
             <p className="text-muted-foreground sm:text-base text-sm">
-              Meet like-minded people and find work opportunities easily.
+              Find paid opportunities or get important work completed.
             </p>
           </div>
 
@@ -29,18 +35,18 @@ export function Footer() {
             <div className="text-sm flex flex-col gap-2 items-start">
               <p className="font-semibold">Quick links</p>
               <Link
-                href={"/#about"}
+                href={"/#how-it-works"}
                 className="text-muted-foreground transition-all hover:text-foreground group"
               >
-                About
+                How it works
                 <ArrowRight className="inline-block size-4 group-hover:scale-100 scale-0 transition-all ml-1" />
               </Link>
 
               <Link
-                href={"/#testimonial"}
+                href={"/#mobile-app"}
                 className="text-muted-foreground transition-all hover:text-foreground group"
               >
-                Testimonial
+                Mobile app
                 <ArrowRight className="inline-block size-4 group-hover:scale-100 scale-0 transition-all ml-1" />
               </Link>
               {/* <Link
@@ -59,7 +65,8 @@ export function Footer() {
               </Link>
               <Link
                 href={"https://docs.gib.work/"}
-                 target="_blank"
+                target="_blank"
+                rel="noreferrer"
                 className="text-muted-foreground transition-all hover:text-foreground group"
               >
                 Docs
@@ -71,10 +78,29 @@ export function Footer() {
               <p className="font-semibold">Resources</p>
               <Link
                 href={"https://legal.gib.work/privacy-policy.pdf"}
-                 target="_blank"
+                target="_blank"
+                rel="noreferrer"
                 className="text-muted-foreground transition-all hover:text-foreground group"
               >
                 Privacy Policy
+                <ExternalLink className="inline-block size-4 group-hover:scale-100 scale-0 transition-all ml-1" />
+              </Link>
+              <Link
+                href={siteConfig.appStoreUrl}
+                target="_blank"
+                rel="noreferrer"
+                className="text-muted-foreground transition-all hover:text-foreground group"
+              >
+                App Store
+                <ExternalLink className="inline-block size-4 group-hover:scale-100 scale-0 transition-all ml-1" />
+              </Link>
+              <Link
+                href={siteConfig.playStoreUrl}
+                target="_blank"
+                rel="noreferrer"
+                className="text-muted-foreground transition-all hover:text-foreground group"
+              >
+                Google Play
                 <ExternalLink className="inline-block size-4 group-hover:scale-100 scale-0 transition-all ml-1" />
               </Link>
 
@@ -94,23 +120,35 @@ export function Footer() {
             <Link
               href={siteConfig.youtubeUrl}
               target="_blank"
+              rel="noreferrer"
               className="hover:scale-105 transition-all"
+              aria-label="Gibwork on YouTube"
             >
               <YoutubeLogoMark className="size-5" />
             </Link>
             <Link
               href={siteConfig.discordUrl}
               target="_blank"
+              rel="noreferrer"
               className="hover:scale-105 transition-all"
+              aria-label="Join the Gibwork Discord"
             >
               <DiscordLogoMark className="size-5" />
             </Link>
-            <Link href={siteConfig.xUrl} target="_blank" className="hover:scale-105 transition-all">
+            <Link
+              href={siteConfig.xUrl}
+              target="_blank"
+              rel="noreferrer"
+              className="hover:scale-105 transition-all"
+              aria-label="Follow Gibwork on X"
+            >
               <TwitterLogoMark className="size-5" />
             </Link>
           </div>
 
-          <p className="text-xs text-muted-foreground">Made with ♥ by gibwork</p>
+          <p className="text-xs text-muted-foreground">
+            Made with care by gibwork
+          </p>
         </div>
       </div>
     </footer>

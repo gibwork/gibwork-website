@@ -11,8 +11,6 @@ import { siteConfig } from "@/lib/site-config";
 import SparklesText from "./ui/sparkles-text";
 import { motion } from "framer-motion";
 import { FADE_UP_ANIMATION_VARIANTS } from "@/lib/framer-variants";
-import { Clipboard } from "flowbite-react"
-
 
 export function Hero() {
   return (
@@ -33,45 +31,65 @@ export function Hero() {
       <motion.div variants={FADE_UP_ANIMATION_VARIANTS}>
         <Badge variant={"secondary"}>
           <div className="size-1 rounded-full bg-muted-foreground mr-2" />
-          Introducing gibwork
+          Work without borders
           <div className="size-1 rounded-full bg-muted-foreground ml-2" />
         </Badge>
       </motion.div>
 
-      <motion.div variants={FADE_UP_ANIMATION_VARIANTS} className="relative z-0">
+      <motion.div
+        variants={FADE_UP_ANIMATION_VARIANTS}
+        className="relative z-0"
+      >
         <SparklesText
-          text="Find Talent, Find Work"
-          className="font-semibold text-5xl sm:text-6xl mt-4"
+          text="Fund outcomes. Ship work. Get paid."
+          className="font-semibold text-5xl sm:text-6xl mt-4 max-w-5xl"
         />
       </motion.div>
 
       <motion.p
         variants={FADE_UP_ANIMATION_VARIANTS}
-        className="max-w-2xl mt-4 w-full sm:text-lg text-muted-foreground"
+        className="max-w-3xl mt-5 w-full sm:text-lg text-muted-foreground"
       >
-        Whether you&apos;re searching for your next gig or seeking skilled individuals, our platform
-        connects you with the perfect match.
+        Post outcome-based tasks and open-source bounties, or discover paid work
+        you can complete from anywhere. Gibwork keeps the brief, submission,
+        review, and reward in one transparent flow.
       </motion.p>
 
-      <motion.div variants={FADE_UP_ANIMATION_VARIANTS}>
-        <Button className="group mt-8" asChild>
-          <Link href={siteConfig.appUrl} target="_blank">
-            Get Started For Free
-            <ArrowRight className="size-0 group-hover:size-5 transition-all -ml-2 group-hover:ml-0" />
+      <motion.div
+        variants={FADE_UP_ANIMATION_VARIANTS}
+        className="mt-8 flex w-full flex-col justify-center gap-3 sm:w-auto sm:flex-row"
+      >
+        <Button className="group" size="lg" asChild>
+          <Link href={siteConfig.appUrl} target="_blank" rel="noreferrer">
+            Browse paid work
+            <ArrowRight
+              className="size-0 group-hover:size-5 transition-all -ml-2 group-hover:ml-0"
+              aria-hidden="true"
+            />
+          </Link>
+        </Button>
+        <Button variant="outline" size="lg" asChild>
+          <Link href={siteConfig.appUrl} target="_blank" rel="noreferrer">
+            Post work
           </Link>
         </Button>
       </motion.div>
 
       <motion.div
         variants={FADE_UP_ANIMATION_VARIANTS}
-        className="flex items-center gap-2 text-sm mt-4"
+        className="flex flex-wrap items-center justify-center gap-x-3 gap-y-1 text-sm mt-5 text-muted-foreground"
       >
-
-        <span className="opacity-80">powered by</span>
+        <span>Available on iOS and Android</span>
+        <span aria-hidden="true">•</span>
+        <span>Non-custodial payouts</span>
+        <span aria-hidden="true">•</span>
+        <span className="opacity-80">Powered by</span>
         <Link
           href={"https://solana.com/"}
           target="_blank"
+          rel="noreferrer"
           className="hover:scale-105 transition-all"
+          aria-label="Powered by Solana"
         >
           <SolanaLogoType className="w-20 fill-foreground" />
         </Link>
@@ -103,11 +121,18 @@ export function Hero() {
         </div>
       </motion.div> */}
 
-      <motion.div variants={FADE_UP_ANIMATION_VARIANTS} className="mt-16 sm:mt-24 relative z-0">
+      <motion.div
+        variants={FADE_UP_ANIMATION_VARIANTS}
+        className="mt-16 sm:mt-24 relative z-0"
+      >
         <div className="rounded-t-lg bg-foreground/5 h-3 mx-12" />
         <div className="rounded-t-lg bg-foreground/10 h-3 mx-6" />
-        <div className="rounded-lg overflow-hidden border bg-muted w-full">
-          <Image alt="" src={dashboard} />
+        <div className="rounded-lg overflow-hidden border bg-muted w-full shadow-2xl">
+          <Image
+            alt="Gibwork dashboard showing work opportunities and account activity"
+            src={dashboard}
+            priority
+          />
         </div>
         <div className="absolute inset-0 bg-gradient-to-t from-background via-background/60" />
       </motion.div>
