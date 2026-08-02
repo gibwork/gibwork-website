@@ -1,8 +1,5 @@
 "use client";
 
-import { Button } from "@/components/ui/button";
-import { ArrowRight } from "lucide-react";
-import Ripple from "./ui/ripple";
 import {
   Accordion,
   AccordionContent,
@@ -39,11 +36,11 @@ export function Faq() {
       <motion.div variants={FADE_UP_ANIMATION_VARIANTS} className="grow lg:max-w-3xl">
         <Accordion type="single" collapsible>
           <AccordionItem value="item-6">
-            <AccordionTrigger>How do I create Work on Gibwork?</AccordionTrigger>
+            <AccordionTrigger>How do I create work on Gibwork?</AccordionTrigger>
             <AccordionContent>
-              Under the earnings display on the apps home page, click the
-              &quot;Create&quot; buttons for creating Open Source Bounties and Task. These buttons guide you through the process of creating and posting jobs on the
-              platform.
+              Open the web app, choose Create, then select the type of work you
+              want to fund. Add clear requirements, a deadline, review criteria,
+              and the reward so contributors know exactly what success looks like.
             </AccordionContent>
           </AccordionItem>
           <AccordionItem value="item-1">
@@ -51,21 +48,39 @@ export function Faq() {
               What&apos;s the difference between a bounty and a task?
             </AccordionTrigger>
             <AccordionContent>
-              A bounty is a Github issue with a monetary reward.  A task is a
-              specific, often smaller job that needs to be completed.
+              An open-source bounty connects a funded reward to a GitHub issue
+              and pull request. A task can cover any clearly defined deliverable,
+              including design, content, research, growth, or product feedback.
             </AccordionContent>
           </AccordionItem>
           <AccordionItem value="item-2">
             <AccordionTrigger>How do I get paid for completed work?</AccordionTrigger>
             <AccordionContent>
-              Once your work is approved by the creator, the funds will be released to your noncustodial wallet.
+              Submit the requested evidence before the deadline. Once the creator
+              approves your work, the funded reward is released to the wallet
+              connected to your Gibwork account.
             </AccordionContent>
           </AccordionItem>
           <AccordionItem value="item-3">
             <AccordionTrigger>What payment methods does gibwork support?</AccordionTrigger>
             <AccordionContent>
-              We only support wallet transactions, i.e., depositing the winning amount directly to
-              your wallet in the form of crypto or stablecoins.
+              Rewards are funded and paid through wallet transactions, including
+              supported crypto assets and stablecoins such as USDC.
+            </AccordionContent>
+          </AccordionItem>
+          <AccordionItem value="item-mobile">
+            <AccordionTrigger>What can I do in the iPhone app?</AccordionTrigger>
+            <AccordionContent>
+              Browse active opportunities, review requirements, submit completed
+              work, track decisions, and manage your earnings from your phone.
+            </AccordionContent>
+          </AccordionItem>
+          <AccordionItem value="item-approval">
+            <AccordionTrigger>How do I improve my chance of approval?</AccordionTrigger>
+            <AccordionContent>
+              Read every requirement before starting, show evidence for each one,
+              submit only original work, and include links or screenshots that make
+              the result easy for the creator to verify.
             </AccordionContent>
           </AccordionItem>
           {/* <AccordionItem value="item-4">

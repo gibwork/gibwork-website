@@ -7,36 +7,33 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
-import Image from "next/image";
 import { motion } from "framer-motion";
 import { FADE_UP_ANIMATION_VARIANTS } from "@/lib/framer-variants";
+import { Button } from "@/components/ui/button";
+import { ArrowRight, Code2, Megaphone, Palette, PenLine } from "lucide-react";
+import Link from "next/link";
+import { siteConfig } from "@/lib/site-config";
 
-const workDetails = [
-  // { image: "/tasks/image-04.png", title: "Create a FAQ list for gibwork", amount: 1, token: "sol" },
-
+const opportunityTypes = [
   {
-    image: "/tasks/image-01.png",
-    title: "Design gibwork's new landing page",
-    amount: 500,
-    token: "usdc",
+    icon: Code2,
+    title: "Development",
+    description: "Open-source fixes, integrations, prototypes, and product improvements.",
   },
   {
-    image: "/tasks/image-02.png",
-    title: "Create developer challenges for Zircon",
-    amount: 500,
-    token: "usdc",
+    icon: Palette,
+    title: "Design & creative",
+    description: "Brand systems, interfaces, illustrations, and product experiences.",
   },
-  // {
-  //   image: "/tasks/image-04.png",
-  //   title: "Share a link to your most used dApp",
-  //   amount: 100,
-  //   token: "usdc",
-  // },
   {
-    image: "/tasks/image-03.png",
-    title: "Use slug- to share a set of links on X or Reddit",
-    amount: 100,
-    token: "usdc",
+    icon: PenLine,
+    title: "Content & research",
+    description: "Writing, research, feedback, documentation, and product testing.",
+  },
+  {
+    icon: Megaphone,
+    title: "Growth & community",
+    description: "Campaigns, outreach, community support, and launch activities.",
   },
 ];
 
@@ -91,7 +88,7 @@ export function LookingFor() {
 
             <motion.div
               variants={FADE_UP_ANIMATION_VARIANTS}
-              className="grid lg:grid-cols-3 gap-4 mt-8 lg:max-w-full max-w-3xl mx-auto"
+              className="grid gap-4 mt-8 md:grid-cols-3 lg:max-w-full max-w-3xl mx-auto"
             >
               {/* <Card className="overflow-hidden">
                 <div className="h-32 sm:h-40 bg-muted" />
@@ -103,50 +100,31 @@ export function LookingFor() {
                 </CardHeader>
               </Card> */}
 
-              <Card className="overflow-hidden">
-                <Image
-                  src="https://cdn.gib.work/misc/open_source_bounty.png"
-                  alt="Open Source Bounty"
-                  className="h-40 w-full "
-                  width={100}
-                  height={100}
-                />
+              <Card className="overflow-hidden transition-transform hover:-translate-y-1">
+                <div className="h-2 bg-gradient-to-r from-violet-500 to-indigo-500" />
                 <CardHeader className="border-t">
                   <CardTitle className="text-lg">Open Source Bounty</CardTitle>
                   <CardDescription>
-                    Incentivize a pull request made from a Github issue.
+                    Fund a GitHub issue and reward the pull request that solves it.
                   </CardDescription>
                 </CardHeader>
               </Card>
 
-              <Card className="overflow-hidden">
-                <Image
-                  src="https://cdn.gib.work/misc/simple_task.png"
-                  alt="Open Source Bounty"
-                  className="h-40 w-full "
-                  width={100}
-                  height={100}
-                />
+              <Card className="overflow-hidden transition-transform hover:-translate-y-1">
+                <div className="h-2 bg-gradient-to-r from-fuchsia-500 to-pink-500" />
                 <CardHeader className="border-t">
                   <CardTitle className="text-lg">Simple Task</CardTitle>
                   <CardDescription>
-                    Small tasks achievable in a few hours.
+                    Post a focused deliverable with clear requirements and a funded reward.
                   </CardDescription>
                 </CardHeader>
               </Card>
-              <Card className="overflow-hidden">
-                <Image
-                  src="https://cdn.gib.work/misc/services.png"
-                  alt="Open Source Bounty"
-                  className="h-40 w-full "
-                  width={100}
-                  height={100}
-                />
+              <Card className="overflow-hidden transition-transform hover:-translate-y-1">
+                <div className="h-2 bg-gradient-to-r from-cyan-500 to-emerald-500" />
                 <CardHeader className="border-t">
                   <CardTitle className="text-lg">Services</CardTitle>
                   <CardDescription>
-                    Offer your skills and connect with users for custom
-                    services.
+                    Connect with specialists for custom work and ongoing support.
                   </CardDescription>
                 </CardHeader>
               </Card>
@@ -184,37 +162,30 @@ export function LookingFor() {
 
             <motion.div
               variants={FADE_UP_ANIMATION_VARIANTS}
-              className="flex flex-col gap-2 mt-8 w-full"
+              className="grid gap-3 mt-8 w-full sm:grid-cols-2"
             >
-              {workDetails.map((_detail) => (
+              {opportunityTypes.map(({ icon: Icon, title, description }) => (
                 <Card
-                  key={_detail.title}
-                  className="p-4 flex items-center gap-4"
+                  key={title}
+                  className="p-5 flex items-start gap-4 transition-colors hover:border-primary/40"
                 >
-                  <div className="relative aspect-square rounded-full shrink-0 w-12 bg-muted overflow-hidden">
-                    <Image
-                      alt=""
-                      fill
-                      src={_detail.image}
-                      className="h-full w-full object-cover"
-                    />
+                  <div className="flex size-10 shrink-0 items-center justify-center rounded-xl bg-primary/10 text-primary">
+                    <Icon className="size-5" aria-hidden="true" />
                   </div>
-
-                  <p className="font-semibold grow truncate">{_detail.title}</p>
-
-                  <div className="font-semibold flex items-center justify-end gap-2 shrink-0">
-                    <p>{_detail.amount}</p>
-                    <div className="relative aspect-square rounded-full w-8 bg-muted overflow-hidden">
-                      <Image
-                        alt=""
-                        fill
-                        src={`/token-${_detail.token}.png`}
-                        className="h-full w-full object-cover"
-                      />
-                    </div>
+                  <div>
+                    <p className="font-semibold">{title}</p>
+                    <p className="mt-1 text-sm leading-6 text-muted-foreground">{description}</p>
                   </div>
                 </Card>
               ))}
+            </motion.div>
+            <motion.div variants={FADE_UP_ANIMATION_VARIANTS} className="mt-7">
+              <Button asChild className="group">
+                <Link href={siteConfig.appUrl} target="_blank">
+                  Browse active bounties
+                  <ArrowRight className="size-4 transition-transform group-hover:translate-x-0.5" />
+                </Link>
+              </Button>
             </motion.div>
           </motion.div>
         </TabsContent>

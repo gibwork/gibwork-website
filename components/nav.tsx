@@ -38,6 +38,9 @@ export function Nav() {
                 <Link href={"/#about"}>About</Link>
               </Button>
               <Button asChild variant={"ghost"} className="text-muted-foreground text-xs">
+                <Link href={"/#mobile-app"}>Mobile App</Link>
+              </Button>
+              <Button asChild variant={"ghost"} className="text-muted-foreground text-xs">
                 <Link href={"/#testimonial"}>Testimonial</Link>
               </Button>
               {/* <Button asChild variant={"ghost"} className="text-muted-foreground text-xs">
@@ -74,7 +77,7 @@ export function Nav() {
 
             <Button asChild className="group">
               <Link href={siteConfig.appUrl} target="_blank">
-                Open App
+                Browse Work
                 <ArrowRight className="size-0 group-hover:size-5 transition-all -ml-2 group-hover:ml-0" />
               </Link>
             </Button>
@@ -84,6 +87,8 @@ export function Nav() {
               variant={"secondary"}
               className="md:hidden"
               onClick={() => setIsOpen(true)}
+              aria-label="Open navigation menu"
+              aria-expanded={isOpen}
             >
               <Menu className="size-5" />
             </Button>
@@ -110,12 +115,17 @@ export function Nav() {
                 <div className="flex items-center gap-2">
                   <Button asChild className="group">
                     <Link href={siteConfig.appUrl} target="_blank">
-                      Open App
+                      Browse Work
                       <ArrowRight className="size-0 group-hover:size-5 transition-all -ml-2 group-hover:ml-0" />
                     </Link>
                   </Button>
 
-                  <Button size={"icon"} variant={"secondary"} onClick={() => setIsOpen(false)}>
+                  <Button
+                    size={"icon"}
+                    variant={"secondary"}
+                    onClick={() => setIsOpen(false)}
+                    aria-label="Close navigation menu"
+                  >
                     <X className="size-5" />
                   </Button>
                 </div>
@@ -129,6 +139,14 @@ export function Nav() {
                   className="text-muted-foreground uppercase"
                 >
                   <Link href={"/#about"}>About</Link>
+                </Button>
+                <Button
+                  asChild
+                  variant={"ghost"}
+                  onClick={() => setIsOpen(false)}
+                  className="text-muted-foreground uppercase"
+                >
+                  <Link href={"/#mobile-app"}>Mobile App</Link>
                 </Button>
                 <Button
                   asChild

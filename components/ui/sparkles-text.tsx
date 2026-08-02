@@ -1,6 +1,6 @@
 "use client";
 
-import { CSSProperties, ReactElement, useEffect, useState } from "react";
+import { CSSProperties, ReactElement, useMemo } from "react";
 import { motion } from "framer-motion";
 
 import { cn } from "@/lib/utils";
@@ -12,7 +12,6 @@ interface Sparkle {
   color: string;
   delay: number;
   scale: number;
-  lifespan: number;
 }
 
 interface SparklesTextProps {
@@ -67,42 +66,18 @@ const SparklesText: React.FC<SparklesTextProps> = ({
   sparklesCount = 10,
   ...props
 }) => {
-  const [sparkles, setSparkles] = useState<Sparkle[]>([]);
-
-  useEffect(() => {
-    const generateStar = (): Sparkle => {
-      const starX = `${Math.random() * 100}%`;
-      const starY = `${Math.random() * 100}%`;
-      const color = Math.random() > 0.5 ? colors.first : colors.second;
-      const delay = Math.random() * 2;
-      const scale = Math.random() * 1 + 0.3;
-      const lifespan = Math.random() * 10 + 5;
-      const id = `${starX}-${starY}-${Date.now()}`;
-      return { id, x: starX, y: starY, color, delay, scale, lifespan };
-    };
-
-    const initializeStars = () => {
-      const newSparkles = Array.from({ length: sparklesCount }, generateStar);
-      setSparkles(newSparkles);
-    };
-
-    const updateStars = () => {
-      setSparkles((currentSparkles) =>
-        currentSparkles.map((star) => {
-          if (star.lifespan <= 0) {
-            return generateStar();
-          } else {
-            return { ...star, lifespan: star.lifespan - 0.1 };
-          }
-        })
-      );
-    };
-
-    initializeStars();
-    const interval = setInterval(updateStars, 100);
-
-    return () => clearInterval(interval);
-  }, [colors.first, colors.second]);
+  const sparkles = useMemo(
+    () =>
+      Array.from({ length: sparklesCount }, (_, index): Sparkle => ({
+        id: `sparkle-${index}`,
+        x: `${(index * 37 + 7) % 100}%`,
+        y: `${(index * 61 + 13) % 100}%`,
+        color: index % 2 === 0 ? colors.first : colors.second,
+        delay: (index * 0.17) % 1.4,
+        scale: 0.45 + ((index * 23) % 55) / 100,
+      })),
+    [colors.first, colors.second, sparklesCount]
+  );
 
   return (
     <div
@@ -137,6 +112,8 @@ const Sparkle: React.FC<Sparkle> = ({ id, x, y, color, delay, scale }) => {
         rotate: [75, 120, 150],
       }}
       transition={{ duration: 0.8, repeat: Infinity, delay }}
+      aria-hidden="true"
+      focusable="false"
       width="21"
       height="21"
       viewBox="0 0 21 21"

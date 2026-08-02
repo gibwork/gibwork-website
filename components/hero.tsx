@@ -2,7 +2,7 @@
 
 import { SolanaLogoType } from "@/components/logo/solana";
 import { Button } from "@/components/ui/button";
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, CheckCircle2, Download } from "lucide-react";
 import Image from "next/image";
 import dashboard from "@/public/dashboard-2.png";
 import { Badge } from "@/components/ui/badge";
@@ -11,8 +11,7 @@ import { siteConfig } from "@/lib/site-config";
 import SparklesText from "./ui/sparkles-text";
 import { motion } from "framer-motion";
 import { FADE_UP_ANIMATION_VARIANTS } from "@/lib/framer-variants";
-import { Clipboard } from "flowbite-react"
-
+const proofPoints = ["Funded opportunities", "Clear requirements", "Track every submission"];
 
 export function Hero() {
   return (
@@ -33,14 +32,14 @@ export function Hero() {
       <motion.div variants={FADE_UP_ANIMATION_VARIANTS}>
         <Badge variant={"secondary"}>
           <div className="size-1 rounded-full bg-muted-foreground mr-2" />
-          Introducing gibwork
+          Work from anywhere
           <div className="size-1 rounded-full bg-muted-foreground ml-2" />
         </Badge>
       </motion.div>
 
       <motion.div variants={FADE_UP_ANIMATION_VARIANTS} className="relative z-0">
         <SparklesText
-          text="Find Talent, Find Work"
+          text="Find bounties. Get paid."
           className="font-semibold text-5xl sm:text-6xl mt-4"
         />
       </motion.div>
@@ -49,18 +48,39 @@ export function Hero() {
         variants={FADE_UP_ANIMATION_VARIANTS}
         className="max-w-2xl mt-4 w-full sm:text-lg text-muted-foreground"
       >
-        Whether you&apos;re searching for your next gig or seeking skilled individuals, our platform
-        connects you with the perfect match.
+        Discover funded work, understand exactly what is required, and submit
+        from the web or the Gibwork app for iPhone.
       </motion.p>
 
-      <motion.div variants={FADE_UP_ANIMATION_VARIANTS}>
-        <Button className="group mt-8" asChild>
+      <motion.div
+        variants={FADE_UP_ANIMATION_VARIANTS}
+        className="mt-8 flex flex-col gap-3 sm:flex-row"
+      >
+        <Button className="group" asChild>
           <Link href={siteConfig.appUrl} target="_blank">
-            Get Started For Free
+            Browse active work
             <ArrowRight className="size-0 group-hover:size-5 transition-all -ml-2 group-hover:ml-0" />
           </Link>
         </Button>
+        <Button variant="outline" className="group" asChild>
+          <Link href={siteConfig.appStoreUrl} target="_blank">
+            <Download className="size-4" />
+            Download for iPhone
+          </Link>
+        </Button>
       </motion.div>
+
+      <motion.ul
+        variants={FADE_UP_ANIMATION_VARIANTS}
+        className="mt-5 flex flex-wrap justify-center gap-x-5 gap-y-2 text-sm text-muted-foreground"
+      >
+        {proofPoints.map((point) => (
+          <li key={point} className="flex items-center gap-1.5">
+            <CheckCircle2 className="size-4 text-primary" aria-hidden="true" />
+            {point}
+          </li>
+        ))}
+      </motion.ul>
 
       <motion.div
         variants={FADE_UP_ANIMATION_VARIANTS}
@@ -107,7 +127,11 @@ export function Hero() {
         <div className="rounded-t-lg bg-foreground/5 h-3 mx-12" />
         <div className="rounded-t-lg bg-foreground/10 h-3 mx-6" />
         <div className="rounded-lg overflow-hidden border bg-muted w-full">
-          <Image alt="" src={dashboard} />
+          <Image
+            alt="Gibwork dashboard showing funded opportunities and earnings"
+            src={dashboard}
+            priority
+          />
         </div>
         <div className="absolute inset-0 bg-gradient-to-t from-background via-background/60" />
       </motion.div>

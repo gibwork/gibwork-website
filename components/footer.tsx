@@ -43,6 +43,13 @@ export function Footer() {
                 Testimonial
                 <ArrowRight className="inline-block size-4 group-hover:scale-100 scale-0 transition-all ml-1" />
               </Link>
+              <Link
+                href={"/#mobile-app"}
+                className="text-muted-foreground transition-all hover:text-foreground group"
+              >
+                Mobile App
+                <ArrowRight className="inline-block size-4 group-hover:scale-100 scale-0 transition-all ml-1" />
+              </Link>
               {/* <Link
                 href={"/#team"}
                 className="text-muted-foreground transition-all hover:text-foreground group"
@@ -70,7 +77,7 @@ export function Footer() {
             <div className="text-sm flex flex-col gap-2 items-start">
               <p className="font-semibold">Resources</p>
               <Link
-                href={"https://legal.gib.work/privacy-policy.pdf"}
+                href={siteConfig.privacyUrl}
                  target="_blank"
                 className="text-muted-foreground transition-all hover:text-foreground group"
               >
@@ -78,13 +85,22 @@ export function Footer() {
                 <ExternalLink className="inline-block size-4 group-hover:scale-100 scale-0 transition-all ml-1" />
               </Link>
 
-              {/* <Link
-                href={"#"}
+              <Link
+                href={siteConfig.termsUrl}
+                target="_blank"
                 className="text-muted-foreground transition-all hover:text-foreground group"
               >
                 Terms of Use
                 <ExternalLink className="inline-block size-4 group-hover:scale-100 scale-0 transition-all ml-1" />
-              </Link> */}
+              </Link>
+              <Link
+                href={siteConfig.appStoreUrl}
+                target="_blank"
+                className="text-muted-foreground transition-all hover:text-foreground group"
+              >
+                iPhone App
+                <ExternalLink className="inline-block size-4 group-hover:scale-100 scale-0 transition-all ml-1" />
+              </Link>
             </div>
           </div>
         </div>
@@ -95,6 +111,7 @@ export function Footer() {
               href={siteConfig.youtubeUrl}
               target="_blank"
               className="hover:scale-105 transition-all"
+              aria-label="Gibwork on YouTube"
             >
               <YoutubeLogoMark className="size-5" />
             </Link>
@@ -102,10 +119,16 @@ export function Footer() {
               href={siteConfig.discordUrl}
               target="_blank"
               className="hover:scale-105 transition-all"
+              aria-label="Join Gibwork on Discord"
             >
               <DiscordLogoMark className="size-5" />
             </Link>
-            <Link href={siteConfig.xUrl} target="_blank" className="hover:scale-105 transition-all">
+            <Link
+              href={siteConfig.xUrl}
+              target="_blank"
+              className="hover:scale-105 transition-all"
+              aria-label="Follow Gibwork on X"
+            >
               <TwitterLogoMark className="size-5" />
             </Link>
           </div>
