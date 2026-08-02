@@ -49,7 +49,7 @@ export function ProofLoop() {
           Funded work moves faster when proof is easy to review
         </h2>
         <p className="text-muted-foreground mt-3">
-          Align the brief, the evidence, and the review cadence so everyone knows what happens next.
+          Align the brief, the evidence, and the review cadence so creators and workers know what happens next on desktop or mobile.
         </p>
       </motion.div>
 
