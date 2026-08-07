@@ -41,9 +41,7 @@ export function Faq() {
           <AccordionItem value="item-6">
             <AccordionTrigger>How do I create Work on Gibwork?</AccordionTrigger>
             <AccordionContent>
-              Under the earnings display on the apps home page, click the
-              &quot;Create&quot; buttons for creating Open Source Bounties and Task. These buttons guide you through the process of creating and posting jobs on the
-              platform.
+              From the home page, choose Create to post an open-source bounty or a task. The guided flow helps you describe the work, set the reward, and publish it for contributors.
             </AccordionContent>
           </AccordionItem>
           <AccordionItem value="item-1">
@@ -58,23 +56,28 @@ export function Faq() {
           <AccordionItem value="item-2">
             <AccordionTrigger>How do I get paid for completed work?</AccordionTrigger>
             <AccordionContent>
-              Once your work is approved by the creator, the funds will be released to your noncustodial wallet.
+              Once the creator approves your completed work, the reward is released to your Gibwork balance. Work is funded in escrow before you start, so the reward is available for release when the work is accepted.
             </AccordionContent>
           </AccordionItem>
           <AccordionItem value="item-3">
             <AccordionTrigger>What payment methods does gibwork support?</AccordionTrigger>
             <AccordionContent>
-              We only support wallet transactions, i.e., depositing the winning amount directly to
-              your wallet in the form of crypto or stablecoins.
+              Work is funded and paid in SPL tokens on Solana. USDC and SOL are common options, and you can connect a wallet when you are ready to manage on-chain funds.
             </AccordionContent>
           </AccordionItem>
-          {/* <AccordionItem value="item-4">
+          <AccordionItem value="item-4">
+            <AccordionTrigger>Do I need a crypto wallet to get started?</AccordionTrigger>
+            <AccordionContent>
+              No. You can sign up with email or a supported social sign-in without bringing a wallet. You can connect a wallet later if you want to manage on-chain funds directly.
+            </AccordionContent>
+          </AccordionItem>
+          {/* <AccordionItem value="item-5">
             <AccordionTrigger>Are there any fees for using gibwork?</AccordionTrigger>
             <AccordionContent>
               Gibwork charges a 5% service fee on transactions, the lowest in the industry!
             </AccordionContent>
           </AccordionItem> */}
-          {/* <AccordionItem value="item-5">
+          {/* <AccordionItem value="item-7">
             <AccordionTrigger>What is the purpose of the $WORK token?</AccordionTrigger>
             <AccordionContent>
               The $WORK Token provide access to a range of utilities within the platform, which could include community voting rights and participation in allocation of rewards funded by operational revenue.
