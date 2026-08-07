@@ -1,7 +1,7 @@
-export const updatedFaqItems = [
+export const UPDATED_GIBWORK_FAQ = [
   {
     question: "Do I need a crypto wallet to start?",
-    answer: "No. Sign up in seconds with email, Google, GitHub, X, Discord, Apple or LinkedIn — no wallet, no extension, no seed phrase. A wallet is created for you, and you can connect your own later if you prefer."
+    answer: "No. Sign up in seconds with email, Google, GitHub, X, Discord, Apple or LinkedIn — no wallet required. A wallet is created for you, and you can connect your own later if you prefer."
   },
   {
     question: "How do I get paid for completed work?",
