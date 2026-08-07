@@ -2,7 +2,7 @@
 
 import { SolanaLogoType } from "@/components/logo/solana";
 import { Button } from "@/components/ui/button";
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, Smartphone } from "lucide-react";
 import Image from "next/image";
 import dashboard from "@/public/dashboard-2.png";
 import { Badge } from "@/components/ui/badge";
@@ -40,6 +40,7 @@ export function Hero() {
 
       <motion.div variants={FADE_UP_ANIMATION_VARIANTS} className="relative z-0">
         <SparklesText
+          as="h1"
           text="Find Talent, Find Work"
           className="font-semibold text-5xl sm:text-6xl mt-4"
         />
@@ -53,11 +54,20 @@ export function Hero() {
         connects you with the perfect match.
       </motion.p>
 
-      <motion.div variants={FADE_UP_ANIMATION_VARIANTS}>
-        <Button className="group mt-8" asChild>
-          <Link href={siteConfig.appUrl} target="_blank">
+      <motion.div
+        variants={FADE_UP_ANIMATION_VARIANTS}
+        className="mt-8 flex flex-col sm:flex-row items-center justify-center gap-3"
+      >
+        <Button className="group" asChild>
+          <Link href={siteConfig.appUrl} target="_blank" rel="noreferrer">
             Get Started For Free
             <ArrowRight className="size-0 group-hover:size-5 transition-all -ml-2 group-hover:ml-0" />
+          </Link>
+        </Button>
+        <Button variant="outline" asChild>
+          <Link href={siteConfig.iosAppUrl} target="_blank" rel="noreferrer">
+            <Smartphone className="size-4" aria-hidden="true" />
+            Get the iOS app
           </Link>
         </Button>
       </motion.div>

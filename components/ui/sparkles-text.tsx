@@ -1,6 +1,6 @@
 "use client";
 
-import { CSSProperties, ReactElement, useEffect, useState } from "react";
+import { CSSProperties, useEffect, useState } from "react";
 import { motion } from "framer-motion";
 
 import { cn } from "@/lib/utils";
@@ -18,11 +18,11 @@ interface Sparkle {
 interface SparklesTextProps {
   /**
    * @default <div />
-   * @type ReactElement
+   * @type keyof JSX.IntrinsicElements
    * @description
    * The component to be rendered as the text
    * */
-  as?: ReactElement;
+  as?: keyof JSX.IntrinsicElements;
 
   /**
    * @default ""
@@ -65,6 +65,7 @@ const SparklesText: React.FC<SparklesTextProps> = ({
   colors = { first: "#9E7AFF", second: "#FE8BBB" },
   className,
   sparklesCount = 10,
+  as = "div",
   ...props
 }) => {
   const [sparkles, setSparkles] = useState<Sparkle[]>([]);
@@ -102,10 +103,12 @@ const SparklesText: React.FC<SparklesTextProps> = ({
     const interval = setInterval(updateStars, 100);
 
     return () => clearInterval(interval);
-  }, [colors.first, colors.second]);
+  }, [colors.first, colors.second, sparklesCount]);
+
+  const Component = as;
 
   return (
-    <div
+    <Component
       className={cn("text-6xl font-bold", className)}
       {...props}
       style={
@@ -121,7 +124,7 @@ const SparklesText: React.FC<SparklesTextProps> = ({
         ))}
         <strong>{text}</strong>
       </span>
-    </div>
+    </Component>
   );
 };
 

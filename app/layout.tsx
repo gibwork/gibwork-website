@@ -1,4 +1,4 @@
-import type { Metadata, ResolvingMetadata, Viewport } from "next";
+import type { Metadata, Viewport } from "next";
 import { Inter } from "next/font/google";
 import { cn } from "@/lib/utils";
 import { Providers } from "@/components/providers/providers";
@@ -6,22 +6,35 @@ import "./globals.css";
 
 const inter = Inter({ subsets: ["latin"] });
 
-export async function generateMetadata(
-  { params, searchParams }: any,
-  parent: ResolvingMetadata
-): Promise<Metadata> {
-  return {
-    title: "Gibwork | Find Talent, Find Work",
+export const metadata: Metadata = {
+  metadataBase: new URL("https://gib.work"),
+  title: "Gibwork | Find Talent, Find Work",
+  description:
+    "Post work, fund it in escrow, and pay on approval. Gibwork connects builders, designers, and creators with paid tasks and open-source bounties on Solana.",
+  alternates: {
+    canonical: "/",
+  },
+  openGraph: {
+    title: "Gibwork — find talent, find work",
     description:
-      "Gibwork connects skilled professionals with freelance work opportunities, offering seamless integration with all Solana tokens for secure and efficient transactions.",
-    openGraph: {
-      images: [`https://cdn.gib.work/metadata/default.png`],
-    },
-  };
-}
+      "Post work, fund it in escrow, and pay on approval. Find paid tasks and open-source bounties on Gibwork.",
+    url: "https://gib.work/",
+    images: ["https://cdn.gib.work/metadata/default.png"],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Gibwork — find talent, find work",
+    description:
+      "Post work, fund it in escrow, and pay on approval. Find paid tasks and open-source bounties on Gibwork.",
+    images: ["https://cdn.gib.work/metadata/default.png"],
+  },
+};
 
 export const viewport: Viewport = {
-  themeColor: "#ffffff",
+  themeColor: [
+    { media: "(prefers-color-scheme: light)", color: "#ffffff" },
+    { media: "(prefers-color-scheme: dark)", color: "#0a0a0a" },
+  ],
 };
 
 export default function RootLayout({
