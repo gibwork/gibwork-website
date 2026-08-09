@@ -10,6 +10,7 @@ import {
 import Image from "next/image";
 import { motion } from "framer-motion";
 import { FADE_UP_ANIMATION_VARIANTS } from "@/lib/framer-variants";
+import { siteConfig } from "@/lib/site-config";
 
 const workDetails = [
   // { image: "/tasks/image-04.png", title: "Create a FAQ list for gibwork", amount: 1, token: "sol" },
@@ -37,6 +38,27 @@ const workDetails = [
     title: "Use slug- to share a set of links on X or Reddit",
     amount: 100,
     token: "usdc",
+  },
+];
+
+const helpOptions = [
+  {
+    image: "https://cdn.gib.work/misc/open_source_bounty.png",
+    imageAlt: "Open Source Bounty",
+    title: "Open Source Bounty",
+    description: "Incentivize a pull request made from a Github issue.",
+  },
+  {
+    image: "https://cdn.gib.work/misc/simple_task.png",
+    imageAlt: "Simple Task",
+    title: "Simple Task",
+    description: "Small tasks achievable in a few hours.",
+  },
+  {
+    image: "https://cdn.gib.work/misc/services.png",
+    imageAlt: "Services",
+    title: "Services",
+    description: "Offer your skills and connect with users for custom services.",
   },
 ];
 
@@ -93,63 +115,28 @@ export function LookingFor() {
               variants={FADE_UP_ANIMATION_VARIANTS}
               className="grid lg:grid-cols-3 gap-4 mt-8 lg:max-w-full max-w-3xl mx-auto"
             >
-              {/* <Card className="overflow-hidden">
-                <div className="h-32 sm:h-40 bg-muted" />
-                <CardHeader className="border-t">
-                  <CardTitle className="text-lg">Ask a Question</CardTitle>
-                  <CardDescription>
-                    Tap into the network of experts to answer your question fast.
-                  </CardDescription>
-                </CardHeader>
-              </Card> */}
-
-              <Card className="overflow-hidden">
-                <Image
-                  src="https://cdn.gib.work/misc/open_source_bounty.png"
-                  alt="Open Source Bounty"
-                  className="h-40 w-full "
-                  width={100}
-                  height={100}
-                />
-                <CardHeader className="border-t">
-                  <CardTitle className="text-lg">Open Source Bounty</CardTitle>
-                  <CardDescription>
-                    Incentivize a pull request made from a Github issue.
-                  </CardDescription>
-                </CardHeader>
-              </Card>
-
-              <Card className="overflow-hidden">
-                <Image
-                  src="https://cdn.gib.work/misc/simple_task.png"
-                  alt="Open Source Bounty"
-                  className="h-40 w-full "
-                  width={100}
-                  height={100}
-                />
-                <CardHeader className="border-t">
-                  <CardTitle className="text-lg">Simple Task</CardTitle>
-                  <CardDescription>
-                    Small tasks achievable in a few hours.
-                  </CardDescription>
-                </CardHeader>
-              </Card>
-              <Card className="overflow-hidden">
-                <Image
-                  src="https://cdn.gib.work/misc/services.png"
-                  alt="Open Source Bounty"
-                  className="h-40 w-full "
-                  width={100}
-                  height={100}
-                />
-                <CardHeader className="border-t">
-                  <CardTitle className="text-lg">Services</CardTitle>
-                  <CardDescription>
-                    Offer your skills and connect with users for custom
-                    services.
-                  </CardDescription>
-                </CardHeader>
-              </Card>
+              {helpOptions.map((option) => (
+                <a
+                  key={option.title}
+                  href={siteConfig.appUrl}
+                  aria-label={`Create ${option.title} on Gibwork`}
+                  className="rounded-xl focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2"
+                >
+                  <Card className="h-full overflow-hidden transition-colors hover:bg-accent/50">
+                    <Image
+                      src={option.image}
+                      alt={option.imageAlt}
+                      className="h-40 w-full"
+                      width={100}
+                      height={100}
+                    />
+                    <CardHeader className="border-t">
+                      <CardTitle className="text-lg">{option.title}</CardTitle>
+                      <CardDescription>{option.description}</CardDescription>
+                    </CardHeader>
+                  </Card>
+                </a>
+              ))}
             </motion.div>
           </motion.div>
         </TabsContent>
