@@ -65,6 +65,24 @@ export function Footer() {
                 Docs
                 <ArrowRight className="inline-block size-4 group-hover:scale-100 scale-0 transition-all ml-1" />
               </Link>
+              <Link
+                href={siteConfig.androidUrl}
+                target="_blank"
+                rel="noreferrer"
+                className="text-muted-foreground transition-all hover:text-foreground group"
+              >
+                Android app
+                <ExternalLink className="inline-block size-4 group-hover:scale-100 scale-0 transition-all ml-1" />
+              </Link>
+              <Link
+                href={siteConfig.iosUrl}
+                target="_blank"
+                rel="noreferrer"
+                className="text-muted-foreground transition-all hover:text-foreground group"
+              >
+                iPhone app
+                <ExternalLink className="inline-block size-4 group-hover:scale-100 scale-0 transition-all ml-1" />
+              </Link>
             </div>
 
             <div className="text-sm flex flex-col gap-2 items-start">
