@@ -42,7 +42,7 @@ const workDetails = [
 
 export function LookingFor() {
   return (
-    <section className="relative max-w-5xl mx-auto w-full py-16 sm:py-24 px-4 sm:px-6">
+    <section id="about" className="relative max-w-5xl mx-auto w-full py-16 sm:py-24 px-4 sm:px-6">
       <Tabs defaultValue="1" className="w-full flex flex-col items-center">
         <motion.div
           variants={FADE_UP_ANIMATION_VARIANTS}
