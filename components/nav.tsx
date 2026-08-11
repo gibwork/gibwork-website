@@ -38,6 +38,9 @@ export function Nav() {
                 <Link href={"/#about"}>About</Link>
               </Button>
               <Button asChild variant={"ghost"} className="text-muted-foreground text-xs">
+                <Link href={"/#how-it-works"}>How it works</Link>
+              </Button>
+              <Button asChild variant={"ghost"} className="text-muted-foreground text-xs">
                 <Link href={"/#testimonial"}>Testimonial</Link>
               </Button>
               {/* <Button asChild variant={"ghost"} className="text-muted-foreground text-xs">
@@ -73,7 +76,7 @@ export function Nav() {
             </div>
 
             <Button asChild className="group">
-              <Link href={siteConfig.appUrl} target="_blank">
+                <Link href={siteConfig.appUrl} target="_blank" rel="noreferrer">
                 Open App
                 <ArrowRight className="size-0 group-hover:size-5 transition-all -ml-2 group-hover:ml-0" />
               </Link>
@@ -109,7 +112,7 @@ export function Nav() {
 
                 <div className="flex items-center gap-2">
                   <Button asChild className="group">
-                    <Link href={siteConfig.appUrl} target="_blank">
+                    <Link href={siteConfig.appUrl} target="_blank" rel="noreferrer">
                       Open App
                       <ArrowRight className="size-0 group-hover:size-5 transition-all -ml-2 group-hover:ml-0" />
                     </Link>
@@ -129,6 +132,14 @@ export function Nav() {
                   className="text-muted-foreground uppercase"
                 >
                   <Link href={"/#about"}>About</Link>
+                </Button>
+                <Button
+                  asChild
+                  variant={"ghost"}
+                  onClick={() => setIsOpen(false)}
+                  className="text-muted-foreground uppercase"
+                >
+                  <Link href={"/#how-it-works"}>How it works</Link>
                 </Button>
                 <Button
                   asChild
