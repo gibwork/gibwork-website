@@ -52,7 +52,7 @@ export function LookingFor() {
         >
           <TabsList className="mx-auto rounded-full">
             <TabsTrigger className="rounded-full px-4" value="1">
-              Looking for Help
+              Looking to Hire
             </TabsTrigger>
             <TabsTrigger className="rounded-full px-4" value="2">
               Looking for Work
@@ -78,15 +78,14 @@ export function LookingFor() {
               variants={FADE_UP_ANIMATION_VARIANTS}
               className="text-3xl sm:text-4xl text-center font-semibold"
             >
-              Get help from an expert
+              Hire skilled talent
             </motion.h2>
 
             <motion.p
               variants={FADE_UP_ANIMATION_VARIANTS}
               className="text-center mt-2 text-muted-foreground"
             >
-              Create work for others to complete and get the support you need to
-              achieve your goals.
+              Post a bounty or task, find the right talent, and get the work done.
             </motion.p>
 
             <motion.div
