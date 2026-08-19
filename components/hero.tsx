@@ -49,15 +49,24 @@ export function Hero() {
         variants={FADE_UP_ANIMATION_VARIANTS}
         className="max-w-2xl mt-4 w-full sm:text-lg text-muted-foreground"
       >
-        Whether you&apos;re searching for your next gig or seeking skilled individuals, our platform
-        connects you with the perfect match.
+        Find opportunities, complete tasks, and earn rewards seamlessly across web and mobile.
       </motion.p>
 
-      <motion.div variants={FADE_UP_ANIMATION_VARIANTS}>
-        <Button className="group mt-8" asChild>
+      <motion.div variants={FADE_UP_ANIMATION_VARIANTS} className="flex flex-wrap items-center justify-center gap-3 mt-8">
+        <Button className="group" asChild>
           <Link href={siteConfig.appUrl} target="_blank">
             Get Started For Free
             <ArrowRight className="size-0 group-hover:size-5 transition-all -ml-2 group-hover:ml-0" />
+          </Link>
+        </Button>
+        <Button variant="outline" asChild>
+          <Link href={siteConfig.appStoreUrl} target="_blank" rel="noopener noreferrer">
+            iOS App
+          </Link>
+        </Button>
+        <Button variant="outline" asChild>
+          <Link href={siteConfig.playStoreUrl} target="_blank" rel="noopener noreferrer">
+            Android App
           </Link>
         </Button>
       </motion.div>
