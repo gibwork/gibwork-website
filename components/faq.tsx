@@ -51,8 +51,7 @@ export function Faq() {
               What&apos;s the difference between a bounty and a task?
             </AccordionTrigger>
             <AccordionContent>
-              A bounty is a Github issue with a monetary reward.  A task is a
-              specific, often smaller job that needs to be completed.
+              A bounty is a paid opportunity — from a GitHub issue to a content, design, or marketing task — with a fixed reward. A task is typically a smaller, well-defined job you can complete quickly.
             </AccordionContent>
           </AccordionItem>
           <AccordionItem value="item-2">
@@ -66,6 +65,12 @@ export function Faq() {
             <AccordionContent>
               We only support wallet transactions, i.e., depositing the winning amount directly to
               your wallet in the form of crypto or stablecoins.
+            </AccordionContent>
+          </AccordionItem>
+          <AccordionItem value="item-4">
+            <AccordionTrigger>Can I use Gibwork on mobile?</AccordionTrigger>
+            <AccordionContent>
+              Yes — Gibwork is available on iOS and Android. Browse bounties, submit work, and track your earnings directly from the app.
             </AccordionContent>
           </AccordionItem>
           {/* <AccordionItem value="item-4">

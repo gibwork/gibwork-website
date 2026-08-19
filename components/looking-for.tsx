@@ -78,7 +78,7 @@ export function LookingFor() {
               variants={FADE_UP_ANIMATION_VARIANTS}
               className="text-3xl sm:text-4xl text-center font-semibold"
             >
-              Get help from an expert
+              Post work, get it done
             </motion.h2>
 
             <motion.p
@@ -122,31 +122,30 @@ export function LookingFor() {
               <Card className="overflow-hidden">
                 <Image
                   src="https://cdn.gib.work/misc/simple_task.png"
-                  alt="Open Source Bounty"
+                  alt="Content & Social"
                   className="h-40 w-full "
                   width={100}
                   height={100}
                 />
                 <CardHeader className="border-t">
-                  <CardTitle className="text-lg">Simple Task</CardTitle>
+                  <CardTitle className="text-lg">Content & Social</CardTitle>
                   <CardDescription>
-                    Small tasks achievable in a few hours.
+                    Writing, threads, and social media tasks for growing brands and projects.
                   </CardDescription>
                 </CardHeader>
               </Card>
               <Card className="overflow-hidden">
                 <Image
                   src="https://cdn.gib.work/misc/services.png"
-                  alt="Open Source Bounty"
+                  alt="Design & Creative"
                   className="h-40 w-full "
                   width={100}
                   height={100}
                 />
                 <CardHeader className="border-t">
-                  <CardTitle className="text-lg">Services</CardTitle>
+                  <CardTitle className="text-lg">Design & Creative</CardTitle>
                   <CardDescription>
-                    Offer your skills and connect with users for custom
-                    services.
+                    Branding, UI, and creative work for teams that need it done fast.
                   </CardDescription>
                 </CardHeader>
               </Card>

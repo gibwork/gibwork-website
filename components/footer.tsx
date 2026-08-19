@@ -58,6 +58,13 @@ export function Footer() {
                 <ArrowRight className="inline-block size-4 group-hover:scale-100 scale-0 transition-all ml-1" />
               </Link>
               <Link
+                href={"/#app"}
+                className="text-muted-foreground transition-all hover:text-foreground group"
+              >
+                Get the App
+                <ArrowRight className="inline-block size-4 group-hover:scale-100 scale-0 transition-all ml-1" />
+              </Link>
+              <Link
                 href={"https://docs.gib.work/"}
                  target="_blank"
                 className="text-muted-foreground transition-all hover:text-foreground group"

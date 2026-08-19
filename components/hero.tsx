@@ -40,7 +40,7 @@ export function Hero() {
 
       <motion.div variants={FADE_UP_ANIMATION_VARIANTS} className="relative z-0">
         <SparklesText
-          text="Find Talent, Find Work"
+          text="Get Paid for Real Work, From Anywhere"
           className="font-semibold text-5xl sm:text-6xl mt-4"
         />
       </motion.div>
@@ -49,8 +49,7 @@ export function Hero() {
         variants={FADE_UP_ANIMATION_VARIANTS}
         className="max-w-2xl mt-4 w-full sm:text-lg text-muted-foreground"
       >
-        Whether you&apos;re searching for your next gig or seeking skilled individuals, our platform
-        connects you with the perfect match.
+        Browse paid bounties in content, design, marketing, writing, and more. Complete tasks, get reviewed, and get paid — on the web or in the Gibwork app.
       </motion.p>
 
       <motion.div variants={FADE_UP_ANIMATION_VARIANTS}>
@@ -60,6 +59,18 @@ export function Hero() {
             <ArrowRight className="size-0 group-hover:size-5 transition-all -ml-2 group-hover:ml-0" />
           </Link>
         </Button>
+      </motion.div>
+
+      <motion.div
+        variants={FADE_UP_ANIMATION_VARIANTS}
+        className="flex items-center gap-3 mt-4"
+      >
+        <Link href={siteConfig.iosAppUrl} target="_blank">
+          <Image src="/app-store-badge.svg" alt="Download on the App Store" width={135} height={40} />
+        </Link>
+        <Link href={siteConfig.androidAppUrl} target="_blank">
+          <Image src="/google-play-badge.svg" alt="Get it on Google Play" width={135} height={40} />
+        </Link>
       </motion.div>
 
       <motion.div
