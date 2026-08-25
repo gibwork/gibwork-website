@@ -57,7 +57,10 @@ export function Hero() {
         <Button className="group mt-8" asChild>
           <Link href={siteConfig.appUrl} target="_blank">
             Get Started For Free
-            <ArrowRight className="size-0 group-hover:size-5 transition-all -ml-2 group-hover:ml-0" />
+            <ArrowRight
+              aria-hidden="true"
+              className="size-5 transition-transform group-hover:translate-x-0.5 group-focus-visible:translate-x-0.5 motion-reduce:transition-none"
+            />
           </Link>
         </Button>
       </motion.div>

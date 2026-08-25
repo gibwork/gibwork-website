@@ -41,7 +41,10 @@ export function CTA() {
         <Button asChild className="mt-8 group">
           <Link href={siteConfig.appUrl} target="_blank">
             Get Started
-            <ArrowRight className="size-0 group-hover:size-5 transition-all -ml-2 group-hover:ml-0" />
+            <ArrowRight
+              aria-hidden="true"
+              className="size-5 transition-transform group-hover:translate-x-0.5 group-focus-visible:translate-x-0.5 motion-reduce:transition-none"
+            />
           </Link>
         </Button>
       </motion.div>
