@@ -32,15 +32,15 @@ export function Hero() {
     >
       <motion.div variants={FADE_UP_ANIMATION_VARIANTS}>
         <Badge variant={"secondary"}>
-          <div className="size-1 rounded-full bg-muted-foreground mr-2" />
-          Introducing gibwork
-          <div className="size-1 rounded-full bg-muted-foreground ml-2" />
+          <div className="size-1 rounded-full bg-emerald-500 mr-2" />
+          Built on Solana
+          <div className="size-1 rounded-full bg-emerald-500 ml-2" />
         </Badge>
       </motion.div>
 
       <motion.div variants={FADE_UP_ANIMATION_VARIANTS} className="relative z-0">
         <SparklesText
-          text="Find Talent, Find Work"
+          text="Complete Bounties, Get Paid"
           className="font-semibold text-5xl sm:text-6xl mt-4"
         />
       </motion.div>
@@ -49,14 +49,14 @@ export function Hero() {
         variants={FADE_UP_ANIMATION_VARIANTS}
         className="max-w-2xl mt-4 w-full sm:text-lg text-muted-foreground"
       >
-        Whether you&apos;re searching for your next gig or seeking skilled individuals, our platform
-        connects you with the perfect match.
+        The on-chain work marketplace. Browse bounties, complete tasks on your phone or desktop,
+        and earn USDC directly to your wallet — no invoicing, no delays.
       </motion.p>
 
       <motion.div variants={FADE_UP_ANIMATION_VARIANTS}>
         <Button className="group mt-8" asChild>
           <Link href={siteConfig.appUrl} target="_blank">
-            Get Started For Free
+            Start Earning Now
             <ArrowRight className="size-0 group-hover:size-5 transition-all -ml-2 group-hover:ml-0" />
           </Link>
         </Button>

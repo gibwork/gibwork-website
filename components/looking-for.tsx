@@ -12,30 +12,22 @@ import { motion } from "framer-motion";
 import { FADE_UP_ANIMATION_VARIANTS } from "@/lib/framer-variants";
 
 const workDetails = [
-  // { image: "/tasks/image-04.png", title: "Create a FAQ list for gibwork", amount: 1, token: "sol" },
-
   {
     image: "/tasks/image-01.png",
-    title: "Design gibwork's new landing page",
-    amount: 500,
+    title: "Improve an open-source landing page",
+    amount: 150,
     token: "usdc",
   },
   {
     image: "/tasks/image-02.png",
-    title: "Create developer challenges for Zircon",
-    amount: 500,
+    title: "Test a Telegram bot onboarding flow",
+    amount: 20,
     token: "usdc",
   },
-  // {
-  //   image: "/tasks/image-04.png",
-  //   title: "Share a link to your most used dApp",
-  //   amount: 100,
-  //   token: "usdc",
-  // },
   {
     image: "/tasks/image-03.png",
-    title: "Use slug- to share a set of links on X or Reddit",
-    amount: 100,
+    title: "Write a social media post for a DeFi project",
+    amount: 50,
     token: "usdc",
   },
 ];
@@ -78,15 +70,14 @@ export function LookingFor() {
               variants={FADE_UP_ANIMATION_VARIANTS}
               className="text-3xl sm:text-4xl text-center font-semibold"
             >
-              Get help from an expert
+              Post a bounty, get it done
             </motion.h2>
 
             <motion.p
               variants={FADE_UP_ANIMATION_VARIANTS}
               className="text-center mt-2 text-muted-foreground"
             >
-              Create work for others to complete and get the support you need to
-              achieve your goals.
+              Fund a GitHub issue or post a task. Pay only when the work is approved and delivered.
             </motion.p>
 
             <motion.div
