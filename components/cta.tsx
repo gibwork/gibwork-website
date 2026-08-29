@@ -1,7 +1,7 @@
 "use client";
 
 import { Button } from "@/components/ui/button";
-import { ArrowRight } from "lucide-react";
+import { CtaArrow } from "@/components/ui/cta-arrow";
 import Ripple from "./ui/ripple";
 import { motion } from "framer-motion";
 import { FADE_UP_ANIMATION_VARIANTS } from "@/lib/framer-variants";
@@ -41,10 +41,7 @@ export function CTA() {
         <Button asChild className="mt-8 group">
           <Link href={siteConfig.appUrl} target="_blank">
             Get Started
-            <ArrowRight
-              aria-hidden="true"
-              className="size-5 transition-transform group-hover:translate-x-0.5 group-focus-visible:translate-x-0.5 motion-reduce:transition-none"
-            />
+            <CtaArrow />
           </Link>
         </Button>
       </motion.div>

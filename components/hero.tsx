@@ -2,7 +2,7 @@
 
 import { SolanaLogoType } from "@/components/logo/solana";
 import { Button } from "@/components/ui/button";
-import { ArrowRight } from "lucide-react";
+import { CtaArrow } from "@/components/ui/cta-arrow";
 import Image from "next/image";
 import dashboard from "@/public/dashboard-2.png";
 import { Badge } from "@/components/ui/badge";
@@ -57,10 +57,7 @@ export function Hero() {
         <Button className="group mt-8" asChild>
           <Link href={siteConfig.appUrl} target="_blank">
             Get Started For Free
-            <ArrowRight
-              aria-hidden="true"
-              className="size-5 transition-transform group-hover:translate-x-0.5 group-focus-visible:translate-x-0.5 motion-reduce:transition-none"
-            />
+            <CtaArrow />
           </Link>
         </Button>
       </motion.div>

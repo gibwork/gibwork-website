@@ -3,7 +3,8 @@
 import { DiscordLogoMark } from "@/components/logo/discord";
 import { TwitterLogoMark } from "@/components/logo/twitter";
 import { Button } from "@/components/ui/button";
-import { ArrowRight, Menu, X } from "lucide-react";
+import { CtaArrow } from "@/components/ui/cta-arrow";
+import { Menu, X } from "lucide-react";
 import Link from "next/link";
 import Image from "next/image";
 import logo from "@/public/work-logo.png";
@@ -75,10 +76,7 @@ export function Nav() {
             <Button asChild className="group">
               <Link href={siteConfig.appUrl} target="_blank">
                 Open App
-                <ArrowRight
-                  aria-hidden="true"
-                  className="size-5 transition-transform group-hover:translate-x-0.5 group-focus-visible:translate-x-0.5 motion-reduce:transition-none"
-                />
+                <CtaArrow />
               </Link>
             </Button>
 
@@ -114,10 +112,7 @@ export function Nav() {
                   <Button asChild className="group">
                     <Link href={siteConfig.appUrl} target="_blank">
                       Open App
-                      <ArrowRight
-                        aria-hidden="true"
-                        className="size-5 transition-transform group-hover:translate-x-0.5 group-focus-visible:translate-x-0.5 motion-reduce:transition-none"
-                      />
+                      <CtaArrow />
                     </Link>
                   </Button>
 
