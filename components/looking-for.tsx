@@ -11,31 +11,33 @@ import Image from "next/image";
 import { motion } from "framer-motion";
 import { FADE_UP_ANIMATION_VARIANTS } from "@/lib/framer-variants";
 
+// NOTE: this is a static snapshot mirroring what's live on app.gib.work right
+// now. Once there's an endpoint for open bounties, swap this for a fetch
+// (e.g. in a server component, or client-side with SWR/React Query) so the
+// list stays current instead of going stale like the old demo data did.
 const workDetails = [
-  // { image: "/tasks/image-04.png", title: "Create a FAQ list for gibwork", amount: 1, token: "sol" },
-
   {
     image: "/tasks/image-01.png",
-    title: "Design gibwork's new landing page",
-    amount: 500,
+    title: "Download, Rate & Review RafTech App",
+    amount: 12,
     token: "usdc",
   },
   {
     image: "/tasks/image-02.png",
-    title: "Create developer challenges for Zircon",
-    amount: 500,
+    title: "Sign Up On VeryChat App",
+    amount: 3.5,
     token: "usdc",
   },
-  // {
-  //   image: "/tasks/image-04.png",
-  //   title: "Share a link to your most used dApp",
-  //   amount: 100,
-  //   token: "usdc",
-  // },
   {
     image: "/tasks/image-03.png",
-    title: "Use slug- to share a set of links on X or Reddit",
-    amount: 100,
+    title: "Test Geiger Bot onboarding bounty",
+    amount: 20,
+    token: "usdc",
+  },
+  {
+    image: "/tasks/image-04.png",
+    title: "Share How You Got Started with BASIS",
+    amount: 150,
     token: "usdc",
   },
 ];
@@ -106,7 +108,8 @@ export function LookingFor() {
               <Card className="overflow-hidden">
                 <Image
                   src="https://cdn.gib.work/misc/open_source_bounty.png"
-                  alt="Open Source Bounty"
+                  alt=""
+                  aria-hidden="true"
                   className="h-40 w-full "
                   width={100}
                   height={100}
@@ -122,7 +125,8 @@ export function LookingFor() {
               <Card className="overflow-hidden">
                 <Image
                   src="https://cdn.gib.work/misc/simple_task.png"
-                  alt="Open Source Bounty"
+                  alt=""
+                  aria-hidden="true"
                   className="h-40 w-full "
                   width={100}
                   height={100}
@@ -137,7 +141,8 @@ export function LookingFor() {
               <Card className="overflow-hidden">
                 <Image
                   src="https://cdn.gib.work/misc/services.png"
-                  alt="Open Source Bounty"
+                  alt=""
+                  aria-hidden="true"
                   className="h-40 w-full "
                   width={100}
                   height={100}
@@ -176,10 +181,10 @@ export function LookingFor() {
             </motion.h2>
             <motion.p
               variants={FADE_UP_ANIMATION_VARIANTS}
-              className="text-center mt-2 text-muted-foreground"
+              className="text-center mt-2 text-muted-foreground flex items-center justify-center"
             >
-              Discover work opportunities that you could do, complete the work,
-              and start earning.
+              <span className="live-dot" aria-hidden="true" />
+              Live bounties on gibwork right now
             </motion.p>
 
             <motion.div
@@ -194,6 +199,7 @@ export function LookingFor() {
                   <div className="relative aspect-square rounded-full shrink-0 w-12 bg-muted overflow-hidden">
                     <Image
                       alt=""
+                      aria-hidden="true"
                       fill
                       src={_detail.image}
                       className="h-full w-full object-cover"
@@ -203,10 +209,13 @@ export function LookingFor() {
                   <p className="font-semibold grow truncate">{_detail.title}</p>
 
                   <div className="font-semibold flex items-center justify-end gap-2 shrink-0">
-                    <p>{_detail.amount}</p>
+                    <p>
+                      {_detail.amount} {_detail.token.toUpperCase()}
+                    </p>
                     <div className="relative aspect-square rounded-full w-8 bg-muted overflow-hidden">
                       <Image
                         alt=""
+                        aria-hidden="true"
                         fill
                         src={`/token-${_detail.token}.png`}
                         className="h-full w-full object-cover"

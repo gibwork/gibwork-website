@@ -12,6 +12,33 @@ import {
 import { motion } from "framer-motion";
 import { FADE_UP_ANIMATION_VARIANTS } from "@/lib/framer-variants";
 
+const faqs = [
+  {
+    id: "item-6",
+    question: "How do I create Work on Gibwork?",
+    answer:
+      "Under the earnings display on the apps home page, click the \"Create\" buttons for creating Open Source Bounties and Task. These buttons guide you through the process of creating and posting jobs on the platform.",
+  },
+  {
+    id: "item-1",
+    question: "What's the difference between a bounty and a task?",
+    answer:
+      "A bounty is a Github issue with a monetary reward. A task is a specific, often smaller job that needs to be completed.",
+  },
+  {
+    id: "item-2",
+    question: "How do I get paid for completed work?",
+    answer:
+      "Once your work is approved by the creator, the funds will be released to your noncustodial wallet.",
+  },
+  {
+    id: "item-3",
+    question: "What payment methods does gibwork support?",
+    answer:
+      "We only support wallet transactions, i.e., depositing the winning amount directly to your wallet in the form of crypto or stablecoins.",
+  },
+];
+
 export function Faq() {
   return (
     <motion.section
@@ -27,65 +54,37 @@ export function Faq() {
         },
       }}
       id="faq"
-      className="relative py-16 sm:py-24 justify-between lg:flex-row flex-col gap-y-8 gap-x-16 px-4 sm:px-6 flex w-full max-w-7xl mx-auto"
+      className="relative py-16 sm:py-24 justify-between lg:flex-row flex-col gap-y-10 gap-x-16 px-4 sm:px-6 flex w-full max-w-7xl mx-auto"
     >
-      <motion.h2
-        variants={FADE_UP_ANIMATION_VARIANTS}
-        className="font-semibold text-3xl sm:text-4xl shrink-0 lg:text-left text-center"
-      >
-        FAQs
-      </motion.h2>
+      <motion.div variants={FADE_UP_ANIMATION_VARIANTS} className="shrink-0 lg:sticky top-24 lg:text-left text-center lg:max-w-xs">
+        <p className="text-primary font-semibold text-sm">FAQ</p>
+        <h2 className="font-semibold text-3xl sm:text-4xl mt-2">
+          Questions, answered
+        </h2>
+        <p className="mt-4 text-muted-foreground">
+          Can&apos;t find what you&apos;re looking for? Reach out on Discord and someone from the team will help.
+        </p>
+      </motion.div>
 
       <motion.div variants={FADE_UP_ANIMATION_VARIANTS} className="grow lg:max-w-3xl">
-        <Accordion type="single" collapsible>
-          <AccordionItem value="item-6">
-            <AccordionTrigger>How do I create Work on Gibwork?</AccordionTrigger>
-            <AccordionContent>
-              Under the earnings display on the apps home page, click the
-              &quot;Create&quot; buttons for creating Open Source Bounties and Task. These buttons guide you through the process of creating and posting jobs on the
-              platform.
-            </AccordionContent>
-          </AccordionItem>
-          <AccordionItem value="item-1">
-            <AccordionTrigger>
-              What&apos;s the difference between a bounty and a task?
-            </AccordionTrigger>
-            <AccordionContent>
-              A bounty is a Github issue with a monetary reward.  A task is a
-              specific, often smaller job that needs to be completed.
-            </AccordionContent>
-          </AccordionItem>
-          <AccordionItem value="item-2">
-            <AccordionTrigger>How do I get paid for completed work?</AccordionTrigger>
-            <AccordionContent>
-              Once your work is approved by the creator, the funds will be released to your noncustodial wallet.
-            </AccordionContent>
-          </AccordionItem>
-          <AccordionItem value="item-3">
-            <AccordionTrigger>What payment methods does gibwork support?</AccordionTrigger>
-            <AccordionContent>
-              We only support wallet transactions, i.e., depositing the winning amount directly to
-              your wallet in the form of crypto or stablecoins.
-            </AccordionContent>
-          </AccordionItem>
-          {/* <AccordionItem value="item-4">
-            <AccordionTrigger>Are there any fees for using gibwork?</AccordionTrigger>
-            <AccordionContent>
-              Gibwork charges a 5% service fee on transactions, the lowest in the industry!
-            </AccordionContent>
-          </AccordionItem> */}
-          {/* <AccordionItem value="item-5">
-            <AccordionTrigger>What is the purpose of the $WORK token?</AccordionTrigger>
-            <AccordionContent>
-              The $WORK Token provide access to a range of utilities within the platform, which could include community voting rights and participation in allocation of rewards funded by operational revenue.
-            </AccordionContent>
-          </AccordionItem>
-          <AccordionItem value="item-7">
-            <AccordionTrigger>Where can I get $WORK?</AccordionTrigger>
-            <AccordionContent>
-              You can seamlessly swap any SPL token for $WORK by using the platform at <a className="text-violet-600" href="https://jup.ag/swap/SOL-WORK">https://jup.ag/swap/SOL-WORK</a>.
-            </AccordionContent>
-          </AccordionItem> */}
+        <Accordion type="single" collapsible className="flex flex-col gap-3">
+          {faqs.map((faq, i) => (
+            <AccordionItem
+              key={faq.id}
+              value={faq.id}
+              className="border rounded-lg bg-card px-5 transition-colors hover:border-primary/40 data-[state=open]:border-primary/50"
+            >
+              <AccordionTrigger className="hover:no-underline py-5 [&>svg]:shrink-0">
+                <span className="flex items-start gap-4 text-left">
+                  <span className="text-primary font-mono text-sm mt-0.5 shrink-0">
+                    {String(i + 1).padStart(2, "0")}
+                  </span>
+                  <span>{faq.question}</span>
+                </span>
+              </AccordionTrigger>
+              <AccordionContent className="pl-9">{faq.answer}</AccordionContent>
+            </AccordionItem>
+          ))}
         </Accordion>
       </motion.div>
     </motion.section>
