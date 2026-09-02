@@ -40,6 +40,7 @@ export function Hero() {
 
       <motion.div variants={FADE_UP_ANIMATION_VARIANTS} className="relative z-0">
         <SparklesText
+          as="h1"
           text="Find Talent, Find Work"
           className="font-semibold text-5xl sm:text-6xl mt-4"
         />
