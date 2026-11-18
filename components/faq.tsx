@@ -58,14 +58,13 @@ export function Faq() {
           <AccordionItem value="item-2">
             <AccordionTrigger>How do I get paid for completed work?</AccordionTrigger>
             <AccordionContent>
-              Once your work is approved by the creator, the funds will be released to your noncustodial wallet.
+              Once your work is approved by the creator, the funds will be released to your registered email address or your account on Gibwork.
             </AccordionContent>
           </AccordionItem>
           <AccordionItem value="item-3">
             <AccordionTrigger>What payment methods does gibwork support?</AccordionTrigger>
             <AccordionContent>
-              We only support wallet transactions, i.e., depositing the winning amount directly to
-              your wallet in the form of crypto or stablecoins.
+              We support both wallet transactions and email payouts, allowing you to receive the winning amount directly to your wallet in the form of crypto or stablecoins, or via email to your account.
             </AccordionContent>
           </AccordionItem>
           {/* <AccordionItem value="item-4">
@@ -79,7 +78,7 @@ export function Faq() {
             <AccordionContent>
               The $WORK Token provide access to a range of utilities within the platform, which could include community voting rights and participation in allocation of rewards funded by operational revenue.
             </AccordionContent>
-          </AccordionItem>
+          </AccordionItem> */}
           <AccordionItem value="item-7">
             <AccordionTrigger>Where can I get $WORK?</AccordionTrigger>
             <AccordionContent>
