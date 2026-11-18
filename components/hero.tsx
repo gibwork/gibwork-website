@@ -11,8 +11,7 @@ import { siteConfig } from "@/lib/site-config";
 import SparklesText from "./ui/sparkles-text";
 import { motion } from "framer-motion";
 import { FADE_UP_ANIMATION_VARIANTS } from "@/lib/framer-variants";
-import { Clipboard } from "flowbite-react"
-
+import { Clipboard } from "flowbite-react";
 
 export function Hero() {
   return (
@@ -38,21 +37,24 @@ export function Hero() {
         </Badge>
       </motion.div>
 
+      {/* Updated headline */}
       <motion.div variants={FADE_UP_ANIMATION_VARIANTS} className="relative z-0">
         <SparklesText
-          text="Find Talent, Find Work"
+          text="Earn Crypto for Everyday Tasks & Code Contributions"
           className="font-semibold text-5xl sm:text-6xl mt-4"
         />
       </motion.div>
 
+      {/* Updated subheadline */}
       <motion.p
         variants={FADE_UP_ANIMATION_VARIANTS}
         className="max-w-2xl mt-4 w-full sm:text-lg text-muted-foreground"
       >
-        Whether you&apos;re searching for your next gig or seeking skilled individuals, our platform
-        connects you with the perfect match.
+        Complete bounties, solve GitHub issues, and get paid instantly in Solana SPL
+        tokens. Built for builders, creators, and online earners.
       </motion.p>
 
+      {/* Primary CTA */}
       <motion.div variants={FADE_UP_ANIMATION_VARIANTS}>
         <Button className="group mt-8" asChild>
           <Link href={siteConfig.appUrl} target="_blank">
@@ -62,55 +64,22 @@ export function Hero() {
         </Button>
       </motion.div>
 
+      {/* New App Store buttons */}
       <motion.div
         variants={FADE_UP_ANIMATION_VARIANTS}
-        className="flex items-center gap-2 text-sm mt-4"
+        className="flex gap-4 mt-4"
       >
-
-        <span className="opacity-80">powered by</span>
-        <Link
-          href={"https://solana.com/"}
-          target="_blank"
-          className="hover:scale-105 transition-all"
-        >
-          <SolanaLogoType className="w-20 fill-foreground" />
-        </Link>
+        <Button asChild variant="secondary">
+          <Link href={siteConfig.googlePlayUrl ?? "#"} target="_blank">
+            Google Play
+          </Link>
+        </Button>
+        <Button asChild variant="secondary">
+          <Link href={siteConfig.appleAppStoreUrl ?? "#"} target="_blank">
+            App Store
+          </Link>
+        </Button>
       </motion.div>
 
-      {/* <motion.div
-        variants={FADE_UP_ANIMATION_VARIANTS}
-        className="flex items-center gap-2 text-sm mt-4 p-1 font-light"
-      >
-        <div className="flex relative flex-row bg-stone-100 rounded-sm">
-          <div className="flex justify-center align-middle pt-2 mb-2 px-1">
-            <img src="https://media.gib.work/work-logo.png" className="rounded-full w-5" />
-            <span className="ms-2 opacity-80 font-medium md:visible hidden">CA</span>
-          </div>
-          <div className="md:flex hidden pt-2">
-            F7Hwf8ib5DVCoiuyGr618Y3gon429Rnd1r5F9R5upump
-          </div>
-          <div className="flex md:hidden pt-2">
-            F7Hwf8ib5D.....d1r5F9R5upump
-          </div>
-          <div className="bg-stone-100 hidden md:flex items-center w-16 py-1 justify-center border-s-2 border-white ms-1 rounded-e-lg">
-            <Clipboard.WithIconText className="bg-stone-50 border-none p-0 px-1 text-black hover:text-black"
-              valueToCopy="F7Hwf8ib5DVCoiuyGr618Y3gon429Rnd1r5F9R5upump" />
-          </div>
-          <div className="bg-stone-100 block w-16 md:hidden items-center justify-start border-s-2 border-white ms-1 rounded-e-lg">
-            <Clipboard.WithIconText className="bg-stone-100 border-none p-0 pt-2 px-1 flex text-black hover:text-black"
-              valueToCopy="F7Hwf8ib5DVCoiuyGr618Y3gon429Rnd1r5F9R5upump" />
-          </div>
-        </div>
-      </motion.div> */}
-
-      <motion.div variants={FADE_UP_ANIMATION_VARIANTS} className="mt-16 sm:mt-24 relative z-0">
-        <div className="rounded-t-lg bg-foreground/5 h-3 mx-12" />
-        <div className="rounded-t-lg bg-foreground/10 h-3 mx-6" />
-        <div className="rounded-lg overflow-hidden border bg-muted w-full">
-          <Image alt="" src={dashboard} />
-        </div>
-        <div className="absolute inset-0 bg-gradient-to-t from-background via-background/60" />
-      </motion.div>
-    </motion.section>
-  );
-}
+      <motion.div
+        variants={FADE_UP_ANIMATION
