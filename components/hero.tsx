@@ -11,10 +11,16 @@ import { siteConfig } from "@/lib/site-config";
 import SparklesText from "./ui/sparkles-text";
 import { motion } from "framer-motion";
 import { FADE_UP_ANIMATION_VARIANTS } from "@/lib/framer-variants";
-import { Clipboard } from "flowbite-react"
-
+import { Clipboard } from "flowbite-react";
+import { useSearchParams } from "next/navigation";
 
 export function Hero() {
+  const searchParams = useSearchParams();
+  const ref = searchParams.get("ref");
+  const appHref = ref
+    ? `${siteConfig.appUrl}${siteConfig.appUrl.includes("?") ? "&" : "?"}ref=${ref}`
+    : siteConfig.appUrl;
+
   return (
     <motion.section
       initial="hidden"
@@ -55,7 +61,7 @@ export function Hero() {
 
       <motion.div variants={FADE_UP_ANIMATION_VARIANTS}>
         <Button className="group mt-8" asChild>
-          <Link href={siteConfig.appUrl} target="_blank">
+          <Link href={appHref} target="_blank">
             Get Started For Free
             <ArrowRight className="size-0 group-hover:size-5 transition-all -ml-2 group-hover:ml-0" />
           </Link>
