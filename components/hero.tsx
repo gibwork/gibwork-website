@@ -49,8 +49,7 @@ export function Hero() {
         variants={FADE_UP_ANIMATION_VARIANTS}
         className="max-w-2xl mt-4 w-full sm:text-lg text-muted-foreground"
       >
-        Whether you&apos;re searching for your next gig or seeking skilled individuals, our platform
-        connects you with the perfect match.
+        Whether you&apos;re searching for your next gig or seeking skilled individuals, our platform connects you with the perfect match. Explore our mobile app, browse a wide range of task categories, and enjoy a complete workflow for browsing, submitting, tracking, and receiving payouts.
       </motion.p>
 
       <motion.div variants={FADE_UP_ANIMATION_VARIANTS}>
@@ -90,27 +89,4 @@ export function Hero() {
             F7Hwf8ib5DVCoiuyGr618Y3gon429Rnd1r5F9R5upump
           </div>
           <div className="flex md:hidden pt-2">
-            F7Hwf8ib5D.....d1r5F9R5upump
-          </div>
-          <div className="bg-stone-100 hidden md:flex items-center w-16 py-1 justify-center border-s-2 border-white ms-1 rounded-e-lg">
-            <Clipboard.WithIconText className="bg-stone-50 border-none p-0 px-1 text-black hover:text-black"
-              valueToCopy="F7Hwf8ib5DVCoiuyGr618Y3gon429Rnd1r5F9R5upump" />
-          </div>
-          <div className="bg-stone-100 block w-16 md:hidden items-center justify-start border-s-2 border-white ms-1 rounded-e-lg">
-            <Clipboard.WithIconText className="bg-stone-100 border-none p-0 pt-2 px-1 flex text-black hover:text-black"
-              valueToCopy="F7Hwf8ib5DVCoiuyGr618Y3gon429Rnd1r5F9R5upump" />
-          </div>
-        </div>
-      </motion.div> */}
-
-      <motion.div variants={FADE_UP_ANIMATION_VARIANTS} className="mt-16 sm:mt-24 relative z-0">
-        <div className="rounded-t-lg bg-foreground/5 h-3 mx-12" />
-        <div className="rounded-t-lg bg-foreground/10 h-3 mx-6" />
-        <div className="rounded-lg overflow-hidden border bg-muted w-full">
-          <Image alt="" src={dashboard} />
-        </div>
-        <div className="absolute inset-0 bg-gradient-to-t from-background via-background/60" />
-      </motion.div>
-    </motion.section>
-  );
-}
+            F7Hwf8ib5D.....d1r5F9
