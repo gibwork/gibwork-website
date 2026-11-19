@@ -26,11 +26,13 @@ export const viewport: Viewport = {
 
 export default function RootLayout({
   children,
+  params,
 }: Readonly<{
   children: React.ReactNode;
+  params: { locale: string };
 }>) {
   return (
-    <html lang="en" suppressHydrationWarning>
+    <html lang={params?.locale ?? "en"} suppressHydrationWarning>
       <body className={cn("flex min-h-screen flex-col", inter.className)}>
         <Providers>{children}</Providers>
       </body>
