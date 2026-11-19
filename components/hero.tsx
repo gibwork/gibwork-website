@@ -62,6 +62,16 @@ export function Hero() {
         </Button>
       </motion.div>
 
+      {/* New button to highlight mobile app availability */}
+      <motion.div variants={FADE_UP_ANIMATION_VARIANTS}>
+        <Button className="group mt-4" asChild>
+          <Link href={siteConfig.appUrl} target="_blank">
+            Open App
+            <ArrowRight className="size-0 group-hover:size-5 transition-all -ml-2 group-hover:ml-0" />
+          </Link>
+        </Button>
+      </motion.div>
+
       <motion.div
         variants={FADE_UP_ANIMATION_VARIANTS}
         className="flex items-center gap-2 text-sm mt-4"
