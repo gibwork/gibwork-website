@@ -55,7 +55,7 @@ export function Hero() {
 
       <motion.div variants={FADE_UP_ANIMATION_VARIANTS}>
         <Button className="group mt-8" asChild>
-          <Link href={siteConfig.appUrl} target="_blank">
+          <Link href={siteConfig.appUrl} target="_blank" rel="noopener noreferrer">
             Get Started For Free
             <ArrowRight className="size-0 group-hover:size-5 transition-all -ml-2 group-hover:ml-0" />
           </Link>
@@ -107,7 +107,7 @@ export function Hero() {
         <div className="rounded-t-lg bg-foreground/5 h-3 mx-12" />
         <div className="rounded-t-lg bg-foreground/10 h-3 mx-6" />
         <div className="rounded-lg overflow-hidden border bg-muted w-full">
-          <Image alt="" src={dashboard} />
+          <Image alt="" src={dashboard} width={1200} height={800} />
         </div>
         <div className="absolute inset-0 bg-gradient-to-t from-background via-background/60" />
       </motion.div>
