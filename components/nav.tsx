@@ -9,13 +9,39 @@ import Image from "next/image";
 import logo from "@/public/work-logo.png";
 import { YoutubeLogoMark } from "./logo/youtube";
 import { siteConfig } from "@/lib/site-config";
-import { useState } from "react";
+import { useState, useRef, useEffect } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { FADE_IN, FADE_UP_ANIMATION_VARIANTS } from "@/lib/framer-variants";
 import { Separator } from "./ui/separator";
 
 export function Nav() {
   const [isOpen, setIsOpen] = useState(false);
+  const overlayRef = useRef<HTMLDivElement>(null);
+
+  // Focus trap logic
+  useEffect(() => {
+    if (isOpen && overlayRef.current) {
+      overlayRef.current.focus();
+    }
+  }, [isOpen]);
+
+  const handleKeyDown = (e: React.KeyboardEvent<HTMLDivElement>) => {
+    if (e.key !== "Tab") return;
+    const focusable = overlayRef.current?.querySelectorAll<HTMLElement>(
+      'a[href], button, textarea, input, select, [tabindex]:not([tabindex="-1"])'
+    );
+    if (!focusable || focusable.length === 0) return;
+    const focusArray = Array.from(focusable);
+    const currentIndex = focusArray.indexOf(document.activeElement as HTMLElement);
+    let nextIndex = currentIndex;
+    if (e.shiftKey) {
+      nextIndex = currentIndex <= 0 ? focusArray.length - 1 : currentIndex - 1;
+    } else {
+      nextIndex = currentIndex >= focusArray.length - 1 ? 0 : currentIndex + 1;
+    }
+    e.preventDefault();
+    focusArray[nextIndex].focus();
+  };
 
   return (
     <>
@@ -99,6 +125,11 @@ export function Nav() {
             animate="show"
             exit="hidden"
             className="fixed inset-0 bg-background z-10 overflow-auto"
+            ref={overlayRef}
+            role="dialog"
+            aria-modal="true"
+            tabIndex={-1}
+            onKeyDown={handleKeyDown}
           >
             <div className="flex flex-col">
               <div className="sm:px-6 px-4 h-16 flex justify-between items-center">
