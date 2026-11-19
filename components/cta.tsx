@@ -38,7 +38,7 @@ export function CTA() {
       </motion.p>
 
       <motion.div variants={FADE_UP_ANIMATION_VARIANTS}>
-        <Button asChild className="mt-8 group">
+        <Button className="mt-8 group">
           <Link href={siteConfig.appUrl} target="_blank">
             Get Started
             <ArrowRight className="size-0 group-hover:size-5 transition-all -ml-2 group-hover:ml-0" />
