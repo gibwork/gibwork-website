@@ -40,7 +40,7 @@ export function Hero() {
 
       <motion.div variants={FADE_UP_ANIMATION_VARIANTS} className="relative z-0">
         <SparklesText
-          text="Find Talent, Find Work"
+          text="Complete Tasks. Earn Crypto. On-Chain."
           className="font-semibold text-5xl sm:text-6xl mt-4"
         />
       </motion.div>
@@ -49,8 +49,7 @@ export function Hero() {
         variants={FADE_UP_ANIMATION_VARIANTS}
         className="max-w-2xl mt-4 w-full sm:text-lg text-muted-foreground"
       >
-        Whether you&apos;re searching for your next gig or seeking skilled individuals, our platform
-        connects you with the perfect match.
+        Gibwork is the open work marketplace where contributors earn USDC and Solana tokens by completing real tasks — from social campaigns to open source bounties.
       </motion.p>
 
       <motion.div variants={FADE_UP_ANIMATION_VARIANTS}>
