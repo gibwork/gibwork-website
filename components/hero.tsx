@@ -107,10 +107,15 @@ export function Hero() {
         <div className="rounded-t-lg bg-foreground/5 h-3 mx-12" />
         <div className="rounded-t-lg bg-foreground/10 h-3 mx-6" />
         <div className="rounded-lg overflow-hidden border bg-muted w-full">
-          <Image alt="" src={dashboard} />
+          <Image
+            alt="Dashboard screenshot"
+            src={dashboard}
+            width={dashboard.width}
+            height={dashboard.height}
+          />
         </div>
         <div className="absolute inset-0 bg-gradient-to-t from-background via-background/60" />
       </motion.div>
     </motion.section>
   );
-}
+}
