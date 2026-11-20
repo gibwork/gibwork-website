@@ -17,6 +17,10 @@ export async function generateMetadata(
     openGraph: {
       images: [`https://cdn.gib.work/metadata/default.png`],
     },
+    itunes: {
+      appId: "6757281508",
+      appArgument: "https://app.gib.work/6757281508",
+    },
   };
 }
 
