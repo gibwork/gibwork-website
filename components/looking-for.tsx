@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import {
   Card,
@@ -103,53 +104,60 @@ export function LookingFor() {
                 </CardHeader>
               </Card> */}
 
-              <Card className="overflow-hidden">
-                <Image
-                  src="https://cdn.gib.work/misc/open_source_bounty.png"
-                  alt="Open Source Bounty"
-                  className="h-40 w-full "
-                  width={100}
-                  height={100}
-                />
-                <CardHeader className="border-t">
-                  <CardTitle className="text-lg">Open Source Bounty</CardTitle>
-                  <CardDescription>
-                    Incentivize a pull request made from a Github issue.
-                  </CardDescription>
-                </CardHeader>
-              </Card>
+              <Link href="/bounties" className="block">
+                <Card className="overflow-hidden cursor-pointer">
+                  <Image
+                    src="https://cdn.gib.work/misc/open_source_bounty.png"
+                    alt="Open Source Bounty"
+                    className="h-40 w-full "
+                    width={100}
+                    height={100}
+                  />
+                  <CardHeader className="border-t">
+                    <CardTitle className="text-lg">Open Source Bounty</CardTitle>
+                    <CardDescription>
+                      Incentivize a pull request made from a Github issue.
+                    </CardDescription>
+                  </CardHeader>
+                </Card>
+              </Link>
 
-              <Card className="overflow-hidden">
-                <Image
-                  src="https://cdn.gib.work/misc/simple_task.png"
-                  alt="Open Source Bounty"
-                  className="h-40 w-full "
-                  width={100}
-                  height={100}
-                />
-                <CardHeader className="border-t">
-                  <CardTitle className="text-lg">Simple Task</CardTitle>
-                  <CardDescription>
-                    Small tasks achievable in a few hours.
-                  </CardDescription>
-                </CardHeader>
-              </Card>
-              <Card className="overflow-hidden">
-                <Image
-                  src="https://cdn.gib.work/misc/services.png"
-                  alt="Open Source Bounty"
-                  className="h-40 w-full "
-                  width={100}
-                  height={100}
-                />
-                <CardHeader className="border-t">
-                  <CardTitle className="text-lg">Services</CardTitle>
-                  <CardDescription>
-                    Offer your skills and connect with users for custom
-                    services.
-                  </CardDescription>
-                </CardHeader>
-              </Card>
+              <Link href="/simple-task" className="block">
+                <Card className="overflow-hidden cursor-pointer">
+                  <Image
+                    src="https://cdn.gib.work/misc/simple_task.png"
+                    alt="Simple Task"
+                    className="h-40 w-full "
+                    width={100}
+                    height={100}
+                  />
+                  <CardHeader className="border-t">
+                    <CardTitle className="text-lg">Simple Task</CardTitle>
+                    <CardDescription>
+                      Small tasks achievable in a few hours.
+                    </CardDescription>
+                  </CardHeader>
+                </Card>
+              </Link>
+
+              <Link href="/services" className="block">
+                <Card className="overflow-hidden cursor-pointer">
+                  <Image
+                    src="https://cdn.gib.work/misc/services.png"
+                    alt="Services"
+                    className="h-40 w-full "
+                    width={100}
+                    height={100}
+                  />
+                  <CardHeader className="border-t">
+                    <CardTitle className="text-lg">Services</CardTitle>
+                    <CardDescription>
+                      Offer your skills and connect with users for custom
+                      services.
+                    </CardDescription>
+                  </CardHeader>
+                </Card>
+              </Link>
             </motion.div>
           </motion.div>
         </TabsContent>
@@ -221,4 +229,4 @@ export function LookingFor() {
       </Tabs>
     </section>
   );
-}
+}
