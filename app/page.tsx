@@ -12,6 +12,30 @@ export default function Home() {
     <div className="flex flex-col z-0 relative">
       <Nav />
       <Hero />
+      {/* Mobile App Section */}
+      <div className="py-12 bg-gray-100">
+        <h2 className="text-2xl font-bold text-center mb-4">
+          Now available on iOS & Android
+        </h2>
+        <p className="text-center mb-8">
+          Work from anywhere, get paid instantly. The Gibwork mobile app puts the entire platform in your pocket.
+        </p>
+        <div className="flex justify-center space-x-4">
+          <a
+            href="#"
+            className="bg-black text-white px-4 py-2 rounded hover:bg-gray-800 transition"
+          >
+            App Store
+          </a>
+          <a
+            href="#"
+            className="bg-green-600 text-white px-4 py-2 rounded hover:bg-green-700 transition"
+          >
+            Google Play
+          </a>
+        </div>
+      </div>
+      {/* End Mobile App Section */}
       <LogoList />
       <LookingFor />
       <Testimonial />
@@ -20,4 +44,4 @@ export default function Home() {
       <Footer />
     </div>
   );
-}
+}
