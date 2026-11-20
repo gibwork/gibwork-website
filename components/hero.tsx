@@ -11,8 +11,7 @@ import { siteConfig } from "@/lib/site-config";
 import SparklesText from "./ui/sparkles-text";
 import { motion } from "framer-motion";
 import { FADE_UP_ANIMATION_VARIANTS } from "@/lib/framer-variants";
-import { Clipboard } from "flowbite-react"
-
+import { Clipboard } from "flowbite-react";
 
 export function Hero() {
   return (
@@ -40,7 +39,7 @@ export function Hero() {
 
       <motion.div variants={FADE_UP_ANIMATION_VARIANTS} className="relative z-0">
         <SparklesText
-          text="Find Talent, Find Work"
+          text="Find Work. Get Paid Instantly on Solana."
           className="font-semibold text-5xl sm:text-6xl mt-4"
         />
       </motion.div>
@@ -49,8 +48,7 @@ export function Hero() {
         variants={FADE_UP_ANIMATION_VARIANTS}
         className="max-w-2xl mt-4 w-full sm:text-lg text-muted-foreground"
       >
-        Whether you&apos;re searching for your next gig or seeking skilled individuals, our platform
-        connects you with the perfect match.
+        Discover bounties, complete tasks, and earn in any Solana token — right from your phone.
       </motion.p>
 
       <motion.div variants={FADE_UP_ANIMATION_VARIANTS}>
@@ -66,7 +64,6 @@ export function Hero() {
         variants={FADE_UP_ANIMATION_VARIANTS}
         className="flex items-center gap-2 text-sm mt-4"
       >
-
         <span className="opacity-80">powered by</span>
         <Link
           href={"https://solana.com/"}
@@ -113,4 +110,4 @@ export function Hero() {
       </motion.div>
     </motion.section>
   );
-}
+}
