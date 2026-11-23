@@ -10,6 +10,8 @@ import {
 import Image from "next/image";
 import { motion } from "framer-motion";
 import { FADE_UP_ANIMATION_VARIANTS } from "@/lib/framer-variants";
+import { siteConfig } from "@/lib/site-config";
+import { AppCtaLink } from "@/components/ui/app-cta-link";
 
 const workDetails = [
   // { image: "/tasks/image-04.png", title: "Create a FAQ list for gibwork", amount: 1, token: "sol" },
@@ -103,53 +105,71 @@ export function LookingFor() {
                 </CardHeader>
               </Card> */}
 
-              <Card className="overflow-hidden">
-                <Image
-                  src="https://cdn.gib.work/misc/open_source_bounty.png"
-                  alt="Open Source Bounty"
-                  className="h-40 w-full "
-                  width={100}
-                  height={100}
-                />
-                <CardHeader className="border-t">
-                  <CardTitle className="text-lg">Open Source Bounty</CardTitle>
-                  <CardDescription>
-                    Incentivize a pull request made from a Github issue.
-                  </CardDescription>
-                </CardHeader>
-              </Card>
+              <AppCtaLink
+                href={siteConfig.appUrl}
+                target="_blank"
+                className="block rounded-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
+              >
+                <Card className="overflow-hidden h-full transition-colors hover:border-foreground/30">
+                  <Image
+                    src="https://cdn.gib.work/misc/open_source_bounty.png"
+                    alt="Open Source Bounty"
+                    className="h-40 w-full "
+                    width={100}
+                    height={100}
+                  />
+                  <CardHeader className="border-t">
+                    <CardTitle className="text-lg">Open Source Bounty</CardTitle>
+                    <CardDescription>
+                      Incentivize a pull request made from a Github issue.
+                    </CardDescription>
+                  </CardHeader>
+                </Card>
+              </AppCtaLink>
 
-              <Card className="overflow-hidden">
-                <Image
-                  src="https://cdn.gib.work/misc/simple_task.png"
-                  alt="Open Source Bounty"
-                  className="h-40 w-full "
-                  width={100}
-                  height={100}
-                />
-                <CardHeader className="border-t">
-                  <CardTitle className="text-lg">Simple Task</CardTitle>
-                  <CardDescription>
-                    Small tasks achievable in a few hours.
-                  </CardDescription>
-                </CardHeader>
-              </Card>
-              <Card className="overflow-hidden">
-                <Image
-                  src="https://cdn.gib.work/misc/services.png"
-                  alt="Open Source Bounty"
-                  className="h-40 w-full "
-                  width={100}
-                  height={100}
-                />
-                <CardHeader className="border-t">
-                  <CardTitle className="text-lg">Services</CardTitle>
-                  <CardDescription>
-                    Offer your skills and connect with users for custom
-                    services.
-                  </CardDescription>
-                </CardHeader>
-              </Card>
+              <AppCtaLink
+                href={siteConfig.appUrl}
+                target="_blank"
+                className="block rounded-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
+              >
+                <Card className="overflow-hidden h-full transition-colors hover:border-foreground/30">
+                  <Image
+                    src="https://cdn.gib.work/misc/simple_task.png"
+                    alt="Simple Task"
+                    className="h-40 w-full "
+                    width={100}
+                    height={100}
+                  />
+                  <CardHeader className="border-t">
+                    <CardTitle className="text-lg">Simple Task</CardTitle>
+                    <CardDescription>
+                      Small tasks achievable in a few hours.
+                    </CardDescription>
+                  </CardHeader>
+                </Card>
+              </AppCtaLink>
+              <AppCtaLink
+                href={siteConfig.appUrl}
+                target="_blank"
+                className="block rounded-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
+              >
+                <Card className="overflow-hidden h-full transition-colors hover:border-foreground/30">
+                  <Image
+                    src="https://cdn.gib.work/misc/services.png"
+                    alt="Services"
+                    className="h-40 w-full "
+                    width={100}
+                    height={100}
+                  />
+                  <CardHeader className="border-t">
+                    <CardTitle className="text-lg">Services</CardTitle>
+                    <CardDescription>
+                      Offer your skills and connect with users for custom
+                      services.
+                    </CardDescription>
+                  </CardHeader>
+                </Card>
+              </AppCtaLink>
             </motion.div>
           </motion.div>
         </TabsContent>
